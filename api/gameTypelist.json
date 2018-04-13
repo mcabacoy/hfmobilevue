@@ -1,0 +1,3624 @@
+{
+  "game_dtlist" : {
+    "gamePID" :32,
+    "game_list":[
+      {"game_name": "七龙珠","game_id": "dragonball","game_img": "/static/img/game/dt/dragonball.jpg","game_type":"1-20线"},
+      {"game_name": "灌篮高手","game_id": "sd","game_img": "/static/img/game/dt/sd.jpg","game_type":"1-20线"},
+      {"game_name": "拳皇","game_id": "kof","game_img": "/static/img/game/dt/kof.jpg","game_type":"1-20线"},
+      {"game_name": "三国-赤壁之战","game_id": "san","game_img": "/static/img/game/dt/san.jpg","game_type":"1-20线"},
+      {"game_name": "火影忍者","game_id": "naruto","game_img": "/static/img/game/dt/naruto.jpg","game_type":"25线+"},
+      {"game_name": "灌篮高手Pro","game_id": "sd5","game_img": "/static/img/game/dt/sd5.jpg","game_type":"1-20线"},
+      {"game_name": "海贼王","game_id": "onepiece","game_img": "/static/img/game/dt/onepiece.jpg","game_type":"25线+"},
+      {"game_name": "圣斗士星矢","game_id": "seiya","game_img": "/static/img/game/dt/seiya.jpg","game_type":"1-20线"},
+      {"game_name": "财神到","game_id": "tgow","game_img": "/static/img/game/dt/tgow.jpg","game_type":"25线+"},
+      {"game_name": "新年到","game_id": "newyear","game_img": "/static/img/game/dt/newyear.jpg","game_type":"1-20线"},
+      {"game_name": "武松传","game_id": "watermargin","game_img": "/static/img/game/dt/watermargin.jpg","game_type":"25线+"},
+      {"game_name": "封神榜","game_id": "tlod","game_img": "/static/img/game/dt/tlod.jpg","game_type":"25线+"},
+      {"game_name": "西游降妖","game_id": "jtw","game_img": "/static/img/game/dt/jtw.jpg","game_type":"累积奖池"},
+      {"game_name": "五行世界","game_id": "fiveelements5x9","game_img": "/static/img/game/dt/fiveelements5x9.jpg","game_type":"1-20线"},
+      {"game_name": "梦幻森林","game_id": "fantasyforest3x1","game_img": "/static/img/game/dt/fantasyforest3x1.jpg","game_type":"1-20线"},
+      {"game_name": "水浒传","game_id": "watermargin5x25","game_img": "/static/img/game/dt/watermargin5x25.jpg","game_type":"25线+"},
+      {"game_name": "阿拉丁神灯","game_id": "aladdin5x243","game_img": "/static/img/game/dt/aladdin5x243.jpg","game_type":"25线+"},
+      {"game_name": "白蛇传","game_id": "whitesnake","game_img": "/static/img/game/dt/whitesnake.jpg","game_type":"25线+"},
+      {"game_name": "劲爆篮球","game_id": "btball5x20","game_img": "/static/img/game/dt/btball5x20.jpg","game_type":"1-20线"},
+      {"game_name": "龙凤呈祥","game_id": "dnp","game_img": "/static/img/game/dt/dnp.jpg","game_type":"25线+"}]
+  },
+  "game_bbinlist" : {
+    "gamePID" :34,
+    "game_list": [{"game_name":"Staronic","game_id":"5006","game_img":"/static/img/game/bbin/5006.jpg","game_type":"","game_try":""},
+      {"game_name":"激爆水果盘","game_id":"5007","game_img":"/static/img/game/bbin/5007.jpg","game_type":"","game_try":""},
+      {"game_name":"猴子爬树","game_id":"5008","game_img":"/static/img/game/bbin/5008.jpg","game_type":"","game_try":""},
+      {"game_name":"金刚爬楼","game_id":"5009","game_img":"/static/img/game/bbin/5009.jpg","game_type":"","game_try":""},
+      {"game_name":"外星战记","game_id":"5010","game_img":"/static/img/game/bbin/5010.jpg","game_type":"","game_try":""},
+      {"game_name":"外星争霸","game_id":"5012","game_img":"/static/img/game/bbin/5012.jpg","game_type":"","game_try":""},
+      {"game_name":"传统","game_id":"5013","game_img":"/static/img/game/bbin/5013.jpg","game_type":"","game_try":""},
+      {"game_name":"丛林","game_id":"5014","game_img":"/static/img/game/bbin/5014.jpg","game_type":"","game_try":""},
+      {"game_name":"FIFA2010","game_id":"5015","game_img":"/static/img/game/bbin/5015.jpg","game_type":"","game_try":""},
+      {"game_name":"史前丛林冒险","game_id":"5016","game_img":"/static/img/game/bbin/5016.jpg","game_type":"","game_try":""},
+      {"game_name":"星际大战","game_id":"5017","game_img":"/static/img/game/bbin/5017.jpg","game_type":"","game_try":""},
+      {"game_name":"2012伦敦奥运","game_id":"5026","game_img":"/static/img/game/bbin/5026.jpg","game_type":"","game_try":""},
+      {"game_name":"中秋月光派对","game_id":"5028","game_img":"/static/img/game/bbin/5028.jpg","game_type":"","game_try":""},
+      {"game_name":"圣诞派对","game_id":"5029","game_img":"/static/img/game/bbin/5029.jpg","game_type":"","game_try":""},
+      {"game_name":"幸运财神","game_id":"5030","game_img":"/static/img/game/bbin/5030.jpg","game_type":"","game_try":""},
+      {"game_name":"王牌5PK","game_id":"5034","game_img":"/static/img/game/bbin/5034.jpg","game_type":"","game_try":""},
+      {"game_name":"加勒比扑克","game_id":"5035","game_img":"/static/img/game/bbin/5035.jpg","game_type":"","game_try":""},
+      {"game_name":"鱼虾蟹","game_id":"5039","game_img":"/static/img/game/bbin/5039.jpg","game_type":"","game_try":""},
+      {"game_name":"百搭二王","game_id":"5040","game_img":"/static/img/game/bbin/5040.jpg","game_type":"","game_try":""},
+      {"game_name":"7PK","game_id":"5041","game_img":"/static/img/game/bbin/5041.jpg","game_type":"","game_try":""},
+      {"game_name":"钻石水果盘","game_id":"5043","game_img":"/static/img/game/bbin/5043.jpg","game_type":"","game_try":""},
+      {"game_name":"明星97II","game_id":"5044","game_img":"/static/img/game/bbin/5044.jpg","game_type":"","game_try":""},
+      {"game_name":"特务危机","game_id":"5048","game_img":"/static/img/game/bbin/5048.jpg","game_type":"","game_try":""},
+      {"game_name":"玉蒲团","game_id":"5049","game_img":"/static/img/game/bbin/5049.jpg","game_type":"","game_try":""},
+      {"game_name":"明星97","game_id":"5057","game_img":"/static/img/game/bbin/5057.jpg","game_type":"","game_try":""},
+      {"game_name":"疯狂水果盘","game_id":"5058","game_img":"/static/img/game/bbin/5058.jpg","game_type":"","game_try":""},
+      {"game_name":"动物奇观五","game_id":"5060","game_img":"/static/img/game/bbin/5060.jpg","game_type":"","game_try":""},
+      {"game_name":"超级7","game_id":"5061","game_img":"/static/img/game/bbin/5061.jpg","game_type":"","game_try":""},
+      {"game_name":"龙在囧途","game_id":"5062","game_img":"/static/img/game/bbin/5062.jpg","game_type":"","game_try":""},
+      {"game_name":"水果拉霸","game_id":"5063","game_img":"/static/img/game/bbin/5063.jpg","game_type":"","game_try":""},
+      {"game_name":"扑克拉霸","game_id":"5064","game_img":"/static/img/game/bbin/5064.jpg","game_type":"","game_try":""},
+      {"game_name":"筒子拉霸","game_id":"5065","game_img":"/static/img/game/bbin/5065.jpg","game_type":"","game_try":""},
+      {"game_name":"足球拉霸","game_id":"5066","game_img":"/static/img/game/bbin/5066.jpg","game_type":"","game_try":""},
+      {"game_name":"大话西游","game_id":"5067","game_img":"/static/img/game/bbin/5067.jpg","game_type":"","game_try":""},
+      {"game_name":"酷搜马戏团","game_id":"5068","game_img":"/static/img/game/bbin/5068.jpg","game_type":"","game_try":""},
+      {"game_name":"水果擂台","game_id":"5069","game_img":"/static/img/game/bbin/5069.jpg","game_type":"","game_try":""},
+      {"game_name":"黄金大转轮","game_id":"5070","game_img":"/static/img/game/bbin/5070.jpg","game_type":"","game_try":""},
+      {"game_name":"百家乐大转轮","game_id":"5073","game_img":"/static/img/game/bbin/5073.jpg","game_type":"","game_try":""},
+      {"game_name":"数字大转轮","game_id":"5076","game_img":"/static/img/game/bbin/5076.jpg","game_type":"","game_try":""},
+      {"game_name":"水果大转轮","game_id":"5077","game_img":"/static/img/game/bbin/5077.jpg","game_type":"","game_try":""},
+      {"game_name":"象棋大转轮","game_id":"5078","game_img":"/static/img/game/bbin/5078.jpg","game_type":"","game_try":""},
+      {"game_name":"3D数字大转轮","game_id":"5079","game_img":"/static/img/game/bbin/5079.jpg","game_type":"","game_try":""},
+      {"game_name":"乐透转轮","game_id":"5080","game_img":"/static/img/game/bbin/5080.jpg","game_type":"","game_try":""},
+      {"game_name":"钻石列车","game_id":"5083","game_img":"/static/img/game/bbin/5083.jpg","game_type":"","game_try":""},
+      {"game_name":"圣兽传说","game_id":"5084","game_img":"/static/img/game/bbin/5084.jpg","game_type":"","game_try":""},
+      {"game_name":"斗大","game_id":"5088","game_img":"/static/img/game/bbin/5088.jpg","game_type":"","game_try":""},
+      {"game_name":"红狗","game_id":"5089","game_img":"/static/img/game/bbin/5089.jpg","game_type":"","game_try":""},
+      {"game_name":"金鸡报喜","game_id":"5090","game_img":"/static/img/game/bbin/5090.jpg","game_type":"","game_try":""},
+      {"game_name":"三国拉霸","game_id":"5091","game_img":"/static/img/game/bbin/5091.jpg","game_type":"","game_try":""},
+      {"game_name":"封神榜","game_id":"5092","game_img":"/static/img/game/bbin/5092.jpg","game_type":"","game_try":""},
+      {"game_name":"金瓶梅","game_id":"5093","game_img":"/static/img/game/bbin/5093.jpg","game_type":"","game_try":""},
+      {"game_name":"金瓶梅2","game_id":"5094","game_img":"/static/img/game/bbin/5094.jpg","game_type":"","game_try":""},
+      {"game_name":"斗鸡","game_id":"5095","game_img":"/static/img/game/bbin/5095.jpg","game_type":"","game_try":""},
+      {"game_name":"欧式轮盘","game_id":"5105","game_img":"/static/img/game/bbin/5105.jpg","game_type":"","game_try":""},
+      {"game_name":"三国","game_id":"5106","game_img":"/static/img/game/bbin/5106.jpg","game_type":"","game_try":""},
+      {"game_name":"美式轮盘","game_id":"5107","game_img":"/static/img/game/bbin/5107.jpg","game_type":"","game_try":""},
+      {"game_name":"彩金轮盘","game_id":"5108","game_img":"/static/img/game/bbin/5108.jpg","game_type":"","game_try":""},
+      {"game_name":"法式轮盘","game_id":"5109","game_img":"/static/img/game/bbin/5109.jpg","game_type":"","game_try":""},
+      {"game_name":"经典21点","game_id":"5115","game_img":"/static/img/game/bbin/5115.jpg","game_type":"","game_try":""},
+      {"game_name":"西班牙21点","game_id":"5116","game_img":"/static/img/game/bbin/5116.jpg","game_type":"","game_try":""},
+      {"game_name":"维加斯21点","game_id":"5117","game_img":"/static/img/game/bbin/5117.jpg","game_type":"","game_try":""},
+      {"game_name":"奖金21点","game_id":"5118","game_img":"/static/img/game/bbin/5118.jpg","game_type":"","game_try":""},
+      {"game_name":"皇家德州扑克","game_id":"5131","game_img":"/static/img/game/bbin/5131.jpg","game_type":"","game_try":""},
+      {"game_name":"火燄山","game_id":"5201","game_img":"/static/img/game/bbin/5201.jpg","game_type":"","game_try":""},
+      {"game_name":"月光宝盒","game_id":"5202","game_img":"/static/img/game/bbin/5202.jpg","game_type":"","game_try":""},
+      {"game_name":"爱你一万年","game_id":"5203","game_img":"/static/img/game/bbin/5203.jpg","game_type":"","game_try":""},
+      {"game_name":"2014FIFA","game_id":"5204","game_img":"/static/img/game/bbin/5204.jpg","game_type":"","game_try":""},
+      {"game_name":"夜市人生","game_id":"5402","game_img":"/static/img/game/bbin/5402.jpg","game_type":"","game_try":""},
+      {"game_name":"沙滩排球","game_id":"5404","game_img":"/static/img/game/bbin/5404.jpg","game_type":"","game_try":""},
+      {"game_name":"神舟27","game_id":"5406","game_img":"/static/img/game/bbin/5406.jpg","game_type":"","game_try":""},
+      {"game_name":"大红帽与小野狼","game_id":"5407","game_img":"/static/img/game/bbin/5407.jpg","game_type":"","game_try":""},
+      {"game_name":"秘境冒险","game_id":"5601","game_img":"/static/img/game/bbin/5601.jpg","game_type":"","game_try":""},
+      {"game_name":"连连看","game_id":"5701","game_img":"/static/img/game/bbin/5701.jpg","game_type":"","game_try":""},
+      {"game_name":"发达囉","game_id":"5703","game_img":"/static/img/game/bbin/5703.jpg","game_type":"","game_try":""},
+      {"game_name":"斗牛","game_id":"5704","game_img":"/static/img/game/bbin/5704.jpg","game_type":"","game_try":""},
+      {"game_name":"聚宝盆","game_id":"5705","game_img":"/static/img/game/bbin/5705.jpg","game_type":"","game_try":""},
+      {"game_name":"浓情巧克力","game_id":"5706","game_img":"/static/img/game/bbin/5706.jpg","game_type":"","game_try":""},
+      {"game_name":"金钱豹","game_id":"5707","game_img":"/static/img/game/bbin/5707.jpg","game_type":"","game_try":""},
+      {"game_name":"海豚世界","game_id":"5801","game_img":"/static/img/game/bbin/5801.jpg","game_type":"","game_try":""},
+      {"game_name":"阿基里斯","game_id":"5802","game_img":"/static/img/game/bbin/5802.jpg","game_type":"","game_try":""},
+      {"game_name":"阿兹特克宝藏","game_id":"5803","game_img":"/static/img/game/bbin/5803.jpg","game_type":"","game_try":""},
+      {"game_name":"大明星","game_id":"5804","game_img":"/static/img/game/bbin/5804.jpg","game_type":"","game_try":""},
+      {"game_name":"凯萨帝国","game_id":"5805","game_img":"/static/img/game/bbin/5805.jpg","game_type":"","game_try":""},
+      {"game_name":"奇幻花园","game_id":"5806","game_img":"/static/img/game/bbin/5806.jpg","game_type":"","game_try":""},
+      {"game_name":"浪人武士","game_id":"5808","game_img":"/static/img/game/bbin/5808.jpg","game_type":"","game_try":""},
+      {"game_name":"空战英豪","game_id":"5809","game_img":"/static/img/game/bbin/5809.jpg","game_type":"","game_try":""},
+      {"game_name":"航海时代","game_id":"5810","game_img":"/static/img/game/bbin/5810.jpg","game_type":"","game_try":""},
+      {"game_name":"狂欢夜","game_id":"5811","game_img":"/static/img/game/bbin/5811.jpg","game_type":"","game_try":""},
+      {"game_name":"国际足球","game_id":"5821","game_img":"/static/img/game/bbin/5821.jpg","game_type":"","game_try":""},
+      {"game_name":"发大财","game_id":"5823","game_img":"/static/img/game/bbin/5823.jpg","game_type":"","game_try":""},
+      {"game_name":"恶龙传说","game_id":"5824","game_img":"/static/img/game/bbin/5824.jpg","game_type":"","game_try":""},
+      {"game_name":"金莲","game_id":"5825","game_img":"/static/img/game/bbin/5825.jpg","game_type":"","game_try":""},
+      {"game_name":"金矿工","game_id":"5826","game_img":"/static/img/game/bbin/5826.jpg","game_type":"","game_try":""},
+      {"game_name":"老船长","game_id":"5827","game_img":"/static/img/game/bbin/5827.jpg","game_type":"","game_try":""},
+      {"game_name":"霸王龙","game_id":"5828","game_img":"/static/img/game/bbin/5828.jpg","game_type":"","game_try":""},
+      {"game_name":"高球之旅","game_id":"5831","game_img":"/static/img/game/bbin/5831.jpg","game_type":"","game_try":""},
+      {"game_name":"高速卡车","game_id":"5832","game_img":"/static/img/game/bbin/5832.jpg","game_type":"","game_try":""},
+      {"game_name":"沉默武士","game_id":"5833","game_img":"/static/img/game/bbin/5833.jpg","game_type":"","game_try":""},
+      {"game_name":"喜福牛年","game_id":"5835","game_img":"/static/img/game/bbin/5835.jpg","game_type":"","game_try":""},
+      {"game_name":"龙卷风","game_id":"5836","game_img":"/static/img/game/bbin/5836.jpg","game_type":"","game_try":""},
+      {"game_name":"喜福猴年","game_id":"5837","game_img":"/static/img/game/bbin/5837.jpg","game_type":"","game_try":""},
+      {"game_name":"秦皇祕宝","game_id":"5903","game_img":"/static/img/game/bbin/5903.jpg","game_type":"","game_try":""},
+      {"game_name":"麻将连环宝","game_id":"5905","game_img":"/static/img/game/bbin/5905.jpg","game_type":"","game_try":""},
+      {"game_name":"JACKPOT","game_id":"5888","game_img":"/static/img/game/bbin/5888.jpg","game_type":"","game_try":""},
+      {"game_name":"糖果派对","game_id":"5902","game_img":"/static/img/game/bbin/5902.jpg","game_type":"","game_try":""},
+      {"game_name":"连环夺宝","game_id":"5901","game_img":"/static/img/game/bbin/5901.jpg","game_type":"","game_try":""},
+      {"game_name":"蒸气炸弹","game_id":"5904","game_img":"/static/img/game/bbin/5904.jpg","game_type":"","game_try":""}]
+  },
+  "game_bslist": {
+    "gamePID":38,
+    "game_list": [
+      {
+        "game_name": "海滨假日",
+        "game_id": "597",
+        "game_img": "/static/img/game/bs/597.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "赌城周末热潮",
+        "game_id": "590",
+        "game_img": "/static/img/game/bs/590.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "奢丽人生",
+        "game_id": "554",
+        "game_img": "/static/img/game/bs/554.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "朝阳曙光",
+        "game_id": "548",
+        "game_img": "/static/img/game/bs/548.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "木偶记",
+        "game_id": "520",
+        "game_img": "/static/img/game/bs/520.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "钻光灿影",
+        "game_id": "534",
+        "game_img": "/static/img/game/bs/534.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "禅机宝果",
+        "game_id": "512",
+        "game_img": "/static/img/game/bs/512.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "金星异客Plus",
+        "game_id": "504",
+        "game_img": "/static/img/game/bs/504.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "杰基尔博士和海德先生",
+        "game_id": "500",
+        "game_img": "/static/img/game/bs/500.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "两小无猜",
+        "game_id": "482",
+        "game_img": "/static/img/game/bs/482.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "吉普赛玫瑰",
+        "game_id": "478",
+        "game_img": "/static/img/game/bs/478.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "大斑巨鳄Plus",
+        "game_id": "471",
+        "game_img": "/static/img/game/bs/471.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "好奇宝宝",
+        "game_id": "461",
+        "game_img": "/static/img/game/bs/461.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "淑女魔姬",
+        "game_id": "426",
+        "game_img": "/static/img/game/bs/426.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "金弋独专",
+        "game_id": "444",
+        "game_img": "/static/img/game/bs/444.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "弹弹糖",
+        "game_id": "402",
+        "game_img": "/static/img/game/bs/402.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "浪漫巴黎",
+        "game_id": "351",
+        "game_img": "/static/img/game/bs/351.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "勇敢神探",
+        "game_id": "384",
+        "game_img": "/static/img/game/bs/384.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "扑朔迷离",
+        "game_id": "375",
+        "game_img": "/static/img/game/bs/375.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "金星异客",
+        "game_id": "374",
+        "game_img": "/static/img/game/bs/374.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "魔化入迷",
+        "game_id": "350",
+        "game_img": "/static/img/game/bs/350.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "虎机老爷",
+        "game_id": "344",
+        "game_img": "/static/img/game/bs/344.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "贪婪妖精",
+        "game_id": "341",
+        "game_img": "/static/img/game/bs/341.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "火树银花",
+        "game_id": "323",
+        "game_img": "/static/img/game/bs/323.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "床底魅影",
+        "game_id": "308",
+        "game_img": "/static/img/game/bs/308.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "科帕酒店",
+        "game_id": "300",
+        "game_img": "/static/img/game/bs/300.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "落日大亨",
+        "game_id": "295",
+        "game_img": "/static/img/game/bs/295.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "疯狂寿司",
+        "game_id": "288",
+        "game_img": "/static/img/game/bs/288.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "游猎乐园",
+        "game_id": "280",
+        "game_img": "/static/img/game/bs/280.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "电影风云",
+        "game_id": "266",
+        "game_img": "/static/img/game/bs/266.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "马亚传奇",
+        "game_id": "277",
+        "game_img": "/static/img/game/bs/277.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "毁灭者",
+        "game_id": "262",
+        "game_img": "/static/img/game/bs/262.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "海底沉宝",
+        "game_id": "259",
+        "game_img": "/static/img/game/bs/259.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "天使传奇",
+        "game_id": "258",
+        "game_img": "/static/img/game/bs/258.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "黑金帝国",
+        "game_id": "256",
+        "game_img": "/static/img/game/bs/256.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "遗失一族",
+        "game_id": "248",
+        "game_img": "/static/img/game/bs/248.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "素学怪人",
+        "game_id": "247",
+        "game_img": "/static/img/game/bs/247.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "松朋鼠党",
+        "game_id": "243",
+        "game_img": "/static/img/game/bs/243.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "吗吗咪呀",
+        "game_id": "238",
+        "game_img": "/static/img/game/bs/238.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "魔幻真境",
+        "game_id": "236",
+        "game_img": "/static/img/game/bs/236.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "浪漫巴黎",
+        "game_id": "234",
+        "game_img": "/static/img/game/bs/234.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "大斑巨鳄",
+        "game_id": "231",
+        "game_img": "/static/img/game/bs/231.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "七海维京",
+        "game_id": "228",
+        "game_img": "/static/img/game/bs/228.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "达者为先",
+        "game_id": "226",
+        "game_img": "/static/img/game/bs/226.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "椒风蒜雨",
+        "game_id": "225",
+        "game_img": "/static/img/game/bs/225.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "洪荒时代",
+        "game_id": "224",
+        "game_img": "/static/img/game/bs/224.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "金弋无敌",
+        "game_id": "222",
+        "game_img": "/static/img/game/bs/222.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "欢乐满堂",
+        "game_id": "221",
+        "game_img": "/static/img/game/bs/221.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "马亚传奇",
+        "game_id": "220",
+        "game_img": "/static/img/game/bs/220.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "赌场大亨",
+        "game_id": "210",
+        "game_img": "/static/img/game/bs/210.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "魔化入迷",
+        "game_id": "207",
+        "game_img": "/static/img/game/bs/207.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "七海纵横",
+        "game_id": "194",
+        "game_img": "/static/img/game/bs/194.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "曾几何时",
+        "game_id": "193",
+        "game_img": "/static/img/game/bs/193.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "蕃国宝藏",
+        "game_id": "190",
+        "game_img": "/static/img/game/bs/190.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "谍海特工",
+        "game_id": "180",
+        "game_img": "/static/img/game/bs/180.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "虎机老爷",
+        "game_id": "179",
+        "game_img": "/static/img/game/bs/179.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "角斗勇士",
+        "game_id": "178",
+        "game_img": "/static/img/game/bs/178.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "三重愿望",
+        "game_id": "177",
+        "game_img": "/static/img/game/bs/177.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "枓学怪人",
+        "game_id": "159",
+        "game_img": "/static/img/game/bs/159.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "藏宝阁",
+        "game_id": "158",
+        "game_img": "/static/img/game/bs/158.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "七重极乐天",
+        "game_id": "229",
+        "game_img": "/static/img/game/bs/229.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "游猎乐园",
+        "game_id": "223",
+        "game_img": "/static/img/game/bs/223.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "魅影重重",
+        "game_id": "156",
+        "game_img": "/static/img/game/bs/156.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "蕃国宝藏-奖池",
+        "game_id": "148",
+        "game_img": "/static/img/game/bs/148.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "黄金魅影",
+        "game_id": "52",
+        "game_img": "/static/img/game/bs/52.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "巨奖旋风",
+        "game_id": "41",
+        "game_img": "/static/img/game/bs/41.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "猴子猴子",
+        "game_id": "33",
+        "game_img": "/static/img/game/bs/33.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "钻石巨奖-奖池",
+        "game_id": "32",
+        "game_img": "/static/img/game/bs/32.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "黄金钻石",
+        "game_id": "21",
+        "game_img": "/static/img/game/bs/21.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "幸运七宝",
+        "game_id": "2",
+        "game_img": "/static/img/game/bs/2.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "虚幻赛马",
+        "game_id": "199",
+        "game_img": "/static/img/game/bs/199.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "反手云覆手雨",
+        "game_id": "249",
+        "game_img": "/static/img/game/bs/249.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "无法无天",
+        "game_id": "94",
+        "game_img": "/static/img/game/bs/94.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "高成低定",
+        "game_id": "74",
+        "game_img": "/static/img/game/bs/74.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "赌场战争",
+        "game_id": "48",
+        "game_img": "/static/img/game/bs/48.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "黑七风暴",
+        "game_id": "44",
+        "game_img": "/static/img/game/bs/44.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "人傑地灵",
+        "game_id": "31",
+        "game_img": "/static/img/game/bs/31.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "双鬼拍门",
+        "game_id": "144",
+        "game_img": "/static/img/game/bs/144.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "拾始拾终",
+        "game_id": "146",
+        "game_img": "/static/img/game/bs/146.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "鬼牌精灵",
+        "game_id": "147",
+        "game_img": "/static/img/game/bs/147.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      }
+    ]
+  },
+  "game_hblist": {
+    "gamePID":33,
+    "game_list":[
+      {
+        "game_name" : "魔幻大财",
+        "game_id" : "SGPresto",
+        "game_img" : "/static/img/game/haba/SGPresto_zh-CN.jpg",
+        "game_type" : "老虎机",
+        "game_try" : "1"
+      },
+      {
+        "game_name": "珠光宝气",
+        "game_id": "SGMrBling",
+        "game_img": "/static/img/game/haba/SGMrBling.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "少林宝藏100",
+        "game_id": "SGShaolinFortunes100",
+        "game_img": "/static/img/game/haba/SGShaolinFortunes100.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "土豪恐龙",
+        "game_id": "SGCashosaurus",
+        "game_img": "/static/img/game/haba/SGCashosaurus.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "舞厅飙舞",
+        "game_id": "SGDiscoFunk",
+        "game_img": "/static/img/game/haba/SGDiscoFunk.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "印第安追梦",
+        "game_id": "SGIndianCashCatcher",
+        "game_img": "/static/img/game/haba/SGIndianCashCatcher.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "女王至上",
+        "game_id": "SGQueenOfQueens243",
+        "game_img": "/static/img/game/haba/SGQueenOfQueens243.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "亚兹特兰金",
+        "game_id": "SGAzlandsGold",
+        "game_img": "/static/img/game/haba/SGAzlandsGold.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "宙斯",
+        "game_id": "SGZeus",
+        "game_img": "/static/img/game/haba/SGZeus.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "黑胡子赏金",
+        "game_id": "SGBlackbeardsBounty",
+        "game_img": "/static/img/game/haba/SGBlackbeardsBounty.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "闪亮骑士",
+        "game_id": "SGSirBlingalot",
+        "game_img": "/static/img/game/haba/SGSirBlingalot.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "边境之福",
+        "game_id": "SGFrontierFortunes",
+        "game_img": "/static/img/game/haba/SGFrontierFortunes.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "金麒麟",
+        "game_id": "SGGoldenUnicorn",
+        "game_img": "/static/img/game/haba/SGGoldenUnicorn.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "埃及古梦",
+        "game_id": "SGEgyptianDreams",
+        "game_img": "/static/img/game/haba/SGEgyptianDreams.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "高空飞翔",
+        "game_id": "SGFlyingHigh",
+        "game_img": "/static/img/game/haba/SGFlyingHigh.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "神龙之境",
+        "game_id": "SGDragonsRealm",
+        "game_img": "/static/img/game/haba/SGDragonsRealm.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "印第安追梦",
+        "game_id": "SGIndianCashCatcher",
+        "game_img": "/static/img/game/haba/SGIndianCashCatcher.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "三剑客",
+        "game_id": "SGAllForOne",
+        "game_img": "/static/img/game/haba/SGAllForOne.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "比基尼岛",
+        "game_id": "SGBikiniIsland",
+        "game_img": "/static/img/game/haba/SGBikiniIsland.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "双赢密探",
+        "game_id": "SGDoubleODollars",
+        "game_img": "/static/img/game/haba/SGDoubleODollars.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "好球",
+        "game_id": "SGSuperStrike",
+        "game_img": "/static/img/game/haba/SGSuperStrike.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "凯恩地狱",
+        "game_id": "SGKanesInferno",
+        "game_img": "/static/img/game/haba/SGKanesInferno.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "丛林怒吼",
+        "game_id": "SGJungleRumble",
+        "game_img": "/static/img/game/haba/SGJungleRumble.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "好感医生",
+        "game_id": "SGDrFeelgood",
+        "game_img": "/static/img/game/haba/SGDrFeelgood.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "怪物聚集",
+        "game_id": "SGMonsterMashCash",
+        "game_img": "/static/img/game/haba/SGMonsterMashCash.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "女王至上1024赢法",
+        "game_id": "SGQueenOfQueens1024",
+        "game_img": "/static/img/game/haba/SGQueenOfQueens1024.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "金钱木乃伊",
+        "game_id": "SGMummyMoney",
+        "game_img": "/static/img/game/haba/SGMummyMoney.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "金钱礁",
+        "game_id": "SGCashReef",
+        "game_img": "/static/img/game/haba/SGCashReef.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "神秘宝藏",
+        "game_id": "SGDragonsRealm",
+        "game_img": "/static/img/game/haba/SGDragonsRealm.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "龙之城堡",
+        "game_id": "SGTheDragonCastle",
+        "game_img": "/static/img/game/haba/SGTheDragonCastle.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "太空小绿人",
+        "game_id": "SGLittleGreenMoney",
+        "game_img": "/static/img/game/haba/SGLittleGreenMoney.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "太空宝藏",
+        "game_id": "SGSpaceFortune",
+        "game_img": "/static/img/game/haba/SGSpaceFortune.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "青蛙王子",
+        "game_id": "SGPuckerUpPrince",
+        "game_img": "/static/img/game/haba/SGPuckerUpPrince.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "少林宝藏",
+        "game_id": "SGShaolinFortunes243",
+        "game_img": "/static/img/game/haba/SGShaolinFortunes243.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "罗迪欧大道",
+        "game_id": "SGRodeoDrive",
+        "game_img": "/static/img/game/haba/SGRodeoDrive.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "海盗掠宝",
+        "game_id": "SGPiratesPlunder",
+        "game_img": "/static/img/game/haba/SGPiratesPlunder.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "披萨塔",
+        "game_id": "SGTowerOfPizza",
+        "game_img": "/static/img/game/haba/SGTowerOfPizza.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "鬼屋",
+        "game_id": "SGHauntedHouse",
+        "game_img": "/static/img/game/haba/SGHauntedHouse.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "台球鲨鱼",
+        "game_id": "SGPoolShark",
+        "game_img": "/static/img/game/haba/SGPoolShark.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "求救信号",
+        "game_id": "SGSOS",
+        "game_img": "/static/img/game/haba/SGSOS.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "幸运牛仔",
+        "game_id": "SGRideEmCowboy",
+        "game_img": "/static/img/game/haba/SGRideEmCowboy.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "重要人物",
+        "game_id": "SGTheBigDeal",
+        "game_img": "/static/img/game/haba/SGTheBigDeal.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "现金嘉年华",
+        "game_id": "SGCarnivalCash",
+        "game_img": "/static/img/game/haba/SGCarnivalCash.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "女王至上1024赢法",
+        "game_id": "SGQueenOfQueens1024",
+        "game_img": "/static/img/game/haba/SGQueenOfQueens1024.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "金钱礁",
+        "game_id": "SGCashReef",
+        "game_img": "/static/img/game/haba/SGCashReef.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "维京掠宝",
+        "game_id": "SGVikingsPlunder",
+        "game_img": "/static/img/game/haba/SGVikingsPlunder.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "天空之际",
+        "game_id": "SGSkysTheLimit",
+        "game_img": "/static/img/game/haba/SGSkysTheLimit.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "图坦卡蒙之墓",
+        "game_id": "SGKingTutsTomb",
+        "game_img": "/static/img/game/haba/SGKingTutsTomb.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "北极奇迹",
+        "game_id": "SGArcticWonders",
+        "game_img": "/static/img/game/haba/SGArcticWonders.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "科学怪人",
+        "game_id": "SGWeirdScience",
+        "game_img": "/static/img/game/haba/SGWeirdScience.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "农场现金",
+        "game_id": "SGBarnstormerBucks",
+        "game_img": "/static/img/game/haba/SGBarnstormerBucks.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "触电的小鸟",
+        "game_id": "SGRuffledUp",
+        "game_img": "/static/img/game/haba/SGRuffledUp.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "深海寻宝",
+        "game_id": "SGTreasureDiver",
+        "game_img": "/static/img/game/haba/SGTreasureDiver.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "女王至上",
+        "game_id": "SGQueenOfQueens243",
+        "game_img": "/static/img/game/haba/SGQueenOfQueens243.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "俏佳人",
+        "game_id": "SGPamperMe",
+        "game_img": "/static/img/game/haba/SGPamperMe.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "青蛙王子",
+        "game_id": "SGPuckerUpPrince",
+        "game_img": "/static/img/game/haba/SGPuckerUpPrince.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "亚兹特兰金",
+        "game_id": "SGAzlandsGold",
+        "game_img": "/static/img/game/haba/SGAzlandsGold.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "金麒麟",
+        "game_id": "SGGoldenUnicorn",
+        "game_img": "/static/img/game/haba/SGGoldenUnicorn.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "淘金疯狂",
+        "game_id": "SGGoldRush",
+        "game_img": "/static/img/game/haba/SGGoldRush.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "黑手党",
+        "game_id": "SGGangsters",
+        "game_img": "/static/img/game/haba/SGGangsters.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "好球",
+        "game_id": "SGSuperStrike",
+        "game_img": "/static/img/game/haba/SGSuperStrike.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "土豪恐龙",
+        "game_id": "SGCashosaurus",
+        "game_img": "/static/img/game/haba/SGCashosaurus.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "凤凰",
+        "game_id": "SGFenghuang",
+        "game_img": "/static/img/game/haba/SGFenghuang.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "埃及古梦",
+        "game_id": "SGEgyptianDreams",
+        "game_img": "/static/img/game/haba/SGEgyptianDreams.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "幸运牛仔",
+        "game_id": "SGRideEmCowboy",
+        "game_img": "/static/img/game/haba/SGRideEmCowboy.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "超级龙卷风",
+        "game_id": "SGSuperTwister",
+        "game_img": "/static/img/game/haba/SGSuperTwister.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "幕府之地",
+        "game_id": "SGShogunsLand",
+        "game_img": "/static/img/game/haba/SGShogunsLand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "少林宝藏",
+        "game_id": "SGShaolinFortunes243",
+        "game_img": "/static/img/game/haba/SGShaolinFortunes243.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "农场现金",
+        "game_id": "SGBarnstormerBucks",
+        "game_img": "/static/img/game/haba/SGBarnstormerBucks.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "女王至上",
+        "game_id": "SGQueenOfQueens243",
+        "game_img": "/static/img/game/haba/SGQueenOfQueens243.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "神秘宝藏",
+        "game_id": "SGMysticFortune",
+        "game_img": "/static/img/game/haba/SGMysticFortune.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "发财神",
+        "game_id": "SGFaCaiShen",
+        "game_img": "/static/img/game/haba/SGFaCaiShen.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "龙之城堡",
+        "game_id": "SGTheDragonCastle",
+        "game_img": "/static/img/game/haba/SGTheDragonCastle.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "少林宝藏100",
+        "game_id": "SGShaolinFortunes100",
+        "game_img": "/static/img/game/haba/SGShaolinFortunes100.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "求救信号",
+        "game_id": "SGSOS",
+        "game_img": "/static/img/game/haba/SGSOS.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "闪亮骑士",
+        "game_id": "SGSirBlingalot",
+        "game_img": "/static/img/game/haba/SGSirBlingalot.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "女王至上1024赢法",
+        "game_id": "SGQueenOfQueens1024",
+        "game_img": "/static/img/game/haba/SGQueenOfQueens1024.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "骰宝",
+        "game_id": "SicBo",
+        "game_img": "/static/img/game/haba/SicBo.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "龙之宝座",
+        "game_id": "SGDragonsThrone",
+        "game_img": "/static/img/game/haba/SGDragonsThrone.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "巫婆大财",
+        "game_id": "SGWickedWitch",
+        "game_img": "/static/img/game/haba/SGWickedWitch.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "比基尼岛",
+        "game_id": "SGBikiniIsland",
+        "game_img": "/static/img/game/haba/SGBikiniIsland.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "银河大战",
+        "game_id": "SGGalacticCash",
+        "game_img": "/static/img/game/haba/SGGalacticCash.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "俏佳人",
+        "game_id": "SGPamperMe",
+        "game_img": "/static/img/game/haba/SGPamperMe.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "昆虫宝宝",
+        "game_id": "SGBuggyBonus",
+        "game_img": "/static/img/game/haba/SGBuggyBonus.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "舞厅飙舞",
+        "game_id": "SGDiscoFunk",
+        "game_img": "/static/img/game/haba/SGDiscoFunk.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "好感医生",
+        "game_id": "SGDrFeelgood",
+        "game_img": "/static/img/game/haba/SGDrFeelgood.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "双赢密探",
+        "game_id": "SGDoubleODollars",
+        "game_img": "/static/img/game/haba/SGDoubleODollars.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "斯巴达",
+        "game_id": "SGSparta",
+        "game_img": "/static/img/game/haba/SGSparta.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "罗马帝国",
+        "game_id": "SGRomanEmpire",
+        "game_img": "/static/img/game/haba/SGRomanEmpire.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "维京掠宝",
+        "game_id": "SGVikingsPlunder",
+        "game_img": "/static/img/game/haba/SGVikingsPlunder.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "炸弹追击",
+        "game_id": "SGBombsAway",
+        "game_img": "/static/img/game/haba/SGBombsAway.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "深海寻宝",
+        "game_id": "SGTreasureDiver",
+        "game_img": "/static/img/game/haba/SGTreasureDiver.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "现金嘉年华",
+        "game_id": "SGCarnivalCash",
+        "game_img": "/static/img/game/haba/SGCarnivalCash.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "十二生肖",
+        "game_id": "SG12Zodiacs",
+        "game_img": "/static/img/game/haba/SG12Zodiacs.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "丛林怒吼",
+        "game_id": "SGJungleRumble",
+        "game_img": "/static/img/game/haba/SGJungleRumble.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "黑胡子赏金",
+        "game_id": "SGBlackbeardsBounty",
+        "game_img": "/static/img/game/haba/SGBlackbeardsBounty.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "台球鲨鱼",
+        "game_id": "SGPoolShark",
+        "game_img": "/static/img/game/haba/SGPoolShark.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "惊喜秀",
+        "game_id": "SGJugglenaut",
+        "game_img": "/static/img/game/haba/SGJugglenaut.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "狼贼夺宝",
+        "game_id": "SGCoyoteCrash",
+        "game_img": "/static/img/game/haba/SGCoyoteCrash.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "重要人物",
+        "game_id": "SGTheBigDeal",
+        "game_img": "/static/img/game/haba/SGTheBigDeal.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "北极奇迹",
+        "game_id": "SGArcticWonders",
+        "game_img": "/static/img/game/haba/SGArcticWonders.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "罗迪欧大道",
+        "game_id": "SGRodeoDrive",
+        "game_img": "/static/img/game/haba/SGRodeoDrive.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "科学怪人",
+        "game_id": "SGWeirdScience",
+        "game_img": "/static/img/game/haba/SGWeirdScience.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "太空宝藏",
+        "game_id": "SGSpaceFortune",
+        "game_img": "/static/img/game/haba/SGSpaceFortune.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "珠光宝气",
+        "game_id": "SGMrBling",
+        "game_img": "/static/img/game/haba/SGMrBling.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "宙斯",
+        "game_id": "SGZeus",
+        "game_img": "/static/img/game/haba/SGZeus.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "鬼屋",
+        "game_id": "SGHauntedHouse",
+        "game_img": "/static/img/game/haba/SGHauntedHouse.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "图坦卡蒙之墓",
+        "game_id": "SGKingTutsTomb",
+        "game_img": "/static/img/game/haba/SGKingTutsTomb.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "披萨塔",
+        "game_id": "SGTowerOfPizza",
+        "game_img": "/static/img/game/haba/SGTowerOfPizza.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "神龙之境",
+        "game_id": "SGDragonsRealm",
+        "game_img": "/static/img/game/haba/SGDragonsRealm.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "三剑客",
+        "game_id": "SGAllForOne",
+        "game_img": "/static/img/game/haba/SGAllForOne.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "海盗掠宝",
+        "game_id": "SGPiratesPlunder",
+        "game_img": "/static/img/game/haba/SGPiratesPlunder.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "葡萄越狱",
+        "game_id": "SGGrapeEscape",
+        "game_img": "/static/img/game/haba/SGGrapeEscape.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "高空飞翔",
+        "game_id": "SGFlyingHigh",
+        "game_img": "/static/img/game/haba/SGFlyingHigh.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "怪物聚集",
+        "game_id": "SGMonsterMashCash",
+        "game_img": "/static/img/game/haba/SGMonsterMashCash.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "边境之福",
+        "game_id": "SGFrontierFortunes",
+        "game_img": "/static/img/game/haba/SGFrontierFortunes.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "公鸡王",
+        "game_id": "SGFireRooster",
+        "game_img": "/static/img/game/haba/SGFireRooster.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "鲤鱼门",
+        "game_id": "SGTheKoiGate",
+        "game_img": "/static/img/game/haba/SGTheKoiGate.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "金钱礁",
+        "game_id": "SGCashReef",
+        "game_img": "/static/img/game/haba/SGCashReef.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "金钱木乃伊",
+        "game_id": "SGMummyMoney",
+        "game_img": "/static/img/game/haba/SGMummyMoney.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "神秘元素",
+        "game_id": "SGArcaneElements",
+        "game_img": "/static/img/game/haba/SGArcaneElements.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "天空之际",
+        "game_id": "SGSkysTheLimit",
+        "game_img": "/static/img/game/haba/SGSkysTheLimit.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "太空小绿人",
+        "game_id": "SGLittleGreenMoney",
+        "game_img": "/static/img/game/haba/SGLittleGreenMoney.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "凯恩地狱",
+        "game_id": "SGKanesInferno",
+        "game_img": "/static/img/game/haba/SGKanesInferno.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "印第安追梦",
+        "game_id": "SGIndianCashCatcher",
+        "game_img": "/static/img/game/haba/SGIndianCashCatcher.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "小丑扑克10手",
+        "game_id": "JokerPoker10Hand",
+        "game_img": "/static/img/game/haba/JokerPoker10Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "局末平分1手",
+        "game_id": "DuecesWild1Hand",
+        "game_img": "/static/img/game/haba/DuecesWild1Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "双双大床红利扑克10手",
+        "game_id": "DoubleDoubleBonusPoker10Hand",
+        "game_img": "/static/img/game/haba/DoubleDoubleBonusPoker10Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "数万或更好1手",
+        "game_id": "TensorBetter1Hand",
+        "game_img": "/static/img/game/haba/TensorBetter1Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "美国扑克10手",
+        "game_id": "AllAmericanPoker10Hand",
+        "game_img": "/static/img/game/haba/AllAmericanPoker10Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "美国扑克1手",
+        "game_id": "AllAmericanPoker1Hand",
+        "game_img": "/static/img/game/haba/AllAmericanPoker1Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "小丑扑克5手",
+        "game_id": "JokerPoker5Hand",
+        "game_img": "/static/img/game/haba/JokerPoker5Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "小丑扑克50手",
+        "game_id": "JokerPoker50Hand",
+        "game_img": "/static/img/game/haba/JokerPoker50Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "数万或更好50手",
+        "game_id": "TensorBetter50Hand",
+        "game_img": "/static/img/game/haba/TensorBetter50Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "尖子和八100手",
+        "game_id": "AcesandEights100Hand",
+        "game_img": "/static/img/game/haba/AcesandEights100Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "千斤顶或更好5手",
+        "game_id": "JacksorBetter5Hand",
+        "game_img": "/static/img/game/haba/JacksorBetter5Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "小丑扑克1手",
+        "game_id": "JokerPoker1Hand",
+        "game_img": "/static/img/game/haba/JokerPoker1Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "千斤顶或更好10手",
+        "game_id": "JacksorBetter10Hand",
+        "game_img": "/static/img/game/haba/JacksorBetter10Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "数万或更好5手",
+        "game_id": "TensorBetter5Hand",
+        "game_img": "/static/img/game/haba/TensorBetter5Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "红利局末平分10手",
+        "game_id": "BonusDuecesWild10Hand",
+        "game_img": "/static/img/game/haba/BonusDuecesWild10Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "尖子和八10手",
+        "game_id": "AcesandEights10Hand",
+        "game_img": "/static/img/game/haba/AcesandEights10Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "红利扑克100手",
+        "game_id": "BonusPoker100Hand",
+        "game_img": "/static/img/game/haba/BonusPoker100Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "双双大床红利扑克50手",
+        "game_id": "DoubleDoubleBonusPoker50Hand",
+        "game_img": "/static/img/game/haba/DoubleDoubleBonusPoker50Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "美国扑克5手",
+        "game_id": "AllAmericanPoker5Hand",
+        "game_img": "/static/img/game/haba/AllAmericanPoker5Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "美国扑克50手",
+        "game_id": "AllAmericanPoker50Hand",
+        "game_img": "/static/img/game/haba/AllAmericanPoker50Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "双大床红利扑克50手",
+        "game_id": "DoubleBonusPoker50Hand",
+        "game_img": "/static/img/game/haba/DoubleBonusPoker50Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "双双大床红利扑克100手",
+        "game_id": "DoubleDoubleBonusPoker100Hand",
+        "game_img": "/static/img/game/haba/DoubleDoubleBonusPoker100Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "红利局末平分1手",
+        "game_id": "BonusDuecesWild1Hand",
+        "game_img": "/static/img/game/haba/BonusDuecesWild1Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "双大床红利扑克100手",
+        "game_id": "DoubleBonusPoker100Hand",
+        "game_img": "/static/img/game/haba/DoubleBonusPoker100Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "小丑扑克100手",
+        "game_id": "JokerPoker100Hand",
+        "game_img": "/static/img/game/haba/JokerPoker100Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "数万或更好10手",
+        "game_id": "TensorBetter10Hand",
+        "game_img": "/static/img/game/haba/TensorBetter10Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "美国扑克100手",
+        "game_id": "AllAmericanPoker100Hand",
+        "game_img": "/static/img/game/haba/AllAmericanPoker100Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "千斤顶或更好50手",
+        "game_id": "JacksorBetter50Hand",
+        "game_img": "/static/img/game/haba/JacksorBetter50Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "局末平分100手",
+        "game_id": "DuecesWild100Hand",
+        "game_img": "/static/img/game/haba/DuecesWild100Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "局末平分10手",
+        "game_id": "DuecesWild10Hand",
+        "game_img": "/static/img/game/haba/DuecesWild10Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "局末平分50手",
+        "game_id": "DuecesWild50Hand",
+        "game_img": "/static/img/game/haba/DuecesWild50Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "尖子和八1手",
+        "game_id": "AcesandEights1Hand",
+        "game_img": "/static/img/game/haba/AcesandEights1Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "红利局末平分5手",
+        "game_id": "BonusDuecesWild5Hand",
+        "game_img": "/static/img/game/haba/BonusDuecesWild5Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "尖子和八50手",
+        "game_id": "AcesandEights50Hand",
+        "game_img": "/static/img/game/haba/AcesandEights50Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "尖子和八5手",
+        "game_id": "AcesandEights5Hand",
+        "game_img": "/static/img/game/haba/AcesandEights5Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "数万或更好100手",
+        "game_id": "TensorBetter100Hand",
+        "game_img": "/static/img/game/haba/TensorBetter100Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "红利扑克50手",
+        "game_id": "BonusPoker50Hand",
+        "game_img": "/static/img/game/haba/BonusPoker50Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "千斤顶或更好100手",
+        "game_id": "JacksorBetter100Hand",
+        "game_img": "/static/img/game/haba/JacksorBetter100Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "红利局末平分100手",
+        "game_id": "BonusDuecesWild100Hand",
+        "game_img": "/static/img/game/haba/BonusDuecesWild100Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "双双大床红利扑克1手",
+        "game_id": "DoubleDoubleBonusPoker1Hand",
+        "game_img": "/static/img/game/haba/DoubleDoubleBonusPoker1Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "双大床红利扑克1手",
+        "game_id": "DoubleBonusPoker1Hand",
+        "game_img": "/static/img/game/haba/DoubleBonusPoker1Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "红利扑克1手",
+        "game_id": "BonusPoker1Hand",
+        "game_img": "/static/img/game/haba/BonusPoker1Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "双大床红利扑克5手",
+        "game_id": "DoubleBonusPoker5Hand",
+        "game_img": "/static/img/game/haba/DoubleBonusPoker5Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "红利扑克5手",
+        "game_id": "BonusPoker5Hand",
+        "game_img": "/static/img/game/haba/BonusPoker5Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "双双大床红利扑克5手",
+        "game_id": "DoubleDoubleBonusPoker5Hand",
+        "game_img": "/static/img/game/haba/DoubleDoubleBonusPoker5Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "双大床红利扑克10手",
+        "game_id": "DoubleBonusPoker10Hand",
+        "game_img": "/static/img/game/haba/DoubleBonusPoker10Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "千斤顶或更好1手",
+        "game_id": "JacksorBetter1Hand",
+        "game_img": "/static/img/game/haba/JacksorBetter1Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "局末平分5手",
+        "game_id": "DuecesWild5Hand",
+        "game_img": "/static/img/game/haba/DuecesWild5Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "红利局末平分50手",
+        "game_id": "BonusDuecesWild50Hand",
+        "game_img": "/static/img/game/haba/BonusDuecesWild50Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "红利扑克10手",
+        "game_id": "BonusPoker10Hand",
+        "game_img": "/static/img/game/haba/BonusPoker10Hand.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "三手双重曝光",
+        "game_id": "BlackJack3HDoubleExposure",
+        "game_img": "/static/img/game/haba/BlackJack3HDoubleExposure.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "免佣百家乐 \r\n",
+        "game_id": "Baccarat3HZC",
+        "game_img": "/static/img/game/haba/Baccarat3HZC.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "加勒比扑克",
+        "game_id": "CaribbeanStud",
+        "game_img": "/static/img/game/haba/CaribbeanStud.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "赌场德州扑克",
+        "game_id": "CaribbeanHoldem",
+        "game_img": "/static/img/game/haba/CaribbeanHoldem.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "美国百家乐",
+        "game_id": "AmericanBaccarat",
+        "game_img": "/static/img/game/haba/AmericanBaccarat.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "三手黑杰克",
+        "game_id": "BlackJack3H",
+        "game_img": "/static/img/game/haba/BlackJack3H.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      },
+      {
+        "game_name": "欧洲轮盘",
+        "game_id": "EURoulette",
+        "game_img": "/static/img/game/haba/EURoulette.jpg",
+        "game_type": "老虎机",
+        "game_try": "1"
+      }
+    ]
+  },
+  "game_mglist": {
+    "gamePID": 28,
+    "game_list":[
+      {
+        "game_name": "冒险宫殿",
+        "game_id": "1010",
+        "game_img": "/static/img/game/mgm/1010.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "史地大发现",
+        "game_id": "1246",
+        "game_img": "/static/img/game/mgm/1246.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "特务珍金",
+        "game_id": "1155",
+        "game_img": "/static/img/game/mgm/1155.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "阿拉斯加捕捞",
+        "game_id": "1004",
+        "game_img": "/static/img/game/mgm/1004.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "亚洲美人",
+        "game_id": "1384",
+        "game_img": "/static/img/game/mgm/1384.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "阿瓦隆",
+        "game_id": "1013",
+        "game_img": "/static/img/game/mgm/1013.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "美国酒吧",
+        "game_id": "1257",
+        "game_img": "/static/img/game/mgm/1257.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "篮球巨星",
+        "game_id": "1159",
+        "game_img": "/static/img/game/mgm/1159.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "沙滩宝贝",
+        "game_id": "1263",
+        "game_img": "/static/img/game/mgm/1263.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "马戏篷",
+        "game_id": "1133",
+        "game_img": "/static/img/game/mgm/1133.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "比基尼派对",
+        "game_id": "1290",
+        "game_img": "/static/img/game/mgm/1290.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "疯狂奖金局末平分",
+        "game_id": "1148",
+        "game_img": "/static/img/game/mgm/1148.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "冰球突破",
+        "game_id": "1229",
+        "game_img": "/static/img/game/mgm/1229.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "抢银行",
+        "game_id": "1023",
+        "game_img": "/static/img/game/mgm/1023.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "银行爆破",
+        "game_id": "1097",
+        "game_img": "/static/img/game/mgm/1097.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "伴娘",
+        "game_id": "1360",
+        "game_img": "/static/img/game/mgm/1360.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "燃烧的欲望",
+        "game_id": "1318",
+        "game_img": "/static/img/game/mgm/1318.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "丛林摇摆",
+        "game_id": "1173",
+        "game_img": "/static/img/game/mgm/1173.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "梦果子乐园",
+        "game_id": "1886",
+        "game_img": "/static/img/game/mgm/1886.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "狂欢节",
+        "game_id": "1117",
+        "game_img": "/static/img/game/mgm/1117.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "昆虫派对",
+        "game_id": "1366",
+        "game_img": "/static/img/game/mgm/1366.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "中心球场",
+        "game_id": "1291",
+        "game_img": "/static/img/game/mgm/1291.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "经典243",
+        "game_id": "1879",
+        "game_img": "/static/img/game/mgm/1879.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "经典黄金21点",
+        "game_id": "1052",
+        "game_img": "/static/img/game/mgm/1052.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "运财酷儿-5卷轴",
+        "game_id": "1884",
+        "game_img": "/static/img/game/mgm/1884.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "沙发土豆",
+        "game_id": "1327",
+        "game_img": "/static/img/game/mgm/1327.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "闪亮的圣诞节？",
+        "game_id": "1234",
+        "game_img": "/static/img/game/mgm/1234.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "万能两点",
+        "game_id": "1415",
+        "game_img": "/static/img/game/mgm/1415.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "换牌扑克",
+        "game_id": "1240",
+        "game_img": "/static/img/game/mgm/1240.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "双重韦密",
+        "game_id": "1102",
+        "game_img": "/static/img/game/mgm/1102.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "舞龙",
+        "game_id": "1037",
+        "game_img": "/static/img/game/mgm/1037.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "幸运龙宝贝",
+        "game_id": "1424",
+        "game_img": "/static/img/game/mgm/1424.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "老鹰的翅膀",
+        "game_id": "1236",
+        "game_img": "/static/img/game/mgm/1236.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "青龙出海",
+        "game_id": "1882",
+        "game_img": "/static/img/game/mgm/1882.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "歐式21点黄金桌",
+        "game_id": "1051",
+        "game_img": "/static/img/game/mgm/1051.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "欧式轮盘",
+        "game_id": "1085",
+        "game_img": "/static/img/game/mgm/1085.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "派对鱼",
+        "game_id": "1113",
+        "game_img": "/static/img/game/mgm/1113.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "足球明星",
+        "game_id": "1186",
+        "game_img": "/static/img/game/mgm/1186.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "禁忌王座",
+        "game_id": "1887",
+        "game_img": "/static/img/game/mgm/1887.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "急冻钻石",
+        "game_id": "1165",
+        "game_img": "/static/img/game/mgm/1165.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "水果VS糖果",
+        "game_id": "1878",
+        "game_img": "/static/img/game/mgm/1878.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "黄金时代",
+        "game_id": "1041",
+        "game_img": "/static/img/game/mgm/1041.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "黄金公主",
+        "game_id": "1190",
+        "game_img": "/static/img/game/mgm/1190.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "万圣节",
+        "game_id": "1047",
+        "game_img": "/static/img/game/mgm/1047.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "快乐假日",
+        "game_id": "1072",
+        "game_img": "/static/img/game/mgm/1072.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "上流社会",
+        "game_id": "1163",
+        "game_img": "/static/img/game/mgm/1163.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "终极杀手",
+        "game_id": "1321",
+        "game_img": "/static/img/game/mgm/1321.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "轩辕帝传",
+        "game_id": "1849",
+        "game_img": "/static/img/game/mgm/1849.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "不朽情缘",
+        "game_id": "1103",
+        "game_img": "/static/img/game/mgm/1103.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "埃及女神伊西絲",
+        "game_id": "1250",
+        "game_img": "/static/img/game/mgm/1250.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "千斤顶或更好",
+        "game_id": "1417",
+        "game_img": "/static/img/game/mgm/1417.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "丛林吉姆-黄金国",
+        "game_id": "1244",
+        "game_img": "/static/img/game/mgm/1244.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "K歌乐韵",
+        "game_id": "1053",
+        "game_img": "/static/img/game/mgm/1053.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "卡萨缦都",
+        "game_id": "1151",
+        "game_img": "/static/img/game/mgm/1151.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "女仕之夜",
+        "game_id": "1389",
+        "game_img": "/static/img/game/mgm/1389.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "富裕人生",
+        "game_id": "1851",
+        "game_img": "/static/img/game/mgm/1851.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "狮子的骄傲",
+        "game_id": "1049",
+        "game_img": "/static/img/game/mgm/1049.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "炫富一族",
+        "game_id": "1245",
+        "game_img": "/static/img/game/mgm/1245.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "迷失拉斯维加斯",
+        "game_id": "1420",
+        "game_img": "/static/img/game/mgm/1420.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "幸运的锦鲤",
+        "game_id": "1060",
+        "game_img": "/static/img/game/mgm/1060.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "幸运双星",
+        "game_id": "1283",
+        "game_img": "/static/img/game/mgm/1283.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "疯狂的帽子",
+        "game_id": "1314",
+        "game_img": "/static/img/game/mgm/1314.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "玛雅公主",
+        "game_id": "1343",
+        "game_img": "/static/img/game/mgm/1343.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "巨额现金乘数",
+        "game_id": "1885",
+        "game_img": "/static/img/game/mgm/1885.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "海底世界",
+        "game_id": "1308",
+        "game_img": "/static/img/game/mgm/1308.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "神秘梦境",
+        "game_id": "1254",
+        "game_img": "/static/img/game/mgm/1254.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "花粉之国",
+        "game_id": "1881",
+        "game_img": "/static/img/game/mgm/1881.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "漂亮猫咪",
+        "game_id": "1045",
+        "game_img": "/static/img/game/mgm/1045.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "纯铂",
+        "game_id": "1312",
+        "game_img": "/static/img/game/mgm/1312.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "宝石迷阵",
+        "game_id": "1207",
+        "game_img": "/static/img/game/mgm/1207.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "旋转大战",
+        "game_id": "1294",
+        "game_img": "/static/img/game/mgm/1294.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "雷电击",
+        "game_id": "1293",
+        "game_img": "/static/img/game/mgm/1293.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "复古旋转",
+        "game_id": "1110",
+        "game_img": "/static/img/game/mgm/1110.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "复古卷轴-极热",
+        "game_id": "1189",
+        "game_img": "/static/img/game/mgm/1189.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "押韵的卷轴-心挞",
+        "game_id": "1009",
+        "game_img": "/static/img/game/mgm/1009.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "橄榄球明星",
+        "game_id": "1287",
+        "game_img": "/static/img/game/mgm/1287.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "秘密爱慕者",
+        "game_id": "1877",
+        "game_img": "/static/img/game/mgm/1877.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "上海美人",
+        "game_id": "1421",
+        "game_img": "/static/img/game/mgm/1421.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "射击",
+        "game_id": "1274",
+        "game_img": "/static/img/game/mgm/1274.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "银芳",
+        "game_id": "1062",
+        "game_img": "/static/img/game/mgm/1062.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "怪兽多多",
+        "game_id": "1001",
+        "game_img": "/static/img/game/mgm/1001.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "糖果多多",
+        "game_id": "1374",
+        "game_img": "/static/img/game/mgm/1374.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "寿司多多",
+        "game_id": "1032",
+        "game_img": "/static/img/game/mgm/1032.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "春假",
+        "game_id": "1002",
+        "game_img": "/static/img/game/mgm/1002.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "星梦之吻",
+        "game_id": "1167",
+        "game_img": "/static/img/game/mgm/1167.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "泰坦之藏匿",
+        "game_id": "1320",
+        "game_img": "/static/img/game/mgm/1320.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "纯银",
+        "game_id": "1170",
+        "game_img": "/static/img/game/mgm/1170.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "夏天",
+        "game_id": "1130",
+        "game_img": "/static/img/game/mgm/1130.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "太阳征程",
+        "game_id": "1150",
+        "game_img": "/static/img/game/mgm/1150.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "泰利嗬",
+        "game_id": "1395",
+        "game_img": "/static/img/game/mgm/1395.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "泰山",
+        "game_id": "1847",
+        "game_img": "/static/img/game/mgm/1847.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "冒险之旅",
+        "game_id": "1169",
+        "game_img": "/static/img/game/mgm/1169.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "热力四射",
+        "game_id": "1883",
+        "game_img": "/static/img/game/mgm/1883.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "反转马戏团",
+        "game_id": "1386",
+        "game_img": "/static/img/game/mgm/1386.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "雷神",
+        "game_id": "1028",
+        "game_img": "/static/img/game/mgm/1028.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "雷神2",
+        "game_id": "1330",
+        "game_img": "/static/img/game/mgm/1330.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "老虎之眼",
+        "game_id": "1232",
+        "game_img": "/static/img/game/mgm/1232.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "古墓丽影",
+        "game_id": "1122",
+        "game_img": "/static/img/game/mgm/1122.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "财宝宫殿",
+        "game_id": "1020",
+        "game_img": "/static/img/game/mgm/1020.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "大熊猫",
+        "game_id": "1222",
+        "game_img": "/static/img/game/mgm/1222.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "瞧！",
+        "game_id": "1241",
+        "game_img": "/static/img/game/mgm/1241.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "猫头鹰乐园",
+        "game_id": "1171",
+        "game_img": "/static/img/game/mgm/1171.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "东方珍兽",
+        "game_id": "1164",
+        "game_img": "/static/img/game/mgm/1164.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "开心点心",
+        "game_id": "1345",
+        "game_img": "/static/img/game/mgm/1345.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "5卷的驱动器",
+        "game_id": "1035",
+        "game_img": "/static/img/game/mgm/1035.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "王牌和八面",
+        "game_id": "1324",
+        "game_img": "/static/img/game/mgm/1324.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "王牌和面孔",
+        "game_id": "1413",
+        "game_img": "/static/img/game/mgm/1413.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      }
+    ]
+  },
+  "game_pnglist": {
+    "gamePID": 39,
+    "game_list":  [
+      {
+        "game_name": "万能西瓜",
+        "game_id": "wildmelonmobile",
+        "game_img": "/static/img/game/pngm/wildmelonmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "幸运钻石",
+        "game_id": "luckydiamondsmobile",
+        "game_img": "/static/img/game/pngm/luckydiamondsmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "迷你百家乐",
+        "game_id": "minibaccaratmobile",
+        "game_img": "/static/img/game/pngm/minibaccaratmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "欧洲轮盘",
+        "game_id": "europeanroulettemobile",
+        "game_img": "/static/img/game/pngm/europeanroulettemobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "比大小",
+        "game_id": "beatmemobile",
+        "game_img": "/static/img/game/pngm/beatmemobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "海盗旗帜",
+        "game_id": "jollyrogermobile",
+        "game_img": "/static/img/game/pngm/jollyrogermobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "多手21點 MH",
+        "game_id": "blackjackmhmobile",
+        "game_img": "/static/img/game/pngm/blackjackmhmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "欧洲21点 MH",
+        "game_id": "europeanblackjackmhmobile",
+        "game_img": "/static/img/game/pngm/europeanblackjackmhmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "双开式21点 MH",
+        "game_id": "doubleexposureblackjackmhmobile",
+        "game_img": "/static/img/game/pngm/doubleexposureblackjackmhmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "单副牌21点 MH",
+        "game_id": "singledeckblackjackmhmobile",
+        "game_img": "/static/img/game/pngm/singledeckblackjackmhmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "牌九扑克",
+        "game_id": "paigowpokermobile",
+        "game_img": "/static/img/game/pngm/paigowpokermobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "刮刮乐",
+        "game_id": "scratchahoymobile",
+        "game_img": "/static/img/game/pngm/scratchahoymobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "一杆进洞",
+        "game_id": "holeinonemobile",
+        "game_img": "/static/img/game/pngm/holeinonemobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "黑桃A",
+        "game_id": "aceofspadesmobile",
+        "game_img": "/static/img/game/pngm/aceofspadesmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "占卜师",
+        "game_id": "fortunetellermobile",
+        "game_img": "/static/img/game/pngm/fortunetellermobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "非洲掠影",
+        "game_id": "photosafarimobile",
+        "game_img": "/static/img/game/pngm/photosafarimobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "太空竞赛",
+        "game_id": "spaceracemobile",
+        "game_img": "/static/img/game/pngm/spaceracemobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "5x魔术",
+        "game_id": "5xmagicmobile",
+        "game_img": "/static/img/game/pngm/5xmagicmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "爱尔兰 黃金",
+        "game_id": "irishgoldmobile",
+        "game_img": "/static/img/game/pngm/irishgoldmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "魔法草原",
+        "game_id": "enchantedmeadowmobile",
+        "game_img": "/static/img/game/pngm/enchantedmeadowmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "太阳神的财富",
+        "game_id": "richesoframobile",
+        "game_img": "/static/img/game/pngm/richesoframobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "龙船",
+        "game_id": "dragonshipmobile",
+        "game_img": "/static/img/game/pngm/dragonshipmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "珍珠湖",
+        "game_id": "pearllagoonmobile",
+        "game_img": "/static/img/game/pngm/pearllagoonmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "珠宝盒",
+        "game_id": "jewelboxmobile",
+        "game_img": "/static/img/game/pngm/jewelboxmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "阿茲特克人像",
+        "game_id": "aztecidolsmobile",
+        "game_img": "/static/img/game/pngm/aztecidolsmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "神话",
+        "game_id": "mythmobile",
+        "game_img": "/static/img/game/pngm/mythmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "黃金奖杯2",
+        "game_id": "goldtrophy2mobile",
+        "game_img": "/static/img/game/pngm/goldtrophy2mobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "狂野血液",
+        "game_id": "wildbloodmobile",
+        "game_img": "/static/img/game/pngm/wildbloodmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "矮精灵埃及之旅",
+        "game_id": "leprechaungoesegyptmobile",
+        "game_img": "/static/img/game/pngm/leprechaungoesegyptmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "忍者水果",
+        "game_id": "ninjafruitsmobile",
+        "game_img": "/static/img/game/pngm/ninjafruitsmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "巨魔猎人",
+        "game_id": "trollhuntersmobile",
+        "game_img": "/static/img/game/pngm/trollhuntersmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "财富崛起",
+        "game_id": "ragetorichesmobile",
+        "game_img": "/static/img/game/pngm/ragetorichesmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "魔法水晶",
+        "game_id": "enchantedcrystalsmobile",
+        "game_img": "/static/img/game/pngm/enchantedcrystalsmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "能量 小精灵",
+        "game_id": "energoonzmobile",
+        "game_img": "/static/img/game/pngm/energoonzmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "杰克高手 MH",
+        "game_id": "jacksorbettermobile",
+        "game_img": "/static/img/game/pngm/jacksorbettermobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "德塞斯野生 MH",
+        "game_id": "deuceswildmobile",
+        "game_img": "/static/img/game/pngm/deuceswildmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "小丑扑克 MH",
+        "game_id": "jokerpokermobile",
+        "game_img": "/static/img/game/pngm/jokerpokermobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "国王高手 MH",
+        "game_id": "kingsorbettermobile",
+        "game_img": "/static/img/game/pngm/kingsorbettermobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "牌十高手 MH",
+        "game_id": "tensorbettermobile",
+        "game_img": "/static/img/game/pngm/tensorbettermobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "双倍獎金 MH",
+        "game_id": "doublebonusmobile",
+        "game_img": "/static/img/game/pngm/doublebonusmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "德塞斯小丑 MH",
+        "game_id": "deucesandjokermobile",
+        "game_img": "/static/img/game/pngm/deucesandjokermobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "中国新年",
+        "game_id": "chinesenewyearmobile",
+        "game_img": "/static/img/game/pngm/chinesenewyearmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "财富淑女",
+        "game_id": "ladyoffortunemobile",
+        "game_img": "/static/img/game/pngm/ladyoffortunemobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "印度珍珠",
+        "game_id": "pearlsofindiamobile",
+        "game_img": "/static/img/game/pngm/pearlsofindiamobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "神秘小丑",
+        "game_id": "mysteryjokermobile",
+        "game_img": "/static/img/game/pngm/mysteryjokermobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "疯狂奶牛",
+        "game_id": "crazycowsmobile",
+        "game_img": "/static/img/game/pngm/crazycowsmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "黃金 入场券",
+        "game_id": "goldenticketmobile",
+        "game_img": "/static/img/game/pngm/goldenticketmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "五彩宝石",
+        "game_id": "gemixmobile",
+        "game_img": "/static/img/game/pngm/gemixmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "高塔任务",
+        "game_id": "towerquestmobile",
+        "game_img": "/static/img/game/pngm/towerquestmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "欢乐圣诞节",
+        "game_id": "merryxmasmobile",
+        "game_img": "/static/img/game/pngm/merryxmasmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "黃金传奇",
+        "game_id": "goldenlegendmobile",
+        "game_img": "/static/img/game/pngm/goldenlegendmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "酷炫一族",
+        "game_id": "pimpedmobile",
+        "game_img": "/static/img/game/pngm/pimpedmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "旋转派对",
+        "game_id": "spinpartymobile",
+        "game_img": "/static/img/game/pngm/spinpartymobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "复活节 彩蛋",
+        "game_id": "eastereggsmobile",
+        "game_img": "/static/img/game/pngm/eastereggsmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "北部荒野",
+        "game_id": "wildnorthmobile",
+        "game_img": "/static/img/game/pngm/wildnorthmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "超级翻转",
+        "game_id": "superflipmobile",
+        "game_img": "/static/img/game/pngm/superflipmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "克拉肯 的眼睛",
+        "game_id": "eyeofthekrakenmobile",
+        "game_img": "/static/img/game/pngm/eyeofthekrakenmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "皇室 化妆舞会",
+        "game_id": "masquerademobile",
+        "game_img": "/static/img/game/pngm/masquerademobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "天际战神",
+        "game_id": "cloudquestmobile",
+        "game_img": "/static/img/game/pngm/cloudquestmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "宝石巫师",
+        "game_id": "wizardofgemsmobile",
+        "game_img": "/static/img/game/pngm/wizardofgemsmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "冷酷亡灵",
+        "game_id": "grimmuertomobile",
+        "game_img": "/static/img/game/pngm/grimmuertomobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "桑巴 嘉年华",
+        "game_id": "sambacarnivalmobile",
+        "game_img": "/static/img/game/pngm/sambacarnivalmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "欢乐万圣节",
+        "game_id": "happyhalloweenmobile",
+        "game_img": "/static/img/game/pngm/happyhalloweenmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "火焰小丑",
+        "game_id": "firejokermobile",
+        "game_img": "/static/img/game/pngm/firejokermobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "",
+        "game_id": "turkishvillagekidmobile",
+        "game_img": "/static/img/game/pngm/turkishvillagekidmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "圣诞小丑",
+        "game_id": "christmasjokermobile",
+        "game_img": "/static/img/game/pngm/christmasjokermobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "亡灵书",
+        "game_id": "bookofdeadmobile",
+        "game_img": "/static/img/game/pngm/bookofdeadmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "黃金之帆",
+        "game_id": "sailsofgoldmobile",
+        "game_img": "/static/img/game/pngm/sailsofgoldmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "金色商队",
+        "game_id": "goldencaravanmobile",
+        "game_img": "/static/img/game/pngm/goldencaravanmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "飞翔小猪",
+        "game_id": "flyingpigsmobile",
+        "game_img": "/static/img/game/pngm/flyingpigsmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "财运之轮",
+        "game_id": "moneywheelmobile",
+        "game_img": "/static/img/game/pngm/moneywheelmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "维京人世界",
+        "game_id": "vikingrunecraftmobile",
+        "game_img": "/static/img/game/pngm/vikingrunecraftmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "夏日庆典",
+        "game_id": "matsurimobile",
+        "game_img": "/static/img/game/pngm/matsurimobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "七宗罪",
+        "game_id": "sevensinsmobile",
+        "game_img": "/static/img/game/pngm/sevensinsmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "超級巨轮",
+        "game_id": "superwheelmobile",
+        "game_img": "/static/img/game/pngm/superwheelmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "淘气小公主",
+        "game_id": "prissyprincessmobile",
+        "game_img": "/static/img/game/pngm/prissyprincessmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "翡翠魔术师",
+        "game_id": "jademagicianmobile",
+        "game_img": "/static/img/game/pngm/jademagicianmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "节庆假日",
+        "game_id": "holidayseasonmobile",
+        "game_img": "/static/img/game/pngm/holidayseasonmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "阿斯德克战士公主",
+        "game_id": "aztecwarriorprincessmobile",
+        "game_img": "/static/img/game/pngm/aztecwarriorprincessmobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      },
+      {
+        "game_name": "基诺快乐彩",
+        "game_id": "kenomobile",
+        "game_img": "/static/img/game/pngm/kenomobile.jpg",
+        "game_type": "多线老虎机",
+        "game_try": 1
+      }]
+  },
+  "game_ptlist": {
+    "gamePID": 20,
+    "game_list": [{"game_name":"招财进宝","game_id":"zcjb","game_img":"/static/img/game/pt/zcjb.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"招财童子","game_id":"zctz","game_img":"/static/img/game/pt/zctz.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"无敌金刚","game_id":"kkg","game_img":"/static/img/game/pt/kkg.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"高速公路之王","game_id":"hk","game_img":"/static/img/game/pt/hk.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"野生世界：北极大冒险","game_id":"ashwgaa","game_img":"/static/img/game/pt/ashwgaa.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"月亮下的黑豹","game_id":"pmn","game_img":"/static/img/game/pt/pmn.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"金钱蛙","game_id":"jqw","game_img":"/static/img/game/pt/jqw.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"圣诞老人奇袭","game_id":"ssp","game_img":"/static/img/game/pt/ssp.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"玛丽莲梦露","game_id":"gtsmrln","game_img":"/static/img/game/pt/gtsmrln.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"恋爱之船","game_id":"lvb","game_img":"/static/img/game/pt/lvb.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"年年有余","game_id":"nian","game_img":"/static/img/game/pt/nian_k.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"海豚之梦","game_id":"dnr","game_img":"/static/img/game/pt/dnr.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"警察和土匪","game_id":"gtscnb","game_img":"/static/img/game/pt/gtscnb.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"三卡吹牛","game_id":"ash3brg","game_img":"/static/img/game/pt/ash3brg.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"宝石女王","game_id":"gemq","game_img":"/static/img/game/pt/gemq.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"舞龙","game_id":"wlg","game_img":"/static/img/game/pt/wlg.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"疯狂之七","game_id":"c7","game_img":"/static/img/game/pt/c7.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"充裕财富","game_id":"gtspor","game_img":"/static/img/game/pt/gtspor.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"终极足球","game_id":"fbr","game_img":"/static/img/game/pt/fbr.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"百家乐","game_id":"ba","game_img":"/static/img/game/pt/ba.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"圆月财富","game_id":"ashfmf","game_img":"/static/img/game/pt/ashfmf.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"海滨嘉年华","game_id":"bl","game_img":"/static/img/game/pt/bl.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"桑巴之舞","game_id":"gtssmbr","game_img":"/static/img/game/pt/gtssmbr.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"亚马逊之谜","game_id":"samz","game_img":"/static/img/game/pt/samz.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"百慕大三角","game_id":"bt","game_img":"/static/img/game/pt/bt.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"弓箭手","game_id":"arc","game_img":"/static/img/game/pt/arc.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"艺伎故事 ","game_id":"ges","game_img":"/static/img/game/pt/ges.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"复活节惊喜","game_id":"eas","game_img":"/static/img/game/pt/eas.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"丛林之心","game_id":"ashhotj","game_img":"/static/img/game/pt/ashhotj.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"五虎将","game_id":"ftg","game_img":"/static/img/game/pt/ftg.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"牛仔和外星人","game_id":"gtscbl","game_img":"/static/img/game/pt/gtscbl.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"企鹅度假","game_id":"pgv","game_img":"/static/img/game/pt/pgv.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"翡翠公主","game_id":"fcgz","game_img":"/static/img/game/pt/fcgz.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"魔力老虎机","game_id":"mgstk","game_img":"/static/img/game/pt/mgstk.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"北极宝藏","game_id":"art","game_img":"/static/img/game/pt/art.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"宝箱满满","game_id":"ashcpl","game_img":"/static/img/game/pt/ashcpl.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"幸运爱尔兰","game_id":"irl","game_img":"/static/img/game/pt/irl.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"娱乐场同花顺","game_id":"cheaa","game_img":"/static/img/game/pt/cheaa.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"四象","game_id":"sx","game_img":"/static/img/game/pt/sx.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"中式厨房","game_id":"cm","game_img":"/static/img/game/pt/cm.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"猫王战赌城","game_id":"ctiv","game_img":"/static/img/game/pt/ctiv.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"船长的宝藏","game_id":"ct","game_img":"/static/img/game/pt/ct.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"众神时代: 狂暴4","game_id":"furf","game_img":"/static/img/game/pt/furf.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"紫色狂热","game_id":"photk","game_img":"/static/img/game/pt/photk.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"德托里传奇","game_id":"fdt","game_img":"/static/img/game/pt/fdt.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"三个火枪手","game_id":"tmqd","game_img":"/static/img/game/pt/tmqd.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"超级 888","game_id":"chao","game_img":"/static/img/game/pt/chao.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"埃斯梅拉达","game_id":"esm","game_img":"/static/img/game/pt/esmk.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"疯狂乐透","game_id":"lm","game_img":"/static/img/game/pt/lm.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"奖金巨人","game_id":"jpgt","game_img":"/static/img/game/pt/jpgt.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"甜蜜派对","game_id":"cnpr","game_img":"/static/img/game/pt/cnpr.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"捍卫战士","game_id":"topg","game_img":"/static/img/game/pt/topg.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"酷炫水果","game_id":"fnfrj","game_img":"/static/img/game/pt/fnfrj.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"黄金之旅","game_id":"gos","game_img":"/static/img/game/pt/gos.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"幸运直击","game_id":"sol","game_img":"/static/img/game/pt/sol.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"野生动物大世界","game_id":"gtswg","game_img":"/static/img/game/pt/gtswg.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"神秘夏洛克","game_id":"shmst","game_img":"/static/img/game/pt/shmst.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"野生亚马逊","game_id":"ashamw","game_img":"/static/img/game/pt/ashamw.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"唐吉诃德","game_id":"donq","game_img":"/static/img/game/pt/donq.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"沙漠财宝","game_id":"mobdt","game_img":"/static/img/game/pt/dt.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"狂野樱桃","game_id":"chl","game_img":"/static/img/game/pt/chl.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"酷炫水果农场","game_id":"fff","game_img":"/static/img/game/pt/fff.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"罗马荣光","game_id":"rng","game_img":"/static/img/game/pt/gtsrng.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"熊之舞","game_id":"bob","game_img":"/static/img/game/pt/bob.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"辛巴达金航记","game_id":"ashsbd","game_img":"/static/img/game/pt/ashsbd.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"众神时代","game_id":"aogs","game_img":"/static/img/game/pt/aogs.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"遍地黄金","game_id":"lndg","game_img":"/static/img/game/pt/lndg.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"白狮王","game_id":"whk","game_img":"/static/img/game/pt/whk.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"海王星王国","game_id":"nk","game_img":"/static/img/game/pt/nk.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"古怪猴子","game_id":"fm","game_img":"/static/img/game/pt/fm.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"猫女王","game_id":"catqc","game_img":"/static/img/game/pt/catqk.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"银弹","game_id":"sib","game_img":"/static/img/game/pt/sib.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"惊异之林","game_id":"fow","game_img":"/static/img/game/pt/fow.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"法老王的秘密","game_id":"pst","game_img":"/static/img/game/pt/pst.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"青春之泉","game_id":"foy","game_img":"/static/img/game/pt/foy.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"狐媚宝藏","game_id":"fxf","game_img":"/static/img/game/pt/fxf.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"欢乐积寶彩池","game_id":"evj","game_img":"/static/img/game/pt/evj.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"忍者风云","game_id":"sis","game_img":"/static/img/game/pt/sis.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"泰国佛寺","game_id":"thtk","game_img":"/static/img/game/pt/thtk.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"亚特兰蒂斯女王","game_id":"gtsatq","game_img":"/static/img/game/pt/gtsatq.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"万圣节宝藏","game_id":"hlf","game_img":"/static/img/game/pt/hlf.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"最强奥德赛","game_id":"gro","game_img":"/static/img/game/pt/gro.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"角斗士积宝","game_id":"glrj","game_img":"/static/img/game/pt/glrj.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"返利先生","game_id":"mrcb","game_img":"/static/img/game/pt/mcb.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"狂欢夜","game_id":"hb","game_img":"/static/img/game/pt/hb.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"海底探宝","game_id":"bib","game_img":"/static/img/game/pt/bib.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"魔杖女王","game_id":"qnw","game_img":"/static/img/game/pt/qnw.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"开心假期豪華版","game_id":"vcstd","game_img":"/static/img/game/pt/vcstd.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"泰国梦天堂","game_id":"tpd2","game_img":"/static/img/game/pt/tpd2.jpg","game_type":"5-20线","game_try":1}]
+  },
+  "game_optlist": {
+    "gamePID": 45,
+    "game_list": [
+      {"game_name":"狐媚宝藏","game_id":"fxf","game_img":"/static/img/game/pt/fxf.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"欢乐积寶彩池","game_id":"evj","game_img":"/static/img/game/pt/evj.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"忍者风云","game_id":"sis","game_img":"/static/img/game/pt/sis.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"泰国佛寺","game_id":"thtk","game_img":"/static/img/game/pt/thtk.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"亚特兰蒂斯女王","game_id":"gtsatq","game_img":"/static/img/game/pt/gtsatq.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"万圣节宝藏","game_id":"hlf","game_img":"/static/img/game/pt/hlf.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"最强奥德赛","game_id":"gro","game_img":"/static/img/game/pt/gro.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"角斗士积宝","game_id":"glrj","game_img":"/static/img/game/pt/glrj.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"返利先生","game_id":"mrcb","game_img":"/static/img/game/pt/mcb.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"狂欢夜","game_id":"hb","game_img":"/static/img/game/pt/hb.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"海底探宝","game_id":"bib","game_img":"/static/img/game/pt/bib.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"魔杖女王","game_id":"qnw","game_img":"/static/img/game/pt/qnw.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"招财进宝","game_id":"zcjb","game_img":"/static/img/game/pt/zcjb.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"招财童子","game_id":"zctz","game_img":"/static/img/game/pt/zctz.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"无敌金刚","game_id":"kkg","game_img":"/static/img/game/pt/kkg.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"高速公路之王","game_id":"hk","game_img":"/static/img/game/pt/hk.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"野生世界：北极大冒险","game_id":"ashwgaa","game_img":"/static/img/game/pt/ashwgaa.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"月亮下的黑豹","game_id":"pmn","game_img":"/static/img/game/pt/pmn.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"金钱蛙","game_id":"jqw","game_img":"/static/img/game/pt/jqw.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"圣诞老人奇袭","game_id":"ssp","game_img":"/static/img/game/pt/ssp.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"玛丽莲梦露","game_id":"gtsmrln","game_img":"/static/img/game/pt/gtsmrln.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"恋爱之船","game_id":"lvb","game_img":"/static/img/game/pt/lvb.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"年年有余","game_id":"nian","game_img":"/static/img/game/pt/nian_k.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"海豚之梦","game_id":"dnr","game_img":"/static/img/game/pt/dnr.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"警察和土匪","game_id":"gtscnb","game_img":"/static/img/game/pt/gtscnb.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"三卡吹牛","game_id":"ash3brg","game_img":"/static/img/game/pt/ash3brg.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"宝石女王","game_id":"gemq","game_img":"/static/img/game/pt/gemq.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"舞龙","game_id":"wlg","game_img":"/static/img/game/pt/wlg.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"疯狂之七","game_id":"c7","game_img":"/static/img/game/pt/c7.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"充裕财富","game_id":"gtspor","game_img":"/static/img/game/pt/gtspor.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"终极足球","game_id":"fbr","game_img":"/static/img/game/pt/fbr.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"百家乐","game_id":"ba","game_img":"/static/img/game/pt/ba.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"圆月财富","game_id":"ashfmf","game_img":"/static/img/game/pt/ashfmf.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"海滨嘉年华","game_id":"bl","game_img":"/static/img/game/pt/bl.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"桑巴之舞","game_id":"gtssmbr","game_img":"/static/img/game/pt/gtssmbr.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"亚马逊之谜","game_id":"samz","game_img":"/static/img/game/pt/samz.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"百慕大三角","game_id":"bt","game_img":"/static/img/game/pt/bt.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"弓箭手","game_id":"arc","game_img":"/static/img/game/pt/arc.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"艺伎故事 ","game_id":"ges","game_img":"/static/img/game/pt/ges.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"复活节惊喜","game_id":"eas","game_img":"/static/img/game/pt/eas.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"丛林之心","game_id":"ashhotj","game_img":"/static/img/game/pt/ashhotj.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"五虎将","game_id":"ftg","game_img":"/static/img/game/pt/ftg.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"牛仔和外星人","game_id":"gtscbl","game_img":"/static/img/game/pt/gtscbl.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"企鹅度假","game_id":"pgv","game_img":"/static/img/game/pt/pgv.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"翡翠公主","game_id":"fcgz","game_img":"/static/img/game/pt/fcgz.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"魔力老虎机","game_id":"mgstk","game_img":"/static/img/game/pt/mgstk.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"北极宝藏","game_id":"art","game_img":"/static/img/game/pt/art.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"宝箱满满","game_id":"ashcpl","game_img":"/static/img/game/pt/ashcpl.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"幸运爱尔兰","game_id":"irl","game_img":"/static/img/game/pt/irl.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"娱乐场同花顺","game_id":"cheaa","game_img":"/static/img/game/pt/cheaa.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"四象","game_id":"sx","game_img":"/static/img/game/pt/sx.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"中式厨房","game_id":"cm","game_img":"/static/img/game/pt/cm.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"猫王战赌城","game_id":"ctiv","game_img":"/static/img/game/pt/ctiv.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"船长的宝藏","game_id":"ct","game_img":"/static/img/game/pt/ct.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"众神时代: 狂暴4","game_id":"furf","game_img":"/static/img/game/pt/furf.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"紫色狂热","game_id":"photk","game_img":"/static/img/game/pt/photk.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"德托里传奇","game_id":"fdt","game_img":"/static/img/game/pt/fdt.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"三个火枪手","game_id":"tmqd","game_img":"/static/img/game/pt/tmqd.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"超级 888","game_id":"chao","game_img":"/static/img/game/pt/chao.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"埃斯梅拉达","game_id":"esm","game_img":"/static/img/game/pt/esmk.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"疯狂乐透","game_id":"lm","game_img":"/static/img/game/pt/lm.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"奖金巨人","game_id":"jpgt","game_img":"/static/img/game/pt/jpgt.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"甜蜜派对","game_id":"cnpr","game_img":"/static/img/game/pt/cnpr.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"捍卫战士","game_id":"topg","game_img":"/static/img/game/pt/topg.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"酷炫水果","game_id":"fnfrj","game_img":"/static/img/game/pt/fnfrj.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"黄金之旅","game_id":"gos","game_img":"/static/img/game/pt/gos.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"幸运直击","game_id":"sol","game_img":"/static/img/game/pt/sol.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"野生动物大世界","game_id":"gtswg","game_img":"/static/img/game/pt/gtswg.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"神秘夏洛克","game_id":"shmst","game_img":"/static/img/game/pt/shmst.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"野生亚马逊","game_id":"ashamw","game_img":"/static/img/game/pt/ashamw.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"唐吉诃德","game_id":"donq","game_img":"/static/img/game/pt/donq.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"沙漠财宝","game_id":"mobdt","game_img":"/static/img/game/pt/dt.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"狂野樱桃","game_id":"chl","game_img":"/static/img/game/pt/chl.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"酷炫水果农场","game_id":"fff","game_img":"/static/img/game/pt/fff.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"罗马荣光","game_id":"rng","game_img":"/static/img/game/pt/gtsrng.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"熊之舞","game_id":"bob","game_img":"/static/img/game/pt/bob.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"辛巴达金航记","game_id":"ashsbd","game_img":"/static/img/game/pt/ashsbd.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"众神时代","game_id":"aogs","game_img":"/static/img/game/pt/aogs.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"遍地黄金","game_id":"lndg","game_img":"/static/img/game/pt/lndg.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"白狮王","game_id":"whk","game_img":"/static/img/game/pt/whk.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"海王星王国","game_id":"nk","game_img":"/static/img/game/pt/nk.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"古怪猴子","game_id":"fm","game_img":"/static/img/game/pt/fm.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"猫女王","game_id":"catqc","game_img":"/static/img/game/pt/catqk.jpg","game_type":"25线+","game_try":1},
+      {"game_name":"银弹","game_id":"sib","game_img":"/static/img/game/pt/sib.jpg","game_type":"累积奖池","game_try":1},
+      {"game_name":"惊异之林","game_id":"fow","game_img":"/static/img/game/pt/fow.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"法老王的秘密","game_id":"pst","game_img":"/static/img/game/pt/pst.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"青春之泉","game_id":"foy","game_img":"/static/img/game/pt/foy.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"开心假期豪華版","game_id":"vcstd","game_img":"/static/img/game/pt/vcstd.jpg","game_type":"5-20线","game_try":1},
+      {"game_name":"泰国梦天堂","game_id":"tpd2","game_img":"/static/img/game/pt/tpd2.jpg","game_type":"5-20线","game_try":1}]
+  },
+  "game_tdlist": {
+    "gamePID": 43,
+    "game_list": [
+      {"game_name": "Go Monkey","game_id": "go-monkey","game_img": "/static/img/game/td/go-monkey.jpg","game_type":""},
+      {"game_name": "Pragmatic Keno","game_id": "go-monkey","game_img": "/static/img/game/td/pragmatic-keno.jpg","game_type":""},
+      {"game_name": "Fortunes of Sparta","game_id": "fortune-gods","game_img": "/static/img/game/td/fortune-gods.jpg","game_type":""},
+      {"game_name": "Tree of Fortune","game_id": "tree-of-fortune","game_img": "/static/img/game/td/tree-of-fortune.jpg","game_type":""},
+      {"game_name": "Honey Trap of Diao Chan","game_id": "diaochan","game_img": "/static/img/game/td/diaochan.jpg","game_type":""},
+      {"game_name": "12-animals","game_id": "12-animals","game_img": "/static/img/game/td/12-animals.jpg","game_type":""},
+      {"game_name": "888 Gold","game_id": "888-gold","game_img": "/static/img/game/td/888-gold.jpg","game_type":""},
+      {"game_name": "African Spirit","game_id": "african-spirit","game_img": "/static/img/game/td/african-spirit.jpg","game_type":""},
+      {"game_name": "Aladdins Treasure","game_id": "aladdins-treasure","game_img": "/static/img/game/td/aladdins-treasure.jpg","game_type":""},
+      {"game_name": "Alchymedes","game_id": "alchymedes","game_img": "/static/img/game/td/alchymedes.jpg","game_type":""},
+      {"game_name": "BeautyAndTheBeast","game_id": "beauty-and-the-beast","game_img": "/static/img/game/td/beauty-and-the-beast.jpg","game_type":""},
+      {"game_name": "Beowulf","game_id": "beowulf","game_img": "/static/img/game/td/beowulf.jpg","game_type":""},
+      {"game_name": "Bicicleta","game_id": "bicicleta","game_img": "/static/img/game/td/bicicleta.jpg","game_type":""},
+      {"game_name": "Big Blox","game_id": "big-blox","game_img": "/static/img/game/td/big-blox.jpg","game_type":""},
+      {"game_name": "Busy Bees","game_id": "busy-bees","game_img": "/static/img/game/td/busy-bees.jpg","game_type":""},
+      {"game_name": "Caishens Gold","game_id": "caishens-gold","game_img": "/static/img/game/td/caishens-gold.jpg","game_type":""},
+      {"game_name": "CazinoZeppelin","game_id": "cazino-zeppelin","game_img": "/static/img/game/td/cazino-zeppelin.jpg","game_type":""},
+      {"game_name": "Chibeasties","game_id": "chibeasties","game_img": "/static/img/game/td/chibeasties.jpg","game_type":""},
+      {"game_name": "chibeasties2","game_id": "chibeasties2","game_img": "/static/img/game/td/chibeasties2.jpg","game_type":""},
+      {"game_name": "christmasCharm","game_id": "christmas-charm","game_img": "/static/img/game/td/christmas-charm.jpg","game_type":""},
+      {"game_name": "crazy-gems","game_id": "crazy-gems","game_img": "/static/img/game/td/crazy-gems.jpg","game_type":""},
+      {"game_name": "crazy-sevens","game_id": "crazy-sevens","game_img": "/static/img/game/td/crazy-sevens.jpg","game_type":""},
+      {"game_name": "dark-joker-rizes","game_id": "dark-joker-rizes","game_img": "/static/img/game/td/dark-joker-rizes.jpg","game_type":""},
+      {"game_name": "devils-13","game_id": "devils-13","game_img": "/static/img/game/td/devils-13.jpg","game_type":""},
+      {"game_name": "diamond-strike","game_id": "diamond-strike","game_img": "/static/img/game/td/diamond-strike.jpg","game_type":""},
+      {"game_name": "diamonds-are-forever-3-lines","game_id": "diamonds-are-forever-3-lines","game_img": "/static/img/game/td/diamonds-are-forever-3-lines.jpg","game_type":""},
+      {"game_name": "diego-fortune","game_id": "diego-fortune","game_img": "/static/img/game/td/diego-fortune.jpg","game_type":""},
+      {"game_name": "double-dragons","game_id": "double-dragons","game_img": "/static/img/game/td/double-dragons.jpg","game_type":""},
+      {"game_name": "doubles","game_id": "doubles","game_img": "/static/img/game/td/doubles.jpg","game_type":""},
+      {"game_name": "dragon-kingdom","game_id": "dragon-kingdom","game_img": "/static/img/game/td/dragon-kingdom.jpg","game_type":""},
+      {"game_name": "dwarven-gold","game_id": "dwarven-gold","game_img": "/static/img/game/td/dwarven-gold.jpg","game_type":""},
+      {"game_name": "dwarven-gold-deluxe","game_id": "dwarven-gold-deluxe","game_img": "/static/img/game/td/dwarven-gold-deluxe.jpg","game_type":""},
+      {"game_name": "7-piggies","game_id": "7-piggies","game_img": "/static/img/game/td/7-piggies.jpg","game_type":""},
+      {"game_name": "fruiterra","game_id": "fruiterra","game_img": "/static/img/game/td/fruiterra.jpg","game_type":""},
+      {"game_name": "fruiterra-fortune","game_id": "fruiterra-fortune","game_img": "/static/img/game/td/fruiterra-fortune.jpg","game_type":""},
+      {"game_name": "fruity-blast","game_id": "fruity-blast","game_img": "/static/img/game/td/fruity-blast.jpg","game_type":""},
+      {"game_name": "fruity-frost","game_id": "fruity-frost","game_img": "/static/img/game/td/fruity-frost.jpg","game_type":""},
+      {"game_name": "glorious-rome","game_id": "glorious-rome","game_img": "/static/img/game/td/glorious-rome.jpg","game_type":""},
+      {"game_name": "gnomes-gems","game_id": "gnomes-gems","game_img": "/static/img/game/td/gnomes-gems.jpg","game_type":""},
+      {"game_name": "go-monkey","game_id": "go-monkey","game_img": "/static/img/game/td/go-monkey.jpg","game_type":""},
+      {"game_name": "gods-temple","game_id": "gods-temple","game_img": "/static/img/game/td/gods-temple.jpg","game_type":""},
+      {"game_name": "gold-rush","game_id": "gold-rush","game_img": "/static/img/game/td/gold-rush.jpg","game_type":""},
+      {"game_name": "gold-train","game_id": "gold-train","game_img": "/static/img/game/td/gold-train.jpg","game_type":""},
+      {"game_name": "golden-fishtank","game_id": "golden-fishtank","game_img": "/static/img/game/td/golden-fishtank.jpg","game_type":""},
+      {"game_name": "great-reef","game_id": "great-reef","game_img": "/static/img/game/td/great-reef.jpg","game_type":""},
+      {"game_name": "halloween-witch","game_id": "halloween-witch","game_img": "/static/img/game/td/halloween-witch.jpg","game_type":""},
+      {"game_name": "happy-chinese-new-year","game_id": "happy-chinese-new-year","game_img": "/static/img/game/td/happy-chinese-new-year.jpg","game_type":""},
+      {"game_name": "hells-band","game_id": "hells-band","game_img": "/static/img/game/td/hells-band.jpg","game_type":""},
+      {"game_name": "hercules-son-of-zeus","game_id": "hercules-son-of-zeus","game_img": "/static/img/game/td/hercules-son-of-zeus.jpg","game_type":""},
+      {"game_name": "hockey-league","game_id": "hockey-league","game_img": "/static/img/game/td/hockey-league.jpg","game_type":""},
+      {"game_name": "hockey-league-wild-match","game_id": "hockey-league-wild-match","game_img": "/static/img/game/td/hockey-league-wild-match.jpg","game_type":""},
+      {"game_name": "holmes-stolen-stones","game_id": "holmes-stolen-stones","game_img": "/static/img/game/td/holmes-stolen-stones.jpg","game_type":""},
+      {"game_name": "88-wild-dragon","game_id": "88-wild-dragon","game_img": "/static/img/game/td/88-wild-dragon.jpg","game_type":""},
+      {"game_name": "hot-safari","game_id": "hot-safari","game_img": "/static/img/game/td/hot-safari.jpg","game_type":""},
+      {"game_name": "hunting-party","game_id": "hunting-party","game_img": "/static/img/game/td/hunting-party.jpg","game_type":""},
+      {"game_name": "incinerator","game_id": "incinerator","game_img": "/static/img/game/td/incinerator.jpg","game_type":""},
+      {"game_name": "irish-charms","game_id": "irish-charms","game_img": "/static/img/game/td/irish-charms.jpg","game_type":""},
+      {"game_name": "jokerizer","game_id": "jokerizer","game_img": "/static/img/game/td/jokerizer.jpg","game_type":""},
+      {"game_name": "journey-to-the-west","game_id": "journey-to-the-west","game_img": "/static/img/game/td/journey-to-the-west.jpg","game_type":""},
+      {"game_name": "jungle-books","game_id": "jungle-books","game_img": "/static/img/game/td/jungle-books.jpg","game_type":""},
+      {"game_name": "jurassic-giants","game_id": "jurassic-giants","game_img": "/static/img/game/td/jurassic-giants.jpg","game_type":""},
+      {"game_name": "kailash-mystery","game_id": "kailash-mystery","game_img": "/static/img/game/td/kailash-mystery.jpg","game_type":""},
+      {"game_name": "kangaliens","game_id": "kangaliens","game_img": "/static/img/game/td/kangaliens.jpg","game_type":""},
+      {"game_name": "ktv","game_id": "ktv","game_img": "/static/img/game/td/ktv.jpg","game_type":""},
+      {"game_name": "lady-godiva","game_id": "lady-godiva","game_img": "/static/img/game/td/lady-godiva.jpg","game_type":""},
+      {"game_name": "lady-of-the-moon","game_id": "lady-of-the-moon","game_img": "/static/img/game/td/lady-of-the-moon.jpg","game_type":""},
+      {"game_name": "legend-golden-monkey","game_id": "legend-golden-monkey","game_img": "/static/img/game/td/legend-golden-monkey.jpg","game_type":""},
+      {"game_name": "white-snake-lady","game_id": "white-snake-lady","game_img": "/static/img/game/td/white-snake-lady.jpg","game_type":""},
+      {"game_name": "lucky-dragons","game_id": "lucky-dragons","game_img": "/static/img/game/td/lucky-dragons.jpg","game_type":""},
+      {"game_name": "lucky-xmas","game_id": "lucky-xmas","game_img": "/static/img/game/td/lucky-xmas.jpg","game_type":""},
+      {"game_name": "magic-crystals","game_id": "magic-crystals","game_img": "/static/img/game/td/magic-crystals.jpg","game_type":""},
+      {"game_name": "mighty-kong","game_id": "mighty-kong","game_img": "/static/img/game/td/mighty-kong.jpg","game_type":""},
+      {"game_name": "money-roll","game_id": "money-roll","game_img": "/static/img/game/td/money-roll.jpg","game_type":""},
+      {"game_name": "monkey-madness","game_id": "monkey-madness","game_img": "/static/img/game/td/monkey-madness.jpg","game_type":""},
+      {"game_name": "nirvana","game_id": "nirvana","game_img": "/static/img/game/td/nirvana.jpg","game_type":""},
+      {"game_name": "orient-express","game_id": "orient-express","game_img": "/static/img/game/td/orient-express.jpg","game_type":""},
+      {"game_name": "pandas-fortune","game_id": "pandas-fortune","game_img": "/static/img/game/td/pandas-fortune.jpg","game_type":""},
+      {"game_name": "panther-queen","game_id": "panther-queen","game_img": "/static/img/game/td/panther-queen.jpg","game_type":""},
+      {"game_name": "patricks-pub","game_id": "patricks-pub","game_img": "/static/img/game/td/patricks-pub.jpg","game_type":""},
+      {"game_name": "pixie-wings","game_id": "pixie-wings","game_img": "/static/img/game/td/pixie-wings.jpg","game_type":""},
+      {"game_name": "poisoned-apple","game_id": "poisoned-apple","game_img": "/static/img/game/td/poisoned-apple.jpg","game_type":""},
+      {"game_name": "power-plant","game_id": "power-plant","game_img": "/static/img/game/td/power-plant.jpg","game_type":""},
+      {"game_name": "pragmatic-baccarat","game_id": "pragmatic-baccarat","game_img": "/static/img/game/td/pragmatic-baccarat.jpg","game_type":""},
+      {"game_name": "pragmatic-jacks-or-better","game_id": "pragmatic-jacks-or-better","game_img": "/static/img/game/td/pragmatic-jacks-or-better.jpg","game_type":""},
+      {"game_name": "pragmatic-keno","game_id": "pragmatic-keno","game_img": "/static/img/game/td/pragmatic-keno.jpg","game_type":"pragmatic-keno"},
+      {"game_name": "pragmatic-multihand-blackjack","game_id": "pragmatic-multihand-blackjack","game_img": "/static/img/game/td/pragmatic-multihand-blackjack.jpg","game_type":""},
+      {"game_name": "pumpkin-smash","game_id": "pumpkin-smash","game_img": "/static/img/game/td/pumpkin-smash.jpg","game_type":""},
+      {"game_name": "queen-of-atlantis","game_id": "queen-of-atlantis","game_img": "/static/img/game/td/queen-of-atlantis.jpg","game_type":""},
+      {"game_name": "queen-of-gold","game_id": "queen-of-gold","game_img": "/static/img/game/td/queen-of-gold.jpg","game_type":""},
+      {"game_name": "rainbow-ryan","game_id": "rainbow-ryan","game_img": "/static/img/game/td/rainbow-ryan.jpg","game_type":""},
+      {"game_name": "reptoids","game_id": "reptoids","game_img": "/static/img/game/td/reptoids.jpg","game_type":""},
+      {"game_name": "romeo-and-juliet","game_id": "romeo-and-juliet","game_img": "/static/img/game/td/romeo-and-juliet.jpg","game_type":""},
+      {"game_name": "roulette-crystal","game_id": "roulette-crystal","game_img": "/static/img/game/td/roulette-crystal.jpg","game_type":""},
+      {"game_name": "seasons","game_id": "seasons","game_img": "/static/img/game/td/seasons.jpg","game_type":""},
+      {"game_name": "secret-of-nefertiti","game_id": "secret-of-nefertiti","game_img": "/static/img/game/td/secret-of-nefertiti.jpg","game_type":""},
+      {"game_name": "singles-day","game_id": "singles-day","game_img": "/static/img/game/td/singles-day.jpg","game_type":""},
+      {"game_name": "spooky-fortune","game_id": "spooky-fortune","game_img": "/static/img/game/td/spooky-fortune.jpg","game_type":""},
+      {"game_name": "sugar-rush","game_id": "sugar-rush","game_img": "/static/img/game/td/sugar-rush.jpg","game_type":""},
+      {"game_name": "sugar-rush-winter","game_id": "sugar-rush-winter","game_img": "/static/img/game/td/sugar-rush-winter.jpg","game_type":""},
+      {"game_name": "sunny-shores","game_id": "sunny-shores","game_img": "/static/img/game/td/sunny-shores.jpg","game_type":""},
+      {"game_name": "super-heroes","game_id": "super-heroes","game_img": "/static/img/game/td/super-heroes.jpg","game_type":""},
+      {"game_name": "tales-of-egypt","game_id": "tales-of-egypt","game_img": "/static/img/game/td/tales-of-egypt.jpg","game_type":""},
+      {"game_name": "the-catfather","game_id": "the-catfather","game_img": "/static/img/game/td/the-catfather.jpg","game_type":""},
+      {"game_name": "the-catfather-II","game_id": "the-catfather-II","game_img": "/static/img/game/td/the-catfather-II.jpg","game_type":""},
+      {"game_name": "thunder-zeus","game_id": "thunder-zeus","game_img": "/static/img/game/td/thunder-zeus.jpg","game_type":""},
+      {"game_name": "8-dragons","game_id": "8-dragons","game_img": "/static/img/game/td/8-dragons.jpg","game_type":""},
+      {"game_name": "valley-of-the-gods","game_id": "valley-of-the-gods","game_img": "/static/img/game/td/valley-of-the-gods.jpg","game_type":""},
+      {"game_name": "vegas-nights","game_id": "vegas-nights","game_img": "/static/img/game/td/vegas-nights.jpg","game_type":""},
+      {"game_name": "vikings-go-berzerk","game_id": "vikings-go-berzerk","game_img": "/static/img/game/td/vikings-go-berzerk.jpg","game_type":""},
+      {"game_name": "vikings-go-wild","game_id": "vikings-go-wild","game_img": "/static/img/game/td/vikings-go-wild.jpg","game_type":""},
+      {"game_name": "wicked-circus","game_id": "wicked-circus","game_img": "/static/img/game/td/wicked-circus.jpg","game_type":""},
+      {"game_name": "wild-galaxy","game_id": "wild-galaxy","game_img": "/static/img/game/td/wild-galaxy.jpg","game_type":""},
+      {"game_name": "wild-spells","game_id": "wild-spells","game_img": "/static/img/game/td/wild-spells.jpg","game_type":""},
+      {"game_name": "winter-berries","game_id": "winter-berries","game_img": "/static/img/game/td/winter-berries.jpg","game_type":""},
+      {"game_name": "wolf-gold","game_id": "wolf-gold","game_img": "/static/img/game/td/wolf-gold.jpg","game_type":""},
+      {"game_name": "15-golden-eggs","game_id": "15-golden-eggs","game_img": "/static/img/game/td/15-golden-eggs.jpg","game_type":""},
+      {"game_name": "3-genie-wishes","game_id": "3-genie-wishes","game_img": "/static/img/game/td/3-genie-wishes.jpg","game_type":""},
+      {"game_name": "3-kingdoms-battle-of-red-cliffs","game_id": "3-kingdoms-battle-of-red-cliffs","game_img": "/static/img/game/td/3-kingdoms-battle-of-red-cliffs.jpg","game_type":""},
+      {"game_name": "7-monkeys","game_id": "7-monkeys","game_img": "/static/img/game/td/7-monkeys.jpg","game_type":""}
+    ]
+  },
+  "game_ttglist":{
+    "gamePID":37,
+    "game_list": [{"game_name":"招财进宝","game_id":"1060","game_img":"/static/img/game/ttg/kkg.jpg","game_type":"25+线","game_try":1},
+      {"game_name":"林克的传说","game_id":"1049","game_img":"/static/img/game/ttg/1049.jpg","game_type":"25+线","game_try":1},
+      {"game_name":"捕蝇大赛","game_id":"1052","game_img":"/static/img/game/ttg/1052.jpg","game_type":"25+线","game_try":1},
+      {"game_name":"金海豚","game_id":"1055","game_img":"/static/img/game/ttg/1055.jpg","game_type":"25+线","game_try":1},
+      {"game_name":"海龙王","game_id":"1056","game_img":"/static/img/game/ttg/1056.jpg","game_type":"25+线","game_try":1},
+      {"game_name":"银狮奖","game_id":"1057","game_img":"/static/img/game/ttg/1057.jpg","game_type":"25+线","game_try":1},
+      {"game_name":"猴年大吉","game_id":"1054","game_img":"/static/img/game/ttg/1054.jpg","game_type":"25+线","game_try":1},
+      {"game_name":"火辣金砖","game_id":"1053","game_img":"/static/img/game/ttg/1053.jpg","game_type":"25+线","game_try":1},
+      {"game_name":"疯狂的猴子","game_id":"1051","game_img":"/static/img/game/ttg/1051.jpg","game_type":"25+线","game_try":1}]
+  },
+  "game_aglist":{
+    "gamePID": 27,
+    "game_list": [],
+    "game_name": "AG老虎机"
+  }
+}
