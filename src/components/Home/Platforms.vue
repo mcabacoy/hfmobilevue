@@ -3,7 +3,8 @@
         <ul>
            <li :class="item.customClass" 
                 v-for="item in list" 
-                v-bind:key="item.name">            
+                v-bind:key="item.name"
+                @click="routePage('/PlatformGames')">            
                 <span class="platform-name">{{item.name }}</span>
                 <div :class="[item.classification , 'flag']" v-if="item.classification != ''">
                     <span v-if="item.classification=='hot'">热</span>
@@ -23,6 +24,11 @@ export default {
          ...mapGetters ({
              list: 'getAllPlatforms'
         })
+    },
+    methods: {
+        routePage(pageName){
+            this.$router.push({ path: pageName });
+        }
     }
 }
 </script>

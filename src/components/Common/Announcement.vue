@@ -34,17 +34,11 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 
 .notices-container {
-    // width: 450px;
-    // margin: 0 auto;
-    // white-space: nowrap;
     overflow: hidden;
-    // box-sizing: border-box;
 }
 
 .marquee  {
-    // display: inline-block;
     display: inline-grid;
-    // padding-left: 100%;  /* show the marquee just outside the paragraph */
     animation: marquee 10s linear infinite backwards;
 }
 

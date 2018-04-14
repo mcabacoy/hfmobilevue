@@ -1,17 +1,19 @@
 <template>
-    <div id="signin" style="height:100%;">
+    <div id="signin">
     <div class="sign-body">
         <div class="signin-foreground"></div>
-        <span class="exchange">兑换明细</span>
+        <span class="exchange" @click="showModal('redemptiondetails')">兑换明细</span>
         <div class="circle-content">
             <img src="../../static/img/HSignin/signin-pl.png" style="width: 100%; margin-top: 3.9rem;"/>
             <div class="cc">
                 <p class="cc-details">我的积分<span style="font-size: .9rem;display: block;margin-top: .05rem;font-weight: 700;" id="AccPoints">10</span></p>
                 <p style="color: #fff;text-align: center;width: 2rem;font-size: .28rem;position: absolute;top: 3.2rem;left: .4rem;">连续签到 <span style="color:#ffd200;" class="AccCount">1</span> 天</p>
             </div>
-            <p class="clkcheck">点击签到</p>
+            <p class="clkcheck" @click="goCheckIn()">点击签到</p>
         </div>
 
+
+        <!-- Coupon -->
         <div class="circle-body">
             <div class="ss-coupon">
                 <div class="leftside">
@@ -19,27 +21,110 @@
                 </div>
                 <div class="rightside">
                     <p id="exchange">10积分兑换</p>
-                    <span class="redeemimm">立即兑换</span>
+                    <span class="redeemimm" @click="goRedeem()">立即兑换</span>
                 </div>
             </div>
-            <p id="RegistUserSign">积分领取记录</p>
-            <p class="sr" style="">签到规则 <span></span></p>
-        
+            <p id="RegistUserSign"  @click="showModal('collectionrecord')">积分领取记录</p>
+            <p class="sr"  @click="showModal('checkinrules')">签到规则 <span></span></p>
         </div>
     </div>
+
+    <div class="modal-group">
+        <detail-modal
+            v-if="showModalType == 'redemptiondetails'"
+            @closeModal="closeModal" modaltitle="积分兑换记录">
+            <div slot="content"></div>
+        </detail-modal>
+        <detail-modal
+            v-else-if="showModalType == 'collectionrecord'"
+            @closeModal="closeModal" modaltitle="积分兑换记录">
+            <table slot="content" class="collectionrecord">
+                <tbody>
+                    <tr v-for="(item, index) in redempointrecord" :key="index">
+                        <td>
+                        {{ item.redemptionDate }}  连续签到1 天 + {{ item.pointsAdded }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </detail-modal>
+        <detail-modal
+            v-else-if="showModalType == 'checkinrules'"
+            @closeModal="closeModal" modaltitle="签到规则">
+            <div slot="content" class="checkinrules-list">
+                <ol>
+                <li v-for="(item, index) in checkinrules" :key="index">
+                    {{ item  }}
+                </li>
+                </ol>
+            </div>
+        </detail-modal>
+    </div>
+
+    <notification :message="notifmessage" 
+            @close="closeNotif"  
+            v-if="notifmessage!=''" />
 </div>
 
 </template>
 
-
 <script>
+
+import Notification from './Common/Notification'
+import DetailModal from './Modals/DetailModal'
 import { mapGetters, mapMutations } from 'vuex'
+
 export default {
     name: 'signin',
+    data(){
+        return {
+            notifmessage: '',
+            showModalType: '',
+            checkinrules: [
+                "签到满7天后会持续每天获得38积分，如中间出现没  有持续签到，则积分重新再10分开始继续计算；",
+                "积分兑换方式：提交所需兑换的积分即可；如积分不  足兑换提交金额，为本次提交作废",
+                "此奖金只可投注在老虎机或捕鱼游戏，达到奖金所要 求的倍数后方可申请提款。",
+                "积分每月1号自动清零，请及时兑换；"
+            ],
+            redempointrecord: [
+                {
+                    redemptionDate: "2018-04-10 14:24:52",
+                    pointsAdded: 10
+                },
+                {
+                    redemptionDate: "2018-04-10 14:24:52",
+                    pointsAdded: 10
+                },
+                {
+                    redemptionDate: "2018-04-10 14:24:52",
+                    pointsAdded: 10
+                }
+            ]
+            
+        }
+    },
+    components: { DetailModal, Notification },
        methods: {
         ...mapMutations ([
             'setCurrentPage'
-        ])
+        ]),
+        showModal: function (payload) {
+            this.showModalType = payload;
+        },
+        closeModal: function () {
+            this.showModalType = '';
+        },
+        goCheckIn: function() {
+            let error = '今天已经签到过了'
+            this.notifmessage = error;
+        },
+        goRedeem: function() {
+            let error = '100积分才可兑换额度'
+            this.notifmessage = error;
+        },        
+        closeNotif(){
+            this.notifmessage = ''
+        },
        },
     created() {
       this.setCurrentPage('Signin');
@@ -48,17 +133,48 @@ export default {
 </script>
 
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" rel="stylesheet/stylus" scoped >
+
+
+#signin {
+    height:100%;
+}
+
+table.collectionrecord {
+    width: 100% !important;
+    text-align: center;
+        
+    td {
+        border-bottom: 1px solid #8e1a4d !important;
+        padding: .2rem 0 !important;
+        color: white !important;
+    }
+}
+
+.checkinrules-list {
+    
+    ol {
+        padding: 0.5rem;
+        line-height: .4rem;
+    
+        li {
+            list-style: decimal;
+            color: white;
+        }
+    }
+    
+}
 
 .currency {
     font-size: .35rem;
     margin-left: .15rem;
     vertical-align: middle;
 }
-    body {
+
+body {
         background: #e3e3e3;
         height: 100%;
-    }
+}
 
     .logo, #transfers, #walletrecharge, #promotion, #service, #bcard {
         display: none;
@@ -216,150 +332,14 @@ export default {
     border-bottom: .03rem solid #fff;
     display: inline-block;
     float: right;
-    margin: .07rem .1rem 0 0rem;
+    margin: 0rem .1rem 0 0rem;
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     transform: rotate(-45deg);
 }
-.smask{
-    background: rgba(43, 35, 33, 0.9);
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 299;
-    top: 0;
-}
-.signinsuccess{
-    background: url(../../static/img/HSignin/popup-ss.png) no-repeat;
-    background-size: 95%;
-    background-position-x: .34rem;
-    width: 100%;
-    height: 7rem;
-    position: fixed;
-    top: 1rem !important;
-    z-index: 300;
-}
-.signinsuccess h1{
-    text-align: center;
-    width: 3.2rem;
-    margin: 0 auto;
-    margin-top: 3rem;
-    color: #fff600;
-    font-size: .88rem;
-    font-weight: 700;
-}
-.signinsuccess p{
-    text-align: center;
-    width: 2.1rem;
-    height: .5rem;
-    margin: 0 auto;
-    margin-top: .18rem;
-    line-height: .48rem;
-    color: #e96da9;
-    font-size: .28rem;
-    background: rgba(0, 0, 0, 0.15);
-    border-radius: 1rem;
-}
-.signinsuccess .ok{
-    color: #fb027c;
-    position: absolute;
-    top: 6.5rem;
-    left: 1.8rem;
-    background: #fff;
-    background: -webkit-linear-gradient(#fff 50%, #ffbacd);
-    background: -o-linear-gradient(#fff 50%, #ffbacd);
-    background: -moz-linear-gradient(#fff 50%, #ffbacd);
-    background: linear-gradient(#fff 50%, #ffbacd);
-    box-shadow: 0px 3px 4px 0px #000000;
-    width: 2.8rem;
-    height: .67rem;
-    text-align: center;
-    border-radius: 2rem;
-    line-height: .65rem;
-    font-size: .35rem;
-    font-weight: 700;
-}
-.signin-pop{
-    background: #62072f;
-    background-size: 95%;
-    background-position-x: .34rem;
-    width: 5.35rem;
-    height: 4rem;
-    position: fixed;
-    top: 2rem !important;
-    left: .5rem;
-    z-index: 300;
-}
-.signin-pop .head{
-    background: #720535;
-    color: #fff000;
-    text-align: center;
-    font-size: .27rem;
-    letter-spacing: .02rem;
-}
-.pointsexchange .head .demoSpan2:before, .head .demoSpan2:after,
-.signinrules .head .demoSpan2:before, .head .demoSpan2:after{
-    height: .02rem;
-    width: .35rem;
-    background: #fff;
-    top: .12rem;
-}
-.pointsexchange .pointtbl table{
-    width: 100%;
-    color: #fff;
-    text-align: center;
-}
-.pointsexchange .pointtbl table tr{
-    border-bottom: 1px solid #8e1a4d;
-}
-.pointsexchange .pointtbl table td{
-    padding: .2rem 0;
-}
-.signinrules{
-    height:auto;
-}
-.signinrules .sgnin{
-    padding: .5rem .2rem .5rem .2rem;
-    overflow:hidden;
-}
-.signinrules .sgnin p{
-    color: #fff;
-    font-size: .25rem;
-}
-.signinrules .sgnin span{
-    float: left;
-}
-.signinrules .sgnin span:nth-child(2){
-    width: 4.7rem;
-    letter-spacing: .02rem;
-    line-height: .41rem;
-}
-.signin{
-    height: 2.85rem;
-    border-radius: .08rem;
-    top: 4rem !important;
-    width: 4.4rem;
-    left: .98rem;
-}
-.signin p{
-    color: #fff;
-    font-size: .3rem;
-    text-align: center;
-    margin-top: .8rem;
-}
-.signin input{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: #720535;
-    height: .9rem;
-    font-size: .33rem;
-    color: #fff000;
-    border-radius: 0 0 .08rem .08rem;
-    border-top: .01rem solid #943b62;
-}
+
 .alert{
     background: #fff;
     width: 3.8rem;

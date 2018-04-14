@@ -16,7 +16,7 @@
                             <span class="icon" :class="menu.class"></span>
                             <span>{{ menu.name }}</span>                        
                         </span>
-                        <a :href="menu.link" v-else>
+                        <a :href="menu.link" v-else >
                             <span class="icon" :class="menu.class"></span>
                             <span>{{ menu.name }}</span>                        
                         </a> 
@@ -79,7 +79,6 @@ export default {
   },
   computed: {
     ...mapState ({
-        // menus: state => state.menus.pages,
         currentPage: state => state.menu.currentpage
     }),
     ...mapGetters ({
@@ -90,7 +89,6 @@ export default {
 </script>
 
 <style>
-
 .sidebarlogo {
     background: url('../../../static/img/Personalprofile/futu-profile.png') ;
     background-size: cover;
@@ -113,17 +111,8 @@ export default {
 .sidenav-trans-enter  {
     margin-left: 0rem;
 }
-
 .sidenav-trans-leave  {
     margin-left: -6.5rem;
-}
-
-ul, ol {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
 }
 
 .sidemask {
@@ -152,6 +141,7 @@ a {
     margin-left: -6.5rem;
     transition: 0.8s;
 }
+
 .sidenav .side-content .firsttabb {
     background: url(../../../static/img/nav-icons/nav-bg.png) no-repeat;
     background-size: cover;
@@ -170,13 +160,16 @@ a {
 .sidenav .side-content .secondtabb ul li.active{
     background: #161c23;
 }
+
 .sidenav .side-content .secondtabb ul li a,
 .sidenav .side-content .secondtabb ul li span {
     color: #d1d1d1;
 }
+
 .sidenav .side-content .secondtabb ul li.active span {
     color:#ffd200;
 }
+
 .sidenav .side-content .secondtabb ul li span {
     vertical-align: middle;
 }
@@ -189,6 +182,7 @@ a {
     display: inline-block;
     margin-right:.4rem
 }
+
 .sidenav .side-content .secondtabb ul li.active .icon{
     background: url(../../../static/img/nav-icons/nav-icon1active.png) no-repeat;
     background-size: 100%;
@@ -275,7 +269,6 @@ a {
 .side-content {
     margin-left: 0px;
 }
-
 
 </style>
 

@@ -1,14 +1,14 @@
 <template>
 <div>
 <transition name="transfer-trans">
-<div class="TransferOutDiv transfer-modal">
-    <div class="zcu modal-container">
+<div class="transfer-modal">
+    <div class="modal-container">
         <div class="modal-header">
             <span>{{ modaltitle }}</span>
             <div class="close-modal"  @click="closeModal">
             </div>
         </div>
-        <div class="cz_nr_zhong modal-body">
+        <div class="modal-body">
             <span class="input-label">充值金额: </span>
             <span>￥</span>
             <input type="number" 
@@ -20,7 +20,7 @@
             <a class="btn" >确认转出</a>
         </div>
     </div>
-    <div class="modal-shadow" @click="closeModal"></div>
+    <div class="modal-shadow"></div>
 </div>
 
 </transition>

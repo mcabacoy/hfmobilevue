@@ -25,7 +25,7 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import BannerSwiper from './Home/BannerSwiper'
+import BannerSwiper from './Swiper/BannerSwiper'
 import Platform from './Home/Platforms'
 import Announcement from './Common/Announcement'
 export default {

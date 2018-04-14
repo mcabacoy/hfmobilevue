@@ -65,6 +65,8 @@
     </div>
 
 </div>
+
+
 </div>
 </template>
 
@@ -94,7 +96,10 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
     
-input[type="submit"], input[type="button"], input[type="reset"] {
+
+input[type="submit"], 
+input[type="button"], 
+input[type="reset"] {
         cursor: pointer;
         border: none;
 }

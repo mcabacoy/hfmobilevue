@@ -1,21 +1,29 @@
 <template>
-  <div class="nav">
-        
+<div>
+    <div class="nav-platform" v-if="currentPageName == 'PlatformGames'">
+        <span class="nav-back"  @click="goBack()"><i></i></span>
+        <div class="nav-game">
+            <span class="nav-title">
+                <img src="../../../static/img/HGame/PT-text.png"/>
+            </span>
+        </div>
+        <span class="nav-toggle"><i></i></span>
+    </div>
+    <div class="nav" v-else> 
         <a 
             @click="goBack()"
             class="backer prompt"
             v-if="currentPageMenuType == 'back'"></a>
-        
         <img src="../../../static/img/toggle.png" 
              class="nav-toggle" 
              @click="openSideBar" v-else/>
-
-
         <img src="../../../static/img/logo.png" 
             class="logo"  
             v-if="currentPageName == '' || currentPageName == 'Homepage' || currentPageName == '鸿福首页' " />
         <span v-else >{{ currentPageName }}</span>
   </div>
+
+</div>
 </template>
 
 <script>
@@ -44,6 +52,74 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
+
+.nav-platform {
+    
+    background: url(../../../static/img/HGame/nav-bgportrait.png) no-repeat;
+    background-size: 100%;
+    height: 1rem;
+    line-height: 34px;
+    color: #FFF;
+    font-size: .12rem;
+    display: table;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    
+    span {
+        display: table-cell;
+        height: .3rem;
+    }
+
+    .nav-back {
+        position: relative;
+        width: 15%;
+
+        i {
+            width: 100%;
+            background: url(../../../static/img/HGame/back-portrait.png)no-repeat;
+            background-size: 100%;
+            height: 1rem;
+            display: list-item;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .nav-game {  
+        position: relative;  
+        top: 0;
+
+        .nav-title {
+            width: 100% !important;
+            position: relative;
+
+            img {
+                margin-top: .12rem;
+                width: 100%;
+            }
+        }
+    }
+
+    .nav-toggle {
+        position: relative;
+        width: 15%;
+        i {
+            background: url(../../../static/img/HGame/menu-activeportrait.png)no-repeat;
+            background-size: 100%;
+            width: 100%;
+            height: 1rem;
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+
+
+
+}
 
 .nav .backer:before {
     content: "";

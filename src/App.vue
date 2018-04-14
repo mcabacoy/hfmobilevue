@@ -52,7 +52,7 @@ export default {
 };
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" rel="stylesheet/stylus" >
 
 body {
    font-family:Microsoft YaHei !important;

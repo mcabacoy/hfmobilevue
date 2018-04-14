@@ -15,6 +15,7 @@ const Signin = resolve => require(['./components/Signin'], resolve)
 
 const Wallet = resolve => require(['./components/Wallet'], resolve)
 const InfoBind = resolve => require(['./components/BankCard/UserInfoBind'], resolve);
+const PlatformGames = resolve => require(['./components/PlatformGames'], resolve);
 
 import store from './store';
 import layer from 'vue-layer-mobile';
@@ -26,8 +27,8 @@ Vue.use(Router);
 
 const routes = [
   {
-  path: '/',
-  component: Homepage
+    path: '/',
+    component: Homepage
   },
   {
     path: '/Homepage',
@@ -64,6 +65,10 @@ const routes = [
   {
     path: '/UserInfoBind',
     component: InfoBind
+  },
+  {
+    path: '/PlatformGames',
+    component: PlatformGames
   }
 ];
 

@@ -65,9 +65,9 @@ const state ={
             type: 'back'
         },
         {
-            link: 'GameList',
+            link: 'PlatformGames',
             linktype: 'internal',
-            name: 'GameList',
+            name: 'PlatformGames',
             class: '',
             type: 'back'
         },
