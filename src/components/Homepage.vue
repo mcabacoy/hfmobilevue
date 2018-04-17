@@ -10,7 +10,7 @@
     <div class="wallet">
      <div class="wallet-txt">
             <p class="coins-label" style=""><img src="../../static/img/coins-ico.png"  class="coins" />中心钱包</p>
-            <p class="balance-label" style="">余额：<span>￥44.00</span></p>
+            <p class="balance-label" style="">余额：<span>￥{{ AccountDetails.Balance }}</span></p>
     </div>
     <div class="wallet-btn">
         <a ><img @click="routePage('/Wallet')" src="../../static/img/wallet_.png" class="wallet-button" /></a>
@@ -28,21 +28,69 @@ import { mapMutations } from 'vuex'
 import BannerSwiper from './Swiper/BannerSwiper'
 import Platform from './Home/Platforms'
 import Announcement from './Common/Announcement'
+import { USERINFO  } from './../api'
+var qs = require("querystring");
+
 export default {
     name: 'homepage',
+    data(){
+        return {
+            AccountDetails: {
+                Balance: 0,
+                AccountName: '',
+            }
+        }
+    },
     components: {
         BannerSwiper, Platform, Announcement
     },
     methods: {
-    ...mapMutations ([
+        ...mapMutations ([
        'selectMethod',
        'setCurrentPage'
         ]),
         routePage: function(pageName){
             this.$router.push({ path: pageName });
+        },
+        setAccountDetails() {
+            let userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+            this.AccountDetails.Balance = userInfo.Balance.toFixed(2);
+            this.AccountDetails.AccountName = userInfo.AccountName;
+        },
+        requestAccountInfo(token){
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                }
+            }
+            let that_ = this;
+            this.$http.get( USERINFO ,  config )
+            .then( function(res){                 
+                console.log('2A');
+                sessionStorage.setItem( 'userInfo', JSON.stringify(res.data.Value));
+                console.log(JSON.parse(sessionStorage.getItem('userInfo')));
+                that_.setAccountDetails();
+            })
+            .catch( function(error){
+                
+            });
         }
     },
     created() {
+        // Check if logged in
+        let tokenKey_ = 'accessToken';
+        let userInfo_ = 'userInfo';
+        var isLoggedIn = (sessionStorage.getItem(tokenKey_) != null || typeof(sessionStorage.getItem(tokenKey_)) == 'undefined');
+        if ( !isLoggedIn) {
+             this.$router.push('../Login');
+        }
+        // Check if User Info is retrieved
+        if ( sessionStorage.getItem(userInfo_) != null && JSON.parse(sessionStorage.getItem(userInfo_)).AccountName) {
+            this.setAccountDetails();
+        }
+        else {
+            this.requestAccountInfo(sessionStorage.getItem(tokenKey_));
+        }
         this.setCurrentPage('Homepage');
     }
 }

@@ -49,7 +49,6 @@ export default {
     ]),
     login(){
         // Validate inputs
-        console.log(this.userName);
         if ( this.userName.trim() == '') {
             let errmessage = '用户名不能为空';
                 errmessage = "Username can't be empty";
@@ -68,27 +67,34 @@ export default {
         let postData = {
             grant_type: 'password',
             userName: 'HF' + this.userName,
-            password: md5(this.passWord),
+            password: (this.passWord),
             isApp: '3'
         }
 
+        let tokenKey = 'accessToken';
+        
         // Remove item in Session Storage : accessToken
-        sessionStorage.removeItem('accessToken');
+        sessionStorage.removeItem(tokenKey);
+        window.localStorage.removeItem('information');
+        sessionStorage.removeItem('userInfo');
 
         var that_ = this;
-        
+        tokenKey
         // Request to API
         this.$http.post( LOGIN , qs.stringify(postData))
             .then( function(res) {
                 // Set tokenKey/accessToken in sessionStorage
-                window.sessionStorage.setItem(tokenKey, res.access_token);
+                sessionStorage.setItem( tokenKey, res.data.access_token);
+
                 // Set login information in localStorage
                 window.localStorage.setItem('information', qs.stringify(postData));
-                // Add headers.Authorization
                 
+                // Add headers.Authorization
                 // headers.Authorization = 'Bearer ' + data.access_token;
-                // window.location.href = '/HomePage';
+                
                 // Route to Homepage
+                that_.$router.push({ path: '../Homepage' });
+
             })
             .catch( function (error) {
                 that_.notifmessage = error;

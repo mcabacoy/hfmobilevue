@@ -24,7 +24,7 @@
                 </ul>
             </div>
             <div class="thirdtabb logout">
-                <a href=""><img src="../../../static/img/nav-icons/logout-ico.png" style="width:12%;" /><span>退出登录</span></a>
+                <a href="" @click="logout()" ><img src="../../../static/img/nav-icons/logout-ico.png" style="width:12%;" /><span>退出登录</span></a>
             </div>
         </div>
         </transition>
@@ -76,6 +76,12 @@ export default {
         this.$router.push({ path: '../' + pageName });
         this.closeSideBar();
       },
+      logout: function (){
+        sessionStorage.removeItem('accessToken');
+        window.localStorage.removeItem('information');
+        sessionStorage.removeItem('userInfo');
+        this.$router.push({ path: '../Login' });
+      }
   },
   computed: {
     ...mapState ({

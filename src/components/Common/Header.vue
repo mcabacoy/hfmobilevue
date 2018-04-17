@@ -3,14 +3,11 @@
     <div class="nav-platform" v-if="currentPageName == 'PlatformGames'">
         <span class="nav-back"  @click="goBack()"><i></i></span>
         <div :class="['nav-game' , getGameBalanceTitle]">
-            <!-- <span class="nav-title">
-                <img src="../../../static/img/HGame/PT-text.png"/>
-            </span> -->
         </div>
         <span class="nav-toggle"><i></i></span>
     </div>
 
-    <div class="nav" v-else>
+    <div class="nav"  v-else-if="currentPageName != ''" >
         <a 
             @click="goBack()"
             class="backer prompt"
@@ -58,7 +55,6 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-
 
 .nav-game {
     height: rem;
@@ -205,6 +201,7 @@ export default {
     width: 100%;
     top: 0;
     z-index: 150;
+    display: block;
 }
 
 
