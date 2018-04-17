@@ -1,6 +1,6 @@
 <template>
     <div class="floater">
-        <img v-attr="src: imgsrc">
+        <img v-attr="src = imgsrc">
     </div>
 </template>
 

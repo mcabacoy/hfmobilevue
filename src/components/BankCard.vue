@@ -86,45 +86,31 @@
                 </div> -->
 
             </div>
-
-            <div class="signout" id="logout"><a href="javascript:void(0);">退出登录</a></div>
-            <div class="zhtcc" style="display: none;">
-                <div class="zhtcc_fu">
-                    <div class="zhtcc_fu_za">您确定退出登录?</div>
-                    <div class="zhtcc_fu_da">
-                        <a class="zhtcc_fu_x1">退出登录</a>
-                        <a class="zhtcc_fu_x2">取消</a>
-                    </div>
-                </div>
-            </div>
+            <div @click="showSignoutMenu(true)" class="signout" id="logout"><a>退出登录</a></div>
+            
+            <signout-menu  @closeMenu="showSignoutMenu(false)"  v-show="displaySignout"></signout-menu>           
 
         </div>
         <div class="bankinfo tab-content" v-else-if="opentab == 'bankinfo'">
             <div class="bankcard">
                 <ul id="bank_card">
                     <!--  !IsDefault -->
-                    <li>
-                        <div class="bankcard_content">
-                            <div class="bank_img"><img src="../../static/img/Bank/bank2.png"></div>
-                            <div class="bank_details ICBC">
-                                <p class="bank-name">{{ bankname }}</p>
-                                <p class="bank-num">{{ cardno }}</p>
-                                <!-- Available for non-default Bank Card -->
-                                <span class="removecard">删除卡片</span>
-                                <span class="notdefaultcard">设为默认</span>
+                    <li v-for="(item, index) in getCardList" :key="index">
+                        <div :class="['bankcard_content', item.customclass]">
+                            <div class="bank_img">
+                                <div class="bank-logo"></div>
                             </div>
-                        </div>
-                    </li>
-                    <!--  IsDefault -->
-                    <li>
-                        <div class="bankcard_content">
-                            <div class="bank_img"><img src="../../static/img/Bank/bank-js.png"></div>
-                            <div class="bank_details CIB">
-                                <p class="bank-name">{{ bankname }}</p>
-                                <p class="bank-num">{{ cardno }}</p>
-                                <!-- Available for default Bank Card -->
-                                <span class="defaultcard">默认卡片</span>
-                                <span class="auto"></span>
+                            <div class="bank_details">
+                                <p class="bank-name">{{ item.bankname }}</p>
+                                <p class="bank-num">{{ item.accountnumber }}</p>
+
+                                <!-- Available for non-default Bank Card -->
+                                <span class="removecard" v-show="!item.isdefault">删除卡片</span>
+                                <span class="notdefaultcard" v-show="!item.isdefault">设为默认</span>
+
+                                 <!-- Available for default Bank Card -->
+                                <span class="defaultcard" v-show="item.isdefault">默认卡片</span>
+                                <span class="auto" v-show="item.isdefault"></span>
                             </div>
                         </div>
                     </li>
@@ -132,14 +118,14 @@
             </div>
             <div class="footer">
                 <div class="container btnadd-card button-container">
-                    <button type="submit" 
-                            class="btn btn-default btnaddcard" 
-                            data-toggle="modal" data-target="#myModalNorm">
+                    <button @click="showConnectBankCard()"
+                            class="btn btn-default btnaddcard">
                         <img src="../../static/img/plus-icon.png" class="btnplus">
                         添加新银行卡
                     </button>
                 </div>
             </div>
+            <connect-bank-card v-if="displayConnectBankCard" @closeModal="closeBankCard()" ></connect-bank-card>
         </div>
     </div>
   </div>
@@ -147,14 +133,41 @@
 
 <script>
 import { mapMutations } from 'vuex'
+import SignoutMenu from './Common/SignoutMenu'
+import ConnectBankCard from './Modals/ConnectBankCardModal'
 
 export default {
   name: 'bankcard',
+  components: { SignoutMenu , ConnectBankCard },
+  props: ['targettab'],
   data(){
       return {
+          displayConnectBankCard: false,
+          displaySignout: false,
           bankname: '中国工商银行',
           cardno: '1234**********5678',
-          opentab: 'userinfo'
+          opentab: this.$route.params.targettab ? this.$route.params.targettab : 'userinfo',
+          banklist: [
+                {
+                    bankname: '中国工商银行',
+                    accountnumber: '1234**********5678',
+                    customclass: 'ICBC',
+                    isdefault: true,
+                },
+                {
+                    bankname: '中国工商银行',
+                    accountnumber: '1234**********5678',
+                    customclass: 'CIB',
+                    isdefault: false,
+                }
+          ]
+      }
+  },
+  computed: {
+      getCardList(){
+          return this.banklist.sort( function(e){
+            return !e.isdefault;
+          });
       }
   },
   methods: {
@@ -165,7 +178,16 @@ export default {
            this.opentab =  payload;
         },
         routePage: function(pageName){
-            this.$router.push({ path: pageName });
+            this.$router.push({ path: '../' + pageName });
+        },
+        showSignoutMenu: function (mode){
+            this.displaySignout = mode;
+        },
+        showConnectBankCard: function (){
+            this.displayConnectBankCard = true;
+        },
+        closeBankCard: function (){
+            this.displayConnectBankCard = false;
         }
   },
     created() {
@@ -176,143 +198,72 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus">
 
-.flag {
-            width: 0 !important;
-            height: 0 !important;
-            border-bottom: 0.59rem solid transparent !important;
-            border-right: 0.66rem solid #fef000  !important;
-            position: absolute !important;
-            top: 0 !important;
-            // right: 0 !important;
-            opacity: 0.8 !important;
-
-            span {
-                position: absolute !important;
-                color: white !important;
-                left: 0 !important;
-                font-size: .21rem !important;
-                top: 0 !important;
-                background: none !important;
-                text-shadow: 0px 1px 1px black;
-                margin-left: 0.35rem;
-                margin-top: 0.06rem;
-            }
-
-            .star {
-                margin: 50px 0;
-                position: relative;
-                display: block;
-                color: #f00;
-                width: 0px;
-                height: 0px;
-                border-right: 50px solid transparent;
-                border-bottom: 35px solid #f00;
-                border-left: 50px solid transparent;
-                -moz-transform: rotate(35deg);
-                -webkit-transform: rotate(35deg);
-                -ms-transform: rotate(35deg);
-                -o-transform: rotate(35deg);
-
-                &:before {
-                    border-bottom: 40px solid #f00;
-                    border-left: 15px solid transparent;
-                    border-right: 15px solid transparent;
-                    position: absolute;
-                    height: 0;
-                    width: 0;
-                    top: -30px;
-                    left: -35px;
-                    display: block;
-                    content: '';
-                    -webkit-transform: rotate(-35deg);
-                    -moz-transform: rotate(-35deg);
-                    -ms-transform: rotate(-35deg);
-                    -o-transform: rotate(-35deg);
-                }
-                
-                &:after {
-                    position: absolute;
-                    display: block;
-                    color: #f00;
-                    top: 3px;
-                    left: -105px;
-                    width: 0px;
-                    height: 0px;
-                    border-right: 50px solid transparent;
-                    border-bottom: 35px solid #f00;
-                    border-left: 50px solid transparent;
-                    -webkit-transform: rotate(-70deg);
-                    -moz-transform: rotate(-70deg);
-                    -ms-transform: rotate(-70deg);
-                    -o-transform: rotate(-70deg);
-                    content: '';
-                }
-            }
-}
-
 body {
     background: #e2e3e7 !important;
     height: auto;
 }
 
-.footer {
-    margin-top: .23rem;
+.bankinfo { 
+    > .footer {
+        
+        margin-top: .23rem;
 
-    .button-container {
-        padding-right: .32rem;
-        padding-left: .32rem;
-        width: 100%;
+        .button-container {
+            padding-right: .32rem;
+            padding-left: .32rem;
+            width: 100%;
+        }
+
+        .btnadd-card {
+            background: #e2e3e7;
+            padding-bottom: .2rem;
+            padding-top: .2rem;
+            position: fixed;
+            bottom: 0;
+            text-align: center;
+        }
+
+        .btnplus {
+            width: 5%;
+            position: relative;
+            top: .07rem;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-bottom: 0;
+            font-size: .3rem;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btnaddcard {
+            background: #ca0626;
+            border-radius: 1rem !important;
+            width: 90%;
+            font-size: .3rem !Important;
+            color: #ffffff;
+            height: .77rem;
+        }
+
     }
-
-    .btnadd-card {
-        background: #e2e3e7;
-        padding-bottom: .2rem;
-        padding-top: .2rem;
-        position: fixed;
-        bottom: 0;
-        text-align: center;
-    }
-
-    .btnplus {
-        width: 5%;
-        position: relative;
-        top: .07rem;
-    }
-
-    .btn {
-        display: inline-block;
-        margin-bottom: 0;
-        font-size: .3rem;
-        font-weight: 400;
-        line-height: 1.42857143;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        -ms-touch-action: manipulation;
-        touch-action: manipulation;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        background-image: none;
-        border: 1px solid transparent;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .btnaddcard {
-        background: #ca0626;
-        border-radius: 1rem !important;
-        width: 90%;
-        font-size: .3rem !Important;
-        color: #ffffff;
-        height: .77rem;
-    }
-
 }
 
-.header {
+.bankcard > .header {
     position: fixed;
     top: 0;
     z-index: 100;
@@ -537,14 +488,29 @@ body {
                         float: left;
                         width: 28%;
                         border-radius: 12px 0 0 12px;
-
+                        display: grid;
                         img {
                             width: 86%;
                             padding: 21px 2px 21px 14px;
                         }
+
+                        .bank-logo {
+                            height: 75%;
+                            width: 75%;
+                            margin: auto auto;                                                        
+                            
+                            background-size: contain !important;
+                            background-repeat: no-repeat !important;
+                        }
                     }
 
                     .bank_details {
+                        width: 72%;
+                        height: 100%;
+                        margin-left: 28%;
+                        border-radius: 0 12px 12px 0;
+                        padding: 1px 0 0 16px;
+                        color: #fff;
 
                         .bank-name {
                             font-size: 0.3rem;
@@ -555,7 +521,6 @@ body {
                             font-size: 0.34rem;
                             padding-top: 0.1rem;
                         }
-
 
                         .removecard, .notdefaultcard, .defaultcard {
                             float: right;
@@ -586,40 +551,36 @@ body {
                             background: url(../../static/img/auto.png) no-repeat;
                             background-size: 101%;
                         }
+                    }
 
-                        &.ICBC, 
-                        &.CMB, 
-                        &.CITIC,
-                        &.BOC {
-                            background: #c32b2b;
-                            background: -webkit-linear-gradient(left, #c32b2b , #ec5bb0);
-                            background: -o-linear-gradient(right, #c32b2b, #ec5bb0);
-                            background: -moz-linear-gradient(right, #c32b2b, #ec5bb0);
-                            background: linear-gradient(to right, #c32b2b, #ec5bb0);
-                        }
 
-                        &.ICBC, 
-                        &.ABC,
-                        &.CMB, 
-                        &.CCB, &.COMM, 
-                        &.BOC, &.CEB, 
-                        &.CMBC, &.CITIC, &.SZPAB, 
-                        &.SPDB, &.CIB, &.POST-NET {
-                            width: 72%;
-                            height: 100%;
-                            margin-left: 28%;
-                            border-radius: 0 12px 12px 0;
-                            padding: 1px 0 0 16px;
-                            color: #fff;
-                        }
+                    &.ICBC .bank-logo {
+                        background: url(../../static/img/Bank/bank2.png);
+                    } 
 
-                        &.CIB, &.CCB, &.SPDB {
+                    &.CIB .bank-logo {
+                        background: url(../../static/img/Bank/bank-js.png);
+                    }
+
+                    &.ICBC,
+                    &.CMB, 
+                    &.CITIC,
+                    &.BOC {
+                        background: #c32b2b;
+                        background: -webkit-linear-gradient(left, #c32b2b , #ec5bb0);
+                        background: -o-linear-gradient(right, #c32b2b, #ec5bb0);
+                        background: -moz-linear-gradient(right, #c32b2b, #ec5bb0);
+                        background: linear-gradient(to right, #c32b2b, #ec5bb0);
+                    }
+
+                    &.CIB, 
+                    &.CCB, 
+                    &.SPDB {
                             background: #284cc3;
                             background: -webkit-linear-gradient(left, #284cc3 , #4591e6);
                             background: -o-linear-gradient(right, #284cc3, #4591e6);
                             background: -moz-linear-gradient(right, #284cc3, #4591e6);
                             background: linear-gradient(to right, #284cc3, #4591e6);
-                        }
                     }
                 }
             }

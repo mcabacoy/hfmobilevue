@@ -77,6 +77,13 @@ const state ={
             name: '绑定',
             class: '',
             type: 'back'
+        },
+        {
+            link: 'GameBalance',
+            linktype: 'internal',
+            name: 'GameBalance',
+            class: '',
+            type: 'back'
         }
     ]
 }

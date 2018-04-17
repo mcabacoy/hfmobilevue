@@ -1,10 +1,10 @@
 <template>
   <div class="platform-games">
-    <swipe class="swiper-container" auto="0">
+    <swipe class="swiper-container">
       <swipe-item v-for="item in 6" :key="item" >
         <ul>
           <li v-for="(item, index) in gamelist"
-          :key="index" >
+              :key="index" >
             <div :class="['picture',item.customclass]"></div>
             <span> {{ item.name }} </span>
           </li>
@@ -21,6 +21,7 @@ export default {
   name: 'platform-games',
   data(){
     return {
+      platform:  this.$route.params.gametype,
       gamelist: [
         {
           customclass: 'picture',
@@ -70,8 +71,6 @@ export default {
           customclass: 'picture',
           name: '加油金块'
         }
-        
-
       ]
     }
   },
@@ -90,7 +89,6 @@ export default {
 }
 </script>
 
-
 <style lang="stylus" rel="stylesheet/stylus">
 
 .platform-games {
@@ -108,7 +106,6 @@ export default {
     padding-top: .4rem;
     margin-top: -.1rem;
     overflow-y: hidden;
-    
 
     ul {
       padding-top: .1rem;

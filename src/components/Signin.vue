@@ -59,7 +59,20 @@
                 </ol>
             </div>
         </detail-modal>
+    
+        <div class="signinsuccess-modal" v-if="showModalType == 'signinsuccess'">
+            <transition name="modaltrans">
+                <div class="signinsuccess" v-if="showModalType == 'signinsuccess' && display">
+                    <h1>10</h1>
+                    <p>连续签到 
+                        <span class="AccCount">1</span> 天</p>
+                    <span class="ok" @click="closeModal">确 定</span>
+                </div>
+            </transition>
+        </div>
     </div>
+
+   
 
     <notification :message="notifmessage" 
             @close="closeNotif"  
@@ -78,6 +91,7 @@ export default {
     name: 'signin',
     data(){
         return {
+            display: false,
             notifmessage: '',
             showModalType: '',
             checkinrules: [
@@ -100,7 +114,6 @@ export default {
                     pointsAdded: 10
                 }
             ]
-            
         }
     },
     components: { DetailModal, Notification },
@@ -112,11 +125,21 @@ export default {
             this.showModalType = payload;
         },
         closeModal: function () {
-            this.showModalType = '';
+            this.display = false;
+            this.$nextTick(() => {
+                setTimeout(()=>{
+                    this.showModalType = '';
+                }, 300);
+            });
         },
         goCheckIn: function() {
             let error = '今天已经签到过了'
-            this.notifmessage = error;
+            this.showModal('signinsuccess');
+            this.$nextTick(() => {
+                setTimeout(()=>{
+                    this.display = true;
+                }, 150);
+            });
         },
         goRedeem: function() {
             let error = '100积分才可兑换额度'
@@ -132,8 +155,95 @@ export default {
 }
 </script>
 
-
 <style lang="stylus" rel="stylesheet/stylus" scoped >
+
+.modaltrans-enter-active  {
+    transition: transform .5s ease-in;
+    transform: scale(1);
+}
+.modaltrans-leave-active
+{
+    transform: scale(0);
+    transition: transform .5s ease-out;
+}
+.modaltrans-enter  {
+    transform: scale(0);
+}
+.modaltrans-leave  {
+   transform: scale(1);
+}
+
+.signinsuccess-modal {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: fixed;
+            top: 0;
+            z-index: 299;
+            left: 0;
+            background: rgba(43, 35, 33, 0.9);
+
+            .signinsuccess {
+                background: url(../../static/img/HSignin/popup-ss.png) no-repeat;
+                background-size: 95%;
+                background-position-x: .34rem;
+                width: 100%;
+                height: 7rem;
+                position: fixed;
+                top: 1rem !important;
+                z-index: 300;
+
+                h1 {
+                    text-align: center;
+                    width: 3.2rem;
+                    margin: 0 auto;
+                    margin-top: 3rem;
+                    color: #fff600;
+                    font-size: .88rem;
+                    font-weight: 700;
+                    line-height: 1.2rem;
+                }
+
+                p {
+                    text-align: center;
+                    width: 2.1rem;
+                    height: .5rem;
+                    margin: 0 auto;
+                    margin-top: .18rem;
+                    line-height: .48rem;
+                    color: #e96da9;
+                    font-size: .28rem;
+                    background: rgba(0, 0, 0, 0.15);
+                    border-radius: 1rem;
+
+                    span {
+                        color: #fff600;
+                        font-size: .32rem;
+                    }
+                }
+
+                .ok {
+                    color: #fb027c;
+                    position: absolute;
+                    top: 6.5rem;
+                    left: 1.8rem;
+                    background: #fff;
+                    background: -webkit-linear-gradient(#fff 50%, #ffbacd);
+                    background: -o-linear-gradient(#fff 50%, #ffbacd);
+                    background: -moz-linear-gradient(#fff 50%, #ffbacd);
+                    background: linear-gradient(#fff 50%, #ffbacd);
+                    box-shadow: 0px 3px 4px 0px #000000;
+                    width: 2.8rem;
+                    height: .67rem;
+                    text-align: center;
+                    border-radius: 2rem;
+                    line-height: .65rem;
+                    font-size: .35rem;
+                    font-weight: 700;
+                }
+
+            }
+}
 
 
 #signin {
@@ -175,14 +285,6 @@ body {
         background: #e3e3e3;
         height: 100%;
 }
-
-    .logo, #transfers, #walletrecharge, #promotion, #service, #bcard {
-        display: none;
-    }
-
-    #VIP {
-        display: block !important;
-    }
 
 /*Signin*/
 .sign-body , body{

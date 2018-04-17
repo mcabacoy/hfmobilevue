@@ -3,8 +3,8 @@
     <div class="wallet-wrap">
         <div class="wallet-content">
             <img src="../../static/img/wallet-logo.png"/>
-            <p class="p2" data-bind="text:balance">￥00.00</p>
-            <a href="javascript:;" class="toBankCard">添加银行卡</a>
+            <p class="wallet-balance">￥00.00</p>
+            <a  @click="routePage('/Wallet/bankinfo')" class="toBankCard">添加银行卡</a>
             <div class="rescue">
                 <a href="javascript:;">周六奖金</a>
                 <a href="javascript:;">周日奖金</a>
@@ -22,7 +22,6 @@
 <script>
 import { mapState , mapMutations, mapGetters } from 'vuex'
 export default {
-    name: 'signin',
     methods: {
     ...mapMutations ([
        'setCurrentPage'
@@ -63,7 +62,7 @@ export default {
                 width: 35%;
             }
 
-            .wallet-wrap .wallet-content p.p2 {
+            p.wallet-balance {
                 margin-top: .15rem;
                 font-size: .54rem;
                 text-shadow: 0px 3px 1px #830859;

@@ -14,7 +14,7 @@
             <input type="number" 
                 placeholder="请输入金额" pattern="[0-9]*"
                 min="0" inputmode="numeric" 
-                maxlength="8"  class="modal-input">
+                maxlength="8"  class="modal-input" ref="amountinput">
         </div>
         <div class="modal-footer">
             <a class="btn" >确认转出</a>
@@ -34,6 +34,9 @@ export default {
     closeModal: function (payload){
         this.$emit('closeModal', payload)
     }
+  },
+  mounted(){
+    this.$nextTick(() => this.$refs.amountinput.focus())
   },
   computed: {
       modaltitle: function(){

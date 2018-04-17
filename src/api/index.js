@@ -1,5 +1,5 @@
 // let serviceUrl = '';
-let serviceUrl = '/json';
+let serviceUrl = 'http://m.whf6666.com';
 // let serviceUrl = 'http://dlc-callbackmob:8080';
 //let serviceUrl = 'http://192.168.1.7:7050';
 // let serviceUrl ='http://cbc.dlptbet88.com';
@@ -13,7 +13,7 @@ export const QUERYINDEXNOTICE = serviceUrl + '/index/queryIndexNotice';
 //  获取游戏额度信息
 export const QUERYBalanceList = serviceUrl + '/main/queryBalanceList';
 //  登陆接口
-export const LOGIN = serviceUrl + '/api/login';
+export const LOGIN = serviceUrl + '/Account/Token';
 //  註冊接口
 export const REGISTER = serviceUrl + '/api/register';
 //  查询主页用户信息

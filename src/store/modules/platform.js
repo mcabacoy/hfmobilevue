@@ -6,7 +6,9 @@ const state = {
           classification: 'new',
           link: '/New_PT_List',
           balance: 0,
-          forBalancePlatform: false
+          forBalancePlatform: false,
+          isDirectList: true,
+          banner: '../../static/img/HGame/PT-banner.jpg'
         },
         {
           name: 'PT老虎机',
@@ -14,7 +16,8 @@ const state = {
           classification: 'hot',
           link: '/PT',
           balance: 0,
-          forBalancePlatform: true
+          forBalancePlatform: true,
+          isDirectList: false
         },
         {
           name: 'MG老虎机',
@@ -22,7 +25,8 @@ const state = {
           classification: '',
           link: '/MG',
           balance: 0,
-          forBalancePlatform: true
+          forBalancePlatform: true,
+          isDirectList: false
         },
         {
           name: 'SG老虎机',
@@ -30,7 +34,8 @@ const state = {
           classification: '',
           link: '/SG',
           balance: 0,
-          forBalancePlatform: true
+          forBalancePlatform: true,
+          isDirectList: false
         },
         {
           name: 'HABA老虎机',
@@ -38,7 +43,8 @@ const state = {
           classification: '',
           link: '/HABA',
           balance: 0,
-          forBalancePlatform: true
+          forBalancePlatform: true,
+          isDirectList: false
         },
         {
           name: 'PNG老虎机',
@@ -46,7 +52,8 @@ const state = {
           classification: '',
           link: '/PNG',
           balance: 0,
-          forBalancePlatform: true
+          forBalancePlatform: true,
+          isDirectList: false
         },
         {
           name: 'TTG老虎机',
@@ -54,7 +61,8 @@ const state = {
           classification: '',
           link: '/TTG',
           balance: 0,
-          forBalancePlatform: true
+          forBalancePlatform: true,
+          isDirectList: false
         },
         {
           name: 'BS老虎机',
@@ -62,12 +70,11 @@ const state = {
           classification: '',
           link: '/BS',
           balance: 0,
-          forBalancePlatform: true
+          forBalancePlatform: true,
+          isDirectList: false
         }
       ]
 }
-
-
 
 const getters = {
     getBalancePlatforms: function(state ){

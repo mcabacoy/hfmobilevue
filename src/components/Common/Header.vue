@@ -2,14 +2,15 @@
 <div>
     <div class="nav-platform" v-if="currentPageName == 'PlatformGames'">
         <span class="nav-back"  @click="goBack()"><i></i></span>
-        <div class="nav-game">
-            <span class="nav-title">
+        <div :class="['nav-game' , getGameBalanceTitle]">
+            <!-- <span class="nav-title">
                 <img src="../../../static/img/HGame/PT-text.png"/>
-            </span>
+            </span> -->
         </div>
         <span class="nav-toggle"><i></i></span>
     </div>
-    <div class="nav" v-else> 
+
+    <div class="nav" v-else>
         <a 
             @click="goBack()"
             class="backer prompt"
@@ -17,12 +18,14 @@
         <img src="../../../static/img/toggle.png" 
              class="nav-toggle" 
              @click="openSideBar" v-else/>
+        
         <img src="../../../static/img/logo.png" 
             class="logo"  
-            v-if="currentPageName == '' || currentPageName == 'Homepage' || currentPageName == '鸿福首页' " />
+            v-if="currentPageName == '' || 
+                  currentPageName == 'Homepage' || currentPageName == '鸿福首页' " />
+        <span v-else-if="currentPageName == 'GameBalance'" >{{ getGameBalanceTitle + "老虎机" }}</span>
         <span v-else >{{ currentPageName }}</span>
   </div>
-
 </div>
 </template>
 
@@ -46,12 +49,52 @@ export default {
         ...mapGetters ({
             currentPageName: 'getMenuByLink',
             currentPageMenuType: 'getMenuTypeLink'
-        })
+        }),
+        getGameBalanceTitle() {
+            return this.$route.params.gametype;
+        }
     }
 }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
+
+
+.nav-game {
+    height: rem;
+    height: 1rem;
+    margin-top: -0.01rem;
+
+    &.PT1 , &.PT {
+        background: url(../../../static/img/HGame/PT-text.png) no-repeat center;
+    }
+    
+    &.MG {
+        background: url(../../../static/img/HGame/MG-text.png) no-repeat center;
+    }
+
+    &.SG {
+        background: url(../../../static/img/HGame/SG-text.png) no-repeat center;
+    }
+
+    &.HABA {
+        background: url(../../../static/img/HGame/HB-text.png) no-repeat center;
+    }
+    
+    &.PNG {
+        background: url(../../../static/img/HGame/PNG-text.png) no-repeat center;
+    }
+
+    &.TTG {
+        background: url(../../../static/img/HGame/TTG-text.png) no-repeat center;
+    }
+
+    &.BS {
+        background: url(../../../static/img/HGame/BS-text.png) no-repeat center;
+    }
+    
+    background-size: contain !important;
+}
 
 .nav-platform {
     

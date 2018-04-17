@@ -4,7 +4,7 @@
         <transition name="sidenav-trans">
         <div class="side-content" ref="sidecontent">
             <div class="firsttabb">
-                <div class="sidebarlogo"></div>
+                <div :class="['sidebarlogo', getUserProfileClass(grade)]"></div>
                 <p id="AccountName">{{ "用户 " + accountName }}</p>
             </div>
             <div class="secondtabb">
@@ -53,18 +53,18 @@ export default {
       ...mapMutations ([ 
        'setCurrentPage'
       ]),
-    //   getUserProfileSource: function (grade){
-    //       var rootSource = '../../../static/img/Personalprofile/';
-    //       switch(grade){
-    //           case 0:
-    //           return rootSource + 'futu-profile.png';
-    //          case 8: 
-    //          case 7: 
-    //             return rootSource + '1.png';
-    //          default:
-    //             return  rootSource + grade + '.png';
-    //       }
-    //   },
+
+      getUserProfileClass: function (grade){
+          switch(grade){
+              case 0:
+                return  'futu-profile';
+             case 8: 
+             case 7: 
+                return 'grade-1';
+             default:
+                return "grade-" + grade ;
+          }
+      },
       closeSideBar: function(){
           this.$refs.sidecontent.className = this.$refs.sidecontent.className.replace('visible', '');
           setTimeout(()=>{
@@ -73,7 +73,7 @@ export default {
       },
       routePage: function ( pageName ){
         this.setCurrentPage(pageName);
-        this.$router.push({ path: pageName });
+        this.$router.push({ path: '../' + pageName });
         this.closeSideBar();
       },
   },
@@ -89,30 +89,74 @@ export default {
 </script>
 
 <style>
+
+</style>
+<style lang="stylus" rel="stylesheet/stylus">
+
+/* TRANSITION CLASSES */
+    .sidenav-trans-enter-active {
+        margin-left: -6.5rem;
+        transition:  margin 3s linear;
+    }
+    .sidenav-trans-leave-active {
+        margin-left: 0rem;;
+        transition:  margin 3s linear;
+    }
+    .sidenav-trans-enter  {
+        margin-left: 0rem;
+    }
+    .sidenav-trans-leave  {
+        margin-left: -6.5rem;
+    }
+
 .sidebarlogo {
-    background: url('../../../static/img/Personalprofile/futu-profile.png') ;
-    background-size: cover;
-    background-repeat: no-repeat;
+    &.futu-profile {
+        background: url('../../../static/img/Personalprofile/futu-profile.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &.grade-1 {
+        background: url('../../../static/img/Personalprofile/1.png') ;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &.grade-2 {
+        background: url('../../../static/img/Personalprofile/2.png') ;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &.grade-3 {
+        background: url('../../../static/img/Personalprofile/3.png') ;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &.grade-4 {
+        background: url('../../../static/img/Personalprofile/4.png') ;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &.grade-5 {
+        background: url('../../../static/img/Personalprofile/5.png') ;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &.grade-6 {
+        background: url('../../../static/img/Personalprofile/6.png') ;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+     
     width: 1.5rem;
     height: 1.5rem;
     margin: auto;
-}
-
-/* TRANSITION CLASSES */
-.sidenav-trans-enter-active  {
-    margin-left: -6.5rem;;
-    transition:  margin 3s linear;
-}
-.sidenav-trans-leave-active
-{
-       margin-left: 0rem;;
-    transition:  margin 3s linear;
-}
-.sidenav-trans-enter  {
-    margin-left: 0rem;
-}
-.sidenav-trans-leave  {
-    margin-left: -6.5rem;
+  
 }
 
 .sidemask {
@@ -131,78 +175,109 @@ export default {
     width: 100%;
     height: 100%;
     overflow-y: scroll;
+
+    .side-content {
+        background: #1f2226;
+        height: auto;
+        width: 4.5rem;
+        position: relative;
+        margin-left: -6.5rem;
+        transition: 0.8s;
+
+        &.visible {
+            margin-left: 0rem;
+        } 
+
+        .firsttabb {
+            background: url(../../../static/img/nav-icons/nav-bg.png) no-repeat;
+            background-size: cover;
+            text-align: center;
+            padding: .7rem 0 0 0;
+            height: 3.45rem;
+             p {
+                color: #fff;
+                font-size: .32rem;
+                margin-top: .15rem;
+            }
+        }
+
+        .secondtabb {
+            ul li {
+                padding: .2rem .5rem;
+ 
+                &.active{
+                    background: #161c23;
+                    
+                    a , span {
+                         color: #ffd200;
+                    }
+                }
+                
+                span {
+                    vertical-align: middle;
+                }
+
+                a , span {
+                    color: #d1d1d1;
+                }
+
+            }
+        } 
+
+        .thirdtabb {
+            background: #24282e;
+            padding: .27rem .5rem;
+            margin-top: 1rem;   
+
+            span {
+                color: #5d6980;
+                margin-left: .3rem;
+                font-size: .25rem;
+                line-height: 0.47rem;
+            }
+        }
+    }
 }
 
-.sidenav .side-content {
-  background: #1f2226;
-    height: auto;
-    width: 4.5rem;
-    position: relative;
-    margin-left: -6.5rem;
-    transition: 0.8s;
+.sidenav .side-content .secondtabb ul li {  
+    .icon {
+        background: url(../../../static/img/nav-icons/nav-icon1.png) no-repeat;
+        background-size: 100%;
+        width: .45rem;
+        height: .45rem;
+        display: inline-block;
+        margin-right:.4rem
+        filter: grayscale(1);
+    }
+    
+    &.active .icon {
+        background: url(../../../static/img/nav-icons/nav-icon1active.png) no-repeat;
+        background-size: 100%;
+        filter: none !important;
+    }   
+
+    .icon2 {
+        background: url(../../../static/img/nav-icons/nav-icon2.png) no-repeat;
+        background-size: 100%;
+    }
+
+    &.active .icon2 {
+        background: url(../../../static/img/nav-icons/nav-icon2active.png) no-repeat;
+        background-size: 100%;
+    }
+
+    .icon3 {
+        background: url(../../../static/img/nav-icons/nav-icon3.png) no-repeat;
+        background-size: 100%;
+    }
+
+    &.active .icon3 {
+        background: url(../../../static/img/nav-icons/nav-icon3active.png) no-repeat;
+        background-size: 100%;
+    }
+
 }
 
-.sidenav .side-content .firsttabb {
-    background: url(../../../static/img/nav-icons/nav-bg.png) no-repeat;
-    background-size: cover;
-    text-align: center;
-    padding: .7rem 0 0 0;
-    height: 3.45rem;
-}
-
-.sidenav .side-content.visible {
-    margin-left: 0rem;
-}
-
-.sidenav .side-content .secondtabb ul li{
-    padding: .2rem .5rem;
-}
-.sidenav .side-content .secondtabb ul li.active{
-    background: #161c23;
-}
-
-.sidenav .side-content .secondtabb ul li a,
-.sidenav .side-content .secondtabb ul li span {
-    color: #d1d1d1;
-}
-
-.sidenav .side-content .secondtabb ul li.active span {
-    color:#ffd200;
-}
-
-.sidenav .side-content .secondtabb ul li span {
-    vertical-align: middle;
-}
-
-.sidenav .side-content .secondtabb ul li .icon{
-    background: url(../../../static/img/nav-icons/nav-icon1.png) no-repeat;
-    background-size: 100%;
-    width: .45rem;
-    height: .45rem;
-    display: inline-block;
-    margin-right:.4rem
-}
-
-.sidenav .side-content .secondtabb ul li.active .icon{
-    background: url(../../../static/img/nav-icons/nav-icon1active.png) no-repeat;
-    background-size: 100%;
-}
-.sidenav .side-content .secondtabb ul li .icon2{
-    background: url(../../../static/img/nav-icons/nav-icon2.png) no-repeat;
-    background-size: 100%;
-}
-.sidenav .side-content .secondtabb ul li.active .icon2{
-    background: url(../../../static/img/nav-icons/nav-icon2active.png) no-repeat;
-    background-size: 100%;
-}
-.sidenav .side-content .secondtabb ul li .icon3{
-    background: url(../../../static/img/nav-icons/nav-icon3.png) no-repeat;
-    background-size: 100%;
-}
-.sidenav .side-content .secondtabb ul li.active .icon3{
-    background: url(../../../static/img/nav-icons/nav-icon3active.png) no-repeat;
-    background-size: 100%;
-}
 .sidenav .side-content .secondtabb ul li .icon4{
     background: url(../../../static/img/nav-icons/nav-icon4.png) no-repeat;
     background-size: 100%;
@@ -234,40 +309,6 @@ export default {
 .sidenav .side-content .secondtabb ul li.active .icon7{
     background: url(../../../static/img/nav-icons/nav-icon7active.png) no-repeat;
     background-size: 100%;
-}
-
-.sidenav .side-content .secondtabb ul li.active a {
-    color: #ffd200;
-}
-.sidenav .side-content .secondtabb ul li a {
-    color: #d1d1d1;
-}
-
-.sidenav .side-content .thirdtabb{
-    background: #24282e;
-    padding: .27rem .5rem;
-    margin-top: 1rem;
-}
-.sidenav .side-content .thirdtabb span{
-    color: #5d6980;
-    margin-left: .3rem;
-    font-size: .25rem;
-    line-height: 0.47rem;
-}
-
-.firsttabb p {
-    color: #fff;
-    font-size: .32rem;
-    margin-top: .15rem;
-}
-
-.grade {
-    width: 1.5rem;
-    margin-bottom: -0.2rem;
-}
-
-.side-content {
-    margin-left: 0px;
 }
 
 </style>

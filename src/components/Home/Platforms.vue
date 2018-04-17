@@ -4,7 +4,7 @@
            <li :class="item.customClass" 
                 v-for="item in list" 
                 v-bind:key="item.name"
-                @click="routePage('/PlatformGames')">            
+                @click="routePage( item.isDirectList ?  '/PlatformGames' : '/GameBalance' , item.customClass)">            
                 <span class="platform-name">{{item.name }}</span>
                 <div :class="[item.classification , 'flag']" v-if="item.classification != ''">
                     <span v-if="item.classification=='hot'">热</span>
@@ -26,8 +26,8 @@ export default {
         })
     },
     methods: {
-        routePage(pageName){
-            this.$router.push({ path: pageName });
+        routePage(pageName, platform ){
+            this.$router.push({ path: pageName + '/' + platform  });
         }
     }
 }
@@ -100,7 +100,6 @@ export default {
                 margin-top: 0.06rem;
             }
         }
-
     }
     
     li:nth-child(2n+2) {

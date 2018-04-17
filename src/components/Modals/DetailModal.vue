@@ -43,7 +43,7 @@ export default {
       this.$nextTick(() => {
           setTimeout(()=>{
               this.display = true;
-          }, 250);
+          }, 100);
       });
   }
 }

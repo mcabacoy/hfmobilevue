@@ -16,6 +16,9 @@ const Signin = resolve => require(['./components/Signin'], resolve)
 const Wallet = resolve => require(['./components/Wallet'], resolve)
 const InfoBind = resolve => require(['./components/BankCard/UserInfoBind'], resolve);
 const PlatformGames = resolve => require(['./components/PlatformGames'], resolve);
+const GameBalance = resolve => require(['./components/GameBalance'], resolve);
+const Login = resolve => require(['./components/Login'], resolve);
+const RetrievePassword = resolve => require(['./components/RetrievePassword'], resolve);
 
 import store from './store';
 import layer from 'vue-layer-mobile';
@@ -52,7 +55,13 @@ const routes = [
   },
   {
     path: '/BankCard',
-    component: BankCard
+    component: BankCard,
+    children: [{
+      path: '/Wallet/:targettab',
+      component: BankCard,
+      props: true
+      }
+    ]
   },
   {
     path: '/Signin',
@@ -67,13 +76,30 @@ const routes = [
     component: InfoBind
   },
   {
-    path: '/PlatformGames',
-    component: PlatformGames
+    path: '/PlatformGames/:gametype',
+    component: PlatformGames,
+    props: true
+  },
+  {
+    path: '/GameBalance/:gametype',
+    component: GameBalance,
+    props: true
+  },
+  {
+    path: '/Login',
+    component: Login
+  },
+  {
+    path: '/RetrievePassword',
+    component: RetrievePassword
   }
 ];
 
 const router = new Router({
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+   return { x: 0, y: 0 }
+  }
 });
 
 
