@@ -19,6 +19,7 @@ const PlatformGames = resolve => require(['./components/PlatformGames'], resolve
 const GameBalance = resolve => require(['./components/GameBalance'], resolve);
 const Login = resolve => require(['./components/Login'], resolve);
 const RetrievePassword = resolve => require(['./components/RetrievePassword'], resolve);
+const Registration = resolve => require(['./components/Registration'], resolve);
 
 import store from './store';
 import layer from 'vue-layer-mobile';
@@ -92,6 +93,10 @@ const routes = [
   {
     path: '/RetrievePassword',
     component: RetrievePassword
+  },
+  {
+    path: '/Register',
+    component: Registration
   }
 ];
 
