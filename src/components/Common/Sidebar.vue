@@ -50,10 +50,7 @@ export default {
       });
   },
   methods: {
-      ...mapMutations ([ 
-       'setCurrentPage'
-      ]),
-
+      ...mapMutations (['setCurrentPage', 'logoutUser']),
       getUserProfileClass: function (grade){
           switch(grade){
               case 0:
@@ -77,9 +74,7 @@ export default {
         this.closeSideBar();
       },
       logout: function (){
-        sessionStorage.removeItem('accessToken');
-        window.localStorage.removeItem('information');
-        sessionStorage.removeItem('userInfo');
+        this.logoutUser();
         this.$router.push({ path: '../Login' });
       }
   },

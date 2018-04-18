@@ -79,7 +79,6 @@ export default {
         sessionStorage.removeItem('userInfo');
 
         var that_ = this;
-        tokenKey
         // Request to API
         this.$http.post( LOGIN , qs.stringify(postData))
             .then( function(res) {
