@@ -92,7 +92,7 @@ export default {
                 // headers.Authorization = 'Bearer ' + data.access_token;
                 
                 // Route to Homepage
-                that_.$router.push({ path: '../Homepage' });
+                that_.$router.push({ path: '../' + 'Homepage' });
 
             })
             .catch( function (error) {

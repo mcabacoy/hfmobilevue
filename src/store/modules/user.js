@@ -1,5 +1,3 @@
-
-
 const tokenKey_ = 'accessToken';
 const loginInfo_ = 'information';
 const userInfo_ = 'userInfo';
@@ -41,7 +39,7 @@ const mutations = {
     getUserDetails () {
 
     },
-    
+
     logoutUser (state) {
         console.log('--- BEFORE LOGOUT ---');
         console.log(state.userInfo);

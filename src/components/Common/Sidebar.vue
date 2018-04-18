@@ -61,7 +61,8 @@ export default {
              default:
                 return "grade-" + grade ;
           }
-      },
+      }, 
+
       closeSideBar: function(){
           this.$refs.sidecontent.className = this.$refs.sidecontent.className.replace('visible', '');
           setTimeout(()=>{
@@ -75,7 +76,7 @@ export default {
       },
       logout: function (){
         this.logoutUser();
-        this.$router.push({ path: '../Login' });
+        this.$router.push({ path: '../' + 'Login' });
       }
   },
   computed: {

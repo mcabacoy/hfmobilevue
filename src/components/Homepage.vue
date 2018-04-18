@@ -36,7 +36,7 @@ export default {
         return {
             AccountDetails: {
                 Balance: 0,
-                AccountName: '',
+                AccountName: ' ',
             }
         }
     },

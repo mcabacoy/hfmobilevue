@@ -38,7 +38,6 @@ const state = {
 
 export default new Vuex.Store({
   state,
-  mutations,
   modules: { menu, platfrom, wallet, user },
   strict: true,
 });
