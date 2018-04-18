@@ -1,3 +1,4 @@
+var qs = require("querystring");
 const tokenKey_ = 'accessToken';
 const loginInfo_ = 'information';
 const userInfo_ = 'userInfo';
@@ -32,36 +33,30 @@ const emptyUserInfo_ =  {
 
 const state = {
     tokenKey: sessionStorage.getItem(tokenKey_),
-    userInfo: emptyUserInfo_
-}
-
-const mutations = {
-    getUserDetails () {
-
-    },
-
-    logoutUser (state) {
-        console.log('--- BEFORE LOGOUT ---');
-        console.log(state.userInfo);
-        console.log(state.tokenKey);
-
-        
-        sessionStorage.removeItem(tokenKey_);
-        window.localStorage.removeItem(loginInfo_);
-        sessionStorage.removeItem(userInfo_);
-        
-        state.tokenKey = ''
-        state.userInfo = emptyUserInfo_;
-
-        console.log('--- AFTER LOGOUT ---');
-        console.log(state.userInfo);
-        console.log(state.tokenKey);
-        debugger;
-    }
+    userInfo_: emptyUserInfo_
 }
 
 const getters = {
+    currentUser: state => {
+        return {
+            tokenKey : sessionStorage.getItem(tokenKey_),
+            userInfo : qs.parse(sessionStorage.getItem( userInfo_ ))
+        }
+    }
+}
 
+
+const mutations = {
+    setUserInfo  (state, payload) {
+        state.userInfo_ = payload;
+    },
+    logoutUser (state) {
+        // state.userInfo = emptyUserInfo_;
+        state.tokenKey = ''
+        sessionStorage.removeItem(tokenKey_);
+        window.localStorage.removeItem(loginInfo_);
+        sessionStorage.removeItem(userInfo_);
+    }
 }
 
 const actions = {

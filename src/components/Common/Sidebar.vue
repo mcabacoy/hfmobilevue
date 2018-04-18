@@ -4,8 +4,8 @@
         <transition name="sidenav-trans">
         <div class="side-content" ref="sidecontent">
             <div class="firsttabb">
-                <div :class="['sidebarlogo', getUserProfileClass(grade)]"></div>
-                <p id="AccountName">{{ "用户 " + accountName }}</p>
+                <div :class="['sidebarlogo', getUserProfileClass( currentUser.userInfo.VipLevel - 1 )]"></div>
+                <p id="AccountName">{{ "用户 " + currentUser.userInfo.AccountName }}</p>
             </div>
             <div class="secondtabb">
                 <ul>
@@ -38,8 +38,7 @@ export default {
   name: 'SideNav',
   data(){
       return {
-        grade: 0,
-        accountName: 'HFeason9',
+       
       }
   },
   mounted(){
@@ -62,7 +61,6 @@ export default {
                 return "grade-" + grade ;
           }
       }, 
-
       closeSideBar: function(){
           this.$refs.sidecontent.className = this.$refs.sidecontent.className.replace('visible', '');
           setTimeout(()=>{
@@ -76,7 +74,7 @@ export default {
       },
       logout: function (){
         this.logoutUser();
-        this.$router.push({ path: '../' + 'Login' });
+        this.$router.push({ path: '../Login' });
       }
   },
   computed: {
@@ -84,8 +82,12 @@ export default {
         currentPage: state => state.menu.currentpage
     }),
     ...mapGetters ({
-        menus: 'getSideMenus'
+        menus: 'getSideMenus',
+        currentUser: 'currentUser'
     })
+  },
+  created(){
+      console.log(this.currentUser);
   }
 }
 </script>

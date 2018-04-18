@@ -10,7 +10,7 @@
     <div class="wallet">
      <div class="wallet-txt">
             <p class="coins-label" style=""><img src="../../static/img/coins-ico.png"  class="coins" />中心钱包</p>
-            <p class="balance-label" style="">余额：<span>￥{{ AccountDetails.Balance }}</span></p>
+            <p class="balance-label" style="">余额：<span>￥{{  AccountDetails.Balance }}</span></p>
     </div>
     <div class="wallet-btn">
         <a ><img @click="routePage('/Wallet')" src="../../static/img/wallet_.png" class="wallet-button" /></a>
@@ -24,20 +24,17 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 import BannerSwiper from './Swiper/BannerSwiper'
 import Platform from './Home/Platforms'
 import Announcement from './Common/Announcement'
 import { USERINFO  } from './../api'
-
+var qs = require("querystring");
 export default {
     name: 'homepage',
     data(){
         return {
-            AccountDetails: {
-                Balance: 0,
-                AccountName: ' ',
-            }
+            AccountDetails: ''
         }
     },
     components: {
@@ -45,30 +42,29 @@ export default {
     },
     methods: {
         ...mapMutations ([
-       'selectMethod',
-       'setCurrentPage'
+            'selectMethod',
+            'setCurrentPage',
+            'setUserInfo'
         ]),
         routePage: function(pageName){
             this.$router.push({ path: pageName });
         },
+
         setAccountDetails() {
-            let userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-            console.log(userInfo);
-            this.AccountDetails.Balance = userInfo.Balance.toFixed(2);
-            this.AccountDetails.AccountName = userInfo.AccountName;
+            this.AccountDetails = this.currentUser.userInfo;
+            console.log(this.currentUser.userInfo);
         },
-        requestAccountInfo(token){
+        requestAccountInfo( token ){
             let config = {
                 headers: {
                     'Authorization': 'Bearer ' + token,
                 }
             }
             let that_ = this;
-            this.$http.get( USERINFO ,  config )
-            .then( function(res){                 
-                sessionStorage.setItem('userInfo', JSON.stringify(res.data.Value));
-                
-                that_.setAccountDetails();
+            this.$http.get( USERINFO,  config )
+            .then( function(res){
+                sessionStorage.setItem('userInfo', (qs.stringify(res.data.Value)));
+                that_.setAccountDetails( );
             })
             .catch( function(error){
                 
@@ -78,27 +74,23 @@ export default {
     computed: {
         ...mapState ({
             tokenKey : state => state.tokenKey
+        }),
+        ...mapGetters({ 
+            currentUser: 'currentUser'
         })
     },
     created() {
-        // Check if logged in
-        let tokenKey_ = 'accessToken';
-        let userInfo_ = 'userInfo';
-        var isLoggedIn = ( sessionStorage.getItem(tokenKey_) != null && typeof(sessionStorage.getItem(tokenKey_)) != 'undefined');
-        console.log( 'A:');
-        console.log( this.tokenKey );
-        console.log( 'B:');
-        console.log( sessionStorage.getItem(tokenKey_) );
-
+        var isLoggedIn = ( this.currentUser.tokenKey != '' && this.currentUser.tokenKey != null && this.currentUser.tokenKey != 'undefined');
         if ( !isLoggedIn) {
              this.$router.push('../Login');
+             return;
         }
-        // Check if User Info is retrieved
-        if ( sessionStorage.getItem(userInfo_) != null && JSON.parse(sessionStorage.getItem(userInfo_)).AccountName ) {
+
+        if ( this.currentUser.userInfo != null && this.currentUser.userInfo.AccountName ) {
             this.setAccountDetails();
         }
         else {
-            this.requestAccountInfo(sessionStorage.getItem(tokenKey_));
+            this.requestAccountInfo( this.currentUser.tokenKey );
         }
 
         this.setCurrentPage('Homepage');
@@ -107,7 +99,6 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-
 #homepage {
   margin-top: 1.1rem;
 
@@ -220,7 +211,4 @@ export default {
     }
 
 }
-
-
-  
 </style>

@@ -72,31 +72,19 @@ export default {
         }
 
         let tokenKey = 'accessToken';
-        
-        // Remove item in Session Storage : accessToken
         sessionStorage.removeItem(tokenKey);
         window.localStorage.removeItem('information');
         sessionStorage.removeItem('userInfo');
 
         var that_ = this;
-        // Request to API
         this.$http.post( LOGIN , qs.stringify(postData))
             .then( function(res) {
-                // Set tokenKey/accessToken in sessionStorage
                 sessionStorage.setItem( tokenKey, res.data.access_token);
-
-                // Set login information in localStorage
                 window.localStorage.setItem('information', qs.stringify(postData));
-                
-                // Add headers.Authorization
-                // headers.Authorization = 'Bearer ' + data.access_token;
-                
-                // Route to Homepage
                 that_.$router.push({ path: '../' + 'Homepage' });
-
             })
             .catch( function (error) {
-                that_.notifmessage = error;
+                that_.notifmessage = 'Failed in loggin in';
             });
     },
     closeNotif(){
