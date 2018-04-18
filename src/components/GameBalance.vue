@@ -78,9 +78,11 @@ export default {
     background: -o-linear-gradient(#920e36, #330a16) !important;
     background: -moz-linear-gradient(#920e36, #330a16) !important;
     background: linear-gradient(#920e36, #330a16) !important;
+    height:100%;
 
     .game-banner {
         width: 100%;
+        height: 3.58rem;
     }
 
     .game-body {
@@ -90,7 +92,7 @@ export default {
         border-radius: .1rem;
 
         .game-header {
-            padding: .2rem 0;
+            padding: .27rem 0;
             padding-left: .3rem;
             border-bottom: 1px solid #c0c0c0;
             color: #2c2c2c;
@@ -107,7 +109,7 @@ export default {
         }
 
         .game-content {
-            padding: .45rem 0;
+            padding: .53rem 0;
             padding-left: .28rem;
 
             p.label {
@@ -134,7 +136,7 @@ export default {
             
             span {
                 width: 50%;
-                padding: .189rem 0;
+                padding: .25rem 0;
                 float: left;
                 text-align: center;
                 font-size: .3rem;

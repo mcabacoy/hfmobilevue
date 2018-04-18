@@ -5,7 +5,7 @@
         <div class="side-content" ref="sidecontent">
             <div class="firsttabb">
                 <div :class="['sidebarlogo', getUserProfileClass( currentUser.userInfo.VipLevel - 1 )]"></div>
-                <p id="AccountName">{{ "用户 " + currentUser.userInfo.AccountName }}</p>
+                <p id="AccountName">{{ "用户" + currentUser.userInfo.AccountName }}</p>
             </div>
             <div class="secondtabb">
                 <ul>
@@ -157,8 +157,8 @@ export default {
         background-position: center;
     }
      
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.65rem;
+    height: 1.65rem;
     margin: auto;
   
 }
@@ -182,7 +182,7 @@ export default {
 
     .side-content {
         background: #1f2226;
-        height: auto;
+        height: 100%;
         width: 4.5rem;
         position: relative;
         margin-left: -6.5rem;
@@ -201,11 +201,13 @@ export default {
              p {
                 color: #fff;
                 font-size: .32rem;
-                margin-top: .15rem;
             }
         }
 
         .secondtabb {
+            padding-bottom: 1rem;
+            background: #1f2226;
+
             ul li {
                 padding: .2rem .5rem;
  
@@ -231,7 +233,6 @@ export default {
         .thirdtabb {
             background: #24282e;
             padding: .27rem .5rem;
-            margin-top: 1rem;   
 
             span {
                 color: #5d6980;
@@ -250,7 +251,7 @@ export default {
         width: .45rem;
         height: .45rem;
         display: inline-block;
-        margin-right:.4rem
+        margin-right:.3rem
         filter: grayscale(1);
     }
     

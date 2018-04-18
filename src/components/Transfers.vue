@@ -71,6 +71,7 @@ export default {
 
 #Transfers {
     display:block !important;
+    background: #fff;
     
     .wrap.Transfers-content-top {
         margin-top: 1.1rem;
@@ -84,7 +85,7 @@ export default {
         .lefthead {
             float: left;
             margin-left: .4rem;
-            margin-top: .38rem;
+            margin-top: .44rem;
 
             span {
                 color: #fff;
@@ -96,7 +97,7 @@ export default {
                 text-shadow: 1px 2px 3px #2d1205;
                 color: #fff;
                 font-size: .55rem;
-                margin-top: .14rem;
+                margin-top: .27rem;
             }
         }
     }
@@ -112,7 +113,7 @@ export default {
             float: right;
             border: 1px solid #fff;
             border-radius: .28rem;
-            padding: .08rem .28rem;
+            padding: .12rem .28rem;
             letter-spacing: .03rem;
             color: #fff;
         }

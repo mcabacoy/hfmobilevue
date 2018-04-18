@@ -38,6 +38,7 @@ export default {
 
 .platforms {
   padding-bottom: .6rem;
+  background: #e4dede;
   
   ul {
     padding: 0 .15rem;

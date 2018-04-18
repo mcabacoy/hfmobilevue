@@ -72,6 +72,7 @@ body {
         p:first-child {
             color: #818181;
             font-size: .26rem;
+            margin-top: .15rem;
         }
         
         ul {
@@ -86,7 +87,7 @@ body {
                 float: left;
                 text-align: center;
                 width: 25%;
-                padding-bottom: .65rem;
+                padding-bottom: .4rem;
 
                 span {
                     color: #a0a0a0;
@@ -96,7 +97,7 @@ body {
         }
 
         ul li:last-child , ul {
-            padding-bottom: .2rem;
+            padding-bottom: .12rem;
         }
 
         div.method {

@@ -63,7 +63,7 @@ export default {
             }
 
             p.wallet-balance {
-                margin-top: .15rem;
+                margin-top: .25rem;
                 font-size: .54rem;
                 text-shadow: 0px 3px 1px #830859;
             }
@@ -75,7 +75,7 @@ export default {
                 color: #fff;
                 border: 1px solid #fff;
                 border-radius: 1rem;
-                padding: .12rem .2rem;
+                padding: .16rem .2rem;
                 position: absolute;
                 right: .2rem;
                 top: 2.5rem;
@@ -129,7 +129,7 @@ export default {
             display: block;
             width: 83%;
             margin: 0 auto;
-            padding: .22rem 0;
+            padding: .25rem 0;
             border-radius: 27px;
             text-align: center;
             margin-bottom: .2rem;

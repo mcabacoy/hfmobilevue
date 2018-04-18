@@ -30,7 +30,7 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus" scoped >
 
 li.transfer-list {
-                margin-top: .2rem;
+                margin-top: .25rem;
                 width: 48.6%;
                 margin-right: .15rem;
                 float: left;
@@ -45,9 +45,9 @@ li.transfer-list {
                     background: black;
                     p {
                         font-size: .21rem;
-                        margin-bottom: .05rem;
+                        margin-bottom: .14rem;
                         padding-left: .2rem;
-                        padding-top: .2rem;
+                        padding-top: .24rem;
                     }
 
                     h2 {
@@ -71,7 +71,7 @@ li.transfer-list {
                             width: 48%;
                             display: inline-block;
                             text-align: center;
-                            padding: .09rem 0;
+                            padding: .13rem 0;
                             color: #fff;
                         }
                     }
@@ -79,7 +79,7 @@ li.transfer-list {
     .transtitle {
                     font-size: .3rem;
                     color: #232323;
-                    margin-bottom: .05rem;
+                    margin-bottom: .1rem;
                     margin-left: .08rem;
     }
     span {

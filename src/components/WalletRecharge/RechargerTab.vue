@@ -75,6 +75,8 @@ export default {
 .tabs-content {
     
     height: 6.8rem;
+    background: #d6d7db;
+    padding-top: .22rem;
     
     .tab-section {
         background: #ffd800;
@@ -85,7 +87,6 @@ export default {
         height: .8rem;
         line-height: .8rem;
         margin: auto;
-        margin-top: .22rem;
         padding-left: .28rem;
         border: 1px solid #bdbdbd !important;
     }
@@ -118,8 +119,6 @@ export default {
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         position: relative;
-
-        display: inline-table;
     
         .tab-amount-label {
             position: relative;
@@ -188,7 +187,7 @@ export default {
                 height: .6rem;
                 width: 5rem;
                 padding-left: .25rem;
-                /* z-index: 9999; */
+                z-index: 2;
                 position: relative;
                 float: left;
                 margin-top: 0.1rem;
