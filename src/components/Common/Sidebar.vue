@@ -50,10 +50,7 @@ export default {
       });
   },
   methods: {
-      ...mapMutations ([ 
-       'setCurrentPage'
-      ]),
-
+      ...mapMutations (['setCurrentPage', 'logoutUser']),
       getUserProfileClass: function (grade){
           switch(grade){
               case 0:
@@ -64,7 +61,8 @@ export default {
              default:
                 return "grade-" + grade ;
           }
-      },
+      }, 
+
       closeSideBar: function(){
           this.$refs.sidecontent.className = this.$refs.sidecontent.className.replace('visible', '');
           setTimeout(()=>{
@@ -77,10 +75,8 @@ export default {
         this.closeSideBar();
       },
       logout: function (){
-        sessionStorage.removeItem('accessToken');
-        window.localStorage.removeItem('information');
-        sessionStorage.removeItem('userInfo');
-        this.$router.push({ path: '../Login' });
+        this.logoutUser();
+        this.$router.push({ path: '../' + 'Login' });
       }
   },
   computed: {

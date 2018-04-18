@@ -24,12 +24,11 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import BannerSwiper from './Swiper/BannerSwiper'
 import Platform from './Home/Platforms'
 import Announcement from './Common/Announcement'
 import { USERINFO  } from './../api'
-var qs = require("querystring");
 
 export default {
     name: 'homepage',
@@ -37,7 +36,7 @@ export default {
         return {
             AccountDetails: {
                 Balance: 0,
-                AccountName: '',
+                AccountName: ' ',
             }
         }
     },
@@ -54,6 +53,7 @@ export default {
         },
         setAccountDetails() {
             let userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+            console.log(userInfo);
             this.AccountDetails.Balance = userInfo.Balance.toFixed(2);
             this.AccountDetails.AccountName = userInfo.AccountName;
         },
@@ -66,7 +66,8 @@ export default {
             let that_ = this;
             this.$http.get( USERINFO ,  config )
             .then( function(res){                 
-                sessionStorage.setItem( 'userInfo', JSON.stringify(res.data.Value));
+                sessionStorage.setItem('userInfo', JSON.stringify(res.data.Value));
+                
                 that_.setAccountDetails();
             })
             .catch( function(error){
@@ -74,11 +75,21 @@ export default {
             });
         }
     },
+    computed: {
+        ...mapState ({
+            tokenKey : state => state.tokenKey
+        })
+    },
     created() {
         // Check if logged in
         let tokenKey_ = 'accessToken';
         let userInfo_ = 'userInfo';
-        var isLoggedIn = (sessionStorage.getItem(tokenKey_) != null && typeof(sessionStorage.getItem(tokenKey_)) != 'undefined');
+        var isLoggedIn = ( sessionStorage.getItem(tokenKey_) != null && typeof(sessionStorage.getItem(tokenKey_)) != 'undefined');
+        console.log( 'A:');
+        console.log( this.tokenKey );
+        console.log( 'B:');
+        console.log( sessionStorage.getItem(tokenKey_) );
+
         if ( !isLoggedIn) {
              this.$router.push('../Login');
         }
@@ -89,7 +100,7 @@ export default {
         else {
             this.requestAccountInfo(sessionStorage.getItem(tokenKey_));
         }
-        
+
         this.setCurrentPage('Homepage');
     }
 }

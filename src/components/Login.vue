@@ -79,7 +79,6 @@ export default {
         sessionStorage.removeItem('userInfo');
 
         var that_ = this;
-        tokenKey
         // Request to API
         this.$http.post( LOGIN , qs.stringify(postData))
             .then( function(res) {
@@ -93,7 +92,7 @@ export default {
                 // headers.Authorization = 'Bearer ' + data.access_token;
                 
                 // Route to Homepage
-                that_.$router.push({ path: '../Homepage' });
+                that_.$router.push({ path: '../' + 'Homepage' });
 
             })
             .catch( function (error) {
