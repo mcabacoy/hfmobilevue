@@ -65,7 +65,7 @@ export default {
             bottom: 0;
             position: absolute;
             width: 100%;
-            padding: .05rem .2rem;
+            padding: .09rem .2rem;
             font-size: .26rem;
         }
                 

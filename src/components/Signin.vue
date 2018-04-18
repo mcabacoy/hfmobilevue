@@ -6,8 +6,8 @@
         <div class="circle-content">
             <img src="../../static/img/HSignin/signin-pl.png" style="width: 100%; margin-top: 3.9rem;"/>
             <div class="cc">
-                <p class="cc-details">我的积分<span style="font-size: .9rem;display: block;margin-top: .05rem;font-weight: 700;" id="AccPoints">10</span></p>
-                <p style="color: #fff;text-align: center;width: 2rem;font-size: .28rem;position: absolute;top: 3.2rem;left: .4rem;">连续签到 <span style="color:#ffd200;" class="AccCount">1</span> 天</p>
+                <p class="cc-details">我的积分<span style="font-size: .9rem;display: block;margin-top: .24rem;font-weight: 700;" id="AccPoints">10</span></p>
+                <p style="color: #fff;text-align: center;width: 2rem;font-size: .28rem;position: absolute;top: 3.25rem;left: .4rem;">连续签到 <span style="color:#ffd200;" class="AccCount">1</span> 天</p>
             </div>
             <p class="clkcheck" @click="goCheckIn()">点击签到</p>
         </div>
@@ -287,12 +287,14 @@ body {
 }
 
 /*Signin*/
-.sign-body , body{
-    background: #64e5fe;
+#signin{
+    background: #A4064A;
     background: -webkit-linear-gradient(-90deg, #A4064A, #79083d 34%, #ea396b);
     background: -o-linear-gradient(-90deg, #A4064A, #79083d 34%, #ea396b);
     background: -moz-linear-gradient(-90deg, #A4064A, #79083d 34%, #ea396b);
     background: linear-gradient(-90deg, #A4064A, #79083d 34%, #ea396b);
+}
+.sign-body{
     position:relative;
     height: auto;
     padding-bottom: .6rem;
@@ -324,7 +326,7 @@ body {
     color: #fff;
     font-size: .25rem;
     text-shadow: 1px 2px 1px #c20044;
-    margin-top: .6rem;
+    margin-top: .65rem;
     margin-left: -.13rem;
 }
 .sign-body .exchange{
@@ -368,14 +370,14 @@ body {
     background: url(../../static/img/HSignin/S-coupon.png) no-repeat;
     background-size: 100%;
     width: 5.6rem;
-    height: 2.1rem;
+    height: 2.15rem;
     margin-top: .4rem;
 }
 .circle-body .ss-coupon .leftside{
     float:left;
     width: 3rem;
     text-align: center;
-    margin-top: .46rem;
+    margin-top: .57rem;
 }
 .circle-body .ss-coupon .leftside h1{
     color: #fff;
@@ -388,10 +390,10 @@ body {
     margin-right: .25rem;
     width: 2.2rem;
     text-align: center;
-    margin-top: .47rem;
+    margin-top: .51rem;
 }
 .circle-body .ss-coupon .rightside .redeemimm{
-    margin-top: .1rem;
+    margin-top: .15rem;
     margin-left: .4rem;
     background: #fff;
     border-radius: 1.2rem;
