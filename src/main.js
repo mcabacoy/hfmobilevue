@@ -110,6 +110,7 @@ router.afterEach(() => {
 /* http */
 Vue.prototype.$http = Axios;
 
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
