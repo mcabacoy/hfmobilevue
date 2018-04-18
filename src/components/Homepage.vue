@@ -66,9 +66,7 @@ export default {
             let that_ = this;
             this.$http.get( USERINFO ,  config )
             .then( function(res){                 
-                console.log('2A');
                 sessionStorage.setItem( 'userInfo', JSON.stringify(res.data.Value));
-                console.log(JSON.parse(sessionStorage.getItem('userInfo')));
                 that_.setAccountDetails();
             })
             .catch( function(error){
@@ -80,17 +78,18 @@ export default {
         // Check if logged in
         let tokenKey_ = 'accessToken';
         let userInfo_ = 'userInfo';
-        var isLoggedIn = (sessionStorage.getItem(tokenKey_) != null || typeof(sessionStorage.getItem(tokenKey_)) == 'undefined');
+        var isLoggedIn = (sessionStorage.getItem(tokenKey_) != null && typeof(sessionStorage.getItem(tokenKey_)) != 'undefined');
         if ( !isLoggedIn) {
              this.$router.push('../Login');
         }
         // Check if User Info is retrieved
-        if ( sessionStorage.getItem(userInfo_) != null && JSON.parse(sessionStorage.getItem(userInfo_)).AccountName) {
+        if ( sessionStorage.getItem(userInfo_) != null && JSON.parse(sessionStorage.getItem(userInfo_)).AccountName ) {
             this.setAccountDetails();
         }
         else {
             this.requestAccountInfo(sessionStorage.getItem(tokenKey_));
         }
+        
         this.setCurrentPage('Homepage');
     }
 }
