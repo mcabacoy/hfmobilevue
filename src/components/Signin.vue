@@ -6,8 +6,8 @@
         <div class="circle-content">
             <img src="../../static/img/HSignin/signin-pl.png" style="width: 100%; margin-top: 3.9rem;"/>
             <div class="cc">
-                <p class="cc-details">我的积分<span style="font-size: .9rem;display: block;margin-top: .24rem;font-weight: 700;" id="AccPoints">10</span></p>
-                <p style="color: #fff;text-align: center;width: 2rem;font-size: .28rem;position: absolute;top: 3.25rem;left: .4rem;">连续签到 <span style="color:#ffd200;" class="AccCount">1</span> 天</p>
+                <p class="cc-details">我的积分<span style="font-size: .9rem;display: block;margin-top: .24rem;font-weight: 700;" id="AccPoints"> {{ signinStatus.AccPoints  }} </span></p>
+                <p style="color: #fff;text-align: center;width: 2rem;font-size: .28rem;position: absolute;top: 3.25rem;left: .4rem;">连续签到 <span style="color:#ffd200;" class="AccCount">{{ signinStatus.AccCount}}</span> 天</p>
             </div>
             <p class="clkcheck" @click="goCheckIn()">点击签到</p>
         </div>
@@ -17,14 +17,14 @@
         <div class="circle-body">
             <div class="ss-coupon">
                 <div class="leftside">
-                    <h1 id="chageMoney">1<span class="currency">元</span></h1>
+                    <h1 id="chageMoney">{{ signinStatus.ChageMoney  }}<span class="currency">元</span></h1>
                 </div>
                 <div class="rightside">
-                    <p id="exchange">10积分兑换</p>
+                    <p id="exchange">{{ signinStatus.AccPoints }}积分兑换</p>
                     <span class="redeemimm" @click="goRedeem()">立即兑换</span>
                 </div>
             </div>
-            <p id="RegistUserSign"  @click="showModal('collectionrecord')">积分领取记录</p>
+            <p id="RegistUserSign"  @click="getCheckinDetails('collectionrecord')">积分领取记录</p>
             <p class="sr"  @click="showModal('checkinrules')">签到规则 <span></span></p>
         </div>
     </div>
@@ -65,7 +65,7 @@
                 <div class="signinsuccess" v-if="showModalType == 'signinsuccess' && display">
                     <h1>10</h1>
                     <p>连续签到 
-                        <span class="AccCount">1</span> 天</p>
+                        <span class="AccCount">{{ signin.AccCount  }}</span> 天</p>
                     <span class="ok" @click="closeModal">确 定</span>
                 </div>
             </transition>
@@ -82,15 +82,30 @@
 </template>
 
 <script>
+import {
+        GET_USER_SIGNIN_STAT,
+        GET_USER_CHECKIN_DETAILS
+    } from './../api'
 
 import Notification from './Common/Notification'
 import DetailModal from './Modals/DetailModal'
 import { mapGetters, mapMutations } from 'vuex'
 
+var moment = require('moment');
+var qs = require("querystring");
+
 export default {
     name: 'signin',
     data(){
         return {
+            signinStatus: {
+                AccCount: 0,
+                AccPoints: 0,
+                ChageMoney: 0,
+                LastEffectiveTime: '',
+                SingStatus: 0,
+                UserId: 0
+            },
             display: false,
             notifmessage: '',
             showModalType: '',
@@ -117,7 +132,7 @@ export default {
         }
     },
     components: { DetailModal, Notification },
-       methods: {
+    methods: {
         ...mapMutations ([
             'setCurrentPage'
         ]),
@@ -146,11 +161,47 @@ export default {
             this.notifmessage = error;
         },        
         closeNotif(){
-            this.notifmessage = ''
+            this.notifmessage = '';
+            
         },
-       },
+
+        // DATA RETRIEVAL
+        getCheckinDetails: function(payload){
+            // Set value to show modal
+            //  this.showModalType = payload;
+            let postData = {
+                    startTime: moment(new Date(new Date().getTime() - 604800000)).format('YYYY-MM-DD'),
+                    endTime: moment(new Date(new Date().getTime() + 86400000)).format('YYYY-MM-DD')
+            };
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey
+                },
+            };
+            this.$http.get(GET_USER_CHECKIN_DETAILS,  ( postData), config )
+            .then( function ( res ){ 
+                console.log(res.data);
+            });
+        }
+    },
+    computed: {
+        ...mapGetters({ 
+            currentUser: 'currentUser'
+        })
+    },
     created() {
-      this.setCurrentPage('Signin');
+        // Get User sigin in status
+        let that_ = this;
+        let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey
+                }
+        }
+        this.$http.get( GET_USER_SIGNIN_STAT , config )
+        .then( function ( res ){
+            that_.signinStatus = res.data;
+        });
+        this.setCurrentPage('Signin');
     }
 }
 </script>

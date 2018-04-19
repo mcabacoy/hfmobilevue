@@ -10,7 +10,7 @@
     <div class="wallet">
      <div class="wallet-txt">
             <p class="coins-label" style=""><img src="../../static/img/coins-ico.png"  class="coins" />中心钱包</p>
-            <p class="balance-label" style="">余额：<span>￥{{  AccountDetails.Balance }}</span></p>
+            <p class="balance-label" style="">余额：<span>￥{{ parseFloat(this.currentUser.userInfo.Balance).toFixed(2) }}</span></p>
     </div>
     <div class="wallet-btn">
         <a ><img @click="routePage('/Wallet')" src="../../static/img/wallet_.png" class="wallet-button" /></a>
@@ -49,10 +49,8 @@ export default {
         routePage: function(pageName){
             this.$router.push({ path: pageName });
         },
-
         setAccountDetails() {
             this.AccountDetails = this.currentUser.userInfo;
-            console.log(this.currentUser.userInfo);
         },
         requestAccountInfo( token ){
             let config = {
@@ -91,6 +89,7 @@ export default {
         }
         else {
             this.requestAccountInfo( this.currentUser.tokenKey );
+            console.log(this.currentUser.userInfo);
         }
 
         this.setCurrentPage('Homepage');

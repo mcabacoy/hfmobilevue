@@ -26,6 +26,7 @@ import layer from 'vue-layer-mobile';
 import '../static/css/reset.css' 
 import 'vue-swipe/dist/vue-swipe.css';
 
+
 Vue.use(layer);
 Vue.use(Router);
 
