@@ -1,73 +1,72 @@
 <template>
-<transition name="promotion-mod">
-    <div>
-        <div class="prom-mask" style=""></div>
-        <div class="promotion-modal">
-            <div class="modal">
-                <div class="modal-header">
-                    <span>领取优惠</span>
-                    <div class="dema_kong" @click="closeModal"><span class="demoSpan2"></span></div>
-                </div>
-                <div class="modal-body">
-                    <div class="offerdetail-btns">
-                        <p style="font-weight: 600;color:#bb1515">助您做赢家 奖金祝您发</p>
-                        <p>活动内容：</p>
-                        <p>1.从活动开始起，当天存款100元或以上且满足以下优惠条件的玩家，即可申请救援优惠，奖金高达5888。</p>
-                        <table style="width: 100%;font-size: .2rem;text-align: center;">
-                            <tbody>
-                                <tr>
-                                    <td style="font-weight: bold;">当日负盈利金额</td>
-                                    <td style="font-weight: bold;">申请要求</td>
-                                    <td style="font-weight: bold;">救援金获得比例</td>
-                                    <td style="font-weight: bold;">救援金上限</td>
-                                    <td style="font-weight: bold;">提款要求</td>
-                                </tr>
-                                <tr>
-                                    <td>≥100元</td>
-                                    <td>余额≤5元</td>
-                                    <td>10%</td>
-                                    <td>5888</td>
-                                    <td>10倍流水</td>
-                                </tr>
-                                <tr>
-                                    <td>≥100元</td>
-                                    <td>余额≤5元</td>
-                                    <td>22%</td>
-                                    <td>5888</td>
-                                    <td>25倍流水</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>2.申请方式：点击【申请提交】，申请将会在30分钟内审核并派发奖金。</p>
-                        <p>3.此优惠奖金需要完成对应流水要求即可出款，仅限投注在老虎机或捕鱼游戏；</p>
-                        <p>4.此优惠不与网站首存优惠共享。</p>
+    <transition name="promotion-mod">
+        <div>
+            <div class="prom-mask" style=""></div>
+            <div class="promotion-modal">
+                <div class="modal">
+                    <div class="modal-header">
+                        <span>领取优惠</span>
+                        <div class="dema_kong" @click="closeModal"><span class="demoSpan2"></span></div>
                     </div>
-                </div>
-                <div class="modal-bottom">
-                    <div style="width: 79%;margin: 0 auto;">
-                        <div class="form-row Rescue2to1" style="">
-                            <label style="color:#232323;">救援金选项</label>
-                            <span class="arrowbox2"></span>
-                            <select id="ApplyLobbyReturn">
-                                <option value="救援金获得比例10%" class="option option1">救援金获得比例10%</option>
-                                <option value="救援金获得比例22%" class="option option2">救援金获得比例22%</option>
-                            </select>
+                    <div class="modal-body">
+                        <div class="offerdetail-btns">
+                            <p style="font-weight: 600;color:#bb1515">助您做赢家 奖金祝您发</p>
+                            <p>活动内容：</p>
+                            <p>1.从活动开始起，当天存款100元或以上且满足以下优惠条件的玩家，即可申请救援优惠，奖金高达5888。</p>
+                            <table style="width: 100%;font-size: .2rem;text-align: center;">
+                                <tbody>
+                                    <tr>
+                                        <td style="font-weight: bold;">当日负盈利金额</td>
+                                        <td style="font-weight: bold;">申请要求</td>
+                                        <td style="font-weight: bold;">救援金获得比例</td>
+                                        <td style="font-weight: bold;">救援金上限</td>
+                                        <td style="font-weight: bold;">提款要求</td>
+                                    </tr>
+                                    <tr>
+                                        <td>≥100元</td>
+                                        <td>余额≤5元</td>
+                                        <td>10%</td>
+                                        <td>5888</td>
+                                        <td>10倍流水</td>
+                                    </tr>
+                                    <tr>
+                                        <td>≥100元</td>
+                                        <td>余额≤5元</td>
+                                        <td>22%</td>
+                                        <td>5888</td>
+                                        <td>25倍流水</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>2.申请方式：点击【申请提交】，申请将会在30分钟内审核并派发奖金。</p>
+                            <p>3.此优惠奖金需要完成对应流水要求即可出款，仅限投注在老虎机或捕鱼游戏；</p>
+                            <p>4.此优惠不与网站首存优惠共享。</p>
+                        </div>
+                    </div>
+                    <div class="modal-bottom">
+                        <div style="width: 79%;margin: 0 auto;">
+                            <div class="form-row Rescue2to1" style="">
+                                <label style="color:#232323;">救援金选项</label>
+                                <span class="arrowbox2"></span>
+                                <select id="ApplyLobbyReturn">
+                                    <option value="救援金获得比例10%" class="option option1">救援金获得比例10%</option>
+                                    <option value="救援金获得比例22%" class="option option2">救援金获得比例22%</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <input type="submit" class="submission" value="申请提交">
             </div>
-            <input type="submit" class="submission" value="申请提交">
         </div>
-    </div>
-</transition>
-
+    </transition>
 </template>
 <script>
 export default {
    name: 'promotion-modal',
    methods: {
-       closeModal: function(payload){
-           this.$emit('closeModal', payload)
+       closeModal: function(){
+           this.$emit('closeModal')
        }
    }
 }
