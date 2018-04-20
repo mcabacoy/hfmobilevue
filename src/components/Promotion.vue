@@ -65,7 +65,7 @@
 
 <promotion-modal
     v-if="promotionmode != ''"
-    @closemodal = "closeModal">
+    @closeModal = "closeModal">
 </promotion-modal>
 
 
@@ -92,7 +92,7 @@ export default {
            this.opentab =  payload;
         },
         showModal: function(payload){
-            this.$emit("showModal", payload);
+            this.$emit("showModal");
             this.promotionmode = payload.status;
         },
         closeModal: function(){
