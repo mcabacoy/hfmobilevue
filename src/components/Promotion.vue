@@ -30,8 +30,7 @@
                     </div>
                     <div class="rightside">
                         <p>高达5888元<br />老虎机/捕鱼</p>
-                        <input type="submit" class="btn" 
-                               value="立即使用" data-type="Rescue2to1" />
+                        <input @click="showModal({ status: 'modal1'})" type="submit" class="btn" value="立即使用"/>
                     </div>
                 </div>
             </li>
@@ -43,8 +42,7 @@
                     </div>
                     <div class="rightside">
                         <p>高达5888元<br />老虎机/捕鱼</p>
-                        <input type="submit" class="btn" 
-                                value="立即使用" data-type="Thousandfold" />
+                        <input @click="showModal({ status: 'modal2'})" type="submit" class="btn" value="立即使用"/>
                     </div>
                 </div>
             </li>
@@ -63,8 +61,12 @@
             </li>
         </ul>
     </div>
-
 </div>
+
+<promotion-modal
+    v-if="promotionmode != ''"
+    @closemodal = "closeModal">
+</promotion-modal>
 
 
 </div>
@@ -72,12 +74,14 @@
 
 <script>
 import { mapMutations } from 'vuex'
-
+import PromotionModal from './Promotion/PromoModals'
 export default {
   name: 'promotion',
+  components: { PromotionModal },
   data(){
       return {
-          opentab: 'promotions'
+          opentab: 'promotions',
+          promotionmode: ''
       }
   },
   methods: {
@@ -86,6 +90,13 @@ export default {
         ]),
         setTab: function(payload){
            this.opentab =  payload;
+        },
+        showModal: function(payload){
+            this.$emit("showModal", payload);
+            this.promotionmode = payload.status;
+        },
+        closeModal: function(){
+            this.promotionmode = "";
         }
   },
     created() {
