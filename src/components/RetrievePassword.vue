@@ -10,29 +10,29 @@
     </section>
 
     <!--第一步-->
-    <section class="messageDiv" id="retrieveOne" >
+    <section class="messageDiv" id="retrieveOne" v-if="resetLevel == 1" >
         <div class="retUserNameBox">
             <span>用户名</span>
-            <input type="text" id="un" data-bind="value:AccountName" placeholder="请输入用户名" />
+            <input type="text" v-model="accountName" placeholder="请输入用户名" />
         </div>
         <div class="realNameBox">
             <span>真实姓名</span>
-            <input type="text" data-bind="value:RealName" placeholder="请输入真实姓名" />
+            <input type="text" v-model="realName" placeholder="请输入真实姓名" />
         </div>
         <div class="nextBtn" @click="retrievePassword">下一步</div>
     </section>
 
     <!--第二步-->
-    <section class="selectTypeDiv" id="retrieveTwo" style="display: none;">
-        <div class="phoneNumBox" id="rc1">
-            <i class="selectTrue"></i>
-            <span class="selectColor">手机号码重置密码</span>
+    <section class="selectTypeDiv" id="retrieveTwo" v-else-if="resetLevel == 2" >
+        <div class="phoneNumBox" id="rc1" @click="selectResetType(1)" >
+            <i :class="resetType == 1 ? 'selectTrue' : ''"></i>
+            <span :class="resetType == 1 ? 'selectColor' : ''">手机号码重置密码</span>
         </div>
-        <div class="emailNumBox" id="rc2">
-            <i></i>
-            <span>电子邮箱重置密码</span>
+        <div class="emailNumBox" id="rc2" @click="selectResetType(2)" >
+            <i :class="resetType == 2 ? 'selectTrue' : ''"></i>
+            <span :class="resetType == 2 ? 'selectColor' : ''">电子邮箱重置密码</span>
         </div>
-        <div class="nextBtn confirm"  >下一步</div>
+        <div class="nextBtn confirm"  @click="confirmReset">下一步</div>
     </section>
 
     <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"/>
@@ -43,25 +43,98 @@
 </template>
 
 <script>
+
 import Notification from './Common/Notification'
+import { RESET_PASSWORD , FORGOT_PASSWORD } from './../api'
+var qs = require("querystring");
+
 export default {
     name: 'RetrievePass',
     components: { Notification },
     data(){
       return {
-          notifmessage: ''
+          accountName: '',
+          realName: '',
+          notifmessage: '',
+          resetLevel: 1,
+          resetType: 0,
+
+          resetHeader: ''
       }
     },
     methods: {
-      goBack() {
-        this.$router.go(-1)
-      },
-      retrievePassword(){
-        this.notifmessage = '用户名不能为空';
-     },
-     closeNotif(){
-        this.notifmessage = ''
-     }
+        goBack() {
+            this.$router.go(-1)
+        },
+        retrievePassword(){
+            this.resetPassword();
+        },
+        closeNotif(){
+            this.notifmessage = ''
+        }, 
+        selectResetType(type){
+            this.resetType = type;
+        },
+
+        // PROCESSING
+        resetPassword(){
+            // Validate controls
+            if (this.accountName == "" || this.accountName == null || typeof(this.accountName) == undefined) {
+                this.notifmessage = ("请输入用户名");
+                return false;
+            }
+
+            if (this.realName == "" || this.realName == null || typeof(this.realName) == undefined) {
+                this.notifmessage = ("请输入真实姓名");
+                return false;
+            }
+
+            let postData = {
+                AccountName: 'HF'+ this.accountName,
+                RealName: this.realName
+            };
+
+            let that_ = this;
+            this.$http.post(RESET_PASSWORD, qs.stringify(postData))
+            .then( function (res){
+                if ( res.data != null && res.data != '' && res.data != 'Failed'){
+                    that_.resetHeader = res.data;
+                    that_.resetLevel = 2;
+                    that_.resetType = 1;
+                    console.log(that_.resetHeader);
+                }
+                else {
+                    that_.notifmessage = '输入的信息不正确';
+                }
+            })
+            .catch( function(error){
+                console.log(error);
+                // this.notifmessage = error.responseJSON.Message; 
+            });
+        },
+
+        confirmReset(){
+            let that_ = this;
+            let postData = {
+                AccountName: that_.accountName,
+                RealName: that_.realName,
+                NewPassword: that_.resetHeader.EncryptedNewPassword,
+                Email: that_.resetHeader.EncryptedEmail,
+                Mobile: that_.resetHeader.EncryptedMobile,
+                SendMethod: that_.resetType == 1 ? '1':'0'
+            };
+            this.$http.post( FORGOT_PASSWORD, qs.stringify(postData) )
+            .then( function(res) {
+                console.log(res);
+                that_.notifmessage = (" 新密码已成功发送，请留意查收");
+                setTimeout(function(){ 
+                    that_.$router.push( { path: '../Login'  });
+                }, 1000);
+            })
+            .catch( function (error) {
+                console.log(error);
+            });
+        }
     }
 }
 </script>

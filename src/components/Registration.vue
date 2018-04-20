@@ -410,7 +410,6 @@ export default {
             }            
             else {            
                 var that_ = this;
-                debugger;
                 this.$http.get(  REGISTER_AGENT_CODE )
                 .then( function( res ){ 
                     var postData = {
@@ -424,7 +423,7 @@ export default {
                         Agentcode: res.data,
                         RegApp: '1',
                         BirthDate: that_.birthDate,
-                        sex: 1,
+                        sex: that_.sex == 1 ? 1 : 0,
                         wechat: that_.passWord.wechatNo
                     };
                     // After Form Validation

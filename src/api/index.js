@@ -38,3 +38,8 @@ export const GET_USER_SIGNIN_STAT = serviceUrl + '/Active/GetUserSignStatus';
 export const GET_USER_CHECKIN_DETAILS = serviceUrl + '/Active/GetUserSignListAsyn';
 
 
+// Retrieves user data - POST
+export const RESET_PASSWORD = serviceUrl + '/Account/ResetPassword';
+
+//  POST
+export const FORGOT_PASSWORD = serviceUrl + '/Account/ForgetPassword'
