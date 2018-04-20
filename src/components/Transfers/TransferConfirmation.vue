@@ -11,43 +11,151 @@
         <div class="modal-body">
             <span class="input-label">充值金额: </span>
             <span>￥</span>
-            <input type="number" 
+            <input type="number" v-model="desiredamount"
                 placeholder="请输入金额" pattern="[0-9]*"
                 min="0" inputmode="numeric" 
                 maxlength="8"  class="modal-input" ref="amountinput">
         </div>
         <div class="modal-footer">
-            <a class="btn" >确认转出</a>
+            <a class="btn" @click="goTransfer" >确认转出</a>
         </div>
     </div>
     <div class="modal-shadow"></div>
 </div>
 
+<notification :message="notifmessage" 
+            @close="closeNotif"  
+            v-if="notifmessage!=''" />
 </transition>
 </div>
 </template>
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+import { TRANSFER_IN } from './../../api'
+import Notification from './../Common/Notification'
+var qs = require("querystring");
 export default {
   name: 'transfer-confirmation',
+  data(){
+    return {
+        desiredamount: 0,
+        notifmessage : '',
+        isPrevented: false
+    }  
+  },
   props: ['transfertype', 'platform'],
   methods: {
     closeModal: function (payload){
         this.$emit('closeModal', payload)
+    },
+    closeNotif(){
+        this.notifmessage = '';
+    },
+    goTransfer(){
+        if ( this.transfertype == 'in' ){
+            this.transferIn();
+        }
+        else if ( this.transfertype == 'out' ){
+            
+        }
+    },
+    validateAmount( payload ){
+        if (payload == null || payload == "") {
+            this.notifmessage =("请填写金额！");
+            return false;
+        }
+        if (isNaN(payload)) {
+            this.notifmessage =("请输入有效的数字!");
+            return false;
+        }
+        if (parseFloat(payload) <= 0) {
+            this.notifmessage =("请输入大于0的数字!");
+            return false;
+        }
+        if (!/^-?\d+\.?\d{0,2}$/.test(payload)) {
+            this.notifmessage =("请输入2位小数内的数字!");
+            return false;
+        }
+        return true;
+    },
+
+    //TransferIn
+        transferIn(){
+            let that_ = this;
+            if(!this.validateAmount(this.desiredamount))
+            {
+                return;
+            }
+            if (this.desiredamount < 1){
+                this.notifmessage = '您转入的金额不能小于1元！'; // 8
+                return;
+            }
+            // TransferPlatNo ** Can't find
+            let fundTransferData = {
+                amount: this.desiredamount,
+                gameCode: this.platform
+            }
+            debugger;
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                    'Content-Type': 'application/json; charset=utf-8'
+                }
+            };
+            let postData = {
+                gamecode : this.platform
+            }
+            // CheckIfPrevented
+                this.$http.post( TRANSFER_IN,  JSON.stringify(fundTransferData),
+                    config )
+                .then( function (res){
+                    console.log('***********');
+                    console.log(res.data);
+                    if ( res.data.Success)
+                    {
+                        // Transfer Success
+                        that_.notifmessage = res.data.Message;
+                        // (res.data.Success ? 9 : 8)
+                    }
+                    else {
+                        if ( res.data == "您的账户在别的地方登陆，请重新登录!") {
+                            that_.notifmessage = "您的账户在别的地方登陆，请重新登录!";
+                        }
+                        else {
+                            that_.notifmessage = res.data.Message;
+                            // (res.data.Success ? 9 : 8)
+                        }
+                    }
+                })
+                .catch( function(error){
+                    console.log(error);
+                });
+        },
+        transferOut() {
+
+        }
+    },
+    mounted(){
+        this.$nextTick(() => this.$refs.amountinput.focus())
+    },
+    destroyed(){
+        this.desiredamount = 0,
+        this.notifmessage = '',
+        this.isPrevented = false;
+    },
+    computed: {
+        ...mapGetters ({
+          currentUser: 'currentUser'
+        }),
+        modaltitle: function(){
+            let type = this.transfertype == 'in' ?
+                        '转入' :  this.transfertype == 'out'? '转出' : '';
+            let platformtype = 
+                ( this.platform == '' || typeof this.platform == 'undefined' )
+                ? '' :  this.platform + '老虎机';                    
+            return type + platformtype;
+        }
     }
-  },
-  mounted(){
-    this.$nextTick(() => this.$refs.amountinput.focus())
-  },
-  computed: {
-      modaltitle: function(){
-          let type = this.transfertype == 'in' ?
-                     '转入' :  this.transfertype == 'out'? '转出' : '';
-          let platformtype = 
-            ( this.platform == '' || typeof this.platform == 'undefined' )
-            ? '' :  this.platform;                    
-          return type + platformtype;
-      }
-  }
 }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped >

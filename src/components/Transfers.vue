@@ -4,7 +4,7 @@
         <div class="transhead">
             <div class="lefthead">
                 <span style="">中心钱包余额(元)</span>
-                <h3 style="" data-bind="text:Balance">44.00元</h3>
+                <h3>{{ parseFloat(currentUser.userInfo.Balance).toFixed(2) }}元</h3>
             </div>
             <div class="righthead">
                 <a href="/TransactionQuery" id="transactiondetails">交易明细</a>
@@ -31,20 +31,24 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import { USERINFO } from './../api'
 import BalanceStub from './Transfers/BalanceStub'
 import TransferConfirmation from './Transfers/TransferConfirmation'
+var qs = require("querystring");
 export default {
     name: 'transfer-platform',
     components: { BalanceStub , TransferConfirmation },
     data(){
         return {
+            balance: '',
             transfermode: '', //in, out, blank
             selectedplatform: ''
         }
     },
     methods: {
         ...mapMutations ([
-            'setCurrentPage'
+            'setCurrentPage',
+            'storeUserInfoSession'
         ]),
         showModal: function (payload) {
             this.transfermode = payload.status;
@@ -53,11 +57,26 @@ export default {
         closeModal: function () {
             this.transfermode = '';
             this.selectedplatform = '';
+        },
+        // PROCESSING
+        getOverAllBalance() {
+            let that_ = this;
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey
+                }
+            };
+            this.$http.get( USERINFO , config )
+            .then( function(res){
+                that_.storeUserInfoSession(qs.stringify(res.data.Value));
+            });
+
         }
     },
     computed: {
       ...mapGetters ({
-          getPlatforms: 'getBalancePlatforms'
+          getPlatforms: 'getBalancePlatforms',
+          currentUser: 'currentUser'
       })
     },
     created() {

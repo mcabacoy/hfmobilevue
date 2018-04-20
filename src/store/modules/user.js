@@ -63,6 +63,7 @@ const mutations = {
         sessionStorage.removeItem(userInfo_);
     },
     storeUserInfoSession(state, payload){
+        state.userInfo_ = payload;
         sessionStorage.setItem(userInfo_, payload);
     },
     storeNoticesSession(state, payload){

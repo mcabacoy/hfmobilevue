@@ -50,8 +50,18 @@ export const CHECKIN_USER = serviceUrl + '/Active/RegistUserSign'
 // Exchange Sign-in Points - GET
 export const EXCHANGE_SIGNIN_POINTS = serviceUrl + '/Active/ExchangeUserRedeem';
 
-// PASSWORD RESET
+// PASSWORD RESET ****************************
 // Retrieves user data - POST
 export const RESET_PASSWORD = serviceUrl + '/Account/ResetPassword';
 //  POST
 export const FORGOT_PASSWORD = serviceUrl + '/Account/ForgetPassword'
+
+
+// TRANSFERS ****************************
+// Get Game Balance - GET
+// Expected Parameter: gamecode = [GameType]
+export const GET_GAME_BALANCE = serviceUrl + '/FundTransfer/GetGameBalance'
+
+// Deposit In - POST
+export const TRANSFER_IN = serviceUrl + '/FundTransfer/Deposit';
+

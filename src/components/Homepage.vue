@@ -73,7 +73,6 @@ export default {
             });
         },
         getNotices( ){
-            console.log(this.notices);
             if ( this.notices == '' || this.notices == null || this.notices.length == 0  ){
                 let that_ = this;
                 let config = {

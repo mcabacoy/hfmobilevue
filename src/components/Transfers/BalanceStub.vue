@@ -3,10 +3,10 @@
         <p class="transtitle"><span :style="'border-left: 4px solid ' + item.hexColor + ';' "></span>{{ item.name }}</p>
         <div class="card">
             <p>平台余额：</p>
-         <h2 data-bind="text:ptBalance">{{ item.balance }}元</h2>
+         <h2>{{ gamebalance }}元</h2>
             <div class="cardlink">
-                <a @click="showModal( { status:  'in' , platform: item.name })" >转 入</a>
-                <a @click="showModal( { status:  'out' , platform: item.name })" >转 出</a>
+                <a @click="showModal( { status:  'in' , platform: item.customClass })" >转 入</a>
+                <a @click="showModal( { status:  'out' , platform: item.customClass })" >转 出</a>
            </div>
         </div>
     </li>
@@ -14,15 +14,39 @@
 </template>
 
 <script>
+import { GET_GAME_BALANCE } from './../../api'
+var qs = require("querystring");
+
 export default {
 
   name: 'balanceStub',
   props: ['item'],
+  data() {
+    return {
+        gamebalance: 0
+    }
+  },
   methods: {
     showModal: function (payload){
         this.$emit('showModal', payload)
+    },    
+
+    transferIn: function(){
+
     }
-  }
+  },
+  created(){
+        let that_ = this;
+        let postData = {
+            gamecode : this.item.customClass
+        }
+        this.$http.get( GET_GAME_BALANCE + '?gamecode=' +   this.item.customClass)
+        .then( function(res){
+            if ( !Number.isNaN(res.data) && res.data != '' ) {
+                that_.gamebalance = !(Number.isNaN(res.data)) ? parseInt(res.data).toFixed(2) : 0.00;
+            }
+        });
+    }
 }
 </script>
 
