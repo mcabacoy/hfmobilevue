@@ -14,6 +14,10 @@ export const LOAD_CAPTCHA = serviceUrl + '/Common/GenerateCaptcha';
 export const VALIDATE_CAPTCHA =  serviceUrl +  '/Common/ValidateCaptcha'
 export const CAPTCHA_SOURCE = 'C:/Users/marion.cabacoy/Documents/Marion/Workspaces/HongFu.MobileH5/FuTu.Mobile';
 
+// Get System Notices - GET
+export const GET_NOTICES = serviceUrl + '/active/GethfNotices';
+
+
 
 // Register User - POST
 export const REGISTER = serviceUrl + '/Account/Reg';

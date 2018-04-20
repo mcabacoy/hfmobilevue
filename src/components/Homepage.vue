@@ -1,9 +1,10 @@
 <template>
   <div id="homepage">
 
-    <div class="floater">
-        <img src="../../static/img/box.png">
-    </div>
+    <!-- <div class="floater">
+        <img src="">
+    </div> -->
+    <floater :imgsrc="require('../../static/img/box.png')"></floater>
 
     <banner-swiper></banner-swiper>
 
@@ -19,16 +20,17 @@
     </div>
 
     <platform></platform>
-    <announcement></announcement>
+    <announcement :notices="notices"></announcement>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex'
+import Floater from './Home/Floater'
 import BannerSwiper from './Swiper/BannerSwiper'
 import Platform from './Home/Platforms'
 import Announcement from './Common/Announcement'
-import { USERINFO  } from './../api'
+import { USERINFO, GET_NOTICES  } from './../api'
 var qs = require("querystring");
 export default {
     name: 'homepage',
@@ -38,13 +40,15 @@ export default {
         }
     },
     components: {
-        BannerSwiper, Platform, Announcement
+        BannerSwiper, Platform, Announcement, Floater
     },
     methods: {
         ...mapMutations ([
             'selectMethod',
             'setCurrentPage',
-            'setUserInfo'
+            'setUserInfo',
+            'storeUserInfoSession',
+            'storeNoticesSession'
         ]),
         routePage: function(pageName){
             this.$router.push({ path: pageName });
@@ -61,12 +65,27 @@ export default {
             let that_ = this;
             this.$http.get( USERINFO,  config )
             .then( function(res){
-                sessionStorage.setItem('userInfo', (qs.stringify(res.data.Value)));
-                that_.setAccountDetails( );
+                that_.storeUserInfoSession((qs.stringify(res.data.Value)))
+                that_.setAccountDetails();
             })
             .catch( function(error){
                 
             });
+        },
+        getNotices( ){
+            console.log(this.notices);
+            if ( this.notices == '' || this.notices == null || this.notices.length == 0  ){
+                let that_ = this;
+                let config = {
+                headers: {
+                    'Data-Type': 'json'
+                    }
+                }
+                this.$http.get( GET_NOTICES )
+                .then( function( res ){
+                    that_.storeNoticesSession(qs.stringify(res.data.Value));
+                });
+            }
         }
     },
     computed: {
@@ -74,24 +93,24 @@ export default {
             tokenKey : state => state.tokenKey
         }),
         ...mapGetters({ 
-            currentUser: 'currentUser'
+            currentUser: 'currentUser',
+            notices: 'getNotices'
         })
     },
     created() {
-        var isLoggedIn = ( this.currentUser.tokenKey != '' && this.currentUser.tokenKey != null && this.currentUser.tokenKey != 'undefined');
+        let isLoggedIn = ( this.currentUser.tokenKey != '' && this.currentUser.tokenKey != null && this.currentUser.tokenKey != 'undefined');
         if ( !isLoggedIn) {
              this.$router.push('../Login');
              return;
         }
-
         if ( this.currentUser.userInfo != null && this.currentUser.userInfo.AccountName ) {
             this.setAccountDetails();
         }
         else {
             this.requestAccountInfo( this.currentUser.tokenKey );
-            console.log(this.currentUser.userInfo);
         }
-
+        
+        this.getNotices();
         this.setCurrentPage('Homepage');
     }
 }
@@ -100,63 +119,6 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 #homepage {
   margin-top: 1.1rem;
-
-    .floater {
-        position: relative;
-        animation: Transversal 5s linear infinite;
-
-        @keyframes Transversal {
-            0% {
-                top: .5rem;
-                }
-            50% {
-                    top: 0;
-                }
-            100% {
-                    top: .5rem;
-                }
-        }
-
-        img {
-            position: absolute; 
-            z-index: 99; 
-            right: .2rem; 
-            width: 16%; 
-            top: .3rem;
-            animation: beat 5.8s linear infinite ;
-            margin: 0 auto;
-            display: block;
-        }
-
-        .beat {
-            animation: beat .8s linear 1;
-            margin: 0 auto;
-            display: block;
-        }
-        
-        @keyframes beat {
-            0%, 86.20% {
-                position: absolute; 
-                z-index: 99; 
-                right: .2rem; 
-                width: 16%; 
-                top: .3rem;  
-            }
-            86.21% {
-                width:19%;
-            }
-            93.10% {
-                width: 16%;
-            }
-            96.55% {
-                width:20%;
-            }
-            100% {
-                width: 16%;
-            }
-        }
-    }
-
     .wallet {
         background: url(../../static/img/index-bg.png) no-repeat;
         background-size:100% 100%;
