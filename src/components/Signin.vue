@@ -2,7 +2,7 @@
     <div id="signin">
     <div class="sign-body">
         <div class="signin-foreground"></div>
-        <span class="exchange" @click="showModal('redemptiondetails')">兑换明细</span>
+        <span class="exchange" @click="getRedeemList('redemptiondetails')">兑换明细</span>
         <div class="circle-content">
             <img src="../../static/img/HSignin/signin-pl.png" style="width: 100%; margin-top: 3.9rem;"/>
             <div class="cc">
@@ -33,16 +33,24 @@
         <detail-modal
             v-if="showModalType == 'redemptiondetails'"
             @closeModal="closeModal" modaltitle="积分兑换记录">
-            <div slot="content"></div>
+            <table slot="content" class="redemptiondetails">
+                <tbody>
+                    <tr v-for="(item, index) in redempointrecord" :key="index">
+                        <td>{{ item.RedeemTime }}</td>
+                        <td>兑换{{ item.Amount }}元</td>
+                        <td class="am">- {{ item.Points }}积分</td>
+                    </tr>
+                </tbody>
+            </table>
         </detail-modal>
         <detail-modal
             v-else-if="showModalType == 'collectionrecord'"
             @closeModal="closeModal" modaltitle="积分兑换记录">
             <table slot="content" class="collectionrecord">
                 <tbody>
-                    <tr v-for="(item, index) in redempointrecord" :key="index">
+                    <tr v-for="(item, index) in checkindetails" :key="index">
                         <td>
-                        {{ item.redemptionDate }}  连续签到1 天 + {{ item.pointsAdded }}
+                        {{ item.EffectiveTime }}  连续签到{{ signinStatus.AccCount }} 天 + {{ item.Points }}
                         </td>
                     </tr>
                 </tbody>
@@ -63,10 +71,10 @@
         <div class="signinsuccess-modal" v-if="showModalType == 'signinsuccess'">
             <transition name="modaltrans">
                 <div class="signinsuccess" v-if="showModalType == 'signinsuccess' && display">
-                    <h1>10</h1>
+                    <h1>{{ checkinAmount }}</h1>
                     <p>连续签到 
-                        <span class="AccCount">{{ signin.AccCount  }}</span> 天</p>
-                    <span class="ok" @click="closeModal">确 定</span>
+                        <span class="AccCount">{{ signin.AccCount }}</span> 天</p>
+                    <span class="ok" @click="closeCheckinModal">确 定</span>
                 </div>
             </transition>
         </div>
@@ -84,7 +92,10 @@
 <script>
 import {
         GET_USER_SIGNIN_STAT,
-        GET_USER_CHECKIN_DETAILS
+        GET_USER_CHECKIN_DETAILS,
+        GET_USER_REDEEM_LIST,
+        CHECKIN_USER,
+        EXCHANGE_SIGNIN_POINTS
     } from './../api'
 
 import Notification from './Common/Notification'
@@ -106,29 +117,18 @@ export default {
                 SingStatus: 0,
                 UserId: 0
             },
-            display: false,
-            notifmessage: '',
-            showModalType: '',
             checkinrules: [
                 "签到满7天后会持续每天获得38积分，如中间出现没  有持续签到，则积分重新再10分开始继续计算；",
                 "积分兑换方式：提交所需兑换的积分即可；如积分不  足兑换提交金额，为本次提交作废",
                 "此奖金只可投注在老虎机或捕鱼游戏，达到奖金所要 求的倍数后方可申请提款。",
                 "积分每月1号自动清零，请及时兑换；"
             ],
-            redempointrecord: [
-                {
-                    redemptionDate: "2018-04-10 14:24:52",
-                    pointsAdded: 10
-                },
-                {
-                    redemptionDate: "2018-04-10 14:24:52",
-                    pointsAdded: 10
-                },
-                {
-                    redemptionDate: "2018-04-10 14:24:52",
-                    pointsAdded: 10
-                }
-            ]
+            checkinAmount: '',
+            display: false,
+            notifmessage: '',
+            showModalType: '',
+            checkindetails: [],
+            redempointrecord: []
         }
     },
     components: { DetailModal, Notification },
@@ -147,18 +147,9 @@ export default {
                 }, 300);
             });
         },
-        goCheckIn: function() {
-            let error = '今天已经签到过了'
-            this.showModal('signinsuccess');
-            this.$nextTick(() => {
-                setTimeout(()=>{
-                    this.display = true;
-                }, 150);
-            });
-        },
-        goRedeem: function() {
-            let error = '100积分才可兑换额度'
-            this.notifmessage = error;
+        closeCheckinModal: function(){
+            this.closeModal();
+            this.getUserSignStatus();
         },        
         closeNotif(){
             this.notifmessage = '';
@@ -167,21 +158,103 @@ export default {
 
         // DATA RETRIEVAL
         getCheckinDetails: function(payload){
-            // Set value to show modal
-            //  this.showModalType = payload;
+            let that_ = this;
             let postData = {
                     startTime: moment(new Date(new Date().getTime() - 604800000)).format('YYYY-MM-DD'),
                     endTime: moment(new Date(new Date().getTime() + 86400000)).format('YYYY-MM-DD')
             };
             let config = {
                 headers: {
-                    'Authorization': 'Bearer ' + this.currentUser.tokenKey
-                },
-            };
-            this.$http.get(GET_USER_CHECKIN_DETAILS,  ( postData), config )
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                }
+            }
+            this.$http.post(GET_USER_CHECKIN_DETAILS , qs.stringify(postData), config)
             .then( function ( res ){ 
-                console.log(res.data);
+                that_.checkindetails = [];
+                let data = JSON.parse(res.data);
+                if (  data.length > 0 && data != '' && data != null && typeof data != 'undefined' ) {
+                    that_.checkindetails = data;
+                }
+                that_.showModalType = payload;
             });
+        },
+        getRedeemList(payload) {
+            let that_ = this;
+            let postData = {
+                    startTime: moment(new Date(new Date().getTime() - 604800000)).format('YYYY-MM-DD'),
+                    endTime: moment(new Date(new Date().getTime() + 86400000)).format('YYYY-MM-DD')
+            };
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                }
+            }
+            this.$http.post( GET_USER_REDEEM_LIST, qs.stringify(postData), config)
+            .then( function ( res ){ 
+                that_.redempointrecord = [];
+                let data = JSON.parse(res.data);
+                if (  data.length > 0 && data != '' && data != null && typeof data != 'undefined' ) {
+                    that_.redempointrecord = data;
+                }
+                that_.showModalType = payload;
+            });
+        },
+        goCheckIn: function() {
+            let that_ = this;
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                }
+            }
+            this.$http.get(CHECKIN_USER, config)
+            .then( function (res) {
+                if ( res.data.amount == 0.0 ) {
+                    that_.notifmessage = res.data.msg;
+                }
+                else {
+                    that_.checkinAmount = res.data.amount;
+                    that_.showModal('signinsuccess');
+                    that_.$nextTick(() => {
+                        setTimeout(()=>{
+                            this.display = true;
+                        }, 150);
+                    });
+                }
+            });
+        },
+        getUserSignStatus(){
+            let that_ = this;
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey
+                }
+            }
+            this.$http.get( GET_USER_SIGNIN_STAT , config )
+            .then( function ( res ){
+                    that_.signinStatus = res.data;
+            });
+        },
+        goRedeem: function() {
+            let error = '100积分才可兑换额度'
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey
+                }
+            }
+            this.notifmessage = error;
+            if ( this.signinStatus.AccPoints >= 100 )
+            {
+                this.$http.get( EXCHANGE_SIGNIN_POINTS, config )
+                .then( function( res ) {
+                    this.notifmessage = (res.data.msg);
+                });
+            }
+            else {
+                this.notifmessage = ('100积分才可兑换额度');
+            }
         }
     },
     computed: {
@@ -191,16 +264,7 @@ export default {
     },
     created() {
         // Get User sigin in status
-        let that_ = this;
-        let config = {
-                headers: {
-                    'Authorization': 'Bearer ' + this.currentUser.tokenKey
-                }
-        }
-        this.$http.get( GET_USER_SIGNIN_STAT , config )
-        .then( function ( res ){
-            that_.signinStatus = res.data;
-        });
+        this.getUserSignStatus();
         this.setCurrentPage('Signin');
     }
 }

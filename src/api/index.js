@@ -34,12 +34,20 @@ export const CHECK_EMAIL = serviceUrl + '/Account/CheckEmail';
 // GET
 export const GET_USER_SIGNIN_STAT = serviceUrl + '/Active/GetUserSignStatus';
 
-// Get Check-in Details - GET
+// Get Check-in Details - POST
 export const GET_USER_CHECKIN_DETAILS = serviceUrl + '/Active/GetUserSignListAsyn';
 
+// Get Redeem List - POST
+export const GET_USER_REDEEM_LIST = serviceUrl + '/Active/GetUserRedeemListAsyn'
 
+// Check-in User - GET
+export const CHECKIN_USER = serviceUrl + '/Active/RegistUserSign'
+
+// Exchange Sign-in Points - GET
+export const EXCHANGE_SIGNIN_POINTS = serviceUrl + '/Active/ExchangeUserRedeem';
+
+// PASSWORD RESET
 // Retrieves user data - POST
 export const RESET_PASSWORD = serviceUrl + '/Account/ResetPassword';
-
 //  POST
 export const FORGOT_PASSWORD = serviceUrl + '/Account/ForgetPassword'
