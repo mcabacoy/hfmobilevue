@@ -108,7 +108,6 @@ export default {
                 }
             })
             .catch( function(error){
-                console.log(error);
                 // this.notifmessage = error.responseJSON.Message; 
             });
         },
@@ -125,14 +124,13 @@ export default {
             };
             this.$http.post( FORGOT_PASSWORD, qs.stringify(postData) )
             .then( function(res) {
-                console.log(res);
-                that_.notifmessage = (" 新密码已成功发送，请留意查收");
+                that_.notifmessage = ("新密码已成功发送，请留意查收");
                 setTimeout(function(){ 
-                    that_.$router.push( { path: '../Login'  });
+                    that_.$router.push({ path: '../Login'  });
                 }, 1000);
             })
             .catch( function (error) {
-                console.log(error);
+
             });
         }
     }
