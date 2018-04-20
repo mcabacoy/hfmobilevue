@@ -2,6 +2,7 @@ var qs = require("querystring");
 const tokenKey_ = 'accessToken';
 const loginInfo_ = 'information';
 const userInfo_ = 'userInfo';
+const hfNotices_ = 'gethfnotices';
 
 const emptyUserInfo_ =  {
     AccountLevel:0,
@@ -33,7 +34,8 @@ const emptyUserInfo_ =  {
 
 const state = {
     tokenKey: sessionStorage.getItem(tokenKey_),
-    userInfo_: emptyUserInfo_
+    userInfo_: emptyUserInfo_,
+    notices: []
 }
 
 const getters = {
@@ -42,6 +44,9 @@ const getters = {
             tokenKey : sessionStorage.getItem(tokenKey_),
             userInfo : qs.parse(sessionStorage.getItem( userInfo_ ))
         }
+    },
+    getNotices: state => {
+        return state.notices;
     }
 }
 
@@ -56,6 +61,13 @@ const mutations = {
         sessionStorage.removeItem(tokenKey_);
         window.localStorage.removeItem(loginInfo_);
         sessionStorage.removeItem(userInfo_);
+    },
+    storeUserInfoSession(state, payload){
+        sessionStorage.setItem(userInfo_, payload);
+    },
+    storeNoticesSession(state, payload){
+        sessionStorage.setItem(userInfo_, payload );
+        state.notices = payload;
     }
 }
 

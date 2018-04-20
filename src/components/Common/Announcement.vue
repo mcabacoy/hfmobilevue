@@ -8,7 +8,7 @@
         </span>
         <div class="notices-container">
             <ul id="notices" class="marquee">
-                <li v-for="notice in notices" v-bind:key="notice">{{ notice }}</li>
+                <li v-for="(notice, index ) in notices" v-bind:key="index">{{ notice.Content }}</li>
             </ul>
         </div>
     </div>
@@ -18,15 +18,7 @@
 <script>
 export default {
     name: 'announcement',
-    data(){
-      return {
-          notices:[
-              'The quick brown fox jumps over the lazy dog',
-              'This is just a random text',
-              'Please disregard this'
-          ]
-      }
-    }
+    props: ['notices']
 }
 </script>
 
