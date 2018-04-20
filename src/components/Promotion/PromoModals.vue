@@ -63,7 +63,7 @@
 
 </template>
 <script>
-export default{
+export default {
    name: 'promotion-modal',
    methods: {
        closeModal: function(payload){
