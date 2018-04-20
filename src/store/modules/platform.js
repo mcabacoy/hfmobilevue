@@ -7,7 +7,7 @@ const state = {
           link: '/New_PT_List',
           balance: 0,
           forBalancePlatform: false,
-          isDirectList: true,
+          isDirectList: true,        
           banner: '../../static/img/HGame/PT-banner.jpg'
         },
         {
@@ -17,6 +17,7 @@ const state = {
           link: '/PT',
           balance: 0,
           forBalancePlatform: true,
+          hexColor: '#188f63',
           isDirectList: false
         },
         {
@@ -26,6 +27,7 @@ const state = {
           link: '/MG',
           balance: 0,
           forBalancePlatform: true,
+          hexColor: '#18b900',
           isDirectList: false
         },
         {
@@ -35,6 +37,7 @@ const state = {
           link: '/SG',
           balance: 0,
           forBalancePlatform: true,
+          hexColor: '#f3310b',
           isDirectList: false
         },
         {
@@ -44,6 +47,7 @@ const state = {
           link: '/HABA',
           balance: 0,
           forBalancePlatform: true,
+          hexColor: '#18b900',
           isDirectList: false
         },
         {
@@ -53,6 +57,7 @@ const state = {
           link: '/PNG',
           balance: 0,
           forBalancePlatform: true,
+          hexColor: '#18b900',
           isDirectList: false
         },
         {
@@ -62,6 +67,7 @@ const state = {
           link: '/TTG',
           balance: 0,
           forBalancePlatform: true,
+          hexColor: '#f71dcb',
           isDirectList: false
         },
         {
@@ -71,6 +77,7 @@ const state = {
           link: '/BS',
           balance: 0,
           forBalancePlatform: true,
+          hexColor: '#f3310b',
           isDirectList: false
         }
       ]

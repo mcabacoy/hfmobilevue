@@ -152,7 +152,7 @@ body {
         display: block;
         color: #ffc000;
         text-align: center;
-        padding-top: .19rem;
+        padding-top: .26rem;
         font-size: .3rem;
         letter-spacing: .01rem;
     }
@@ -162,7 +162,7 @@ body {
         height: 0.53rem;
         position: relative;
         left: 1.1rem;
-        top: -0.48rem;
+        top: -0.43rem;
         border: none;
         font-size: 0.3rem;
         outline: none;

@@ -108,6 +108,8 @@ input[type="reset"] {
 
 .promo-container {
     margin-top: -0.2rem;
+    height: 100%;
+    background: #e3e3e3;
 }
     
 .header {
@@ -165,7 +167,7 @@ input[type="reset"] {
 
 
 #Promotion {
-    margin-top: 2.5rem !important;
+    margin-top: 2.4rem !important;
 
     .promotion.tab-content {
         margin-top: 2.2rem;
@@ -188,7 +190,7 @@ input[type="reset"] {
                         float: left;
                         width: 3.2rem;
                         text-align: center;
-                        padding: .15rem 0 .15rem .3rem;
+                        padding: .25rem 0 .15rem .3rem;
 
                         h1 {
                             color: #fff;
@@ -201,8 +203,9 @@ input[type="reset"] {
                             font-size: .22rem;
                             color: #ffc4ed;
                             background: rgba(255, 255, 255, 0.2);
-                            padding: .04rem .1rem;
-                            margin-top: .07rem;
+                            padding: .06rem .1rem;
+                            margin-top: .13rem;
+                            line-height: .3rem;
                         }
                     }
 
@@ -216,6 +219,7 @@ input[type="reset"] {
                             color: #ffc4ed;
                             padding-left: .1rem;
                             font-size: .24rem;
+                            line-height: .33rem;
                         }
                         .btn {
                             background: #fff;

@@ -1,6 +1,6 @@
 <template>
    <li :class="[item.customClass, 'transfer-list' ]">
-        <p class="transtitle"><span></span>{{ item.name }}</p>
+        <p class="transtitle"><span :style="'border-left: 4px solid ' + item.hexColor + ';' "></span>{{ item.name }}</p>
         <div class="card">
             <p>平台余额：</p>
          <h2 data-bind="text:ptBalance">{{ item.balance }}元</h2>
