@@ -9,51 +9,10 @@
                         <div class="dema_kong" @click="closeModal"><span class="demoSpan2"></span></div>
                     </div>
                     <div class="modal-body">
-                        <div class="offerdetail-btns">
-                            <p style="font-weight: 600;color:#bb1515">助您做赢家 奖金祝您发</p>
-                            <p>活动内容：</p>
-                            <p>1.从活动开始起，当天存款100元或以上且满足以下优惠条件的玩家，即可申请救援优惠，奖金高达5888。</p>
-                            <table style="width: 100%;font-size: .2rem;text-align: center;">
-                                <tbody>
-                                    <tr>
-                                        <td style="font-weight: bold;">当日负盈利金额</td>
-                                        <td style="font-weight: bold;">申请要求</td>
-                                        <td style="font-weight: bold;">救援金获得比例</td>
-                                        <td style="font-weight: bold;">救援金上限</td>
-                                        <td style="font-weight: bold;">提款要求</td>
-                                    </tr>
-                                    <tr>
-                                        <td>≥100元</td>
-                                        <td>余额≤5元</td>
-                                        <td>10%</td>
-                                        <td>5888</td>
-                                        <td>10倍流水</td>
-                                    </tr>
-                                    <tr>
-                                        <td>≥100元</td>
-                                        <td>余额≤5元</td>
-                                        <td>22%</td>
-                                        <td>5888</td>
-                                        <td>25倍流水</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p>2.申请方式：点击【申请提交】，申请将会在30分钟内审核并派发奖金。</p>
-                            <p>3.此优惠奖金需要完成对应流水要求即可出款，仅限投注在老虎机或捕鱼游戏；</p>
-                            <p>4.此优惠不与网站首存优惠共享。</p>
-                        </div>
+                        <slot name="body"></slot>
                     </div>
                     <div class="modal-bottom">
-                        <div style="width: 79%;margin: 0 auto;">
-                            <div class="form-row Rescue2to1" style="">
-                                <label style="color:#232323;">救援金选项</label>
-                                <span class="arrowbox2"></span>
-                                <select id="ApplyLobbyReturn">
-                                    <option value="救援金获得比例10%" class="option option1">救援金获得比例10%</option>
-                                    <option value="救援金获得比例22%" class="option option2">救援金获得比例22%</option>
-                                </select>
-                            </div>
-                        </div>
+                        <slot name="bottom"></slot>
                     </div>
                 </div>
                 <input type="submit" class="submission" value="申请提交">
@@ -88,6 +47,37 @@ export default {
     border-radius: .12rem;
     top: 1rem !important;
     left: .34rem;
+
+    .modal-body{
+        height: 9.504rem;
+        max-height: 4.5rem;
+        min-height: 3rem;
+        background: #fff;
+        overflow: hidden;
+        overflow-y: scroll;
+        border-radius: 0;
+
+        .offerdetail-btns{
+            width: 100%;
+            padding: .35rem .3rem;
+
+            p{
+                color: #494949;
+                line-height: .4rem;
+                font-size: .22rem;
+            }
+            ul li{
+                list-style-type: disc;
+                font-size: 0.22rem;
+                line-height:.33rem;
+            }
+        }
+        table tr td{
+            border:1px solid #000;
+            padding:.08rem 0;
+            line-height:.25rem;
+        }
+    }
 
     .modal-header{
         background: #f3552a;
@@ -126,44 +116,11 @@ export default {
         float: right;
     }
 
-    .modal-body{
-        height: 9.504rem;
-        max-height: 4.5rem;
-        min-height: 3rem;
-        background: #fff;
-        overflow: hidden;
-        overflow-y: scroll;
-        border-radius: 0;
-
-        .offerdetail-btns{
-            width: 100%;
-            padding: .35rem .3rem;
-
-            p{
-                color: #494949;
-                line-height: .4rem;
-                font-size: .22rem;
-            }
-        }
-        table tr td{
-            border:1px solid #000;
-            padding:.08rem 0;
-            line-height:.25rem;
-        }
-    }
-
+   
     .modal-bottom{
         background: #e0e0e0;
         border-radius: 0 0 .12rem .12rem;
         padding: .25rem 0;
-
-        .form-row{
-            background: #fff;
-            padding: .16rem .1rem;
-            border-radius: .08rem;
-            position: relative;
-            height: .55rem;
-        }
     }
     .submission{
         background: #ff0024;
@@ -206,59 +163,5 @@ export default {
     -moz-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
-}
-.Rescue2to1{
-    label{
-        float: left;
-        display: inline-block;
-        max-width: 100%;
-        color: #3d4245;
-        font-size: .25rem;
-    }
-    .arrowbox2{
-        padding: .2rem .25rem;
-        margin-top: -.05rem;
-        right: .04rem;
-        background: #ca0626;
-        position: absolute;
-        top: 24%;
-        border-radius: 3px;
-    }
-    .arrowbox2:before{
-        content: '';
-        height: .2rem;
-        width: .2rem;
-        display: block;
-        border: 1px solid #fff;
-        border-right-width: 0;
-        border-top-width: 0;
-        transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        position: absolute;
-        top: 50%;
-        margin-top: -.16rem;
-        right: 37%;
-        top: 62%;
-        right: .2rem;
-        height: .15rem;
-        width: .15rem;
-
-    }
-}
-#ApplyLobbyReturn{
-    width: 2.9rem;
-    float: left;
-    border-left: 1px solid #000;
-    padding-left: .1rem;
-    background: none;
-    z-index: 2;
-    position: relative;
-    font-size: .25rem;
-    border-radius: 0;
-    margin-left: .1rem;
-    margin-top: -.06rem;
 }
 </style>
