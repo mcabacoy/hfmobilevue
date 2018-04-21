@@ -14,7 +14,7 @@
             <a @click="routePage('WalletRecharge')" class="Recharge_btn greenbg">充 &nbsp;值</a>
             <a @click="routePage('WalletWithdraw')"  class="withdraw_btn orangebg">提 &nbsp;现</a>
             <a @click="routePage('Transfers')"  class="withdraw_btn redbg">转 &nbsp;账</a>
-        </div>
+        </div>  
     </div>
 </section>
 </template>

@@ -16,6 +16,20 @@ const state ={
             type: 'sidemenu'
         },
         {
+            link: 'WalletWithdraw',
+            linktype: 'internal',
+            name: '鸿福首页',
+            class: 'icon2',
+            type: 'sidemenu'
+        },
+        {
+            link: 'TransactionQuery',
+            linktype: 'internal',
+            name: '记录查询',
+            class: '',
+            type: 'back'
+        },
+        {
             link: 'Transfers',
             linktype: 'internal',
             name: '平台转账',

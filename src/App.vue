@@ -56,6 +56,7 @@ export default {
 
 body {
    font-family:Microsoft YaHei !important;
+   background: #e2e3e7;
 }
 #app{
     height:100%;

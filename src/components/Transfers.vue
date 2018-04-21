@@ -7,7 +7,7 @@
                 <h3>{{ parseFloat(currentUser.userInfo.Balance).toFixed(2) }}元</h3>
             </div>
             <div class="righthead">
-                <a href="/TransactionQuery" id="transactiondetails">交易明细</a>
+                <a @click="routePage('TransactionQuery')" id="transactiondetails">交易明细</a>
             </div>
         </div>
         <div class="transferbody">

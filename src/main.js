@@ -7,11 +7,13 @@ import Router from 'vue-router';
 
 const Homepage = resolve => require(['./components/Homepage'], resolve);
 const WalletRecharge = resolve => require(['./components/WalletRecharge'], resolve);
+const WalletWithdraw = resolve => require(['./components/WalletWithdraw'], resolve);
 const Transfers = resolve => require(['./components/Transfers'], resolve);
 const VIP = resolve => require(['./components/VIP'], resolve);
-const Promotion = resolve => require(['./components/Promotion'], resolve)
-const BankCard = resolve => require(['./components/BankCard'], resolve)
-const Signin = resolve => require(['./components/Signin'], resolve)
+const Promotion = resolve => require(['./components/Promotion'], resolve);
+const BankCard = resolve => require(['./components/BankCard'], resolve);
+const Signin = resolve => require(['./components/Signin'], resolve);
+const TransactionQuery = resolve => require(['./components/TransactionQuery'], resolve);
 
 const Wallet = resolve => require(['./components/Wallet'], resolve)
 const InfoBind = resolve => require(['./components/BankCard/UserInfoBind'], resolve);
@@ -42,6 +44,14 @@ const routes = [
   {
     path: '/WalletRecharge',
     component: WalletRecharge
+  },
+  {
+    path: '/WalletWithdraw',
+    component: WalletWithdraw
+  },
+  {
+    path: '/TransactionQuery',
+    component: TransactionQuery
   },
   {
     path: '/Transfers',
