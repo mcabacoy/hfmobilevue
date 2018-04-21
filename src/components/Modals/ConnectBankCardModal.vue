@@ -15,8 +15,8 @@
                                 <div class="input-item">
                                     <!-- Bank Account Select -->
                                     <span class="arrowbox"></span>
-                                    <select class="form-control" >
-                                        <option v-for="(item,index) in bankaccounttypes" :key="index" value="item.value">
+                                    <select class="form-control" v-model="bankCode" >
+                                        <option v-for="(item,index) in getBankTypes" :key="index" :value="item.value">
                                             {{ item.name }}
                                         </option>
                                     </select>
@@ -28,7 +28,7 @@
                                 <div class="input-label">开户姓名</div>
                                 <div class="input-item">
                                     <!-- Account Name -->
-                                    <div class="label-only">阿瑟将军</div>
+                                    <input type="text" class="form-control" v-model="cardOwnerName">
                                 </div>
                             </div>
                         </li>
@@ -37,7 +37,7 @@
                                 <div class="input-label">银行账号 </div>
                                 <div class="input-item">
                                     <!-- Bank Address -->
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" v-model="cardNo">
                                 </div>
                             </div>
                         </li>
@@ -46,7 +46,7 @@
                                 <div class="input-label">开户地址</div>
                                 <div class="input-item">
                                     <!--Account Opening Address -->
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" v-model="bankAddress">
                                 </div>
                             </div>
                         </li>
@@ -54,77 +54,73 @@
 
                     <div class="modal-footer">
                         <button type="submit" 
-                            class="btn">确  定</button>
+                            class="btn" @click="addBankCard">确  定</button>
                     </div>
                 </div>
             </div>
         </div>
+
+
+        <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
     </div>
 </template>
 
 <script>
+import { ADD_BANK_CARD } from '../../api'
+import { mapState, mapGetters, mapMutations } from 'vuex'
+import Notification from './../Common/Notification'
+
 export default {
+    components: { Notification },
     data(){
         return {
-            bankaccounttypes: [
-                {
-                    name: '中国工商银行',
-                    value: 'ICBC'
-                },
-                {
-                    name: '中国农业银行',
-                    value: 'ABC'
-                },
-                {
-                    name: '中国招商银行',
-                    value: 'CMB'
-                },
-                {
-                    name: '中国建设银行',
-                    value: 'CCB'
-                },
-                {
-                    name: '中国交通银行',
-                    value: 'COMM'
-                },
-                {
-                    name: '中国银行',
-                    value: 'BOC'
-                },
-                {
-                    name: '中国光大银行',
-                    value: 'CEB '
-                },
-                {
-                    name: '中国民生银行',
-                    value: 'CMBC'
-                },
-                {
-                    name: '中信银行',
-                    value: 'CITIC'
-                },
-                {
-                    name: '平安银行',
-                    value: 'SZPAB'
-                },
-                {
-                    name: '上海浦东发展银行',
-                    value: 'SPDB'
-                },
-                {
-                    name: '兴业银行',
-                    value: 'CIB'
-                },
-                {
-                    name: '邮政银行',
-                    value: 'POST-NET'
-                }
-            ]
+            cardOwnerName: '',
+            cardNo: '',
+            bankAddress: '',
+            bankCode: '',
+            notifmessage: ''
         }
+    }, 
+    computed: {
+        ...mapGetters(["getBankTypes", "currentUser"])
     },
     methods: {
         closeModal: function (){
             this.$emit('closeModal')
+        },
+
+        addBankCard(){
+            let that_ = this;
+
+            if ( this.cardOwnerName == null || this.cardOwnerName.length == 0){
+                this.notifmessage = ("请输入收款人姓名");
+                return false;
+            }
+            if  ( this.cardNo == null || this.cardNo.length == 0 ){
+                 this.notifmessage = ("请输入银行账号");
+                 return false;
+            }
+            if  ( this.bankAddress == null || this.bankAddress.length == 0 ){
+                 this.notifmessage = ("请输入开户银行地址");
+                 return false;
+            }
+            debugger;
+            let postData = {
+                Id: 0,
+                BankName: this.bankCode,
+                CardOwnerName: this.cardOwnerName,
+                CardNo: this.cardNo,
+                BankAddress: this.bankAddress,
+                IsDefault: true,
+                BankCode: this.bankCode
+            };
+            let config = { headers: { 'Authorization': 'Bearer ' + this.currentUser.tokenKey } };
+            this.$http.post( ADD_BANK_CARD , postData, config )
+            .then( function (){
+                that_.$emit("refresh");
+                that_.$emit("closeModal");
+            })
+            .catch( function (){ });
         }
     }
 }
@@ -159,7 +155,7 @@ export default {
             font-size: 0.31rem !important;
             position: relative;
             z-index: 9999;
-            height: 34px;
+            height: 0.6rem;
             padding: 6px 12px;
             line-height: 1.42857143;
             display: block;

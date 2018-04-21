@@ -73,3 +73,16 @@ export const TRANSFER_OUT = serviceUrl + '/FundTransfer/Withdrawal';
 // BANK CARD / USER INFO ****************************
 // Get All Bank - GET
 export const GET_ALL_BANK_CARDS = serviceUrl + '/Transact/GetAllBanks';
+
+// Add Bank Card - POST
+export const ADD_BANK_CARD = serviceUrl + '/UserBankInfo/PostUserBankInfo';
+
+// Set Default Bank Card - POST
+export const SET_DEFAULT_BANK_CARD = serviceUrl + '/UserBankInfo/SetDefault';
+
+// Delete Bank Card - POST
+export const DELETE_BANK_CARD = serviceUrl + '/UserBankInfo/MarkDelete';
+
+// Get User Bank Ifno - GET
+export const GET_USER_BANK_INFO = serviceUrl + '/UserBankInfo';
+

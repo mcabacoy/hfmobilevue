@@ -89,18 +89,24 @@
                                 <div class="bank-logo"></div>
                             </div>
                             <div class="bank_details">
-                                <p class="bank-name">{{ bankname }}</p>
-                                <p class="bank-num">{{ cardno }}</p>
+                                <p class="bank-name">{{ item.BankName }}</p>
+                                <p class="bank-num">{{ item.CardNo }}</p>
 
                                 <!-- Available for non-default Bank Card -->
-                                <span class="removecard" v-show="!( defaultbank == item.BankCode)">删除卡片</span>
-                                <span class="notdefaultcard" v-show="!( defaultbank ==  item.BankCode)">设为默认</span>
+                                <span class="removecard"  @click="displayModalYesNo(item.BankCode)" 
+                                        v-show="!(item.IsDefault)">删除卡片</span>
+                                <span class="notdefaultcard" @click="setDefaultCard(item)"
+                                        v-show="!(item.IsDefault)">设为默认</span>
 
                                  <!-- Available for default Bank Card -->
-                                <span class="defaultcard" v-show="( defaultbank ==  item.BankCode)">默认卡片</span>
-                                <span class="auto" v-show="( defaultbank ==  item.BankCode)"></span>
+                                <span class="defaultcard" v-show="(item.IsDefault)">默认卡片</span>
+                                <span class="auto" v-show="( item.IsDefault)"></span>
                             </div>
                         </div>
+                        <yes-no-modal v-if="showModalYesNo"
+                                     @clickYes="deleteUserBank"
+                                     @clickNo="closeYesNoModal"
+                                     :item="item"></yes-no-modal>
                     </li>
                 </ul>
             </div>
@@ -113,7 +119,8 @@
                     </button>
                 </div>
             </div>
-            <connect-bank-card v-if="displayConnectBankCard" @closeModal="closeBankCard()" ></connect-bank-card>
+            <connect-bank-card  @refresh="refreshBankCards" v-if="displayConnectBankCard" @closeModal="closeBankCard()" ></connect-bank-card>
+            
         </div>
     </div>
 
@@ -125,41 +132,47 @@
 import { mapState, mapGetters, mapMutations } from 'vuex'
 import SignoutMenu from './Common/SignoutMenu'
 import ConnectBankCard from './Modals/ConnectBankCardModal'
+import YesNoModal from './Modals/YesNoModal'
 import Notification from './Common/Notification'
-import { USERINFO, GET_ALL_BANK_CARDS } from './../api'
+import  {   USERINFO, 
+            GET_ALL_BANK_CARDS,
+            SET_DEFAULT_BANK_CARD,
+            DELETE_BANK_CARD,
+            GET_USER_BANK_INFO
+        } from './../api'
 var qs = require("querystring");
 
 export default {
-    components: { SignoutMenu , ConnectBankCard, Notification },
+    components: { SignoutMenu , ConnectBankCard, Notification, YesNoModal },
     props: ['targettab'],
     data(){
       return {
         AccountDetails: '',
         displayConnectBankCard: false,
         displaySignout: false,
-        bankname: '中国工商银行',
-        cardno: '1234**********5678',
         defaultbank: '',
         opentab: this.$route.params.targettab ? this.$route.params.targettab : 'userinfo',
         banklist: [],
-        notifmessage: ''
+        notifmessage: '',
+        showModalYesNo: false
       }
     },
     computed: {
         ...mapGetters({ 
             currentUser: 'currentUser',
+            getBankAccount: 'getBankTypeByName'
         }),
         getCardList(){
             return this.banklist.sort( function(e){
-                return !e.isdefault;
+                return !e.IsDefault;
             });
         }
     },
     methods: {
-      ...mapMutations ([
+        ...mapMutations ([
             'setCurrentPage',
             'storeUserInfoSession',
-            'clearSessions'
+            'clearSessions',
         ]),
         setTab: function(payload){
            this.opentab =  payload;
@@ -178,6 +191,13 @@ export default {
         },
         closeNotif(){
             this.notifmessage = ''
+        },
+        getBankName(payload){
+            let item_ = this.getBankAccount(payload);
+            return '';
+        },
+        closeYesNoModal(){
+            this.showModalYesNo = false;
         },
         // PROCESS
         // USER INFO ***************************
@@ -207,18 +227,17 @@ export default {
                 this.requestAccountInfo( this.currentUser.tokenKey );
             }
         },
-
         // BANK CARDS ***************************
+        refreshBankCards(){
+            this.getUserBankInfo();
+        },
         getAllBankCards(){
             let that_ = this;
             let config = { headers: { 'Authorization': 'Bearer ' + this.currentUser.tokenKey } };
             this.$http.get( GET_ALL_BANK_CARDS,  config )
             .then( function(res){
-                console.log(res.data);
                 if ( res.data == 'Failed' ){
                      that_.notifmessage = ("您的账户在别的地方登陆，请重新登陆！");
-                     // Clear Session
-                     // Redirect to Login
                      that_.clearSessions();
                      that_.$nextTick(() => {
                         setTimeout(()=>{
@@ -230,20 +249,68 @@ export default {
                     that_.banklist = res.data;
                 }
             })
-            .catch( function(error){
-            });
+            .catch( function(error){});
+        },
+        displayModalYesNo( ){
+            this.showModalYesNo = true;
+        },
+        deleteUserBank(payload){
+            this.closeYesNoModal();
+            let that_ = this;
+            let config = { headers: { 'Authorization': 'Bearer ' + this.currentUser.tokenKey } };
+            let postData = payload;
+            this.$http.post( DELETE_BANK_CARD, postData,  config )
+            .then( function(res){
+                that_.refreshBankCards();
+            })
+            .catch( function(error){});
+        },
+        setDefaultCard(payload){
+            this.closeYesNoModal();
+            let that_ = this;
+            let config = { headers: { 'Authorization': 'Bearer ' + this.currentUser.tokenKey } };
+            let postData = payload;
+            this.$http.post( SET_DEFAULT_BANK_CARD, postData,  config )
+            .then( function(res){
+                that_.refreshBankCards();
+            })
+            .catch( function(error){});
+        },
+        getUserBankInfo(){
+            let that_ = this;
+            let config = { headers: { 'Authorization': 'Bearer ' + this.currentUser.tokenKey } };
+            this.$http.get( GET_USER_BANK_INFO,  config )
+            .then( function(res){
+                console.log(res.data);
+                if ( res.data == 'Failed' ){
+                     that_.notifmessage = ("您的账户在别的地方登陆，请重新登陆！");
+                     that_.clearSessions();
+                     that_.$nextTick(() => {
+                        setTimeout(()=>{
+                            that_.$router.push({path: '../Login' });
+                        }, 1100);
+                    });
+                }
+                else {
+                    that_.banklist = res.data;
+                }
+            })
+            .catch( function(error){});
         }
     },
     created() {
         this.populateUserInfo();
-        this.getAllBankCards();
+        // this.getAllBankCards();
+        this.getUserBankInfo();
         this.setCurrentPage('BankCard');
-        console.log(this.AccountDetails);
     }
 }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+
+
+
 
 body {
     background: #e2e3e7 !important;
@@ -610,10 +677,48 @@ body {
                     &.ICBC .bank-logo {
                         background: url(../../static/img/Bank/bank2.png);
                     } 
-
-                    &.CIB .bank-logo {
+                    &.ABC .bank-logo {
+                        background: url(../../static/img/Bank/bank-ny.png);
+                    } 
+                    &.CMB .bank-logo {
+                        background: url(../../static/img/Bank/bank-zs.png);
+                    } 
+                    &.CCB .bank-logo {
                         background: url(../../static/img/Bank/bank-js.png);
+                    } 
+                    &.COMM .bank-logo {
+                        background: url(../../static/img/Bank/bank-jt.png);
+                    } 
+                    &.BOC .bank-logo {
+                        background: url(../../static/img/Bank/bank-zg.png);
+                    } 
+                    &.CEB .bank-logo {
+                        background: url(../../static/img/Bank/bank-lg.png);
+                    } 
+
+                    &.CMBC .bank-logo {
+                        background: url(../../static/img/Bank/bank-ms.png);
                     }
+
+                    &.CITIC .bank-logo {
+                        background: url(../../static/img/Bank/bank-zx.png);
+                    }
+                    &.SZPAB .bank-logo {
+                        background: url(../../static/img/Bank/bank-pa.png);
+                    }
+                    &.SPDB .bank-logo {
+                        background: url(../../static/img/Bank/bank-pd.png);
+                    }
+                    &.CIB .bank-logo {
+                        background: url(../../static/img/Bank/bank-xy.png);
+                    }
+                    &.POST-NET .bank-logo {
+                        background: url(../../static/img/Bank/bank-uz.png);
+                    }
+
+
+
+
 
                     &.ICBC,
                     &.CMB, 

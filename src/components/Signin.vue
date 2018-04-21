@@ -219,7 +219,7 @@ export default {
                     that_.showModal('signinsuccess');
                     that_.$nextTick(() => {
                         setTimeout(()=>{
-                            this.display = true;
+                            that_.display = true;
                         }, 150);
                     });
                 }
