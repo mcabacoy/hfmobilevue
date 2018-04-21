@@ -1,6 +1,6 @@
 <template>
   <div class="game" id="GameBalance">
-        <img class="game-banner"  ref="banner" />
+        <div :class="['game-banner', $route.params.gametype ]"  ref="banner" />
         <div class="game-body">
             <div class="game-header">
                 <span></span>{{ gamename }}
@@ -161,6 +161,34 @@ export default {
         line-height: .95rem;
         font-size: .32rem;
         letter-spacing: .03rem;
+    }
+    .game-banner.PT{
+        background: url(../../static/img/HGame/PT-banner.png) no-repeat;
+        background-size: 100%;
+    }
+    .game-banner.MG{
+        background: url(../../static/img/HGame/MG_banner.png) no-repeat;
+        background-size: 100%;
+    }
+    .game-banner.SG{
+        background: url(../../static/img/HGame/SG_banner.png) no-repeat;
+        background-size: 100%;
+    }
+    .game-banner.HABA{
+        background: url(../../static/img/HGame/HB_banner.png) no-repeat;
+        background-size: 100%;
+    }
+    .game-banner.PNG{
+        background: url(../../static/img/HGame/PNG_banner.png) no-repeat;
+        background-size: 100%;
+    }
+    .game-banner.TTG{
+        background: url(../../static/img/HGame/TTG_banner.png) no-repeat;
+        background-size: 100%;
+    }
+    .game-banner.BS{
+        background: url(../../static/img/HGame/BS_banner.png) no-repeat;
+        background-size: 100%;
     }
 }
 </style>
