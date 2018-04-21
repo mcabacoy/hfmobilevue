@@ -60,13 +60,12 @@ const state = {
                     gametype: 'sw_totiatp',
                     name: '逆戟鲸，冰山和企鹅',
                     bgImg: 'sw_totiatp.jpg',
+                },
+                {
+                    gametype: '',
+                    name: '',
+                    bgImg: '.jpg',
                 }
-                // ,
-                // {
-                //     gametype: '',
-                //     name: '',
-                //     bgImg: '.jpg',
-                // },
                 // {
                 //     gametype: '',
                 //     name: '',

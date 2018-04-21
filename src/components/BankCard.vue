@@ -635,6 +635,52 @@ body {
                             background: -moz-linear-gradient(right, #284cc3, #4591e6);
                             background: linear-gradient(to right, #284cc3, #4591e6);
                     }
+                    
+                    &.ICBC, &.CMB, &.CITIC, &.BOC{
+                        background: #c32b2b;
+                        background: -webkit-linear-gradient(left, #c32b2b , #ec5bb0);
+                        background: -o-linear-gradient(right, #c32b2b, #ec5bb0);
+                        background: -moz-linear-gradient(right, #c32b2b, #ec5bb0);
+                        background: linear-gradient(to right, #c32b2b, #ec5bb0);
+                    }
+                    &.COMM{
+                        background: #3e60cf;
+                        background: -webkit-linear-gradient(left, #3e60cf , #5192ec);
+                        background: -o-linear-gradient(right, #3e60cf, #5192ec);
+                        background: -moz-linear-gradient(right, #3e60cf, #5192ec);
+                        background: linear-gradient(to right, #3e60cf, #5192ec);
+                    }
+                    &.CEB{
+                        background: #e17710;
+                        background: -webkit-linear-gradient(left, #e17710 , #ffa31f);
+                        background: -o-linear-gradient(right, #e17710, #ffa31f);
+                        background: -moz-linear-gradient(right, #e17710, #ffa31f);
+                        background: linear-gradient(to right, #e17710, #ffa31f);
+                    }
+                    &.CMBC, &.POST-NET, &.ABC{
+                        background: #0f974c;
+                        background: -webkit-linear-gradient(left, #0f974c , #7bc334);
+                        background: -o-linear-gradient(right, #0f974c, #7bc334);
+                        background: -moz-linear-gradient(right, #0f974c, #7bc334);
+                        background: linear-gradient(to right, #0f974c, #7bc334);
+                    }
+                    &.SZPAB{
+                        background: #de7004;
+                        background: -webkit-linear-gradient(left, #de7004 , #ffa31f);
+                        background: -o-linear-gradient(right, #de7004, #ffa31f);
+                        background: -moz-linear-gradient(right, #de7004, #ffa31f);
+                        background: linear-gradient(to right, #de7004, #ffa31f);
+                    }
+                    &.CIB, &.CCB, &.SPDB{
+                        background: #284cc3;
+                        background: -webkit-linear-gradient(left, #284cc3 , #4591e6);
+                        background: -o-linear-gradient(right, #284cc3, #4591e6);
+                        background: -moz-linear-gradient(right, #284cc3, #4591e6);
+                        background: linear-gradient(to right, #284cc3, #4591e6);
+                    }
+
+
+
                 }
             }
         }
