@@ -20,7 +20,7 @@ const state ={
             linktype: 'internal',
             name: '鸿福首页',
             class: 'icon2',
-            type: 'sidemenu'
+            type: ''
         },
         {
             link: 'TransactionQuery',
