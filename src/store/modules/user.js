@@ -55,7 +55,7 @@ const mutations = {
     setUserInfo  (state, payload) {
         state.userInfo_ = payload;
     },
-    logoutUser (state) {
+    clearSessions (state) {
         // state.userInfo = emptyUserInfo_;
         state.tokenKey = ''
         sessionStorage.removeItem(tokenKey_);

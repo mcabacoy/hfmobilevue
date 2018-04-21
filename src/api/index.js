@@ -67,3 +67,9 @@ export const TRANSFER_IN = serviceUrl + '/FundTransfer/Deposit';
 
 // Withdraw In - POST
 export const TRANSFER_OUT = serviceUrl + '/FundTransfer/Withdrawal';
+
+
+
+// BANK CARD / USER INFO ****************************
+// Get All Bank - GET
+export const GET_ALL_BANK_CARDS = serviceUrl + '/Transact/GetAllBanks';

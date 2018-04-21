@@ -24,93 +24,81 @@
                 <div class="info-div">
                     <div class="ico actual-name-icons"><img src="../../static/img/Userinfo/userinfo.png"/></div>
                     <span class="details-label">真实姓名</span>
-                    <span class="details-val"></span>
+                    <span class="details-val">{{ AccountDetails.RealName + '**' }}</span>
                     <div class="border-info"></div>
                 </div>
                 <div class="info-div">
                     <div class="ico bday-icon"><img src="../../static/img/Userinfo/birthday-ico.png" /></div>
                     <span class="details-label bound">出生日期</span>
-                    <span class="details-val" id="bday" ></span>
+                    <span class="details-val" id="bday" >{{ AccountDetails.BirthDate }}</span>
                     <div class="border-info"></div>
                 </div>
                 <div class="info-div">
                     <div class="ico register-icon"><img src="../../static/img/Userinfo/register-ico.png" /></div>
                     <span class="details-label">注册日期</span>
-                    <span class="details-val" >去绑定</span>
+                    <span class="details-val" >{{ AccountDetails.RegisterTime }}</span>
                     <div class="border-info"></div>
                 </div>
                 <div class="info-div">
                     <div class="ico phone-icon"><img src="../../static/img/Userinfo/phone-ico.png" /></div>
                     <span class="details-label">手机号码</span>
-                    <a @click="routePage('UserInfoBind')" class="arrow-right pull-right"></a>
-                    <span class="details-val" id="Phone"></span>
+                    <a @click="routePage('UserInfoBind')" class="arrow-right" v-show="AccountDetails.IsEmailBound"></a>
+                    <span class="details-val" id="Phone">{{ checkBinding(AccountDetails.Mobile) }}</span>
                     <div class="border-info"></div>
                 </div>
                 <div class="info-div">
                     <div class="ico"><img src="../../static/img/Userinfo/message-ico.png" /></div>
                     <span class="details-label">电子邮箱</span>
-                    <a  @click="routePage('UserInfoBind')" class="arrow-right pull-right"></a>
-                    <span class="details-val" id="Email"></span>
+                    <a  @click="routePage('UserInfoBind')" class="arrow-right" v-if="AccountDetails.IsPhoneBound"></a>
+                    <span class="details-val" id="Email">{{ checkBinding(AccountDetails.Email) }}</span>
                     <div class="border-info"></div>
                 </div>
                 <div class="info-div">
                     <div class="ico qq-icon"><img src="../../static/img/Userinfo/QQ-ico.png" /></div>
                     <span class="details-label">QQ号码</span>
-                    <span class="details-val" id="QQ" style=""></span>
+                    <a  @click="routePage('UserInfoBind')" class="arrow-right" v-if="AccountDetails.QQ != null || AccountDetails.QQ != ''"></a>
+                    <span class="details-val" id="QQ">{{ checkBinding(AccountDetails.QQ) }}</span>
                     <div class="border-info"></div>
                 </div>
                 <div class="info-div">
                     <div class="ico wechat-icon"><img src="../../static/img/Userinfo/wechat-ico.png" /></div>
                     <span class="details-label">微信号码</span>
-                    <span class="details-val" id="WeChat"></span>
+                    <a  @click="routePage('UserInfoBind')" class="arrow-right" v-if="AccountDetails.Wechat != null || AccountDetails.Wechat != ''"></a>
+                    <span class="details-val" id="WeChat">{{ (AccountDetails.Wechat) }}</span>
                     <div class="border-info"></div>
                 </div>
                 <div class="info-div" id="changePwd">
                     <div class="ico passw-icon"><img src="../../static/img/Userinfo/passw_icon.png" /></div>
                     <span class="details-label">更改密码</span>
-                    <a  @click="routePage('UserInfoBind')" class="arrow-right pull-right"></a>
-                    <span class="details-val"  id="WeChat"></span>
+                    <a  @click="routePage('UserInfoBind')" class="arrow-right"></a>
+                    <span class="details-val"></span>
                     <div class="border-info"></div>
                 </div>
-
-                <!-- <div class="info-div" style="display:none;">
-                    <div class="ico cardinfo-icons"><img src="../../static/img/Userinfo/password-ico.png" /></div>
-                    <span class="details-label">手势启动密码</span>
-                    <span class="pull-right patternpw"><span>未开启</span><label class="pattpw_toggle switch"><input type="checkbox" class="pattpw_chk"><div class="slider round"></div></label></span>
-                    <div class="border-info"></div>
-                </div>
-                <div class="info-div" style="display:none;">
-                    <div class=" ico fingerprint-icons"><img src="/../../static/img/Userinfo/fingerprint-ico.png" /></div>
-                    <span class="details-label">指纹启动密码</span>
-                    <div class="pull-right fingerpr"><span>已开启</span><label class="fngr_toggle switch"><input type="checkbox" class="fngr_chk"><div class="slider round"></div></label></div>
-                </div> -->
-
             </div>
-            <div @click="showSignoutMenu(true)" class="signout" id="logout"><a>退出登录</a></div>
-            
-            <signout-menu  @closeMenu="showSignoutMenu(false)"  v-show="displaySignout"></signout-menu>           
 
+            <div @click="showSignoutMenu(true)" class="signout" id="logout"><a>退出登录</a></div>
+            <signout-menu  @closeMenu="showSignoutMenu(false)"  v-show="displaySignout"></signout-menu>           
         </div>
         <div class="bankinfo tab-content" v-else-if="opentab == 'bankinfo'">
             <div class="bankcard">
                 <ul id="bank_card">
                     <!--  !IsDefault -->
                     <li v-for="(item, index) in getCardList" :key="index">
-                        <div :class="['bankcard_content', item.customclass]">
+                        <div :class="['bankcard_content', item.BankCode]">
                             <div class="bank_img">
                                 <div class="bank-logo"></div>
                             </div>
                             <div class="bank_details">
-                                <p class="bank-name">{{ item.bankname }}</p>
-                                <p class="bank-num">{{ item.accountnumber }}</p>
+                                <p class="bank-name">{{ bankname }}</p>
+                                <p class="bank-num">{{ cardno }}</p>
 
                                 <!-- Available for non-default Bank Card -->
-                                <span class="removecard" v-show="!item.isdefault">删除卡片</span>
-                                <span class="notdefaultcard" v-show="!item.isdefault">设为默认</span>
+                                <span class="removecard" v-show="!( defaultbank == item.BankCode)">删除卡片</span>
+                                <span class="notdefaultcard" v-show="!( defaultbank ==  item.BankCode)">设为默认</span>
 
                                  <!-- Available for default Bank Card -->
-                                <span class="defaultcard" v-show="item.isdefault">默认卡片</span>
-                                <span class="auto" v-show="item.isdefault"></span>
+                                <span class="defaultcard" v-show="( defaultbank ==  item.BankCode)">默认卡片</span>
+                                <span class="auto" v-show="( defaultbank ==  item.BankCode)"></span>
                             </div>
                         </div>
                     </li>
@@ -128,51 +116,50 @@
             <connect-bank-card v-if="displayConnectBankCard" @closeModal="closeBankCard()" ></connect-bank-card>
         </div>
     </div>
+
+    <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
   </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 import SignoutMenu from './Common/SignoutMenu'
 import ConnectBankCard from './Modals/ConnectBankCardModal'
+import Notification from './Common/Notification'
+import { USERINFO, GET_ALL_BANK_CARDS } from './../api'
+var qs = require("querystring");
 
 export default {
-  name: 'bankcard',
-  components: { SignoutMenu , ConnectBankCard },
-  props: ['targettab'],
-  data(){
+    components: { SignoutMenu , ConnectBankCard, Notification },
+    props: ['targettab'],
+    data(){
       return {
-          displayConnectBankCard: false,
-          displaySignout: false,
-          bankname: '中国工商银行',
-          cardno: '1234**********5678',
-          opentab: this.$route.params.targettab ? this.$route.params.targettab : 'userinfo',
-          banklist: [
-                {
-                    bankname: '中国工商银行',
-                    accountnumber: '1234**********5678',
-                    customclass: 'ICBC',
-                    isdefault: true,
-                },
-                {
-                    bankname: '中国工商银行',
-                    accountnumber: '1234**********5678',
-                    customclass: 'CIB',
-                    isdefault: false,
-                }
-          ]
+        AccountDetails: '',
+        displayConnectBankCard: false,
+        displaySignout: false,
+        bankname: '中国工商银行',
+        cardno: '1234**********5678',
+        defaultbank: '',
+        opentab: this.$route.params.targettab ? this.$route.params.targettab : 'userinfo',
+        banklist: [],
+        notifmessage: ''
       }
-  },
-  computed: {
-      getCardList(){
-          return this.banklist.sort( function(e){
-            return !e.isdefault;
-          });
-      }
-  },
-  methods: {
+    },
+    computed: {
+        ...mapGetters({ 
+            currentUser: 'currentUser',
+        }),
+        getCardList(){
+            return this.banklist.sort( function(e){
+                return !e.isdefault;
+            });
+        }
+    },
+    methods: {
       ...mapMutations ([
-            'setCurrentPage'
+            'setCurrentPage',
+            'storeUserInfoSession',
+            'clearSessions'
         ]),
         setTab: function(payload){
            this.opentab =  payload;
@@ -188,11 +175,71 @@ export default {
         },
         closeBankCard: function (){
             this.displayConnectBankCard = false;
+        },
+        closeNotif(){
+            this.notifmessage = ''
+        },
+        // PROCESS
+        // USER INFO ***************************
+        checkBinding( payload ){
+            return ( payload != null && payload != '' && typeof payload == 'undefined' )
+                    ? 'payload' : '去绑定';
+        },
+        setAccountDetails() {
+            this.AccountDetails = this.currentUser.userInfo;
+        },
+        requestAccountInfo( token ){
+            let that_ = this;
+            let config = { headers: { 'Authorization': 'Bearer ' + token } };
+            this.$http.get( USERINFO,  config )
+            .then( function(res){
+                that_.storeUserInfoSession((qs.stringify(res.data.Value)))
+                that_.setAccountDetails();
+            })
+            .catch( function(error){
+            });
+        },
+        populateUserInfo(){
+            if ( this.currentUser.userInfo != null && this.currentUser.userInfo.AccountName ) {
+                this.setAccountDetails();
+            }
+            else {
+                this.requestAccountInfo( this.currentUser.tokenKey );
+            }
+        },
+
+        // BANK CARDS ***************************
+        getAllBankCards(){
+            let that_ = this;
+            let config = { headers: { 'Authorization': 'Bearer ' + this.currentUser.tokenKey } };
+            this.$http.get( GET_ALL_BANK_CARDS,  config )
+            .then( function(res){
+                console.log(res.data);
+                if ( res.data == 'Failed' ){
+                     that_.notifmessage = ("您的账户在别的地方登陆，请重新登陆！");
+                     // Clear Session
+                     // Redirect to Login
+                     that_.clearSessions();
+                     that_.$nextTick(() => {
+                        setTimeout(()=>{
+                            that_.$router.push({path: '../Login' });
+                        }, 1100);
+                    });
+                }
+                else {
+                    that_.banklist = res.data;
+                }
+            })
+            .catch( function(error){
+            });
         }
-  },
+    },
     created() {
-      this.setCurrentPage('BankCard');
-  }
+        this.populateUserInfo();
+        this.getAllBankCards();
+        this.setCurrentPage('BankCard');
+        console.log(this.AccountDetails);
+    }
 }
 </script>
 
@@ -359,6 +406,12 @@ body {
                     margin-left: 1.1rem;
                     font-size: .24rem;
                     color: #818181;
+                }
+
+                .details-val {
+                    font-size: .25rem;
+                    margin-left: .25rem;
+                    color: #232323;
                 }
 
                 .details-value {
