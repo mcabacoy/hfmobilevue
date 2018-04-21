@@ -1,11 +1,11 @@
 <template>
   <div class="platform-games">
     <swipe class="swiper-container">
-      <swipe-item v-for="item in 6" :key="item" >
+      <swipe-item>
         <ul>
-          <li v-for="(item, index) in gamelist"
+          <li v-for="(item, index) in gameset.gamelist"
               :key="index" >
-            <div :class="['picture',item.customclass]"></div>
+            <div :class="['picture',item.gametype]"></div>
             <span> {{ item.name }} </span>
           </li>
         </ul>      
@@ -15,64 +15,18 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 import { Swipe, SwipeItem } from 'vue-swipe';
 export default {
   name: 'platform-games',
   data(){
     return {
       platform:  this.$route.params.gametype,
-      gamelist: [
-        {
-          customclass: 'picture',
-          name: '加油金块'
-        },
-        {
-          customclass: 'picture',
-          name: '加油金块'
-        },
-        {
-          customclass: 'picture',
-          name: '加油金块'
-        },
-        {
-          customclass: 'picture',
-          name: '加油金块'
-        },
-        {
-          customclass: 'picture',
-          name: '加油金块'
-        },
-        {
-          customclass: 'picture',
-          name: '加油金块'
-        },
-        {
-          customclass: 'picture',
-          name: '加油金块'
-        },
-        {
-          customclass: 'picture',
-          name: '加油金块'
-        },
-        {
-          customclass: 'picture',
-          name: '加油金块'
-        },
-        {
-          customclass: 'picture',
-          name: '加油金块'
-        },
-        {
-          customclass: 'picture',
-          name: '加油金块'
-        },
-        {
-          customclass: 'picture',
-          name: '加油金块'
-        }
-      ]
+      gameset: ''
     }
+  },
+  computed: {
+    ...mapGetters(["getGamesByPlatform"])
   },
   components: {
       Swipe,
@@ -80,11 +34,14 @@ export default {
   },
   methods: {
     ...mapMutations ([
-       'setCurrentPage'
+       'setCurrentPage',
+       
     ])
   },
   created() {
       this.setCurrentPage('PlatformGames');
+      this.gameset = this.$store.getters.getGamesByPlatform(this.platform);
+      console.log(  this.gameset);
   }
 }
 </script>

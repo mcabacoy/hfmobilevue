@@ -6,6 +6,7 @@ import menu  from './modules/menu'
 import platfrom from './modules/platform'
 import wallet from './modules/wallet'
 import user from './modules/user'
+import games from './modules/games'
 
 function getRegCarrier() {
   let regCarrier;
@@ -38,7 +39,7 @@ const state = {
 
 export default new Vuex.Store({
   state,
-  modules: { menu, platfrom, wallet, user },
+  modules: { menu, platfrom, wallet, user, games},
   strict: true,
 });
 
