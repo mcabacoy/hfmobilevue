@@ -65,3 +65,5 @@ export const GET_GAME_BALANCE = serviceUrl + '/FundTransfer/GetGameBalance'
 // Deposit In - POST
 export const TRANSFER_IN = serviceUrl + '/FundTransfer/Deposit';
 
+// Withdraw In - POST
+export const TRANSFER_OUT = serviceUrl + '/FundTransfer/Withdrawal';

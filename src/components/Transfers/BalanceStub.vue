@@ -14,39 +14,60 @@
 </template>
 
 <script>
+import { mapMutations, mapGetters } from 'vuex'
 import { GET_GAME_BALANCE } from './../../api'
 var qs = require("querystring");
 
 export default {
-
   name: 'balanceStub',
-  props: ['item'],
+  props: {
+      item: {
+          type: Object
+      }
+  },
   data() {
     return {
         gamebalance: 0
     }
   },
-  methods: {
-    showModal: function (payload){
-        this.$emit('showModal', payload)
-    },    
-
-    transferIn: function(){
-
-    }
+  computed: {
+       ...mapGetters ({
+          currentUser: 'currentUser'
+      })
   },
-  created(){
-        let that_ = this;
-        let postData = {
-            gamecode : this.item.customClass
-        }
-        this.$http.get( GET_GAME_BALANCE + '?gamecode=' +   this.item.customClass)
-        .then( function(res){
-            if ( !Number.isNaN(res.data) && res.data != '' ) {
-                that_.gamebalance = !(Number.isNaN(res.data)) ? parseInt(res.data).toFixed(2) : 0.00;
+  methods: {
+        ...mapMutations(["setRefreshPlatform"]),
+        showModal: function (payload){
+            this.$emit('showModal', payload)
+        },
+        refreshBalance(){
+            let that_ = this;
+            let postData = {
+                gamecode : this.item.customClass
             }
-        });
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                }
+            };
+            this.$http.get( GET_GAME_BALANCE + '?gamecode=' +   this.item.customClass , config)
+            .then( function(res){
+                that_.gamebalance = ( Number.isNaN(res.data) && res.data != ''  && res.data != null )  
+                                    ? parseInt(res.data).toFixed(2) 
+                                    : 0.00;
+            });
+        }   
+    },
+    created(){
+        this.refreshBalance();
+    },
+    watch: {
+        'item.forRefresh': function (val){
+            this.refreshBalance();
+            this.setRefreshPlatform( { platform:  this.item.customClass , status: false   }  )
+        }
     }
+
 }
 </script>
 

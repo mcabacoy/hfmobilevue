@@ -9,8 +9,8 @@
             </div>
             <div class="secondtabb">
                 <ul>
-                    <li v-for="menu in menus"
-                        v-bind:key="menu.name" 
+                    <li v-for="(menu, index) in menus"
+                        v-bind:key="index" 
                         v-bind:class="menu.link == currentPage ? 'active' : ''" >    
                         <span @click="routePage(menu.link)" v-if="menu.linktype == 'internal'">
                             <span class="icon" :class="menu.class"></span>
@@ -85,9 +85,6 @@ export default {
         menus: 'getSideMenus',
         currentUser: 'currentUser'
     })
-  },
-  created(){
-      console.log(this.currentUser);
   }
 }
 </script>

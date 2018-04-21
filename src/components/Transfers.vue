@@ -12,9 +12,9 @@
         </div>
         <div class="transferbody">
             <ul>
-                <balance-stub v-for="platform in getPlatforms" 
+                <balance-stub v-for="(platform, index) in getPlatforms" 
                     :item="platform" 
-                    :key="platform.name"
+                    :key="index"
                     @showModal="showModal" >
                 </balance-stub>
             </ul>
@@ -50,6 +50,9 @@ export default {
             'setCurrentPage',
             'storeUserInfoSession'
         ]),
+        routePage(payload){
+            this.$router.push({path: '../' + payload });
+        },
         showModal: function (payload) {
             this.transfermode = payload.status;
             this.selectedplatform = payload.platform;
@@ -70,7 +73,6 @@ export default {
             .then( function(res){
                 that_.storeUserInfoSession(qs.stringify(res.data.Value));
             });
-
         }
     },
     computed: {
@@ -80,7 +82,8 @@ export default {
       })
     },
     created() {
-      this.setCurrentPage('Transfers');
+        this.getOverAllBalance()
+        this.setCurrentPage('Transfers');
   }
 }
 

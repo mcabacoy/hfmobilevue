@@ -22,16 +22,16 @@
     </div>
     <div class="modal-shadow"></div>
 </div>
+</transition>
 
 <notification :message="notifmessage" 
             @close="closeNotif"  
             v-if="notifmessage!=''" />
-</transition>
 </div>
 </template>
 <script>
 import { mapGetters, mapMutations } from 'vuex'
-import { TRANSFER_IN } from './../../api'
+import { TRANSFER_IN, TRANSFER_OUT } from './../../api'
 import Notification from './../Common/Notification'
 var qs = require("querystring");
 export default {
@@ -43,20 +43,22 @@ export default {
         isPrevented: false
     }  
   },
+  components: { Notification },
   props: ['transfertype', 'platform'],
   methods: {
+    ...mapMutations(["setRefreshPlatform"]),
     closeModal: function (payload){
-        this.$emit('closeModal', payload)
+        this.$emit('closeModal')
     },
     closeNotif(){
         this.notifmessage = '';
     },
     goTransfer(){
         if ( this.transfertype == 'in' ){
-            this.transferIn();
+            this.transferBalance(TRANSFER_IN);
         }
         else if ( this.transfertype == 'out' ){
-            
+            this.transferBalance(TRANSFER_OUT);
         }
     },
     validateAmount( payload ){
@@ -78,62 +80,49 @@ export default {
         }
         return true;
     },
-
-    //TransferIn
-        transferIn(){
-            let that_ = this;
-            if(!this.validateAmount(this.desiredamount))
-            {
-                return;
+    transferBalance( url ){
+        let that_ = this;
+        if(!this.validateAmount(this.desiredamount))
+        {
+            return;
+        }
+        if (this.desiredamount < 1){
+            this.notifmessage = '您转入的金额不能小于1元！'; // 8
+            return;
+        }
+        let fundTransferData = {
+            amount: this.desiredamount,
+            gameCode: this.platform
+        }
+        let config = {
+            headers: {
+                'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                'Content-Type': 'application/json; charset=utf-8'
             }
-            if (this.desiredamount < 1){
-                this.notifmessage = '您转入的金额不能小于1元！'; // 8
-                return;
-            }
-            // TransferPlatNo ** Can't find
-            let fundTransferData = {
-                amount: this.desiredamount,
-                gameCode: this.platform
-            }
-            debugger;
-            let config = {
-                headers: {
-                    'Authorization': 'Bearer ' + this.currentUser.tokenKey,
-                    'Content-Type': 'application/json; charset=utf-8'
-                }
-            };
-            let postData = {
-                gamecode : this.platform
-            }
-            // CheckIfPrevented
-                this.$http.post( TRANSFER_IN,  JSON.stringify(fundTransferData),
+        };
+            this.$http.post( url,  JSON.stringify(fundTransferData),
                     config )
-                .then( function (res){
-                    console.log('***********');
-                    console.log(res.data);
-                    if ( res.data.Success)
-                    {
-                        // Transfer Success
-                        that_.notifmessage = res.data.Message;
-                        // (res.data.Success ? 9 : 8)
+            .then( function (res){
+                console.log('***********');
+                console.log(res.data);
+                if ( res.data.Success)
+                {
+                    that_.notifmessage = res.data.Message;
+                    that_.setRefreshPlatform({ platform:  that_.platform, status: true });
+                }
+                else {
+                    if ( res.data == "您的账户在别的地方登陆，请重新登录!") {
+                        that_.notifmessage = "您的账户在别的地方登陆，请重新登录!";
                     }
                     else {
-                        if ( res.data == "您的账户在别的地方登陆，请重新登录!") {
-                            that_.notifmessage = "您的账户在别的地方登陆，请重新登录!";
-                        }
-                        else {
-                            that_.notifmessage = res.data.Message;
-                            // (res.data.Success ? 9 : 8)
-                        }
+                        that_.notifmessage = res.data.Message;
                     }
-                })
-                .catch( function(error){
-                    console.log(error);
-                });
+                }
+            })
+            .catch( function(error){
+                console.log(error);
+            });
         },
-        transferOut() {
-
-        }
     },
     mounted(){
         this.$nextTick(() => this.$refs.amountinput.focus())

@@ -8,7 +8,8 @@ const state = {
           balance: 0,
           forBalancePlatform: false,
           isDirectList: true,        
-          banner: '../../static/img/HGame/PT-banner.jpg'
+          banner: '../../static/img/HGame/PT-banner.jpg',
+          forRefresh: false
         },
         {
           name: 'PT老虎机',
@@ -18,7 +19,8 @@ const state = {
           balance: 0,
           forBalancePlatform: true,
           hexColor: '#188f63',
-          isDirectList: false
+          isDirectList: false,
+          forRefresh: false
         },
         {
           name: 'MG老虎机',
@@ -28,7 +30,8 @@ const state = {
           balance: 0,
           forBalancePlatform: true,
           hexColor: '#18b900',
-          isDirectList: false
+          isDirectList: false,
+          forRefresh: false
         },
         {
           name: 'SG老虎机',
@@ -38,7 +41,8 @@ const state = {
           balance: 0,
           forBalancePlatform: true,
           hexColor: '#f3310b',
-          isDirectList: false
+          isDirectList: false,
+          forRefresh: false
         },
         {
           name: 'HABA老虎机',
@@ -48,7 +52,8 @@ const state = {
           balance: 0,
           forBalancePlatform: true,
           hexColor: '#18b900',
-          isDirectList: false
+          isDirectList: false,
+          forRefresh: false
         },
         {
           name: 'PNG老虎机',
@@ -58,7 +63,8 @@ const state = {
           balance: 0,
           forBalancePlatform: true,
           hexColor: '#18b900',
-          isDirectList: false
+          isDirectList: false,
+          forRefresh: false
         },
         {
           name: 'TTG老虎机',
@@ -68,7 +74,8 @@ const state = {
           balance: 0,
           forBalancePlatform: true,
           hexColor: '#f71dcb',
-          isDirectList: false
+          isDirectList: false,
+          forRefresh: false
         },
         {
           name: 'BS老虎机',
@@ -78,7 +85,8 @@ const state = {
           balance: 0,
           forBalancePlatform: true,
           hexColor: '#f3310b',
-          isDirectList: false
+          isDirectList: false,
+          forRefresh: false
         }
       ]
 }
@@ -92,7 +100,14 @@ const getters = {
     }
 }
 
+const mutations = {
+  setRefreshPlatform(state, payload) {
+      state.platforms.find( state => state.customClass == payload.platform ).forRefresh = payload.status;
+  }
+}
+
 export default {
     state,
-    getters
+    getters,
+    mutations
 }
