@@ -84,7 +84,7 @@ const routes = [
     component: Wallet
   },
   {
-    path: '/UserInfoBind',
+    path: '/UserInfoBind/:bindtype',
     component: InfoBind
   },
   {

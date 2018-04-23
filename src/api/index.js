@@ -17,8 +17,15 @@ export const CAPTCHA_SOURCE = 'C:/Users/marion.cabacoy/Documents/Marion/Workspac
 // Get System Notices - GET
 export const GET_NOTICES = serviceUrl + '/active/GethfNotices';
 
+// Get Verification Code - GET
+export const GET_VERIFICATION_CODE = serviceUrl + '/Common/GetVerificationCode';
+
+// Send Pass Code - GET
+export const SEND_PASS_CODE = serviceUrl + '/Common/SendPassCode';
 
 
+
+// ACCOUNTS ***************************************
 // Register User - POST
 export const REGISTER = serviceUrl + '/Account/Reg';
 
@@ -33,6 +40,25 @@ export const CHECK_MOBILE = serviceUrl + '/Account/CheckMobile';
 
 // Check if email is already registered - GET
 export const CHECK_EMAIL = serviceUrl + '/Account/CheckEmail';
+
+// Save User Info Changes - POST
+export const SAVE_USER_INFO = serviceUrl + '/Account/BindBaseInfo';
+
+// Verif Pass Code - GET
+export const VERIFY_PASSCODE = serviceUrl + '/Common/VerifyPassCode';
+
+// Bind Email Detail - GET
+// Params < email>
+export const BIND_EMAIL = serviceUrl + '/Account/BindEmail';
+
+// Bind Base Info (birthday, qq, wechat) - POST
+export const BIND_BASE_INFO = serviceUrl + '/Account/BindBaseInfo';
+
+// Get Email Redbag - GET
+export const GET_EMAIL_REDBAG = serviceUrl + '/Active/GetEmailRedbag'
+
+
+
 
 
 // GET
