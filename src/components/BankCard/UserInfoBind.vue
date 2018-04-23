@@ -10,6 +10,7 @@
                 <span>QQ</span>
                 <input type="tel" v-model="AccountDetails.QQ" 
                         placeholder="请输入要绑定的QQ">
+                      
             </li>
             <li v-if="bindtype != 'email' && bindtype != 'phone'">
                 <span>微信</span>
@@ -17,12 +18,11 @@
                     id="wechat" data-bind="value:WeChat" placeholder="请输入要绑定的微信">
             </li>   
             <li class="info-input" v-else>
-                <input type="tel" v-model="AccountDetails.Mobile" placeholder="建议使用常用手机"
+                <input type="tel" @blur="phoneValidator()" v-model="AccountDetails.Mobile" placeholder="建议使用常用手机"
                        maxlength="11" id="phone" v-if="bindtype == 'phone'">
-                <input type="tel" v-model="AccountDetails.Email" placeholder="请输入邮箱" 
+                <input type="tel" @blur="emailValidator()" v-model="AccountDetails.Email" placeholder="请输入邮箱" 
                         v-else-if="bindtype == 'email'" id="mailbox">
-                <div class="success_bind"></div>
-                <div id="bind_status"></div>
+                <div :class="[ isValid == 'success'  ? 'success-status' : isValid == 'error' ? 'error-status' : ''  ]"></div>
             </li>         
             <li class="list verification-code" v-if="bindtype == 'email' || bindtype == 'phone'">
                 <input type="tel" placeholder="请输入验证码" maxlength="6" v-model="passCode" >
@@ -41,20 +41,25 @@
                 </div>
             </transition>
         </div>
+
+        <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
     </div>
 </template>
-
 <script>
 import { mapState , mapMutations, mapGetters } from 'vuex'
 import {    USERINFO,
             SAVE_USER_INFO,
             VERIFY_PASSCODE,
             BIND_EMAIL,
+            BIND_PHONE,
             GET_EMAIL_REDBAG,
             GET_VERIFICATION_CODE,
             SEND_PASS_CODE,
-            BIND_BASE_INFO
+            BIND_BASE_INFO,
+            CHECK_HF_MOBILE_BIND,
+            CHECK_HF_EMAIL_BIND
        } from './../../api'
+import Notification from './../Common/Notification'
 var qs = require("querystring");
 export default {
     name: 'signin',
@@ -71,8 +76,12 @@ export default {
             verificationNote: '获取验证码',
             enabledSmsRequest: true,
             bindtype: this.$route.params.bindtype,
+            
+            isValid: '',
+            isPristine: true
         }
     },
+    components: { Notification },
     computed: {
         ...mapGetters({ 
             currentUser: 'currentUser',
@@ -82,12 +91,14 @@ export default {
         ...mapMutations ([
             'setCurrentPage'
         ]),
+        closeNotif(){
+            this.notifmessage = ''
+        },
         closeBindSuccessModal(){
             this.display = false;
             this.showModalType = false;
         },
         sendMobileCode(){
-            // Check if enabled Verification Code Request
             let that_ = this;
             let curCount = 119;
             if (!that_.enabledSmsRequest)
@@ -115,7 +126,6 @@ export default {
                 'Content-Type': 'application/json; charset=utf-8',
                 'Cache': false,
                 'Async': true,
-                'Data-Type': 'json'
             } };
             this.$http.get( GET_VERIFICATION_CODE , config )
             .then( function(res) {
@@ -125,10 +135,10 @@ export default {
                     mode: that_.bindtype == 'email' ? 1 : 0 ,
                     verificationCode: res.data
                 };
-                that_.$http.get( SEND_PASS_CODE, postData  , config )
+                that_.$http.get( SEND_PASS_CODE, { params: postData }, config )
                 .then( function(res){
                      if ( that_.bindtype == 'email'  )  
-                        that_.notifmessage =  ("验证码发送成功");
+                        that_.notifmessage = ("验证码发送成功");
                 })
                 .catch( function(error){ 
                     // Remove Disabled, Set Cursor Pointer, 
@@ -140,18 +150,16 @@ export default {
                 that_.notifmessage = ("发送手机验证码服务正在维护中...");
             });
         },
-        
         updateUserInfo(){
             let that_ = this;
-            console.log(this.bindtype);
             switch(this.bindtype){
                 case 'email': 
                     that_.verifyPasscode(that_.bindUserEmail);
                     break;
                 case 'phone':
+                    that_.verifyPasscode(that_.bindUserPhone);
                     break;
                 default:
-                console.log(1);
                     that_.bindGeneralInfo();
                     break;
             }
@@ -165,6 +173,25 @@ export default {
                 age--;
             }
             return age;
+        },
+        verifyPasscode( payload ){
+            let that_ = this;
+            let config = { headers: { 
+                'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                'Content-Type': 'application/json; charset=utf-8',
+            } };
+            let postData = { 
+                mobile: that_.AccountDetails.Mobile, 
+                passCode: that_.passCode, 
+                mode:  that_.bindtype == 'email' ? 1 : 0
+            };
+
+            this.$http.get( VERIFY_PASSCODE,  { params: postData } , config )
+            .then( function(res){
+                payload(res.data);
+            })
+            .catch( function(error){
+            });
         },
         bindGeneralInfo(){
             let that_ = this;
@@ -220,29 +247,18 @@ export default {
             });
             // END bindGeneralInfo
         },
-        verifyPasscode( payload ){
+        bindUserPhone(){
+            // BIND_PHONE
             let that_ = this;
             let config = { headers: { 
                 'Authorization': 'Bearer ' + this.currentUser.tokenKey,
                 'Content-Type': 'application/json; charset=utf-8',
+                'Async': false
             } };
-            let postData = { 
-                mobile: that_.AccountDetails.Mobile, 
-                passCode: that_.passCode, 
-                mode:  that_.bindtype == 'email' ? 1 : 0
-            };
-            let some = VERIFY_PASSCODE 
-                            + '?mobile=' + that_.AccountDetails.Mobile 
-                            + '&passCode=' +  that_.passCode
-                            + '&mode=' + that_.bindtype == 'email' ? 1 : 0 ;
-            
-            this.$http.get( some,  
-                            config )
+            this.$http.get( BIND_PHONE + '?mobile=' + this.AccountDetails.Mobile,  config )
             .then( function(res){
-                payload(res.data);
+                this.requestAccountInfo( this.currentUser.tokenKey );
             })
-            .catch( function(error){
-            });
         },
         bindUserEmail( payload ){
             let that_ = this;
@@ -251,13 +267,14 @@ export default {
                 'Content-Type': 'application/json; charset=utf-8',
                 'Async': false
             } };
-            this.$http.get( BIND_EMAIL + '?email=' + this.email,  config )
+            this.$http.get( BIND_EMAIL + '?email=' + this.AccountDetails.Email,  config )
             .then( function(res){
                 if (res.data == "true" ){
                     that_.notifmessage = '邮箱绑定成功';
                     that_.showSuccessBind();
                 }
                 else {
+
                 }
             })
         },
@@ -297,7 +314,86 @@ export default {
                 this.requestAccountInfo( this.currentUser.tokenKey );
             }
         },
+        phoneValidator(){
+            this.isPristine = false;
+            let that_ = this;
+            let value = this.AccountDetails.Mobile;
+            if (value == null || value == "") {
+                that_.isValid = 'error';
+            }
+            else {
+                var reg = /^0?(13[0-9]|15[0-9]|17[0-9]|18[0-9]|14[57])[0-9]{8}$/;
+                if (!reg.test(value)) {
+                    that_.isValid = 'error';
+                }
+                else {
+                    this.enabledSmsRequest = true;
+                    that_.isValid = true;
+                    let config = { headers: { 
+                        'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                        'Content-Type': 'application/json; charset=utf-8',
+                        'Data-Type': 'json'
+                    } };
+                    let postData = { mobile: value };
+                    this.$http.get(CHECK_HF_MOBILE_BIND + '?mobile=' + value, config)
+                    .then( function(res){
+                        if (res.data) {
+                            that_.isValid = true;
+                        }
+                        else {
+                            that_.notifmessage = ("该手机号已被绑定");
+                            that_.isValid = false;
+                            return false;
+                        }
+                    }).catch(function(error){});
+                }
+            }
+        },
+        emailValidator(){
+            this.isPristine = false;
+            let that_ = this;
+            let value = this.AccountDetails.Email;
+            if (value == null || value == "") {
+                that_.isValid = 'error';
+            }
+            else {
+                var reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                if (!reg.test(value)) {
+                    that_.isValid = 'error';
+                }
+                else {
+                    this.enabledSmsRequest = true;
+                    that_.isValid = true;
+                    let config = { headers: { 
+                        'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                        'Content-Type': 'application/json; charset=utf-8',
+                    } };
+                    let postData = { mobile: value };
+                    this.$http.get(CHECK_HF_EMAIL_BIND + '?email=' + value, config)
+                    .then( function(res){
+                        if (res.data) {
+                            that_.isValid = true;
+                            that_.enabledSmsRequest = true;
+                        }
+                        else {
+                            that_.notifmessage = ("该邮箱号已被绑定");
+                            that_.isValid = false;
+                            that_.enabledSmsRequest = false;
+                            return false;
+                        }
+                    }).catch(function(error){});
+                }
+            }
+        }
     },
+    // watch: {
+    //     'AccountDetails.Mobile': function(val){
+    //         if ( val  )
+    //             this.isValid = 'success';
+    //         else 
+    //             this.isValid = 'error';
+    //     }
+    // },
     created() {
         this.populateUserInfo();
         this.setCurrentPage('UserInfoBind');
@@ -315,9 +411,6 @@ export default {
             z-index: 299;
             left: 0;
             background: rgba(43, 35, 33, 0.9);
-
-            
-
             .bindsuccess {
                 background: url(../../../static/img/pop.png) no-repeat;
                 background-size: 98%;
@@ -370,7 +463,22 @@ export default {
             }
 }
 
-
+.error-status {
+    width: 1rem;
+    height: .4rem;
+    background: url('../../../static/img/error_validate.png') no-repeat;
+    float: right;
+    margin-right: -.7rem;
+    background-size: 35%;
+}
+.success-status {
+    width: 1rem;
+    height: .4rem;
+    background: url('../../../static/img/success_validate.png') no-repeat;
+    float: right;
+    background-size: 35%;
+    margin-right: -.7rem;
+}
 body {
     background: #e4dede;
     margin: 0;

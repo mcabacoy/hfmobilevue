@@ -51,13 +51,22 @@ export const VERIFY_PASSCODE = serviceUrl + '/Common/VerifyPassCode';
 // Params < email>
 export const BIND_EMAIL = serviceUrl + '/Account/BindEmail';
 
+// Bind Phone Detail - GET
+// Params < mobile >
+export const BIND_PHONE = serviceUrl + '/Account/BindMobile';
+
+
 // Bind Base Info (birthday, qq, wechat) - POST
 export const BIND_BASE_INFO = serviceUrl + '/Account/BindBaseInfo';
 
 // Get Email Redbag - GET
 export const GET_EMAIL_REDBAG = serviceUrl + '/Active/GetEmailRedbag'
 
+// Check HF Mobile - GET
+export const CHECK_HF_MOBILE_BIND = serviceUrl + '/Account/CheckHFMobileBind';
 
+// Check HF Email - GET
+export const CHECK_HF_EMAIL_BIND = serviceUrl + '/Account/CheckHFEmailBind';
 
 
 
