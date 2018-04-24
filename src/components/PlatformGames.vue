@@ -55,7 +55,8 @@ export default {
   },
   methods: {
     getPageNumber(payload){
-      return (payload.length / 12);
+      console.log(Math.ceil(payload.length / 12));
+      return Math.ceil(payload.length / 12);
     },
     getGameListItems(payload){
       var gameList = this.gameset.gamelist;
