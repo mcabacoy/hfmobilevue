@@ -14,6 +14,7 @@ const Promotion = resolve => require(['./components/Promotion'], resolve);
 const BankCard = resolve => require(['./components/BankCard'], resolve);
 const Signin = resolve => require(['./components/Signin'], resolve);
 const TransactionQuery = resolve => require(['./components/TransactionQuery'], resolve);
+const PromDetails = resolve => require(['./components/Promotion/PromDetails'], resolve);
 
 const Wallet = resolve => require(['./components/Wallet'], resolve)
 const InfoBind = resolve => require(['./components/BankCard/UserInfoBind'], resolve);
@@ -45,6 +46,10 @@ const routes = [
   {
     path: '/WalletRecharge',
     component: WalletRecharge
+  },
+  {
+    path: '/PromDetails',
+    component: PromDetails
   },
   {
     path: '/WalletWithdraw',

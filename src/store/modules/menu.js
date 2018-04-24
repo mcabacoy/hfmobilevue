@@ -44,6 +44,13 @@ const state ={
             type: 'sidemenu'
         },
         {
+            link: 'PromDetails',
+            linktype: 'internal',
+            name: '  ',
+            class: '',
+            type: 'back'
+        },
+        {
             link: 'VIP',
             linktype: 'internal',
             name: 'VIP特权',
