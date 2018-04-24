@@ -1,5 +1,6 @@
 const state = {
     games : [
+        //PT1
         {
             platform:  "PT1",
             currentgame: "ngm",
@@ -469,6 +470,7 @@ const state = {
                 }
             ]
         },
+        //PT
         {
             platform: "PT",
             currentgame: "ngm",
@@ -986,6 +988,7 @@ const state = {
                 },
             ]
         },
+        //HABA
         {
             platform:  "HABA",
             currentgame: "ngm",
@@ -1370,6 +1373,7 @@ const state = {
                 }
             ]
         },
+        //PNG
         {
             platform:  "PNG",
             currentgame: "ngm",
