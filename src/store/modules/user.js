@@ -34,7 +34,7 @@ const emptyUserInfo_ =  {
 
 const state = {
     tokenKey: sessionStorage.getItem(tokenKey_),
-    userInfo_: emptyUserInfo_,
+    userInfo: emptyUserInfo_,
     notices: []
 }
 
@@ -63,7 +63,7 @@ const mutations = {
         sessionStorage.removeItem(userInfo_);
     },
     storeUserInfoSession(state, payload){
-        state.userInfo_ = payload;
+        state.userInfo = payload;
         sessionStorage.setItem(userInfo_, payload);
     },
     storeNoticesSession(state, payload){

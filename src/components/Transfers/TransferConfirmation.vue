@@ -103,12 +103,11 @@ export default {
             this.$http.post( url,  JSON.stringify(fundTransferData),
                     config )
             .then( function (res){
-                console.log('***********');
-                console.log(res.data);
                 if ( res.data.Success)
                 {
                     that_.notifmessage = res.data.Message;
                     that_.setRefreshPlatform({ platform:  that_.platform, status: true });
+                    that_.closeModal();
                 }
                 else {
                     if ( res.data == "您的账户在别的地方登陆，请重新登录!") {

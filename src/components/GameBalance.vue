@@ -7,12 +7,12 @@
             </div>
             <div class="game-content">
                 <p class="label">游戏余额:</p>
-                <p class="balance">{{ balance }}</p>
+                <p class="balance">￥{{ gamebalance }}</p>
             </div>
             <div class="game-actions">
-                <span @click="showModal( { status:  'in' , platform: gamename })" 
+                <span @click="showModal( { status:  'in' , platform: $route.params.gametype })" 
                         class="transfer-in">转入</span>
-                <span @click="showModal( { status:  'out' , platform: gamename })"
+                <span @click="showModal( { status:  'out' , platform: $route.params.gametype })"
                         class="transfer-out">转出</span>
             </div>
         </div>
@@ -29,6 +29,7 @@
 </template>
 <script>
 import TransferConfirmation from './Transfers/TransferConfirmation'
+import { GET_GAME_BALANCE } from './../api'
 import { mapState ,mapMutations,  mapGetters } from 'vuex'
 export default {
     components: { TransferConfirmation } ,
@@ -36,14 +37,15 @@ export default {
         return {
                 banner: '../../static/img/HGame/PT-banner.jpg',
                 gamename: this.$route.params.gametype + "老虎机",
-                balance: '￥ 150.5',
+                gamebalance: 0.00,
                 transfermode: '', //in, out, blank
                 selectedplatform: ''
         }
     },
     computed: {
          ...mapGetters ({
-             list: 'getAllPlatforms'
+            list: 'getAllPlatforms',
+            currentUser: 'currentUser'
         })
     },
     methods: {
@@ -58,12 +60,31 @@ export default {
         closeModal: function () {
             this.transfermode = '';
             this.selectedplatform = '';
+            this.getBalance();
         },
         getBanner: function(){
             return this.banner;
+        },
+        getBalance(){
+            let that_ = this;
+            let postData = {
+                gamecode : this.$route.params.gametype
+            }
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                }
+            };
+            this.$http.get( GET_GAME_BALANCE + '?gamecode=' +   this.$route.params.gametype , config)
+            .then( function(res){
+                that_.gamebalance = ( !Number.isNaN(res.data) && res.data != ''  && res.data != null )  
+                                    ? parseInt(res.data).toFixed(2) 
+                                    : 0.00;
+            });
         }
     },
     created() {
+      this.getBalance();
       this.setCurrentPage('GameBalance');
     }
 }
