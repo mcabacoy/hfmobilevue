@@ -3,7 +3,9 @@ const state = {
         {
             id: 1,
             promType: '01',
-            promSrc: 'New-Promo-4.jpg'
+            promSrc: 'New-Promo-4.jpg',
+            promDetails:
+                ''
         },
         {
             id: 2,

@@ -4,7 +4,8 @@
         <img src="../../../static/img/images-app/New-Promo-4.jpg" style="width:100%;">
     </div>
 
-    <div class="offerdetail-btns">
+    <div class="offerdetail-btns"
+        v-if="promtype = '1'">
         <p style="font-weight: 600;color:#bb1515">活动时间：<br><span style="font-weight:400;color:#bb1515;">北京时间2018年03月26日00:00至2018年04月08日23:59</span></p>
         <p style="margin-top: 27px;font-weight: 600;color:#bb1515">活动内容：</p>
         <p>1.活动期间所有鸿福有效会员均可参加</p>

@@ -1,6 +1,6 @@
 const state = {
     games : [
-        //PT1
+        //PT1 
         {
             platform:  "PT1",
             currentgame: "ngm",

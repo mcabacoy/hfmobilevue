@@ -48,8 +48,9 @@ const routes = [
     component: WalletRecharge
   },
   {
-    path: '/PromDetails:promtype',
-    component: PromDetails
+    path: '/PromDetails/:promtype',
+    component: PromDetails,
+    props: true
   },
   {
     path: '/WalletWithdraw',
