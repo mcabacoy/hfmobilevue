@@ -1,17 +1,15 @@
 <template>
   <div class="platform-games">
-
       <div class="contentdiv swiper-container">
         <div class="swiper-wrapper">
           <div :class="['swiper-slide' , index ]" v-for="(i, index) in ( getPageNumber(gameset.gamelist))" :key="index">
             <ul>
               <li v-for="(item, index) in getGameListItems(index)" :key="index" >
-              <div :class="['picture']" 
-                  :gametype = [item.gametype]>
-                  </div>
-              <gameimg :bgsrc="require('../../static/img/PT/arc.jpg')"
+              <game-image 
+                  :bgsrc="require('../../static/img/' + [gameset.platform] + '/' +[item.bgImg]+ '')"
                   :class="['picture']" 
-                  :gametype = [item.gametype]></gameimg>
+                  :gametype = [item.gametype]>
+              </game-image>
               <span> {{ item.name }} </span>
               </li> 
             </ul>
@@ -25,10 +23,14 @@
 
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex'
-import gameimg from './GameList/gameImages'
+import GameImage from './GameList/ListImages'
 import Swiper from 'Swiper'
 export default {
   name: 'platform-games',
+  components: {
+      Swiper,
+      GameImage
+  },
   mounted(){
     this.$nextTick(() => {
         var swiper = new Swiper('.swiper-container', {
@@ -50,10 +52,6 @@ export default {
   },
   computed: {
     ...mapGetters(["getGamesByPlatform"])
-  },
-  components: {
-      Swiper,
-      gameimg
   },
   methods: {
     getPageNumber(payload){
@@ -128,8 +126,8 @@ export default {
         margin-bottom: .03rem;
         margin-top: .05rem;
         background: url(../../static/img/PT/ano.jpg);
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
+        background-repeat: no-repeat !important;
+        background-size: 100% 100% !important;
       }
     }
   }

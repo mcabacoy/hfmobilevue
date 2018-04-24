@@ -544,7 +544,7 @@ const state = {
                     id: 12,
                     gametype: 'c7',
                     name: '疯狂777',
-                    bgImg: 'slot3_img53c7.jpg',
+                    bgImg: 'slot3_img53.jpg',
                 },
                 //--
                 {
@@ -970,13 +970,13 @@ const state = {
                     id: 82,
                     gametype: 'bs',
                     name: '百家乐',
-                    bgImg: 'bs.jpg',
+                    bgImg: 'slot4_img19.jpg',
                 },
                 {
                     id: 83,
                     gametype: 'cheaasib',
                     name: '赌城扑克',
-                    bgImg: 'cheaa.jpg',
+                    bgImg: 'slot4_img27.jpg',
                 },
                 {
                     id: 84,
@@ -989,7 +989,7 @@ const state = {
         {
             platform:  "HABA",
             currentgame: "ngm",
-            locationSrc: "https://gs2.m27613.com/v1/mrch/game?language=zh-cn&merchantCode=swgnsfubao&playmode=real&gameCode=",
+            locationSrc: "",
             // Needed QS
             // gameCode - this.gametype
             // ticket - token
