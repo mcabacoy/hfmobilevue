@@ -12,7 +12,7 @@
         </div>
         <div class="loginBtn" @click="login">登 录</div>
         <div class="operationDiv">
-            <p class="forgetPW" @click="routePage('RetrievePassword')" ></p>
+            <p class="forgetPW" @click="routePage('RetrievePassword')"></p>
             <p class="registerID" @click="routePage('Register')"></p>
         </div>
     </section>
