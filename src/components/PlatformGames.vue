@@ -55,7 +55,6 @@ export default {
   },
   methods: {
     getPageNumber(payload){
-      console.log(Math.ceil(payload.length / 12));
       return Math.ceil(payload.length / 12);
     },
     getGameListItems(payload){
