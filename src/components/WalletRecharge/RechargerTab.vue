@@ -34,7 +34,7 @@
                 <div class="tab-options  tab-section">
                     <div></div>
                     <span class="arrowbox"></span>
-                    <select>
+                    <select v-model="rechargeOption">
                       <option value="hfFirstDpBonus">首存优惠</option>
                       <option value="hfSecond25">再存25%</option>
                       <option value="no" selected="">下回再参与！</option>
@@ -50,23 +50,143 @@
 
 <script>
 import { mapState, mapGetters , mapMutations} from 'vuex'
+import { RECHARGE_WXPAYDEPOSIT } from './../../api'
 
 export default {
-  name: 'recharger-tab',
-  props: ["method"],
-  methods: {
-    
-  },
-  computed: {
-      ...mapGetters ({
-          methoddetails: 'getMethodDetails',
-          defaultmethod : 'defaultmethod'
-      }),
-      ...mapState ({
-          selected: state => state.wallet.selectedmethod
-      })
-  }
+    name: 'recharger-tab',
+    props: ["method"],
+    data(){
+        return {
+            notifmessage: '',
+            rechargeOption: ''
+        }
+    },
+    computed: {
+        ...mapGetters ({
+            methoddetails: 'getMethodDetails',
+            defaultmethod : 'defaultmethod',
+            currentUser: 'currentUser'
+        }),
+        ...mapState ({
+            selected: state => state.wallet.selectedmethod
+        })
+    },
+    methods: {
+        validateAmount( payload ){
+            let that_ = this;
+            let amount_ = payload.amount;
+            let rechargeOption = payload.option;
+            
+            if (amount_ == null || amount_ == "") {
+                this.notifmessage = ("请填写充值金额！");
+                return false;
+            }
+            if (isNaN(amount_)) {
+                this.notifmessage = ("请输入有效的数字!");
+                return false;
+            }
+            if (parseFloat(amount_) <= 0) {
+                this.notifmessage = ("请输入大于0的数字!");
+                return false;
+            }
+            if (Number(amount_) < 20) {
+                this.notifmessage = ('输入金额至少20元');
+                return false;
+            }
 
+            if (!/^-?\d+\.?\d{0,2}$/.test(amount_)) {
+                this.notifmessage = ("请输入2位小数内的数字!");
+                return false;
+            }
+            if (Number(amount_) > 100000) {
+                this.notifmessage = ('输入金额不能大于100000元');
+                return false;
+            }
+            if ( this.rechargeOption == 'hfFirstDpBonus') {
+                if (Number(amount_) < 100) {
+                    this.notifmessage = ('首存优惠起至少100元');
+                    return false;
+                }
+            }
+            if (val != 'no' && this.rechargeOption == 'hfSecond25') {
+                    if (Number(amount_) < 200) {
+                        this.notifmessage = ('再存优惠起至少200元');
+                        return false;
+                }
+            }
+            if (val != 'no' && this.rechargeOption == 'hfDpBonus88') {
+                if (Number(amount_) < 88) {
+                    this.notifmessage = ('再存优惠起至少88元');
+                    return false;
+                }
+            }
+            return true;
+        },
+        scanCode(){
+            let that_ = this;
+            let payload = {
+                amount: '',
+                option: ''
+            }
+            this.validateAmount(payload);
+            // GetUserInfo
+            // if true loginResult:false
+            // loginResult: 正在充值中...
+            let userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
+            // Create postData
+            let bankCode = "weixin";
+            let postData = {
+                Amount: parseFloat(x),
+                BankCode: bankCode,
+                ReturnDomain: this.$route.query.page,
+                PayType: '3',
+                UserId: userInfo.Id,
+                UserLevel: userInfo.UserLevel,
+                ActCode: this.rechargeOption
+            }
+            let config = { 
+                headers: { 
+                    'Authorization': 'Bearer ' + token,
+                    'Content-Type': 'application/json; charset=utf-8',
+                } 
+            };
+
+            this.$http.post()
+            .then( function(res){
+                //  loginResult(false);
+                if ( res.data == 'Failed' ){
+                    that_.notifmessage = ("支付失败，请重新在试或者使用其他支付方式！");
+                    return;
+                }
+                if ( res.data == '您的账户在别的地方登陆，请重新登录!') {
+                    that_.notifmessage = ("您的账户在别的地方登陆，请重新登陆", 2000);
+                    // sessionStorage.clear();
+                    setTimeout(function () {
+                        that_.$route.push({ path: '../Login' });
+                    }, 2500);
+                    return;
+                }
+                if (data == "null") {
+                    that_.notifmessage = ("您的账户暂时无法支付，请联系客服！");
+                }
+                if (data.Rnd) {
+                    that_.notifmessage = ("订单号：" + res.data.Rnd + "完成转账，联系在线客服办理入账！");
+                }
+             })
+            .catch( function(error){
+                 if (error.data.status == 400) {
+                    //loginResult(false);
+                    that_.notifmessage = ("您的账户在别的地方登陆，请重新登陆", 2000);
+                    //sessionStorage.clear();
+                    setTimeout(function () {
+                        that_.$route.push({ path: '../Login' });
+                    }, 2500);
+                }
+             });
+
+        }
+
+    }
 }
 
 </script>

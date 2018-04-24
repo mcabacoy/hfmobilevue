@@ -125,3 +125,10 @@ export const GET_USER_BANK_INFO = serviceUrl + '/UserBankInfo';
 // PROMOTIONS ***************
 export const PROMO_APPLY_LOBBY = serviceUrl + '/Active/ApplyLobbyReturn';
 export const THOUSANDFOLD_APPLY_LOBBY = serviceUrl + '/Active/ThousandfoldApplyReturn';
+
+
+
+
+// WALLET RECHARGE ***************
+// POST
+export const RECHARGE_WXPAYDEPOSIT= serviceUrl + '/AliPayDeposit/WxPayDeposite';
