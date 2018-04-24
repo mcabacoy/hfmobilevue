@@ -13,13 +13,8 @@ const state = {
     ]
 }
 const getters = {
-    getBankTypeByName (state, payload) {
-        return payload => state.promotions.find( function( e ){
-            return e.value === payload;
-        });
-    },
-    getBankTypes (state) {
-        return  state.promotions;
+    getPromotionList (state) {
+        return payload => state.promotions
     }
 }
 export default {

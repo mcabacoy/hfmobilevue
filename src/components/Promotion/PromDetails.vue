@@ -59,6 +59,11 @@
 <script>
 import { mapState, mapMutations, mapGetters } from 'vuex'
 export default {
+    data(){
+        return {
+            promtype: this.$route.params.promtype
+         }
+     },
     methods: {
         ...mapMutations (['setCurrentPage']),
     },
