@@ -55,9 +55,9 @@
             <li class="Offer1"
                 v-for="(i, index) in promlist" :key="index">
                 <div class="offer_content">
-                    <a @click="routePage('/PromDetails', [i.id])"
-                        >
-                        <img src='../../static/img/images-app/New-Promo-4.jpg' style="width:100%;" />
+                    <a @click="routePage('/PromDetails', [i.promType])">
+                        <!-- <img src="../../static/img/images-app/New-Promo-4.jpg"> -->
+                        <img :src="require('../../static/img/images-app/' + [i.promSrc])">
                     </a>
                 </div>
             </li>
@@ -94,7 +94,7 @@ export default {
       }
   },
   methods: {
-      ...mapMutations ([
+        ...mapMutations ([
             'setCurrentPage'
         ]),
         ...mapGetters ({
@@ -116,19 +116,20 @@ export default {
     created() {
       this.setCurrentPage('Promotion');
       this.promlist = this.$store.getters.getPromotionList(this.promType);
-      console.log(this.promlist);
+      console.log(this.promlist)
   }
 }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-    
-
 input[type="submit"], 
 input[type="button"], 
 input[type="reset"] {
         cursor: pointer;
         border: none;
+}
+.offer_content a img{
+    width:100%;
 }
 .promo-container {
     margin-top: -0.2rem;
@@ -273,8 +274,6 @@ input[type="reset"] {
         }
     }
 }
-
-
 #ApplyLobbyReturn{
     width: 2.9rem;
     float: left;
