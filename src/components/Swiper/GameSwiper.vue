@@ -1,6 +1,5 @@
 <template>
 <div>
-    asdasada
     <swipe class="swiper-container">
         <swipe-item v-for="(item, index) in gamelist"
             :key="index" 
@@ -34,6 +33,19 @@ export default {
     components: {
         Swipe,
         SwipeItem,
+    },
+    mounted() {
+        this.$nextTick(() => {
+            var swiper = new Swiper('.swiper-container', {
+                pagination: {
+                        el:  '.swiper-pagination',
+                        clickable: true
+                    },
+                    autoplay: {
+                        delay: 3000,
+                    }
+            });
+        });
     },
     name: 'gameListSwiper'
 }

@@ -1,21 +1,37 @@
 <template>
 <div>
-    <swipe class="swiper-container">
-            <swipe-item v-for="(item, index) in banners"
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"
+                v-for="(item, index) in banners"
                 :key="index" 
                 :class="item">
-            </swipe-item>  
-    </swipe>
+            </div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-clickable"></div>
+    </div>
 </div>
 </template>
 
 <script>
-import { Swipe, SwipeItem } from 'vue-swipe';
+import Swiper from 'Swiper'
 export default {
   name: 'bannerSwiper',
   components: {
-      Swipe,
-      SwipeItem,
+      Swiper
+  },
+  mounted(){
+    this.$nextTick(() => {
+        var swiper = new Swiper('.swiper-container', {
+          lazy: {
+              loadPrevNext: true,
+          },
+          pagination: {
+            el:  '.swiper-pagination',
+            clickable: true
+          }
+        });
+    });
   },
   data(){
      return {
@@ -30,6 +46,15 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus" >
 
 .swiper-container {
+    width: 100% !important; 
+    height: 2.82rem;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+
+    .swiper-slide{
+        background-size: 100% !important;
+    }
     .banner-01 {
         background: url('../../../static/img/banner/banner_01.jpg');
     }
@@ -53,35 +78,16 @@ export default {
     }
 }
 
-.swiper-container {
-    width: 100% !important; 
-    height: 2.82rem;
-    color: #fff;
-    font-size: 30px;
-    text-align: center;
-  
-  .mint-swipe-item {
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    margin: auto;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .mint-swipe-indicators {
-    bottom: 0.1rem !important;
-    .mint-swipe-indicator {
-        cursor: pointer !important;
+.swiper-pagination {
+   bottom: 0px !important;
+
+   .swiper-pagination-bullet{
         width: 7px;
         height: 7px;
-        background: #d6d6d6 !important;
-        opacity: 0.5;
-        margin-bottom: -0.1rem !important;
-        
-        &.is-active {
-            opacity: 1 !important;
-        }
-    }
-    }
+        background: #d6d6d6;
+   }
+   .swiper-pagination-bullet-active{
+       opacity: 1 !important;
+   }
 }
 </style>

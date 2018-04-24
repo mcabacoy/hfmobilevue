@@ -1,24 +1,49 @@
 <template>
   <div class="platform-games">
-    <swipe class="swiper-container">
-      <swipe-item>
-        <ul>
-          <li v-for="(item, index) in gameset.gamelist"
-              :key="index" >
-            <div :class="['picture',item.gametype]"></div>
-            <span> {{ item.name }} </span>
-          </li>
-        </ul>      
-      </swipe-item>  
-    </swipe>
+      <div class="contentdiv swiper-container">
+        <div class="swiper-wrapper">
+          <div :class="['swiper-slide' , index ]" v-for="(i, index) in ( getPageNumber(gameset.gamelist))" :key="index">
+            <ul>
+              <li v-for="(item, index) in getGameListItems(index)" :key="index" >
+              <game-image 
+                  :bgsrc="require('../../static/img/' + [gameset.platform] + '/' +[item.bgImg]+ '')"
+                  :class="['picture']" 
+                  :gametype = [item.gametype]>
+              </game-image>
+              <span> {{ item.name }} </span>
+              </li> 
+            </ul>
+          </div>
+          
+        </div>
+        <div class="swiper-pagination swiper-pagination-clickable"></div>
+    </div> 
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex'
-import { Swipe, SwipeItem } from 'vue-swipe';
+import GameImage from './GameList/ListImages'
+import Swiper from 'Swiper'
 export default {
   name: 'platform-games',
+  components: {
+      Swiper,
+      GameImage
+  },
+  mounted(){
+    this.$nextTick(() => {
+        var swiper = new Swiper('.swiper-container', {
+          lazy: {
+              loadPrevNext: true,
+          },
+          pagination: {
+            el:  '.swiper-pagination',
+            clickable: true
+          }
+        });
+    });
+  },
   data(){
     return {
       platform:  this.$route.params.gametype,
@@ -28,14 +53,24 @@ export default {
   computed: {
     ...mapGetters(["getGamesByPlatform"])
   },
-  components: {
-      Swipe,
-      SwipeItem,
-  },
   methods: {
+    getPageNumber(payload){
+      return Math.ceil(payload.length / 12);
+    },
+    getGameListItems(payload){
+      var gameList = this.gameset.gamelist;
+      let counter = 12;
+      let page_index = payload;
+      let start_index = payload * counter;
+      let end_index = start_index + ( counter   );
+      
+      var games = gameList.filter( function(e) {
+        return ( ( e.id ) >= start_index && e.id  <= end_index ) && (  (isNaN(e.id / 12) ? 0 : Math.floor(e.id / 12) ) == payload  ) ;
+      });
+      return games;
+    },
     ...mapMutations ([
        'setCurrentPage',
-       
     ])
   },
   created() {
@@ -49,6 +84,53 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus">
 
 .platform-games {
+  .swiper-slide{
+    text-align: center;
+    background: 000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    ul{
+      list-style: none;
+      width: 99%;
+      height: 100%;
+      margin: 0 auto;
+      margin-left: 0.23rem;
+    }
+    li {
+      margin-right: .1rem;
+      float: left;
+      display: block;
+      text-align: center;
+      color: #fff;
+      font-family: HiraginoSans !important;
+      letter-spacing: .02rem;
+      box-shadow: none;
+      position: relative;
+
+      .picture {
+        width: 93%;
+        height: 75%;
+        border-radius: 2px;
+        margin-left: 4%;
+        margin-bottom: .03rem;
+        margin-top: .05rem;
+        background: url(../../static/img/PT/ano.jpg);
+        background-repeat: no-repeat !important;
+        background-size: 100% 100% !important;
+      }
+    }
+  }
   .swiper-container {
     margin-left: auto;
     margin-right: auto;
@@ -60,94 +142,56 @@ export default {
     background-size: cover;
     background-position: center;
     height: 11rem;
-    padding-top: .4rem;
     margin-top: -.1rem;
     overflow-y: hidden;
 
-    ul {
-      padding-top: .1rem;
-      list-style: none;
-      width: 99%;
-      height: 100%;
-      margin: 0 auto;
-      margin-left: 0.15rem;
-
-      li {
-          width: 23% !important;
-          height: 1.24rem;
-          margin-right: .1rem;
-          margin-bottom: .1rem;
-          float: left;
-          display: block;
-          text-align: center;
-          color: #fff;
-          font-size: .12rem;
-          background: url(../../static/img/HGame/gamemenu-bg.png) no-repeat;
-          background-size: 100%;
-          font-family: HiraginoSans !important;
-          letter-spacing: .02rem;
-          line-height: .225rem;
-          box-shadow: none;
-          position: relative;
-
-          div.picture {
-            width: 93%;
-            height: 75%;
-            // height: .91rem;
-            border-radius: 2px;
-            margin-left: 4%;
-            margin-top: .05rem;
-            // margin-bottom: .05rem;
-            background: url(../../static/img/PT/ano.jpg);
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-        }
-      }
-      @media screen and (orientation:portrait)
-      {
-          li {
-          width: 31% !important;
-          height: 1.63rem;
-          margin-bottom: .15rem;
-          background-size: 100%;
-          font-size: .15rem;
-          line-height: .31rem;
-          div.picture {
-             margin-bottom: .01rem;
-          }
-        }
-      }
-    }
-
-    .mint-swipe-items {
-        width: 327px;
-    }
-
-    .mint-swipe-indicators {
-        bottom: 10px !important;
-        position: fixed;
-        .mint-swipe-indicator  {
-          background: #ac1250 !important;
-          margin: 0.02rem !important;
-          height: .08rem;
-          box-shadow: 0 2px 3px 0 #540928;
-          opacity: 1 !important;
-          width: .3rem;
-          border-radius: 0 !important;
-          display: inline-block;
-          
-          &.is-active {
-            background: #ffa4b1 !important;
-          }
-      }
-    }
-
-
   }
 }
+@media screen and (orientation:portrait){
+   .contentdiv{
+     height: 10rem;
+     display: block;
+   }
+   .swiper-slide{
+     ul{
+      padding-top: .34rem !important;
+     }
+     li{
+      width: 31%;
+      height: 1.63rem;
+      margin-bottom: .15rem;
+      background: url(../../static/img/HGame/gamemenu-bgportrait.png) no-repeat;
+      background-size: 100%;
+      font-size: .15rem;
+      line-height: .31rem;
+     }
+     .picture{
+      height: 1.2rem;
+      width: 92.8%;
+      margin-left: 4%;
+     }
+   }
+   .swiper-pagination{
+      bottom: .34rem !important;
+      position: fixed;
+   }
+   .platform-games{
+     .swiper-pagination-bullet{
+          margin: 0.02rem !important;
+          height: .08rem;
+          opacity: 1;
+          background: #ac1250 !important;
+          box-shadow: 0 2px 3px 0 #540928;
+          width: .3rem;
+          border-radius: 0 !important;
+     }
+     .swiper-pagination-bullet-active{
+         background: #ffa4b1 !important;
+         opacity: 1 !important;
+       }
+   }
+ }
+ @media screen and (orientation:landscape){
 
-
-
-
-
+ }
 </style>

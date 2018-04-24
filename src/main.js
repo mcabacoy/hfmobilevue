@@ -26,7 +26,8 @@ const Registration = resolve => require(['./components/Registration'], resolve);
 import store from './store';
 import layer from 'vue-layer-mobile';
 import '../static/css/reset.css' 
-import 'vue-swipe/dist/vue-swipe.css';
+import 'swiper/dist/css/swiper.min.css';
+import Swiper from 'swiper'
 
 
 Vue.use(layer);
@@ -84,7 +85,7 @@ const routes = [
     component: Wallet
   },
   {
-    path: '/UserInfoBind',
+    path: '/UserInfoBind/:bindtype',
     component: InfoBind
   },
   {
@@ -132,5 +133,8 @@ new Vue({
   el: '#app',
   store,
   router,
-  render: h => h(App)
+  render: h => h(App),
+  components: {
+    Swiper
+  }
 });

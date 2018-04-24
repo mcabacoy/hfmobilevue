@@ -73,7 +73,7 @@
                 <div class="signinsuccess" v-if="showModalType == 'signinsuccess' && display">
                     <h1>{{ checkinAmount }}</h1>
                     <p>连续签到 
-                        <span class="AccCount">{{ signin.AccCount }}</span> 天</p>
+                        <span class="AccCount">{{ signinStatus.AccCount }}</span> 天</p>
                     <span class="ok" @click="closeCheckinModal">确 定</span>
                 </div>
             </transition>

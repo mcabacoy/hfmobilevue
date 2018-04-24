@@ -42,35 +42,35 @@
                 <div class="info-div">
                     <div class="ico phone-icon"><img src="../../static/img/Userinfo/phone-ico.png" /></div>
                     <span class="details-label">手机号码</span>
-                    <a @click="routePage('UserInfoBind')" class="arrow-right" v-show="AccountDetails.IsEmailBound"></a>
+                    <a @click="routePage('UserInfoBind', 'phone')" class="arrow-right" v-show="AccountDetails.IsPhoneBound"></a>
                     <span class="details-val" id="Phone">{{ checkBinding(AccountDetails.Mobile) }}</span>
                     <div class="border-info"></div>
                 </div>
                 <div class="info-div">
                     <div class="ico"><img src="../../static/img/Userinfo/message-ico.png" /></div>
                     <span class="details-label">电子邮箱</span>
-                    <a  @click="routePage('UserInfoBind')" class="arrow-right" v-if="AccountDetails.IsPhoneBound"></a>
+                    <a  @click="routePage('UserInfoBind', 'email')" class="arrow-right" v-if="AccountDetails.IsEmailBound"></a>
                     <span class="details-val" id="Email">{{ checkBinding(AccountDetails.Email) }}</span>
                     <div class="border-info"></div>
                 </div>
                 <div class="info-div">
                     <div class="ico qq-icon"><img src="../../static/img/Userinfo/QQ-ico.png" /></div>
                     <span class="details-label">QQ号码</span>
-                    <a  @click="routePage('UserInfoBind')" class="arrow-right" v-if="AccountDetails.QQ != null || AccountDetails.QQ != ''"></a>
+                    <a  @click="routePage('UserInfoBind', 'qq')" class="arrow-right" v-if="AccountDetails.QQ != null || AccountDetails.QQ != ''"></a>
                     <span class="details-val" id="QQ">{{ checkBinding(AccountDetails.QQ) }}</span>
                     <div class="border-info"></div>
                 </div>
                 <div class="info-div">
                     <div class="ico wechat-icon"><img src="../../static/img/Userinfo/wechat-ico.png" /></div>
                     <span class="details-label">微信号码</span>
-                    <a  @click="routePage('UserInfoBind')" class="arrow-right" v-if="AccountDetails.Wechat != null || AccountDetails.Wechat != ''"></a>
+                    <a  @click="routePage('UserInfoBind', 'wechat')" class="arrow-right" v-if="AccountDetails.Wechat != null || AccountDetails.Wechat != ''"></a>
                     <span class="details-val" id="WeChat">{{ (AccountDetails.Wechat) }}</span>
                     <div class="border-info"></div>
                 </div>
                 <div class="info-div" id="changePwd">
                     <div class="ico passw-icon"><img src="../../static/img/Userinfo/passw_icon.png" /></div>
                     <span class="details-label">更改密码</span>
-                    <a  @click="routePage('UserInfoBind')" class="arrow-right"></a>
+                    <a  @click="routePage('UserInfoBind', 'password')" class="arrow-right"></a>
                     <span class="details-val"></span>
                     <div class="border-info"></div>
                 </div>
@@ -177,8 +177,8 @@ export default {
         setTab: function(payload){
            this.opentab =  payload;
         },
-        routePage: function(pageName){
-            this.$router.push({ path: '../' + pageName });
+        routePage: function(pageName, bindType){
+            this.$router.push({ path: '../' + pageName + '/' + bindType });
         },
         showSignoutMenu: function (mode){
             this.displaySignout = mode;
@@ -199,6 +199,7 @@ export default {
         closeYesNoModal(){
             this.showModalYesNo = false;
         },
+
         // PROCESS
         // USER INFO ***************************
         checkBinding( payload ){
@@ -227,30 +228,11 @@ export default {
                 this.requestAccountInfo( this.currentUser.tokenKey );
             }
         },
+
         // BANK CARDS ***************************
         refreshBankCards(){
             this.getUserBankInfo();
-        },
-        getAllBankCards(){
-            let that_ = this;
-            let config = { headers: { 'Authorization': 'Bearer ' + this.currentUser.tokenKey } };
-            this.$http.get( GET_ALL_BANK_CARDS,  config )
-            .then( function(res){
-                if ( res.data == 'Failed' ){
-                     that_.notifmessage = ("您的账户在别的地方登陆，请重新登陆！");
-                     that_.clearSessions();
-                     that_.$nextTick(() => {
-                        setTimeout(()=>{
-                            that_.$router.push({path: '../Login' });
-                        }, 1100);
-                    });
-                }
-                else {
-                    that_.banklist = res.data;
-                }
-            })
-            .catch( function(error){});
-        },
+        },       
         displayModalYesNo( ){
             this.showModalYesNo = true;
         },
@@ -281,7 +263,6 @@ export default {
             let config = { headers: { 'Authorization': 'Bearer ' + this.currentUser.tokenKey } };
             this.$http.get( GET_USER_BANK_INFO,  config )
             .then( function(res){
-                console.log(res.data);
                 if ( res.data == 'Failed' ){
                      that_.notifmessage = ("您的账户在别的地方登陆，请重新登陆！");
                      that_.clearSessions();
@@ -300,7 +281,6 @@ export default {
     },
     created() {
         this.populateUserInfo();
-        // this.getAllBankCards();
         this.getUserBankInfo();
         this.setCurrentPage('BankCard');
     }

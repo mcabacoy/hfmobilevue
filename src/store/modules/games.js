@@ -1,9 +1,16 @@
 const state = {
     games : [
+        //PT1
         {
+<<<<<<< HEAD
             platform:  "MG",
             currentgame: "ngm",
             locationSrc: "",
+=======
+            platform:  "PT1",
+            currentgame: "ngm",
+            locationSrc: "https://gs2.m27613.com/v1/mrch/game?language=zh-cn&merchantCode=swgnsfubao&playmode=real&gameCode=",
+>>>>>>> cfdf7ec4a2a31a1d45c8fe176d015f8b240245c8
             // Needed QS
             // gameCode - this.gametype
             // ticket - token
@@ -13,6 +20,7 @@ const state = {
             gamelist: [
                 {   
                     id: 1,
+<<<<<<< HEAD
                     gametype: 'cashSplash',
                     name: '黃金花園',
                     bgImg: 'cashSplash.jpg',
@@ -57,6 +65,470 @@ const state = {
                     name: '梦果子乐园',
                     bgImg: 'candyDreams.jpg',
                 },
+=======
+                    gametype: 'sw_gs',
+                    name: '加油金块',
+                    bgImg: 'sw_gs.jpg',
+                },
+                {
+                    id: 2,
+                    gametype: 'sw_ps',
+                    name: '加油金砖',
+                    bgImg: 'sw_ps.jpg',
+                },
+                {
+                    id: 3,
+                    gametype: 'sw_qotp',
+                    name: '法老女王',
+                    bgImg: 'sw_qotp.jpg',
+                },
+                {
+                    id: 4,
+                    gametype: 'sw_rr',
+                    name: '河船送福',
+                    bgImg: 'sw_rr.jpg',
+                },
+                {
+                    id: 5,
+                    gametype: 'sw_fb',
+                    name: '四美',
+                    bgImg: 'sw_fb.jpg',
+                },
+                {
+                    id: 6,
+                    gametype: 'sw_ar',
+                    name: '阿兹特克送福',
+                    bgImg: 'sw_ar.jpg',
+                },
+                {
+                    id: 7,
+                    gametype: 'sw_fr',
+                    name: '五行火送福',
+                    bgImg: 'sw_fr.jpg',
+                },
+                {
+                    id: 8,
+                    gametype: 'sw_wrl',
+                    name: '五行水送福',
+                    bgImg: 'sw_wrl.jpg',
+                },
+                {
+                    id:9,
+                    gametype: 'sw_tcb',
+                    name: '炸金花',
+                    bgImg: 'sw_tcb.jpg',
+                },
+                {
+                    id:10,
+                    gametype: 'sw_gk',
+                    name: '宝石王',
+                    bgImg: 'sw_gk.jpg',
+                },
+                {
+                    id:11,
+                    gametype: 'sw_lucky_omq',
+                    name: '走运老夫子',
+                    bgImg: 'sw_bjc.jpg',
+                },
+                {
+                    id:12,
+                    gametype: 'sw_bjc',
+                    name: '黑杰克',
+                    bgImg: 'sw_lucky_omq.jpg',
+                },
+                //--
+                {
+                    id:13,
+                    gametype: 'sw_bl',
+                    name: '百搭雄狮',
+                    bgImg: 'sw_bl.jpg',
+                },
+                {
+                    id:14,
+                    gametype: 'sw_dld',
+                    name: '豪华大蓝',
+                    bgImg: 'sw_dld.jpg',
+                },
+                {
+                    id:15,
+                    gametype: 'sw_fuqsg',
+                    name: '福气水果',
+                    bgImg: 'sw_fuqsg.jpg',
+                },
+                {
+                    id:16,
+                    gametype: 'sw_kxcs',
+                    name: '酷炫财神',
+                    bgImg: 'sw_kxcs.jpg',
+                },
+                {
+                    id:17,
+                    gametype: 'sw_pe',
+                    name: '海盗女皇',
+                    bgImg: 'sw_pe.jpg',
+                },
+                {
+                    id:18,
+                    gametype: 'sw_zcxm',
+                    name: '招财熊猫',
+                    bgImg: 'sw_zcxm.jpg',
+                },
+                {
+                    id:19,
+                    gametype: 'sw_ts',
+                    name: '三姐妹',
+                    bgImg: 'sw_ts.jpg',
+                },
+                {
+                    id:20,
+                    gametype: 'sw_tr',
+                    name: '现金霸王龙',
+                    bgImg: 'sw_tr.jpg',
+                },
+                {
+                    id:21,
+                    gametype: 'sw_pg',
+                    name: '熊猫财富',
+                    bgImg: 'sw_pg.jpg',
+                },
+                {
+                    id:22,
+                    gametype: 'sw_88sf',
+                    name: '88-师父',
+                    bgImg: 'sw_88sf.jpg',
+                },
+                {
+                    id:23,
+                    gametype: 'sw_go8d',
+                    name: '八方女神',
+                    bgImg: 'sw_go8d.jpg',
+                },
+                {
+                    id:24,
+                    gametype: 'sw_fc',
+                    name: '财富城堡',
+                    bgImg: 'sw_fc.jpg',
+                },
+                //--
+                {
+                    id:25,
+                    gametype: 'sw_csy',
+                    name: '财神爷',
+                    bgImg: 'sw_csy.jpg',
+                },
+                {
+                    id:26,
+                    gametype: 'sw_mt',
+                    name: '超强三人组',
+                    bgImg: 'sw_mt.jpg',
+                },
+                {
+                    id:27,
+                    gametype: 'sw_ld',
+                    name: '傳奇巨龍',
+                    bgImg: 'sw_ld.jpg',
+                },
+                {
+                    id:28,
+                    gametype: 'sw_ggdn',
+                    name: '黃金花園',
+                    bgImg: 'sw_ggdn.jpg',
+                },
+                {
+                    id:29,
+                    gametype: 'sw_jxl',
+                    name: '吉祥龙',
+                    bgImg: 'sw_jxl.jpg',
+                },
+                {
+                    id:30,
+                    gametype: 'sw_9s1k',
+                    name: '九子一王',
+                    bgImg: 'sw_9s1k.jpg',
+                },
+                {
+                    id:31,
+                    gametype: 'sw_wq',
+                    name: '狂野麒麟',
+                    bgImg: 'sw_wq.jpg',
+                },
+                {
+                    id:32,
+                    gametype: 'sw_h2h',
+                    name: '两心知',
+                    bgImg: 'sw_h2h.jpg',
+                },
+                {
+                    id:33,
+                    gametype: 'sw_mj',
+                    name: '美人鱼宝藏',
+                    bgImg: 'sw_mj.jpg',
+                },
+                {
+                    id:34,
+                    gametype: 'sw_gg',
+                    name: '名利双收',
+                    bgImg: 'sw_gg.jpg',
+                },
+                {
+                    id:35,
+                    gametype: 'sw_totiatp',
+                    name: '逆戟鲸，冰山和企鹅',
+                    bgImg: 'sw_totiatp.jpg',
+                },
+                {
+                    id:36,
+                    gametype: 'sw_t2d',
+                    name: '双龙传',
+                    bgImg: 'sw_t2d.jpg',
+                },
+                //--
+                {
+                    id:37,
+                    gametype: 'sw_rc',
+                    name: '糖果炸弹',
+                    bgImg: 'sw_rc.jpg',
+                },
+                {
+                    id:38,
+                    gametype: 'sw_hp',
+                    name: '天上凤凰',
+                    bgImg: 'sw_hp.jpg',
+                },
+                {
+                    id:39,
+                    gametype: 'sw_qv',
+                    name: '维京女王',
+                    bgImg: 'sw_hp.jpg',
+                },
+                {
+                    id:40,
+                    gametype: 'sw_sx',
+                    name: '囍',
+                    bgImg: 'List_newPT_sw_sq.jpg',
+                },
+                {
+                    id:41,
+                    gametype: 'sw_pvg',
+                    name: '熊猫vs山羊',
+                    bgImg: 'sw_pvg.jpg',
+                },
+                {
+                    id:42,
+                    gametype: 'sw_pp',
+                    name: '熊猫奖励',
+                    bgImg: 'sw_pp.jpg',
+                },
+                {
+                    id:43,
+                    gametype: 'sw_cts',
+                    name: '游园会',
+                    bgImg: 'sw_cts.jpg',
+                },
+                {
+                    id:44,
+                    gametype: 'sw_kog',
+                    name: '众神之王',
+                    bgImg: 'sw_kog.jpg',
+                },
+                {
+                    id:45,
+                    gametype: 'sw_mer',
+                    name: '美人鱼',
+                    bgImg: 'List_newPT_sw_mer.jpg',
+                },
+                {
+                    id:46,
+                    gametype: 'sw_mrmnky',
+                    name: '猴子先生',
+                    bgImg: 'List_newPT_sw_mrmnky.jpg',
+                },
+                {
+                    id:47,
+                    gametype: 'sw_nyf',
+                    name: '新年财富',
+                    bgImg: 'List_newPT_sw_nyf.jpg',
+                },
+                {
+                    id:48,
+                    gametype: 'sw_omqjp',
+                    name: '老夫子',
+                    bgImg: 'List_newPT_sw_omqjp.jpg',
+                },
+                //--
+                {
+                    id:49,
+                    gametype: 'sw_pc',
+                    name: '熊猫厨神',
+                    bgImg: 'List_newPT_sw_pc.jpg',
+                },
+                {
+                    id:50,
+                    gametype: 'sw_sf',
+                    name: '三福',
+                    bgImg: 'List_newPT_sw_sf.jpg',
+                },
+                {
+                    id:51,
+                    gametype: 'sw_slbs',
+                    name: '神龙宝石',
+                    bgImg: 'List_newPT_sw_slbs.jpg',
+                },
+                {
+                    id:52,
+                    gametype: 'sw_sq',
+                    name: '冰雪女王',
+                    bgImg: 'List_newPT_sw_sq.jpg',
+                },
+                {
+                    id:53,
+                    gametype: 'sw_fp',
+                    name: '浴火凤凰',
+                    bgImg: 'List_newPT_sw_fp.jpg',
+                },
+                {
+                    id:54,
+                    gametype: 'sw_fbb',
+                    name: '福宝宝',
+                    bgImg: 'List_newPT_sw_fbb.jpg',
+                },
+                {
+                    id:55,
+                    gametype: 'sw_fufish_intw',
+                    name: '捕鱼多福',
+                    bgImg: 'List_newPT_sw_fufish_intw.jpg',
+                },
+                {
+                    id:56,
+                    gametype: 'sw_gol',
+                    name: '闪电之神',
+                    bgImg: 'List_newPT_sw_gol.jpg',
+                },
+                {
+                    id:57,
+                    gametype: 'sw_gm',
+                    name: '猩猩月亮',
+                    bgImg: 'List_newPT_sw_gm.jpg',
+                },
+                {
+                    id:58,
+                    gametype: 'sw_mf',
+                    name: '吉祥招财猫',
+                    bgImg: 'List_newPT_sw_mf.jpg',
+                },
+                {
+                    id:59,
+                    gametype: 'sw_qoiaf',
+                    name: '冰火女王',
+                    bgImg: 'List_newPT_sw_qoiaf.jpg',
+                },
+                {
+                    id:60,
+                    gametype: 'sw_rf',
+                    name: '拉美西斯财富',
+                    bgImg: 'List_newPT_sw_rf.jpg',
+                },
+                //--
+                {
+                    id:61,
+                    gametype: 'sw_sod',
+                    name: '钻石交响曲',
+                    bgImg: 'List_newPT_sw_sod.jpg',
+                },
+                {
+                    id:62,
+                    gametype: 'sw_al',
+                    name: '亚马逊美人',
+                    bgImg: 'List_newPT_sw_al.jpg',
+                },
+                {
+                    id:63,
+                    gametype: 'sw_dhcf',
+                    name: '大黑赐福',
+                    bgImg: 'List_newPT_sw_dhcf.jpg',
+                },
+                {
+                    id:64,
+                    gametype: 'sw_dd',
+                    name: '快乐海豚',
+                    bgImg: 'List_newPT_sw_dd.jpg',
+                },
+                {
+                    id:65,
+                    gametype: 'sw_db',
+                    name: '双倍奖金',
+                    bgImg: 'List_newPT_sw_db.jpg',
+                },
+                {
+                    id:66,
+                    gametype: 'sw_dj',
+                    name: '丛林翻倍赢',
+                    bgImg: 'List_newPT_sw_dj.jpg',
+                },
+                {
+                    id:67,
+                    gametype: 'sw_rm',
+                    name: '狂热重转',
+                    bgImg: 'List_newPT_sw_rm.jpg',
+                },
+                {
+                    id:68,
+                    gametype: 'sw_tc',
+                    name: '虎虎生财',
+                    bgImg: 'List_newPT_sw_tc.jpg',
+                },
+                {
+                    id:69,
+                    gametype: 'sw_fufish-jp',
+                    name: '捕鱼累积奖池',
+                    bgImg: 'List_newPT_sw_fufish_intw.jpg',
+                },
+                {
+                    id:70,
+                    gametype: 'sw_ycs',
+                    name: '迎财神',
+                    bgImg: 'List_newPT_sw_ycs.jpg',
+                },
+                {
+                    id:71,
+                    gametype: 'sw_rs',
+                    name: '崛起的武士',
+                    bgImg: 'List_newPT_sw_rs.jpg',
+                },
+                {
+                    id:72,
+                    gametype: 'sw_lodk',
+                    name: '龙鲤传奇',
+                    bgImg: 'List_newPT_sw_lodk.jpg',
+                },
+                //--
+                {
+                    id:73,
+                    gametype: 'sw_scyd',
+                    name: '生财有道',
+                    bgImg: 'List_newPT_sw_scyd.jpg',
+                },
+                {
+                    id:74,
+                    gametype: 'sw_888t',
+                    name: '金龟发发发',
+                    bgImg: 'List_newPT_sw_888t.jpg',
+                },
+                {
+                    id:75,
+                    gametype: 'sw_sgcf',
+                    name: '水果财富',
+                    bgImg: 'List_newPT_sw_sgcf.jpg',
+                }
+            ]
+        },
+        //PT
+        {
+            platform: "PT",
+            currentgame: "ngm",
+            locationSrc: "",
+            gamelist: [
+>>>>>>> cfdf7ec4a2a31a1d45c8fe176d015f8b240245c8
                 {   
                     id:8,
                     gametype: 'forbiddenThrone',
@@ -129,11 +601,19 @@ const state = {
                     name: '黄金公主',
                     bgImg: 'goldenPrincess.jpg',
                 },
+<<<<<<< HEAD
                 {   
                     id:19,
                     gametype: 'emperorofTheSea',
                     name: '青龙出海',
                     bgImg: 'emperorofTheSea.jpg',
+=======
+                {
+                    id: 12,
+                    gametype: 'c7',
+                    name: '疯狂777',
+                    bgImg: 'slot3_img53.jpg',
+>>>>>>> cfdf7ec4a2a31a1d45c8fe176d015f8b240245c8
                 },
                 {   
                     id:20,
@@ -595,6 +1075,7 @@ const state = {
                     name: '雷神',
                     bgImg: 'thunderstruck.jpg',
                 },
+<<<<<<< HEAD
                 {   
                     id:90,
                     gametype: 'tombRaider',
@@ -607,6 +1088,19 @@ const state = {
                     gametype: 'ladiesNite',
                     name: '淑女派对',
                     bgImg: 'ladiesNite.jpg',
+=======
+                {
+                    id: 82,
+                    gametype: 'bs',
+                    name: '百家乐',
+                    bgImg: 'slot4_img19.jpg',
+                },
+                {
+                    id: 83,
+                    gametype: 'cheaasib',
+                    name: '赌城扑克',
+                    bgImg: 'slot4_img27.jpg',
+>>>>>>> cfdf7ec4a2a31a1d45c8fe176d015f8b240245c8
                 },
                 
                 {   
@@ -615,6 +1109,7 @@ const state = {
                     name: '淑女派对',
                     bgImg: 'springBreak.jpg',
                 },
+<<<<<<< HEAD
 
                 {   
                     id:93,
@@ -1602,6 +2097,974 @@ const state = {
 
 
 
+=======
+            ]
+        },
+        //HABA
+        {
+            platform:  "HABA",
+            currentgame: "ngm",
+            locationSrc: "",
+            // Needed QS
+            // gameCode - this.gametype
+            // ticket - token
+            // merch_login_url - current URL / location.href
+            // Sample
+            // location.href = "https://gs2.m27613.com/v1/mrch/game?language=zh-cn&merchantCode=swgnsfubao&playmode=real&gameCode=" + $this.attr('data-gametype') + '&ticket=' + token + '&merch_login_url=' + location.href;
+            gamelist: [
+                {   
+                    id: 1,
+                    gametype: 'SG12Zodiacs',
+                    name: '12生肖',
+                    bgImg: 'List_HB_SG12Zodiacs.jpg',
+                },
+                {   
+                    id: 2,
+                    gametype: 'SGAllForOne',
+                    name: '三剑客',
+                    bgImg: 'List_HB_SGAllForOne.jpg',
+                },
+                {   
+                    id: 3,
+                    gametype: 'SGArcaneElements',
+                    name: '神秘元素',
+                    bgImg: 'List_HB_SGArcaneElements.jpg',
+                },
+                {   
+                    id: 4,
+                    gametype: 'SGArcticWonders',
+                    name: '北极奇迹',
+                    bgImg: 'List_HB_SGArcticWonders.jpg',
+                },
+                {   
+                    id: 5,
+                    gametype: 'SGAzlandsGold',
+                    name: '亚兹特兰金 ',
+                    bgImg: 'List_HB_SGAzlandsGold.jpg',
+                },
+                {   
+                    id: 6,
+                    gametype: 'SGBarnstormerBucks',
+                    name: '农场现金',
+                    bgImg: 'List_HB_SGBarnstormerBucks.jpg',
+                },
+                {   
+                    id: 7,
+                    gametype: 'SGBikiniIsland',
+                    name: '比基尼岛',
+                    bgImg: 'List_HB_SGBikiniIsland.jpg',
+                },
+                {   
+                    id: 8,
+                    gametype: 'SGBombsAway',
+                    name: '炸弹追击',
+                    bgImg: 'List_HB_SGBombsAway.jpg',
+                },
+                {   
+                    id: 9,
+                    gametype: 'SGBuggyBonus',
+                    name: '昆虫宝',
+                    bgImg: 'List_HB_SGBuggyBonus.jpg',
+                },
+                {   
+                    id: 10,
+                    gametype: 'SGCarnivalCash',
+                    name: '现金嘉年华',
+                    bgImg: 'List_HB_SGCarnivalCash.jpg',
+                },
+                {   
+                    id: 11,
+                    gametype: 'SGCashReef',
+                    name: '农场现金',
+                    bgImg: 'List_HB_SGCashReef.jpg',
+                },
+                {   
+                    id: 12,
+                    gametype: 'SGCoyoteCrash',
+                    name: '狼贼夺宝',
+                    bgImg: 'List_HB_SGCoyoteCrash.jpg',
+                },
+                //--
+                {   
+                    id: 13,
+                    gametype: 'SGDiscoFunk',
+                    name: '舞厅技巧',
+                    bgImg: 'List_HB_SGDiscoFunk.jpg',
+                },
+                {   
+                    id: 14,
+                    gametype: 'SGDrFeelgood',
+                    name: '好感医生',
+                    bgImg: 'List_HB_SGDrFeelgood.jpg',
+                },
+                {   
+                    id: 15,
+                    gametype: 'SGTheDragonCastle',
+                    name: '龙之城堡',
+                    bgImg: 'List_HB_SGTheDragonCastle.jpg',
+                },
+                {   
+                    id: 16,
+                    gametype: 'SGDragonsRealm',
+                    name: '神龙之境',
+                    bgImg: 'List_HB_SGDragonsRealm.jpg',
+                },
+                {   
+                    id: 17,
+                    gametype: 'SGDragonsThrone',
+                    name: '龙之宝座',
+                    bgImg: 'List_HB_SGDragonsThrone.jpg',
+                },
+                {   
+                    id: 18,
+                    gametype: 'SGFaCaiShen',
+                    name: '发财神',
+                    bgImg: 'List_HB_SGFaCaiShen.jpg',
+                },
+                {   
+                    id: 19,
+                    gametype: 'SGFenghuang',
+                    name: '凤凰',
+                    bgImg: 'List_HB_SGFenghuang.jpg',
+                },
+                {   
+                    id: 20,
+                    gametype: 'SGFireRooster',
+                    name: '公鸡王',
+                    bgImg: 'List_HB_SGFireRooster.jpg',
+                },
+                {   
+                    id: 21,
+                    gametype: 'SGFlyingHigh',
+                    name: '高飞',
+                    bgImg: 'List_HB_SGFlyingHigh.jpg',
+                },
+                {   
+                    id: 22,
+                    gametype: 'SGFrontierFortunes',
+                    name: '边境之福',
+                    bgImg: 'List_HB_SGFrontierFortunes.jpg',
+                },
+                {   
+                    id: 23,
+                    gametype: 'SGGalacticCash',
+                    name: '银河大战',
+                    bgImg: 'List_HB_SGGalacticCash.jpg',
+                },
+                {   
+                    id: 24,
+                    gametype: 'SGGangsters',
+                    name: '黑手党',
+                    bgImg: 'List_HB_SGGangsters.jpg',
+                },
+                //--
+                {   
+                    id: 25,
+                    gametype: 'SGGoldRush',
+                    name: '淘金疯狂',
+                    bgImg: 'List_HB_SGGoldRush.jpg',
+                },
+                {   
+                    id: 26,
+                    gametype: 'SGGoldenUnicorn',
+                    name: '金麒麟',
+                    bgImg: 'List_HB_SGGoldenUnicorn.jpg',
+                },
+                {   
+                    id: 27,
+                    gametype: 'SGGrapeEscape',
+                    name: '逃跑的葡萄',
+                    bgImg: 'List_HB_SGGrapeEscape.jpg',
+                },
+                {   
+                    id: 28,
+                    gametype: 'SGHauntedHouse',
+                    name: '鬼屋',
+                    bgImg: 'List_HB_SGHauntedHouse.jpg',
+                },
+                {   
+                    id: 29,
+                    gametype: 'SGIndianCashCatcher',
+                    name: '印第安追梦',
+                    bgImg: 'List_HB_SGIndianCashCatcher.jpg',
+                },
+                {   
+                    id: 30,
+                    gametype: 'SGJugglenaut',
+                    name: '惊喜秀',
+                    bgImg: 'List_HB_SGJugglenaut.jpg',
+                },
+                {   
+                    id: 31,
+                    gametype: 'SGJungleRumble',
+                    name: '丛林怒吼',
+                    bgImg: 'List_HB_SGJungleRumble.jpg',
+                },
+                {   
+                    id: 32,
+                    gametype: 'SGKanesInferno',
+                    name: '凯恩地狱',
+                    bgImg: 'List_HB_SGKanesInferno.jpg',
+                },
+                {   
+                    id: 33,
+                    gametype: 'SGKingTutsTomb',
+                    name: '惊喜秀',
+                    bgImg: 'List_HB_SGKingTutsTomb.jpg',
+                },
+                {   
+                    id: 34,
+                    gametype: 'SGLittleGreenMoney',
+                    name: '小青钱',
+                    bgImg: 'List_HB_SGLittleGreenMoney.jpg',
+                },
+                {   
+                    id: 35,
+                    gametype: 'SGMonsterMashCash',
+                    name: '怪物现金',
+                    bgImg: 'List_HB_SGMonsterMashCash.jpg',
+                },
+                {   
+                    id: 36,
+                    gametype: 'SGMrBling',
+                    name: '珠光宝气',
+                    bgImg: 'List_HB_SGMrBling.jpg',
+                },
+                //--
+                {   
+                    id: 37,
+                    gametype: 'SGMummyMoney',
+                    name: '金钱木乃伊 ',
+                    bgImg: 'List_HB_SGMummyMoney.jpg',
+                },
+                {  
+                    id: 38,
+                    gametype: 'SGMysticFortune',
+                    name: '神秘宝藏',
+                    bgImg: 'List_HB_SGMysticFortune.jpg',
+                },
+                {   
+                    id: 39,
+                    gametype: 'SGOceansCall',
+                    name: '海洋之音',
+                    bgImg: 'List_HB_SGOceansCall.jpg',
+                },
+                {   
+                    id: 40,
+                    gametype: 'SGPamperMe',
+                    name: '宠爱我',
+                    bgImg: 'List_HB_SGPamperMe.jpg',
+                },
+                {   
+                    id: 41,
+                    gametype: 'SGPoolShark',
+                    name: '台球高手',
+                    bgImg: 'List_HB_SGPoolShark.jpg',
+                },
+                {   
+                    id: 42,
+                    gametype: 'SGQueenofQueens1024',
+                    name: '女王之女王II',
+                    bgImg: 'List_HB_SGQueenofQueens1024.jpg',
+                },
+                {   
+                    id: 43,
+                    gametpe: 'SGQueenofQueens243',
+                    name: '女王之女王',
+                    bgImg: 'List_HB_SGQueenofQueens243.jpg',
+                },
+                {   
+                    id: 44,
+                    gametype: 'SGRideEmCowBoy',
+                    name: '牛仔骑马',
+                    bgImg: 'List_HB_SGRideEmCowBoy.jpg',
+                },
+                {   
+                    id: 45,
+                    gametype: 'SGRomanEmpire',
+                    name: '罗马帝国',
+                    bgImg: 'List_HB_SGRomanEmpire.jpg',
+                },
+                {   
+                    id: 46,
+                    gametype: 'SGRuffledUp',
+                    name: '触电的小鸟',
+                    bgImg: 'List_HB_SGRuffledUp.jpg',
+                },
+                {   
+                    id: 47,
+                    gametype: 'SGSOS',
+                    name: '求救信号',
+                    bgImg: 'List_HB_SGSOS.jpg',
+                },
+                {   
+                    id: 48,
+                    gametype: 'SGShaolinFortunes243',
+                    name: '少林宝藏',
+                    bgImg: 'List_HB_SGShaolinFortunes243.jpg',
+                },
+                //--
+                {   
+                    id: 49,
+                    gametype: 'SGSkystheLimit',
+                    name: '天空之际',
+                    bgImg: 'List_HB_SGSkystheLimit.jpg',
+                },
+                {   
+                    id: 50,
+                    gametype: 'SGSpaceFortune',
+                    name: '空间宝藏',
+                    bgImg: 'List_HB_SGSpaceFortune.jpg',
+                },
+                {   
+                    id: 51,
+                    gametype: 'SGSparta',
+                    name: '斯巴达',
+                    bgImg: 'List_HB_SGSparta.jpg',
+                },
+                {   
+                    id: 52,
+                    gametype: 'SGSuperStrike',
+                    name: '好球',
+                    bgImg: 'List_HB_SGSuperStrike.jpg',
+                },
+                {   
+                    id: 53,
+                    gametype: 'SGSuperTwister',
+                    name: '超级龙卷风',
+                    bgImg: 'List_HB_SGSuperTwister.jpg',
+                },
+                {   
+                    id: 54,
+                    gametype: 'SGTheBigDeal',
+                    name: '重要人物',
+                    bgImg: 'List_HB_SGTheBigDeal.jpg',
+                },
+                {   
+                    id: 55,
+                    gametype: 'SGTowerOfPizza',
+                    name: '披萨塔',
+                    bgImg: 'List_HB_SGTowerOfPizza.jpg',
+                },
+                {   
+                    id: 56,
+                    gametype: 'SGTreasureDiver',
+                    name: '宝藏潜水员',
+                    bgImg: 'List_HB_SGTreasureDiver.jpg',
+                },
+                {   
+                    id: 57,
+                    gametype: 'SGVikingsPlunder',
+                    name: '维京掠宝',
+                    bgImg: 'List_HB_SGVikingsPlunder.jpg',
+                },
+                {   
+                    id: 58,
+                    gametype: 'SGWeirdScience',
+                    name: '科学怪人',
+                    bgImg: 'List_HB_SGWeirdScience.jpg',
+                },
+                {   
+                    id: 59,
+                    gametype: 'SGWickedWitch',
+                    name: '巫婆大财',
+                    bgImg: 'List_HB_SGWickedWitch.jpg',
+                },
+                {   
+                    id: 60,
+                    gametype: 'SGZeus',
+                    name: '宙斯',
+                    bgImg: 'SGZeus.jpg',
+                },
+                //--
+                {   
+                    id: 61,
+                    gametype: 'SGZeus2',
+                    name: '宙斯2',
+                    bgImg: 'List_HB_SGZeus2.jpg',
+                }
+            ]
+        },
+        //PNG
+        {
+            platform:  "PNG",
+            currentgame: "ngm",
+            locationSrc: "https://gs2.m27613.com/v1/mrch/game?language=zh-cn&merchantCode=swgnsfubao&playmode=real&gameCode=",
+            // Needed QS
+            // gameCode - this.gametype
+            // ticket - token
+            // merch_login_url - current URL / location.href
+            // Sample
+            // location.href = "https://gs2.m27613.com/v1/mrch/game?language=zh-cn&merchantCode=swgnsfubao&playmode=real&gameCode=" + $this.attr('data-gametype') + '&ticket=' + token + '&merch_login_url=' + location.href;
+            gamelist: [
+                {   
+                    id: 1,
+                    gametype: '100004',
+                    name: '万能西瓜',
+                    bgImg: 'List_PNG_WildMelon.jpg',
+                },
+                {   
+                    id: 2,
+                    gametype: '100005',
+                    name: '幸运钻石',
+                    bgImg: 'List_PNG_LuckyDiamonds.jpg',
+                },
+                {   
+                    id: 3,
+                    gametype: '100040',
+                    name: '海盗旗帜',
+                    bgImg: 'List_PNG_JollyRoger.jpg',
+                },
+                {   
+                    id: 4,
+                    gametype: '100043',
+                    name: '水果财富',
+                    bgImg: 'List_PNG_FruitBonanza.jpg',
+                },
+                {   
+                    id: 5,
+                    gametype: '100099',
+                    name: '黑桃A ',
+                    bgImg: 'List_PNG_AceofSpades.jpg',
+                },
+                {   
+                    id: 6,
+                    gametype: '100105',
+                    name: '财富铃铛',
+                    bgImg: 'List_PNG_BellofFortune.jpg',
+                },
+                {   
+                    id: 7,
+                    gametype: '100106',
+                    name: '极速现金',
+                    bgImg: 'List_PNG_SpeedCash.jpg',
+                },
+                {   
+                    id: 8,
+                    gametype: '100107',
+                    name: '礼品店',
+                    bgImg: 'List_PNG_GiftShop.jpg',
+                },
+                {   
+                    id: 9,
+                    gametype: '100108',
+                    name: '黄金球门',
+                    bgImg: 'List_PNG_GoldenGoal.jpg',
+                },
+                {   
+                    id: 10,
+                    gametype: '100196',
+                    name: '占卜师',
+                    bgImg: 'List_PNG_FortuneTeller.jpg',
+                },
+                {   
+                    id: 11,
+                    gametype: '100197',
+                    name: '非洲掠影',
+                    bgImg: 'List_PNG_PhotoSafari.jpg',
+                },
+                {   
+                    id: 12,
+                    gametype: '100198',
+                    name: '太空竞赛',
+                    bgImg: 'List_PNG_SpaceRace.jpg',
+                },
+                //--
+                {   
+                    id: 13,
+                    gametype: '100199',
+                    name: '5x魔术',
+                    bgImg: 'List_PNG_5xMagic.jpg',
+                },
+                {   
+                    id: 14,
+                    gametype: '100200',
+                    name: '爱尔兰黄金',
+                    bgImg: 'List_PNG_IrishGold.jpg',
+                },
+                {   
+                    id: 15,
+                    gametype: '100225',
+                    name: '魔法草原',
+                    bgImg: 'List_PNG_EnchantedMeadow.jpg',
+                },
+                {   
+                    id: 16,
+                    gametype: '100237',
+                    name: '太阳神的财富 ',
+                    bgImg: 'List_PNG_RichesofRA.jpg',
+                },
+                {   
+                    id: 17,
+                    gametype: '100238',
+                    name: '龙船',
+                    bgImg: 'List_PNG_DragonShip.jpg',
+                },
+                {   
+                    id: 18,
+                    gametype: '100241',
+                    name: '珍珠湖',
+                    bgImg: 'List_PNG_PearlLagoon.jpg',
+                },
+                {   
+                    id: 19,
+                    gametype: '100242',
+                    name: '珠宝盒',
+                    bgImg: 'List_PNG_JewelBox.jpg',
+                },
+                {   
+                    id: 20,
+                    gametype: '100243',
+                    name: '阿兹特克人像',
+                    bgImg: 'List_PNG_AztecIdols.jpg',
+                },
+                {   
+                    id: 21,
+                    gametype: '100245',
+                    name: '神话',
+                    bgImg: 'List_PNG_Myth.jpg',
+                },
+                {   
+                    id: 22,
+                    gametype: '100246',
+                    name: '黄金奖杯2神话',
+                    bgImg: 'List_PNG_GoldTrophy2.jpg',
+                },
+                {   
+                    id: 23,
+                    gametype: '100250',
+                    name: '狂野血液',
+                    bgImg: 'List_PNG_WildBlood.jpg',
+                },
+                {   
+                    id: 24,
+                    gametype: '100251',
+                    name: '矮精灵埃及之旅',
+                    bgImg: 'List_PNG_LeprechaungoesEgypt.jpg',
+                },
+                //--
+                {   
+                    id: 25,
+                    gametype: '100253',
+                    name: '忍者水果',
+                    bgImg: 'List_PNG_NinjaFruits.jpg',
+                },
+                {   
+                    id: 26,
+                    gametype: '100254',
+                    name: '巨魔猎人',
+                    bgImg: 'List_PNG_TrollHunters.jpg',
+                },
+                {   
+                    id: 27,
+                    gametype: '100259',
+                    name: '魔法水晶',
+                    bgImg: 'List_PNG_EnchantedCrystals.jpg',
+                },
+                {   
+                    id: 28,
+                    gametype: '100262',
+                    name: '能量小精灵',
+                    bgImg: 'List_PNG_Energoonz.jpg',
+                },
+                {   
+                    id: 29,
+                    gametype: '100277',
+                    name: '中国新年',
+                    bgImg: 'List_PNG_ChineseNewYear.jpg',
+                },
+                {   
+                    id: 30,
+                    gametype: '100278',
+                    name: '财富淑女',
+                    bgImg: 'List_PNG_LadyofFortune.jpg',
+                },
+                {   
+                    id: 31,
+                    gametype: '100282',
+                    name: '印度珍珠',
+                    bgImg: 'List_PNG_PearlsofIndia.jpg',
+                },
+                {   
+                    id: 32,
+                    gametype: '100283',
+                    name: '神秘小丑',
+                    bgImg: 'List_PNG_MysteryJoker.jpg',
+                },
+                {   
+                    id: 33,
+                    gametype: '100284',
+                    name: '疯狂奶牛',
+                    bgImg: 'List_PNG_CrazyCows.jpg',
+                },
+                {   
+                    id: 34,
+                    gametype: '100285',
+                    name: '黄金入场券',
+                    bgImg: 'List_PNG_GoldenTicket.jpg',
+                },
+                {   
+                    id: 35,
+                    gametype: '100286',
+                    name: '五彩宝石',
+                    bgImg: 'List_PNG_GEMiX.jpg',
+                },
+                {   
+                    id: 36,
+                    gametype: '100287',
+                    name: '高塔任务',
+                    bgImg: 'List_PNG_TowerQuest.jpg',
+                },
+                //--
+                {   
+                    id: 37,
+                    gametype: '100288',
+                    name: '欢乐圣诞节',
+                    bgImg: 'List_PNG_MerryXmas.jpg',
+                },
+                {   
+                    id: 38,
+                    gametype: '100290',
+                    name: '黄金传奇',
+                    bgImg: 'List_PNG_GoldenLegend.jpg',
+                },
+                {   
+                    id: 39,
+                    gametype: '100291',
+                    name: '酷炫一族',
+                    bgImg: 'List_PNG_Pimped.jpg',
+                },
+                {   
+                    id: 40,
+                    gametype: '100292',
+                    name: '旋转派对',
+                    bgImg: 'List_PNG_SpinParty.jpg',
+                },
+                {   
+                    id: 41,
+                    gametype: '100293',
+                    name: '复活节彩蛋',
+                    bgImg: 'List_PNG_EasterEggs.jpg',
+                },
+                {   
+                    id: 42,
+                    gametype: '100294',
+                    name: '北部荒野',
+                    bgImg: 'List_PNG_WildNorth.jpg',
+                },
+                {   
+                    id: 43,
+                    gametype: '100295',
+                    name: '超级翻转',
+                    bgImg: 'List_PNG_SuperFlip.jpg',
+                },
+                {   
+                    id: 44,
+                    gametype: '100297',
+                    name: '克拉肯的眼睛',
+                    bgImg: 'List_PNG_EyeoftheKraken.jpg',
+                },
+                {   
+                    id: 45,
+                    gametype: '100298',
+                    name: '皇室化妆舞会',
+                    bgImg: 'List_PNG_RoyalMasquerade.jpg',
+                },
+                {   
+                    id: 46,
+                    gametype: '100300',
+                    name: '天际战神',
+                    bgImg: 'List_PNG_CloudQuest.jpg',
+                },
+                {   
+                    id: 47,
+                    gametype: '100302',
+                    name: '宝石巫师',
+                    bgImg: 'List_PNG_WizardofGems.jpg',
+                },
+                {   
+                    id: 48,
+                    gametype: '100303',
+                    name: '冷酷亡灵',
+                    bgImg: 'List_PNG_GrimMuerto.jpg',
+                },
+                //--
+                {   
+                    id: 49,
+                    gametype: '100304',
+                    name: '桑巴嘉年华',
+                    bgImg: 'List_PNG_SambaCarnival.jpg',
+                },
+                {   
+                    id: 50,
+                    gametype: '100305',
+                    name: '欢乐万圣节',
+                    bgImg: 'List_PNG_HappyHalloween.jpg',
+                },
+                {   
+                    id: 51,
+                    gametype: '100307',
+                    name: '火焰小丑',
+                    bgImg: 'List_PNG_FireJoker.jpg',
+                },
+                {   
+                    id: 52,
+                    gametype: '100308',
+                    name: '没有名字',
+                    bgImg: 'List_HB_SGSuperStrike.jpg',
+                },
+                {   
+                    id: 53,
+                    gametype: '100309',
+                    name: '圣诞小丑',
+                    bgImg: 'List_PNG_Xmasoker.jpg',
+                },
+                {   
+                    id: 54,
+                    gametype: '100310',
+                    name: '亡灵书',
+                    bgImg: 'List_PNG_BookofDead.jpg',
+                },
+                {   
+                    id: 55,
+                    gametype: '100311',
+                    name: '黄金之帆',
+                    bgImg: 'List_PNG_SailsofGold.jpg',
+                },
+                {   
+                    id: 56,
+                    gametype: '100312',
+                    name: '金色商队',
+                    bgImg: 'List_PNG_GoldenCaravan.jpg',
+                },
+                {   
+                    id: 57,
+                    gametype: '100319',
+                    name: '维京人世界',
+                    bgImg: 'List_PNG_VikingRunecraft.jpg',
+                },
+                {   
+                    id: 58,
+                    gametype: '100320',
+                    name: '夏日庆典',
+                    bgImg: 'List_PNG_Matsuri.jpg',
+                },
+                {   
+                    id: 59,
+                    gametype: '100321',
+                    name: '七宗罪',
+                    bgImg: 'List_PNG_7Sins.jpg',
+                },
+                {   
+                    id: 60,
+                    gametype: '100322',
+                    name: '雨果巨魔',
+                    bgImg: 'List_PNG_Hugo.jpg',
+                },
+                //--
+                {   
+                    id: 61,
+                    gametype: '100325',
+                    name: '淘气小公主',
+                    bgImg: 'List_PNG_PrissyPrincess.jpg',
+                },
+                {   
+                    id: 62,
+                    gametype: '100326',
+                    name: '翡翠魔术师',
+                    bgImg: 'List_PNG_JadeMagician.jpg',
+                },
+                {   
+                    id: 63,
+                    gametype: '100327',
+                    name: '节庆假日',
+                    bgImg: 'List_PNG_HolidaySeason.jpg',
+                },
+                {   
+                    id: 64,
+                    gametype: '100330',
+                    name: '水果多多81',
+                    bgImg: 'List_PNG_MULTIFRUIT81.jpg',
+                },
+                {   
+                    id: 65,
+                    gametype: '100332',
+                    name: '阿斯德克战士公主',
+                    bgImg: 'List_PNG_AztecWarriorPrincess.jpg',
+                },
+                {   
+                    id: 66,
+                    gametype: '100355',
+                    name: '甜蜜27',
+                    bgImg: 'List_PNG_Sweet27.jpg',
+                },
+                {   
+                    id: 67,
+                    gametype: '100011',
+                    name: '迷你百家乐',
+                    bgImg: 'List_PNG_MiniBaccarat.jpg',
+                },
+                {   
+                    id: 68,
+                    gametype: '100031',
+                    name: '欧洲轮盘',
+                    bgImg: 'List_PNG_EuropeanRoulette.jpg',
+                },
+                {   
+                    id: 69,
+                    gametype: '100034',
+                    name: '比大小',
+                    bgImg: 'List_PNG_BeatMe.jpg',
+                },
+                {   
+                    id: 70,
+                    gametype: '100035',
+                    name: '赌场桩牌扑克',
+                    bgImg: 'List_PNG_CasinoStudPoker.jpg',
+                },
+                {   
+                    id: 71,
+                    gametype: '100052',
+                    name: '多手21点',
+                    bgImg: 'List_PNG_BlackJackMH.jpg',
+                },
+                {   
+                    id: 72,
+                    gametype: '100053',
+                    name: '雨果巨魔',
+                    bgImg: 'List_PNG_EuropeanBlackJackMH.jpg',
+                },
+                //--
+                {   
+                    id: 73,
+                    gametype: '100054',
+                    name: '双开式21点',
+                    bgImg: 'List_PNG_DoubleExposureBlackJackMH.jpg',
+                },
+                {   
+                    id: 74,
+                    gametype: '100055',
+                    name: '单副牌21点',
+                    bgImg: 'List_PNG_SingleeckBlackJackMH.jpg',
+                },
+                {   
+                    id: 75,
+                    gametype: '100057',
+                    name: '赌场Hold’em',
+                    bgImg: 'List_PNG_CasinoHoldem.jpg',
+                },
+                {   
+                    id: 76,
+                    gametype: '100058',
+                    name: '牌九扑克',
+                    bgImg: 'List_PNG_PaiGowPoker.jpg',
+                },
+                {   
+                    id: 77,
+                    gametype: '100093',
+                    name: '刮刮乐',
+                    bgImg: 'List_PNG_ScratchAhoy.jpg',
+                },
+                {   
+                    id: 78,
+                    gametype: '100094',
+                    name: '一杆进洞',
+                    bgImg: 'List_PNG_Holeinone.jpg',
+                },
+                {   
+                    id: 79,
+                    gametype: '100235',
+                    name: '三輪大小',
+                    bgImg: 'List_PNG_TripleChanceHiLo.jpg',
+                },
+                {   
+                    id: 80,
+                    gametype: '100269',
+                    name: '杰克高手',
+                    bgImg: 'List_PNG_JacksorBetterMH.jpg',
+                },
+                {   
+                    id: 81,
+                    gametype: '100270',
+                    name: '德塞斯野生',
+                    bgImg: 'List_PNG_DeucesWildMH.jpg',
+                },
+                {   
+                    id: 82,
+                    gametype: '100271',
+                    name: '小丑扑克',
+                    bgImg: 'List_PNG_JokerPokerMH.jpg',
+                },
+                {   
+                    id: 83,
+                    gametype: '100272',
+                    name: '国王高手',
+                    bgImg: 'List_PNG_KingsorBetterMH.jpg',
+                },
+                {   
+                    id: 84,
+                    gametype: '100273',
+                    name: '牌十高手',
+                    bgImg: 'List_PNG_TensorBetterMH.jpg',
+                },
+                //--
+                {   
+                    id: 85,
+                    gametype: '100274',
+                    name: '双倍奖金',
+                    bgImg: 'List_PNG_DoubleBonusMH.jpg',
+                },
+                {   
+                    id: 86,
+                    gametype: '100275',
+                    name: '德塞斯小丑',
+                    bgImg: 'List_PNG_DeucesJokerMH.jpg',
+                },
+                {   
+                    id: 87,
+                    gametype: '100276',
+                    name: '累积奖金扑克',
+                    bgImg: 'List_PNG_JackpotPoker.jpg',
+                },
+                {   
+                    id: 88,
+                    gametype: '100316',
+                    name: '飞翔小猪',
+                    bgImg: 'List_PNG_FlyingPigs.jpg',
+                },
+                {   
+                    id: 89,
+                    gametype: '100317',
+                    name: '虫虫派对',
+                    bgImg: 'List_PNG_BugsParty.jpg',
+                },
+                {   
+                    id: 90,
+                    gametype: '100318',
+                    name: '财运之轮',
+                    bgImg: 'List_PNG_MoneyWheel.jpg',
+                },
+                {   
+                    id: 91,
+                    gametype: '100324',
+                    name: '超级旋转',
+                    bgImg: 'List_PNG_SuperFlip.jpg',
+                },
+                {   
+                    id: 92,
+                    gametype: '100239',
+                    name: '基諾快乐彩',
+                    bgImg: 'List_PNG_Keno.jpg',
+                },
+                {   
+                    id: 93,
+                    gametype: '100257',
+                    name: '财富崛起',
+                    bgImg: 'List_PNG_RagetoRiches.jpg',
+                }
+            ]
+        }
+>>>>>>> cfdf7ec4a2a31a1d45c8fe176d015f8b240245c8
     ]
 }
 

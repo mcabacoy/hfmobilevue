@@ -68,9 +68,7 @@ export default {
                 that_.storeUserInfoSession((qs.stringify(res.data.Value)))
                 that_.setAccountDetails();
             })
-            .catch( function(error){
-                
-            });
+            .catch( function(error){ });
         },
         getNotices( ){
             if ( this.notices == '' || this.notices == null || this.notices.length == 0  ){
@@ -98,17 +96,21 @@ export default {
     },
     created() {
         let isLoggedIn = ( this.currentUser.tokenKey != '' && this.currentUser.tokenKey != null && this.currentUser.tokenKey != 'undefined');
+        console.log('1');
         if ( !isLoggedIn) {
-             this.$router.push('../Login');
-             return;
+            console.log('2');
+            this.$router.push('../Login');
+            return;
         }
         if ( this.currentUser.userInfo != null && this.currentUser.userInfo.AccountName ) {
+            console.log('3');
             this.setAccountDetails();
         }
         else {
+            console.log('4');
             this.requestAccountInfo( this.currentUser.tokenKey );
         }
-        
+        console.log('5');
         this.getNotices();
         this.setCurrentPage('Homepage');
     }
