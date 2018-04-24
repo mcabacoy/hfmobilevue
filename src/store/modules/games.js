@@ -2865,7 +2865,6 @@ const state = {
                     name: '金鸡',
                     bgImg: 'goldenchicken_stage_04_400x258_2016_CN.jpg',
                 },
-                //--
                 {   
                     id:13,
                     gametype: 'S-DG04',
@@ -2938,7 +2937,6 @@ const state = {
                     name: '斯巴达SA',
                     bgImg: 'SA_Spartan_224x153cn.jpg',
                 },
-                //--
                 {   
                     id:25,
                     gametype: 'S-SG04',
@@ -3011,7 +3009,6 @@ const state = {
                     name: '宝袋精灵',
                     bgImg: 'pocketmon_400x258__cn.jpg',
                 },
-                //--
                 {   
                     id:37,
                     gametype: 'S-BC01',
@@ -3084,7 +3081,6 @@ const state = {
                     name: '五龙吐珠',
                     bgImg: 'fortunes-dragon_400x258_cn.jpg',
                 },
-                //--
                 {   
                     id:49,
                     gametype: 'S-CS01',
@@ -3157,7 +3153,6 @@ const state = {
                     name: '新斩五门',
                     bgImg: 'emporergate_400x258__cn.jpg',
                 },
-                //--
                 {   
                     id:61,
                     gametype: 'S-SP02',
@@ -3230,7 +3225,6 @@ const state = {
                     name: '圣诞大礼',
                     bgImg: 'SantaGIFT_400x258_CN.jpg',
                 },
-                //--
                 {   
                     id:73,
                     gametype: 'S-BB01',
@@ -3256,98 +3250,97 @@ const state = {
                     bgImg: 'MasterChef_400x258_cn.jpg',
                 },
                 {   
-                    id:75,
+                    id:77,
                     gametype: 'S-DV01',
                     name: '爸爸飞那儿',
                     bgImg: 'daddyvacations_400x258_cn.jpg',
                 },
                 {   
-                    id:76,
+                    id:78,
                     gametype: 'S-RK01',
                     name: '铁路王',
                     bgImg: 'railwayking_400x258_cn.jpg',
                 },
                 {   
-                    id:77,
+                    id:79,
                     gametype: 'S-DX01',
                     name: '大福小福',
                     bgImg: 'dafuxiaofu_400x258_cn.jpg',
                 },
                 {   
-                    id:78,
+                    id:80,
                     gametype: 'S-LS01',
                     name: '马上赢',
                     bgImg: 'S-LS01.jpg',
                 },
                 {   
-                    id:79,
+                    id:81,
                     gametype: 'S-TS02',
                     name: '新中国好歌声',
                     bgImg: 'S-TS02.jpg',
                 },
                 {   
-                    id:80,
+                    id:82,
                     gametype: 'S-MH02',
                     name: '新神錘魔咒',
                     bgImg: 'magichammer_400x258_cn.jpg',
                 },
                 {   
-                    id:81,
+                    id:83,
                     gametype: 'S-FZ02',
                     name: '新父女战殭屍',
                     bgImg: 'fatherVsZombie_400x258_cn.jpg',
                 },
                 {   
-                    id:82,
+                    id:84,
                     gametype: 'S-BF02',
                     name: '新大脚先生',
                     bgImg: 'big-foot_400x258__cn.jpg',
                 },
                 {   
-                    id:83,
+                    id:85,
                     gametype: 'S-MP02',
                     name: '新下水道小魔兽',
                     bgImg: 'monstertunnel_400x258_cn.jpg',
                 },
                 {   
-                    id:84,
+                    id:86,
                     gametype: 'S-RG02',
                     name: '新魔幻宝石',
                     bgImg: 'rising-gems_400x258_cn.jpg',
                 },
-                //--
                 {   
-                    id:85,
+                    id:87,
                     gametype: 'S-SA02',
                     name: '新石器时代',
                     bgImg: 'spinstone_400x258_cn.jpg',
                 },
                 {   
-                    id:86,
+                    id:88,
                     gametype: 'S-FB02',
                     name: '新金靴世界杯',
                     bgImg: 'worldcupgolenboo_400x258_cn.jpg',
                 },
                 {   
-                    id:87,
+                    id:89,
                     gametype: 'S-TP01',
                     name: '乐天堂',
                     bgImg: 'FunPAradise_400x258_cn.jpg',
                 },
                 {   
-                    id:88,
+                    id:90,
                     gametype: 'S-JT01',
                     name: '杰克海盗',
                     bgImg: 'jackthepirate_400x258_cn.jpg',
                 },
                 {   
-                    id:89,
+                    id:91,
                     gametype: 'S-GW01',
                     name: '黄金黥鱼',
                     bgImg: 'S-GW01.jpg',
                 },
                 {   
-                    id:90,
+                    id:92,
                     gametype: 'A-MT02',
                     name: '霹雳神猴',
                     bgImg: 'A-MT02.jpg',

@@ -102,12 +102,9 @@ export default {
         closeModal: function(){
             this.promotionmode = "";
         },
-<<<<<<< HEAD
         routePage: function(pageName){
             this.$router.push({ path: pageName });
-        },
-=======
->>>>>>> 1e0d2c8521d7ef5c736621c285fd7f711d70460b
+        }, 
   },
     created() {
       this.setCurrentPage('Promotion');

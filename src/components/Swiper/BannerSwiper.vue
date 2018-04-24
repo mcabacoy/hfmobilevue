@@ -23,13 +23,14 @@ export default {
   mounted(){
     this.$nextTick(() => {
         var swiper = new Swiper('.swiper-container', {
-          lazy: {
-              loadPrevNext: true,
-          },
-          pagination: {
-            el:  '.swiper-pagination',
-            clickable: true
-          }
+            autoplay: true,
+            lazy: {
+                loadPrevNext: true,
+            },
+            pagination: {
+                el:  '.swiper-pagination',
+                clickable: true
+            }
         });
     });
   },
