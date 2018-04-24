@@ -65,27 +65,76 @@
                         <div  style="width: 79%;margin: 0 auto;">
                             <div class="form-row Thousandfold" style="margin-bottom: .1rem;padding: 0.08rem 0.1rem;">
                                 <label>游戏单号</label>
-                                <input type="text" class="" id="SingleNumber">
+                                <input type="text" v-model="gameTicketId" class="" id="SingleNumber">
                             </div>
                             <div class="form-row Thousandfold" style="padding: 0.08rem 0.1rem;">
                                 <label id="date">游戏时间</label>
-                                <input type="date" id="datepicker_time">
+                                <input type="date" v-model="gameDateTime" id="datepicker_time">
                             </div>
                         </div>
                     </div>
                 </div>
-                <input type="submit" class="submission" value="申请提交">
+                <input type="submit" @click="availPromo" class="submission" value="申请提交">
             </div>
+             <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
         </div>
     </transition>
 </template>
 <script>
+import { mapMutations, mapGetters } from 'vuex'
+import { THOUSANDFOLD_APPLY_LOBBY } from './../../api'
+import Notification from './../Common/Notification'
 export default {
-   methods: {
-       closeModal: function(){
-           this.$emit('closeModal')
-       }
-   }
+    data(){
+        return {
+            type: 'Thousandfold',
+            gameTicketId: '',
+            gameDateTime: '',
+            notifmessage: ''
+        }
+    },
+    computed: {
+        ...mapGetters ({
+            currentUser: 'currentUser'
+        })
+    },
+    methods: {
+        closeModal: function(){
+            this.$emit('closeModal')
+        },
+        closeNotif(){
+            this.notifmessage = '';
+        },
+        // PROCESS
+        availPromo(){
+            let that_ = this;
+              if (this.gameDateTime == "") {
+                this.notifmessage = ('请输入游戏时间');
+                return;
+            }
+            if (this.gameTicketId == "") {
+                this.notifmessage = ('请输入游戏单号');
+                return;
+            }
+            let postData = {
+                activeCode : this.type,
+                gameNo: this.gameTicketId,
+                gameTime: this.gameDateTime
+            }
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                }
+            };
+            console.log(postData);
+            this.$http.post( THOUSANDFOLD_APPLY_LOBBY, JSON.stringify(postData), config)
+            .then( function(res){
+                console.log(res.data);
+                that_.notifmessage = (res.data.Message);
+                that_.closeModal();
+            }).catch( function(error){ });
+        }
+    }
 }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>

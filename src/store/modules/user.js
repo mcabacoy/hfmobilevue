@@ -33,8 +33,8 @@ const emptyUserInfo_ =  {
 }
 
 const state = {
-    tokenKey: sessionStorage.getItem(tokenKey_),
-    userInfo: emptyUserInfo_,
+    // tokenKey: sessionStorage.getItem(tokenKey_),
+    // userInfo: emptyUserInfo_,
     notices: []
 }
 
@@ -69,6 +69,13 @@ const mutations = {
     storeNoticesSession(state, payload){
         sessionStorage.setItem(userInfo_, payload );
         state.notices = payload;
+    },
+    logout(state, payload){
+        state.tokenKey = ''
+        sessionStorage.removeItem(tokenKey_);
+        window.localStorage.removeItem(loginInfo_);
+        sessionStorage.removeItem(userInfo_);
+        
     }
 }
 

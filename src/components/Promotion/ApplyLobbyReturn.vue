@@ -5,7 +5,7 @@
             <div class="promotion-modal">
                 <div class="modal">
                     <div class="modal-header">
-                        <span>领取优惠 asada</span>
+                        <span>领取优惠</span>
                         <div class="dema_kong" @click="closeModal"><span class="demoSpan2"></span></div>
                     </div>
                     <div class="modal-body">
@@ -48,14 +48,17 @@
                             <div class="form-row Rescue2to1">
                                 <label style="color:#232323;">救援金选项</label>
                                 <span class="arrowbox2"></span>
-                                <select id="ApplyLobbyReturn">
-                                    <option v-for="(item, index) in applyContents" :key="index" :value="item" :class="['option', 'option' + (index + 1)]" >{{ item }}</option>
+                                <select id="ApplyLobbyReturn" v-model="applicationContent">
+                                    <option v-for="(item, index) in applyContents"    :key="index" :value="item" :class="['option', 'option' + (index + 1)]" >{{ item }}</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
-                <input type="submit" class="submission" value="申请提交">
+                <input type="submit"  @click="availPromo" class="submission" value="申请提交">
+                
+                <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
+
             </div>
         </div>
     </transition>
@@ -69,8 +72,9 @@ export default {
     data(){
         return {
             type: 'Rescue2to1',
-            applicationContent: '',
-            applyContents: ["救援金获得比例10%", "救援金获得比例22%"]
+            applicationContent: '救援金获得比例10',
+            applyContents: ["救援金获得比例10%", "救援金获得比例22%"],
+            notifmessage: ''
         }
     },
     computed: {
@@ -82,7 +86,9 @@ export default {
         closeModal: function(){
             this.$emit('closeModal')
         },
-
+        closeNotif(){
+            this.notifmessage = ''
+        },
         // PROCESS
         availPromo(){
             let that_ = this;
@@ -95,9 +101,10 @@ export default {
                     'Authorization': 'Bearer ' + this.currentUser.tokenKey,
                 }
             };
-            this.$http.get( PROMO_APPLY_LOBBY, JSON.stringify(postData ), config)
+            console.log(postData);
+            this.$http.post( PROMO_APPLY_LOBBY, JSON.stringify(postData ), config)
             .then( function(res){
-               
+                console.log(res.data);
             }).catch( function(error){ });
         }
     }
