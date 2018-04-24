@@ -39,7 +39,8 @@ export default {
                 gamename: this.$route.params.gametype + "老虎机",
                 gamebalance: 0.00,
                 transfermode: '', //in, out, blank
-                selectedplatform: ''
+                selectedplatform: '',
+                notifmessage: ''
         }
     },
     computed: {
@@ -77,9 +78,16 @@ export default {
             };
             this.$http.get( GET_GAME_BALANCE + '?gamecode=' +   this.$route.params.gametype , config)
             .then( function(res){
-                that_.gamebalance = ( !Number.isNaN(res.data) && res.data != ''  && res.data != null )  
+                console.log(res.data);
+                if ( res.data == '您的账户在别的地方登陆，请重新登录!'  )
+                {
+                    that_.notifmessage = res.data;
+                }
+                else {
+                    that_.gamebalance = ( !Number.isNaN(res.data) && res.data != ''  && res.data != null )  
                                     ? parseInt(res.data).toFixed(2) 
                                     : 0.00;
+                }
             });
         }
     },

@@ -49,7 +49,7 @@ export default {
       });
   },
   methods: {
-      ...mapMutations (['setCurrentPage', 'logoutUser']),
+      ...mapMutations (['setCurrentPage', 'clearSessions']),
       getUserProfileClass: function (grade){
           switch(grade){
               case 0:
@@ -73,7 +73,7 @@ export default {
         this.closeSideBar();
       },
       logout: function (){
-        this.logoutUser();
+        this.clearSessions();
         this.$router.push({ path: '../Login' });
       }
   },
