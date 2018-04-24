@@ -124,6 +124,8 @@ export default {
             let config = {
                 headers: {
                     'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                    'Content-Type': 'application/json',
+                    'Data-Type': 'json'
                 }
             };
             console.log(postData);
