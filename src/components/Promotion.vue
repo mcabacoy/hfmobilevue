@@ -52,10 +52,10 @@
     <!-- TAB 2 -->
     <div class="systeminfo tab-content" v-else-if="opentab == 'information'">
         <ul class="slotMachine">
-            <li class="Offer1  ">
+            <li class="Offer1">
                 <div class="offer_content">
-                    <a href="/OfferDetails?type=12">
-                        <img src="../../static/img/promotions/New-Promo-1.png" style="width:100%;" />
+                    <a @click="routePage('/PromDetails')">
+                        <img src="../../static/img/images-app/New-Promo-4.jpg" style="width:100%;" />
                     </a>
                 </div>
             </li>
@@ -204,7 +204,10 @@ export default {
         },
         closeModal: function(){
             this.promotionmode = "";
-        }
+        },
+        routePage: function(pageName){
+            this.$router.push({ path: pageName });
+        },
   },
     created() {
       this.setCurrentPage('Promotion');
@@ -247,8 +250,6 @@ input[type="reset"] {
             line-height: .76rem;
             float: left;
             text-align: center;
-        
-        
         }
         
         .information.tab , 
@@ -265,21 +266,21 @@ input[type="reset"] {
             width: 21%;
             position: absolute;
             bottom: -3px;
-            left: 15%;
+            left: 1.04rem;
         }
 
         .bankactive img {
             width: 22%;
             position: absolute;
             bottom: -3px;
-            right: 13.2%;
+            right: .8rem;
         }
 
 
     }
 } 
 #Promotion {
-    margin-top: 2.4rem !important;
+    margin-top: 2.2rem !important;
 
     .promotion.tab-content {
         margin-top: 2.2rem;
