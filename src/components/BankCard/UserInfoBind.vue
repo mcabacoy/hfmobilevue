@@ -10,7 +10,6 @@
                 <span>QQ</span>
                 <input type="tel" v-model="AccountDetails.QQ" 
                         placeholder="请输入要绑定的QQ">
-                      
             </li>
             <li v-if="bindtype != 'email' && bindtype != 'phone'">
                 <span>微信</span>
@@ -41,7 +40,6 @@
                 </div>
             </transition>
         </div>
-
         <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
     </div>
 </template>
