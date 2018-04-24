@@ -64,12 +64,12 @@
 </div>
 
 <apply-lobby-modal
-    v-if="promotionmode == 'ApplyLobbyReturn'"
+    v-if="promotionmode=='ApplyLobbyReturn'"
     @closeModal="closeModal">
 </apply-lobby-modal>
 
 <thousandfold-modal
-    v-else-if="promotionmode == 'ThousandfoldApplyReturn'"
+    v-else-if="promotionmode=='ThousandfoldApplyReturn'"
     @closeModal = "closeModal">
 </thousandfold-modal>
 
