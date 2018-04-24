@@ -54,8 +54,8 @@
         <ul class="slotMachine">
             <li class="Offer1  ">
                 <div class="offer_content">
-                    <a href="/OfferDetails?type=12">
-                        <img src="../../static/img/promotions/New-Promo-1.png" style="width:100%;" />
+                    <a @click="routePage('/PromDetails')">
+                        <img src="../../static/img/images-app/New-Promo-4.jpg" style="width:100%;" />
                     </a>
                 </div>
             </li>
