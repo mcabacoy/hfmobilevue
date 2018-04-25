@@ -5,6 +5,7 @@
           <div :class="['swiper-slide' , index ]" v-for="(i, index) in ( getPageNumber(gameset.gamelist))" :key="index">
             <ul>
               <li v-for="(item, index) in getGameListItems(index)" :key="index" >
+                <p>{{index}}</p>
               <game-image 
                   :bgsrc="require('../../static/img/' + [gameset.platform] + '/' +[item.bgImg]+ '')"
                   :class="['picture']" 
@@ -60,13 +61,11 @@ export default {
     getGameListItems(payload){
       var gameList = this.gameset.gamelist;
       let counter = 12;
-      let page_index = payload;
       let start_index = payload * counter;
       let end_index = start_index + ( counter );
       
       var games = gameList.filter( function(e) {
         return ( ( e.id ) >= start_index && e.id  <= end_index ) && (  (isNaN(e.id / 12) ? 0 : Math.floor(e.id / 12) ) == payload  ) ;
-        
       });
       return games;
     },
