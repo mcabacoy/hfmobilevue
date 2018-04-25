@@ -985,7 +985,7 @@ const state = {
                     gametype: 'catqc',
                     name: '猫后',
                     bgImg: 'catqc.jpg',
-                },
+                }
             ]
         },
         //HABA
