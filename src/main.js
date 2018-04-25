@@ -28,7 +28,7 @@ import store from './store';
 import layer from 'vue-layer-mobile';
 import '../static/css/reset.css' 
 import 'swiper/dist/css/swiper.min.css';
-import Swiper from 'swiper'
+// import Swiper from 'swiper'
 
 
 Vue.use(layer);
@@ -140,7 +140,7 @@ new Vue({
   store,
   router,
   render: h => h(App),
-  components: {
-    Swiper
-  }
+  // components: {
+  //   Swiper
+  // }
 });
