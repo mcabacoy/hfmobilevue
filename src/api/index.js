@@ -122,3 +122,8 @@ export const THOUSANDFOLD_APPLY_LOBBY = serviceUrl + '/Active/ThousandfoldApplyR
 export const RECHARGE_WXPAYDEPOSIT= serviceUrl + '/AliPayDeposit/WxPayDeposite';
 export const RECHARGE_ONLINE_PROCESS = serviceUrl + '/MobileOnlineDeposit/OnlineProcess';
 export const RECHARGEFAST_DEPOSIT = serviceUrl + '/Transact/FastDeposite';
+
+
+
+// TRANSACTION *******************
+export const GET_TRANSACTION_HISTORY = serviceUrl + '/Transact/SearchTransactionHistory';

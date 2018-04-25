@@ -108,11 +108,48 @@ export default {
    data(){
       return {
           transtab: 'rechargeactive',
+          transactionFilters: {
+              text: '充值',
+              startDate: '',
+              endDate: ''
+          }
       }
     },
     methods: {
         setTab: function(transload){
             this.transtab =  transload;
+        },
+
+        searchTransaction( searchText  ){
+            let searchType = 1;
+            let text = searchType;
+            switch(searchText.trim())
+            {
+                case "提现":
+                    searchType = 2;
+                    text = '提现';
+                    break;
+                case "转账":
+                    searchType = 3;
+                    text = '转账';
+                    break;
+                case "红利":
+                    searchType = 4;
+                    text = '红利';
+                    break;
+                default:
+                    searchType = 1;
+                    text = '充值';
+                    break;
+            }
+            
+            let postData = {
+                searchType: searchType,
+                startDate: this.transactionFilters.startDate,
+                endDate: this.transactionFilters.endDate
+            };
+
+
         }
     }
 }
