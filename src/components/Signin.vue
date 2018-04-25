@@ -397,8 +397,7 @@ table.collectionrecord {
 }
 
 body {
-        background: #e3e3e3;
-        height: 100%;
+    background: #e3e3e3;
 }
 
 /*Signin*/
