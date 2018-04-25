@@ -52,10 +52,12 @@
     <!-- TAB 2 -->
     <div class="systeminfo tab-content" v-else-if="opentab == 'information'">
         <ul class="slotMachine">
-            <li class="Offer1">
+            <li class="Offer1"
+                v-for="(i, index) in promlist" :key="index">
                 <div class="offer_content">
-                    <a @click="routePage('/PromDetails')">
-                        <img src="../../static/img/images-app/New-Promo-4.jpg" style="width:100%;" />
+                    <a @click="routePage('/PromDetails', [i.promType])">
+                        <!-- <img src="../../static/img/images-app/New-Promo-4.jpg"> -->
+                        <img :src="require('../../static/img/images-app/' + [i.promSrc])">
                     </a>
                 </div>
             </li>
@@ -77,7 +79,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 import ApplyLobbyReturn from './Promotion/ApplyLobbyReturn'
 import ThousandfoldApplyReturn from './Promotion/ThousandfoldApplyReturn'
 export default {
@@ -86,13 +88,18 @@ export default {
   data(){
       return {
           opentab: 'promotions',
-          promotionmode: ''
+          promotionmode: '',
+          gameset: '',
+          promtype: this.$route.params.promtype,
       }
   },
   methods: {
-      ...mapMutations ([
+        ...mapMutations ([
             'setCurrentPage'
         ]),
+        ...mapGetters ({
+            getPromotionList: 'getPromotionList'
+        }),
         setTab: function(payload){
            this.opentab =  payload;
         },
@@ -102,24 +109,27 @@ export default {
         closeModal: function(){
             this.promotionmode = "";
         },
-        routePage: function(pageName){
-            this.$router.push({ path: pageName });
-        }, 
+        routePage: function(pageName, promtype){
+            this.$router.push({ path: '../' + pageName + '/' + promtype });
+        }
   },
     created() {
       this.setCurrentPage('Promotion');
+      this.promlist = this.$store.getters.getPromotionList(this.promType);
+      console.log(this.promlist)
   }
 }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-    
-
 input[type="submit"], 
 input[type="button"], 
 input[type="reset"] {
         cursor: pointer;
         border: none;
+}
+.offer_content a img{
+    width:100%;
 }
 .promo-container {
     margin-top: -0.2rem;
@@ -180,7 +190,7 @@ input[type="reset"] {
     margin-top: 2.2rem !important;
 
     .promotion.tab-content {
-        margin-top: 2.2rem;
+        margin-top: 2.4rem;
         ul {
             li {
                 margin-left: .3rem;
@@ -264,8 +274,6 @@ input[type="reset"] {
         }
     }
 }
-
-
 #ApplyLobbyReturn{
     width: 2.9rem;
     float: left;
