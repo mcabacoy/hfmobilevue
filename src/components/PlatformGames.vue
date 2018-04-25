@@ -65,8 +65,10 @@ export default {
       let end_index = start_index + ( counter );
       
       var games = gameList.filter( function(e) {
-        return ( ( e.id ) >= start_index && e.id  <= end_index ) && (  (isNaN(e.id / 12) ? 0 : Math.floor(e.id / 12) ) == payload  ) ;
+        return ( e.id >= start_index && e.id  <= end_index ) && (  (isNaN(e.id / 12) ? 0 : Math.floor(e.id / 12) ) == payload  ) ;
       });
+      console.log(counter + " : " + start_index + " : " + end_index + " : " + payload);
+      console.log(payload);
       return games;
     },
     ...mapMutations ([
