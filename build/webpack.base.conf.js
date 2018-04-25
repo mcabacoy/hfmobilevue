@@ -46,10 +46,11 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        // exclude: /((node_modules\/(?!dom7|swiper))|bower_components)/,
         include: [resolve('src'), resolve('test')]
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif|ico|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,

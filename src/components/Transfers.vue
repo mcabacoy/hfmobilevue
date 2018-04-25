@@ -82,7 +82,7 @@ export default {
       })
     },
     created() {
-        this.getOverAllBalance()
+        this.getOverAllBalance();
         this.setCurrentPage('Transfers');
   }
 }
