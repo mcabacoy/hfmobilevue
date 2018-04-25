@@ -2101,7 +2101,7 @@ const state = {
                     id:24,
                     gametype: 'huangdi-TheYellowEmperor',
                     name: '轩辕帝传',
-                    bgImg: 'TheYellowEmperor.jpg',
+                    bgImg: 'huangdi-TheYellowEmperor.jpg',
                 },
                 //--
                 {   
@@ -2140,12 +2140,13 @@ const state = {
                     name: '迷失拉斯维加斯',
                     bgImg: 'lostVegas.jpg',
                 },
-                {   
-                    id:31,
-                    gametype: 'jungleJim-ElDorado',
-                    name: '丛林吉姆黄金国&#8203',
-                    bgImg: 'ElDorado.jpg',
-                },
+                // no image
+                // {   
+                //     id:31,
+                //     gametype: 'jungleJim-ElDorado',
+                //     name: '丛林吉姆黄金国&#8203',
+                //     bgImg: 'ElDorado.jpg', 
+                // },
                 {   
                     id:32,
                     gametype: 'karaokeParty',
@@ -2156,7 +2157,7 @@ const state = {
                     id:33,
                     gametype: 'frozenDiamonds',
                     name: '急冻钻石',
-                    bgImg: 'frozenDimonds.jpg',
+                    bgImg: 'frozenDiamonds.jpg',
                 },
                 {   
                     id:34,
@@ -2375,7 +2376,7 @@ const state = {
                     id:70,
                     gametype: 'cricketStar',
                     name: '板球明星',
-                    bgImg: 'crickerStar.jpg',
+                    bgImg: 'cricketStar.jpg',
                 },
                 {   
                     id:71,
@@ -2410,9 +2411,9 @@ const state = {
                 },
                 {   
                     id:76,
-                    gametype: 'riveraRiches',
+                    gametype: 'rivieraRiches',
                     name: '瑞维拉财宝',
-                    bgImg: 'riveraRiches.jpg',
+                    bgImg: 'rivieraRiches.jpg',
                 },
                 {   
                     id:77,
@@ -2424,7 +2425,7 @@ const state = {
                     id:78,
                     gametype: 'barsandStripes',
                     name: '美式酒吧',
-                    bgImg: 'barsandsStripes.jpg',
+                    bgImg: 'barsandStripes.jpg',
                 },
                 {   
                     id:79,
@@ -2576,7 +2577,7 @@ const state = {
                     id:103,
                     gametype: 'stashoftheTitans',
                     name: '泰坦帝国',
-                    bgImg: 'starshoftheTitans.jpg',
+                    bgImg: 'stashoftheTitans.jpg',
                 },
                 {   
                     id:104,
@@ -2673,7 +2674,7 @@ const state = {
                     id:119,
                     gametype: 'starlightKiss',
                     name: '星光之吻',
-                    bgImg: 'starlighKiss.jpg',
+                    bgImg: 'starlightKiss.jpg',
                 },
                 {   
                     id:120,
@@ -2686,7 +2687,7 @@ const state = {
                     id:121,
                     gametype: 'eaglesWings',
                     name: '疾风老鹰',
-                    bgImg: 'eagleWings.jpg',
+                    bgImg: 'eaglesWings.jpg',
                 },
                 {   
                     id:122,
@@ -2700,12 +2701,13 @@ const state = {
                     name: '终极杀手',
                     bgImg: 'hitman.jpg',
                 },
-                {   
-                    id:124,
-                    gametype: 'americanRouletteGold',
-                    name: '黄金美式轮盘',
-                    bgImg: 'americanRouletteGold.jpg',
-                },
+
+               // {   NO IMAGE
+                  //  id:124,
+                   // gametype: 'americanRouletteGold',
+                    //name: '黄金美式轮盘',
+                   // bgImg: 'americanRouletteGold.jpg',
+               // },
                 {   
                     id:125,
                     gametype: 'vegasStripBlackjackGold',
@@ -2718,12 +2720,12 @@ const state = {
                     name: '黄金拉斯维加斯(单副)',
                     bgImg: 'vegasSingleDeckBlackjackGold.jpg',
                 },
-                {   
-                    id:127,
-                    gametype: 'vegasDowntownBlackjackGold',
-                    name: '金牌拉斯维加斯市中心',
-                    bgImg: 'vegasDowntownBlackjackGold.jpg',
-                },
+               // {   no image
+                 //   id:127,
+                 //   gametype: 'vegasDowntownBlackjackGold',
+                   // name: '金牌拉斯维加斯市中心',
+                   // bgImg: 'vegasDowntownBlackjackGold.jpg',
+             //   },
                 {   
                     id:128,
                     gametype: 'atlanticCityBlackjackGold',
@@ -2767,12 +2769,12 @@ const state = {
                     name: '翻倍红利扑克',
                     bgImg: 'doubleDoubleBonus.jpg',
                 },
-                {   
-                    id:135,
-                    gametype: 'europeanRoulette',
-                    name: '黄金欧洲轮盘',
-                    bgImg: 'europeanRoulette.jpg',
-                },
+               // {   no image
+                   // id:135,
+                   // gametype: 'europeanRoulette',
+                  //  name: '黄金欧洲轮盘',
+                   /// bgImg: 'europeanRoulette.jpg',
+                //},
                 {   
                     id:136,
                     gametype: 'jacksOrBetter',
@@ -2805,12 +2807,12 @@ const state = {
                     name: '斧头帮',
                     bgImg: 'S-GA01.jpg',
                 },
-                {   
-                    id:3,
-                    gametype: 'S-PW02',
+               { 
+               id:3,
+                  gametype: 'S-PW02',
                     name: '旺旺公主',
                     bgImg: 'S-PW02.jpg',
-                },
+               },
                 {   
                     id:4,
                     gametype: 'S-WP02',
