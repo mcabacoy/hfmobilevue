@@ -103,6 +103,7 @@
 
 <script>
 import { mapState, mapMutations, mapGetters } from 'vuex'
+import { RESET_PASSWORD } from '../../api/index';
 export default {
    props: ['selectedtab'],
    data(){
@@ -148,7 +149,6 @@ export default {
                 startDate: this.transactionFilters.startDate,
                 endDate: this.transactionFilters.endDate
             };
-
 
         }
     }
