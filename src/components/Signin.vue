@@ -362,7 +362,8 @@ export default {
 
 
 #signin {
-    height:100%;
+    height: auto;
+    min-height: 100%;
 }
 
 table.collectionrecord {
