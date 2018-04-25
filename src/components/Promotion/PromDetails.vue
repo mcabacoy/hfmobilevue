@@ -5,12 +5,8 @@
     </div>
 
     <div class="offerdetail-btns"
-        v-if="promDetail.promType == 1">
+        v-if="promDetail.promType == promType">
         <div v-html="promDetail.promDetails"></div>
-    </div>
-    <div class="offerdetail-btns"
-        v-else-if="promDetail.promType == 2">
-    <p>dfjdshfd</p>
     </div>
 </div>
 </template>
@@ -20,7 +16,8 @@ import { mapState, mapMutations, mapGetters } from 'vuex'
 export default {
     data(){
         return {
-            promType: this.$route.params.promtype
+            promType: this.$route.params.promtype,
+            //content: promDetail.promDetails
          }
      },
     methods: {
@@ -37,10 +34,13 @@ export default {
 }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-.font600{
+.offerdetail-btns >>> .font600{
     font-weight: 600;
 }
-.red{
+.offerdetail-btns >>> .font400{
+    font-weight:400;
+}
+.offerdetail-btns >>> .red{
     color:#bb1515 !important;
 }
 .offerdetails-content img{
@@ -49,23 +49,29 @@ export default {
 .promdetail-wrap{
     margin-top: 1rem;
     height: 100%;
+    background:#fff;
 }
 .offerdetail-btns{
     width: 100%;
     padding: .35rem .3rem;
     background:#fff;
 
-    p{
+    >>> p,
+    >>> ol li{
         color: #494949;
         line-height: .4rem;
         font-size: .22rem;
     }
-    table{
+    >>> ol{
+        list-style-type: decimal;
+        margin-left: .23rem;
+    }
+    >>> table{
         width: 100%;
         font-size: .2rem;
         text-align: center;
     }
-    table td{
+    >>> table td{
         border: 1px solid #000;
         padding: .06rem 0;
     }
