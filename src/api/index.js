@@ -1,5 +1,5 @@
 let serviceUrl = 'http://localhost:60324';
-
+// 'http://i.toobet.co';
 export const serviceURL = serviceUrl;
 
 //  登陆接口 - Login - POST
@@ -125,3 +125,10 @@ export const GET_USER_BANK_INFO = serviceUrl + '/UserBankInfo';
 // PROMOTIONS ***************
 export const PROMO_APPLY_LOBBY = serviceUrl + '/Active/ApplyLobbyReturn';
 export const THOUSANDFOLD_APPLY_LOBBY = serviceUrl + '/Active/ThousandfoldApplyReturn';
+
+
+// WALLET RECHARGE ***************
+// POST
+export const RECHARGE_WXPAYDEPOSIT= serviceUrl + '/AliPayDeposit/WxPayDeposite';
+export const RECHARGE_ONLINE_PROCESS = serviceUrl + '/MobileOnlineDeposit/OnlineProcess';
+export const RECHARGEFAST_DEPOSIT = serviceUrl + '/Transact/FastDeposite';
