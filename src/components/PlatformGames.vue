@@ -66,6 +66,7 @@ export default {
       
       var games = gameList.filter( function(e) {
         return ( ( e.id ) >= start_index && e.id  <= end_index ) && (  (isNaN(e.id / 12) ? 0 : Math.floor(e.id / 12) ) == payload  ) ;
+        
       });
       return games;
     },
@@ -76,7 +77,6 @@ export default {
   created() {
       this.setCurrentPage('PlatformGames');
       this.gameset = this.$store.getters.getGamesByPlatform(this.platform);
-      console.log(  this.gameset);
   }
 }
 </script>
