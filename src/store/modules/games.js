@@ -3357,19 +3357,19 @@ const state = {
                     id: 1,
                     gametype: '0',
                     name: '炽热火山',
-                    bgImg: 'List_TTG_1061 picture.jpg',
+                    bgImg: 'List_TTG_1061.jpg',
                 },
                 {   
                     id: 2,
                     gametype: '0',
                     name: '招财进宝',
-                    bgImg: 'List_TTG_1060 picture.jpg',
+                    bgImg: 'List_TTG_1060.jpg',
                 },
                 {   
                     id: 3,
                     gametype: '1072',
                     name: '超级宝贝',
-                    bgImg: 'List_TTG_1072 picture.jpg',
+                    bgImg: 'List_TTG_1072.jpg',
                 },
                 {   
                     id: 4,
@@ -3848,13 +3848,14 @@ const state = {
                    gametype:'227',
                    name: '鲁克的复仇',
                    bgImg: 'rooks-revenge.jpg',
-               },
-               {   
-                   id:67,
-                   gametype:'137',
-                   name: '红利万岁',
-                   bgImg: 'hl.jpg',
-               }
+               } 
+               //NO IMAGE
+            //    {   
+            //        id:67,
+            //        gametype:'137',
+            //        name: '红利万岁',
+            //        bgImg: 'hl.jpg',
+            //    }
             ]
         } 
     ]
