@@ -6,7 +6,7 @@
                 <div class="cz_top">
                     <a  @click="setTab('rechargeactive')" 
                         :class="[ ('rechargeactive'=== this.transtab ? 'active' : '') , 'tab' , 'rechargeactive']"
-                        class="recharge menu-li">
+                        class="recharge menu-li">                       
                         充值
                         <span v-if="transtab == 'rechargeactive'"><img src="../../../static/img/line.png"></span>
                     </a>
@@ -36,16 +36,29 @@
                     <div class="container date-range">
                         <form>
                             <ul>
-                                <li><input type="date" class="date-from date-icon" id="startDate" maxlength="10"></li>
+                                <li><input type="date" v-model="transactionFilters.startDate" class="date-from date-icon" id="startDate" maxlength="10"></li>
                                 <li><span class="to">至</span></li>
-                                <li><input type="date" class="date-to date-icon" id="endDate" maxlength="10"></li>
-                                <li><button type="button" class="btndate-range" data-bind="click:query">查询</button></li>
+                                <li><input type="date" v-model="transactionFilters.endDate" class="date-to date-icon" id="endDate" maxlength="10"></li>
+                                <li><button type="button"  @click="searchTransaction"   class="btndate-range">查询</button></li>
                             </ul>
                         </form>
                     </div>
                     <div class="container transact-content">
                         <div class="tab-content ">
-                            <div data-bind="foreach: TransactionList"></div>
+                            <div v-for="(item, index) in transactionList" :key="index">
+                                <div class="complete-content">
+                                    <div class="wl-trans">
+                                        <span style="padding-right: .16rem;font-size: .34rem;">{{ item.searchType }}</span>
+                                        <span class="wallet-num">￥ {{ item.Amount }}</span>
+                                        <span :class="['pull-right', 'wallet-trans', item.TransactionDescription == '存款失败' ? 'succ' : '']" style="margin-right:0;">{{ item.TransactionDescription }}</span>
+                                    </div>
+
+                                    <div class="s-info">
+                                        <span class="pull-right s-date" >{{ item.TransactionDateTime }} </span>
+                                        <p>订单号&nbsp;&nbsp;<span data-bind="text:OrderNumber">{{ item.OrderNumber }}</span></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -59,12 +72,12 @@
                     <div class="container date-range1">
                         <form>
                             <ul>
-                                <li><input type="datetime-local" class="date-from date-icon" id="BettingStartDate" maxlength="10"></li>
+                                <li><input type="date" v-model="bettingFilters.startDate" class="date-from date-icon" id="BettingStartDate" maxlength="10"></li>
                                 <li style="padding: 0 .1rem;"><span class="to" style="line-height: .7rem;display: inline-block;">至</span></li>
-                                <li><input type="datetime-local" class="date-to date-icon" id="BettingEndDate" maxlength="10"></li>
+                                <li><input type="date" v-model="bettingFilters.endDate" class="date-to date-icon" id="BettingEndDate" maxlength="10"></li>
                                 <li class="gametype">
                                     <span class="arrow"></span>
-                                    <select id="bettype">
+                                    <select id="bettype" v-model="bettingFilters.gameType">
                                         <option>游戏类型</option>
                                         <option value="PT">PT</option>
                                         <option value="MG">MG</option>
@@ -76,7 +89,7 @@
                                     </select>
                                 </li>
                             </ul>
-                            <button type="button" class="bet_btn" id="Betting">开始查询</button>
+                            <button type="button" @click="searchBetting" class="bet_btn" id="Betting">开始查询</button>
                         </form>
                     </div>
                     <div class="container transact-content">
@@ -91,6 +104,13 @@
                                 </tr>
                             </thead>
                             <tbody id="Record">
+                                <tr v-for="(item, index) in bettingList" :key="index">
+                                    <td>{{ item.platNo }}</td> 
+                                    <td>{{ item.betTime.substring(0, 19).replace("T", " ") }}</td> 
+                                    <td>{{ item.BetCount }} ** </td> 
+                                    <td>{{ item.betAmount }}</td> 
+                                    <td>{{ item.TotalWinLoss }} **</td> 
+                                </tr>
                             </tbody>
                         
                         </table>
@@ -98,14 +118,20 @@
                 </div>
             </div>
         </div>
+
+        <notification :message="notifmessage" 
+            @close="closeNotif"  
+            v-if="notifmessage!=''" />
     </div>
 </template>
 
 <script>
 import { mapState, mapMutations, mapGetters } from 'vuex'
-import { RESET_PASSWORD } from '../../api/index';
+import Notification from './../Common/Notification'
+import { GET_TRANSACTION_HISTORY, GET_PAGED_BET_RECORDS } from '../../api/index';
 export default {
    props: ['selectedtab'],
+   components: { Notification },
    data(){
       return {
           transtab: 'rechargeactive',
@@ -113,28 +139,53 @@ export default {
               text: '充值',
               startDate: '',
               endDate: ''
-          }
+          },
+          bettingFilters: {
+              startDate: '',
+              endDate: '',
+              gameType: '',
+              pageIndex: 0,
+              TotalPages: 0
+          },
+          notifmessage: '',
+          transactionList: [],
+          bettingList: [],
       }
     },
+    computed: {
+          ...mapGetters({ 
+                currentUser: 'currentUser'
+            }),
+            transactions(){
+                return this.transactionList;
+            } 
+    },
+    create(){
+    },
     methods: {
+        closeNotif(){
+            this.notifmessage = '';
+        },
         setTab: function(transload){
             this.transtab =  transload;
         },
-
-        searchTransaction( searchText  ){
+        searchTransaction(   ){
+            this.transactionList = [];
+            let that_ = this;
+            let searchText = this.transtab;
             let searchType = 1;
             let text = searchType;
             switch(searchText.trim())
             {
-                case "提现":
+                case "withdrawactive":
                     searchType = 2;
                     text = '提现';
                     break;
-                case "转账":
+                case "transferactive":
                     searchType = 3;
                     text = '转账';
                     break;
-                case "红利":
+                case "dividendactive":
                     searchType = 4;
                     text = '红利';
                     break;
@@ -143,12 +194,114 @@ export default {
                     text = '充值';
                     break;
             }
-            
+
             let postData = {
                 searchType: searchType,
                 startDate: this.transactionFilters.startDate,
                 endDate: this.transactionFilters.endDate
             };
+            let config = { headers: { 'Authorization': 'Bearer ' + this.currentUser.tokenKey } };
+            if ( new Date(this.transactionFilters.endDate).getTime() < new Date(this.transactionFilters.startDate).getTime() )
+            {   
+                this.notifmessage = "结束日期小于开始日期";
+                return;
+            }
+            // loginResult(true, '正在查询中...');
+            this.$http.post( GET_TRANSACTION_HISTORY, postData, config )
+            .then( function(res) {
+                // loginResult(false);
+                if (res.data.length == 0) {
+                    that_.notifmessage = ("暂无" + postData.searchType + "数据");
+                } else {
+                    for ( var i = 0; i < res.data.length; i++ )
+                    {
+                        for ( var j = 0; j < res.data[i].TransactionHistoryItems.length; j++){
+                            that_.transactionList.push(res.data[i].TransactionHistoryItems[j]);
+                        }
+                    }
+                }
+            }).catch( function(error){ });
+        },
+        searchBetting( pageIndex ){
+            // GamePlatType
+            this.bettingList = [];
+            let that_ = this;
+
+            let postData = {
+                PlatNo: this.bettingFilters.gameType,
+                StartTime: this.bettingFilters.startDate.substring(0, 19).replace("T", " ").replace(/-/g, '/'),
+                EndTime:  this.bettingFilters.endDate.substring(0, 19).replace("T", " ").replace(/-/g, '/'),
+                type: 1,
+                PageIndex: pageIndex || 0,
+                PageSize: 10
+            };
+
+            if (pageIndex){
+                this.bettingFilters.pageIndex = pageIndex;
+            } else {
+                this.bettingFilters.pageIndex = 0;
+            }
+            if (!this.bettingFilters.gameType) {
+                this.notifmessage = ('请输入游戏类型');
+                return;
+            }
+            if ( postData.StartTime == '' || postData.EndTime == '') {
+                this.notifmessage = ("请输入日期");
+                return;
+            }
+            let endDate_ = new Date(this.bettingFilters.endDate).getTime();
+            let startDate_ = new Date(this.bettingFilters.startDate).getTime();
+            if ( endDate_  < startDate_ )
+            {   
+                this.notifmessage = "结束日期小于开始日期";
+                return;
+            }
+                
+            if (endDate_ - startDate_ > 86400000) {
+                 this.notifmessage = ("目前只提供昨天到今天的投注记录");
+                return;
+            }
+            
+            // loginResult(true, '正在查询中...');
+            let config = { headers: { 'Authorization': 'Bearer ' + this.currentUser.tokenKey } };
+            this.$http.post( GET_PAGED_BET_RECORDS , postData, config )
+            .then( function (res) {
+                //  loginResult(false);
+                if (res.data == "Failed") {
+                    that_.notifmessage = ('投注记录出现异常错误，请稍后重试');
+                }
+                else if ( res.data == '')
+                {
+
+                }
+                else {
+                    var data = JSON.parse(res.data),
+                        i = 0, 
+                        len = res.data.BetRecords.length, 
+                        html = '';
+                    bettingFilters.TotalPages = res.data.TotalPages;
+                    if (len == 0) {
+                        that_.notifmessage = ('暂时没有投注记录');
+                        return;
+                    }
+                    
+                    for (i; i < len; i++) {
+                        that_.bettingList.push(data.BetRecords[i]);
+                        html += '<tr> <td>' + bettingList.platNo + 
+                                '</td> <td>' + bettingList.betTime.substring(0, 19).replace("T", " ") + 
+                                '</td> <td>' + data.BetCount ;
+                                // '</td> <td  class="positive">' + data.BetRecords[i].betAmount + 
+                                // '</td><td  class="positive">' + data.TotalWinLoss + 
+                                // '</td></tr>'
+                    }
+                    // $('#Record').append(html);
+                }
+                
+            });
+
+
+
+
 
         }
     }

@@ -127,3 +127,5 @@ export const RECHARGEFAST_DEPOSIT = serviceUrl + '/Transact/FastDeposite';
 
 // TRANSACTION *******************
 export const GET_TRANSACTION_HISTORY = serviceUrl + '/Transact/SearchTransactionHistory';
+export const GET_PAGED_BET_RECORDS = serviceUrl + '/BetRecord/GetPagedBetRecordByGamePlatType';
+
