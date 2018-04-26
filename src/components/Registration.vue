@@ -6,12 +6,11 @@
             <span class="" style="color: transparent" >取消</span>
         </header>
         <div class="reg-body">
-
             <!-- Username -->
             <div class="reg-input text-control">
                 <span class="input-label">HF用户名</span>
                 <input class="input-control" placeholder="5-10个字母或数字" 
-                    v-model="userName" v-on:keyup="validateAccountName"
+                    v-model="userName" @blur="validateAccountName"
                     type="text" maxlength="12">
             </div>
 
@@ -19,7 +18,7 @@
              <div class="reg-input text-control">
                 <span class="input-label">密 码</span>
                 <input class="input-control" placeholder="密码建议至少使用两种字符组合" 
-                    v-model="passWord"  v-on:keyup="validatePassword"
+                    v-model="passWord"  @blur="validatePassword"
                     type="password" maxlength="12">
             </div>
             
@@ -27,7 +26,7 @@
             <div class="reg-input text-control">
                 <span class="input-label">真实姓名</span>
                 <input class="input-control" placeholder="请输入您的真实姓名" 
-                    v-model="realName" v-on:keyup="validateRealName"  type="text" >
+                    v-model="realName" @blur="validateRealName"  type="text" >
             </div>
 
             <!-- Birthdate -->
@@ -35,7 +34,7 @@
             <div class="reg-input date-control">
                 <span class="input-label">出生年月</span>
                 <input class="input-control" v-model="birthDate" placeholder="请输入出生日期" 
-                    v-on:keyup="validateBirthdate" type="date" maxlength="12">
+                    @blur="validateBirthdate" type="date" maxlength="12">
             </div>
 
             <!-- Gender -->
@@ -59,7 +58,7 @@
             <div class="reg-input text-control">
                 <span class="input-label">微信号</span>
                 <input class="input-control" placeholder="请输入您的微信号" 
-                    v-on:keyup="validateRequired(wechatNo)"
+                    @blur="validateRequired(wechatNo)"
                     v-model="wechatNo" type="text" >
             </div>
 
@@ -67,7 +66,7 @@
             <div class="reg-input text-control">
                 <span class="input-label">手机号码</span>
                 <input class="input-control" placeholder="请输入您的电话号码" 
-                    v-model="phoneNo" v-on:keyup="validatePhoneNumber"
+                    v-model="phoneNo" @blur="validatePhoneNumber"
                     type="tel" maxlength="11">
             </div>
 
@@ -75,18 +74,18 @@
             <div class="reg-input text-control">
                 <span class="input-label">邮 箱</span>
                 <input class="input-control" placeholder="建议使用常用邮箱" 
-                    v-model="emailAddress" v-on:keyup="validateEmailAddress"
+                    v-model="emailAddress" @blur="validateEmailAddress"
                     type="text">
             </div>
 
             <!-- Captcha -->
             <div class="reg-input captcha-control">
                 <div>
-                    {{ getCaptchaImage }}
-                    <!-- <img class="captcha-img"  /> -->
+                    <!-- {{ getCaptchaImage }} -->
+                    <img class="captcha-img" :src="getCaptchaImage"  />
                 </div>
                 <input class="input-control" placeholder="请输入验证码" 
-                    v-model="captchaText" v-on:keyup="validateCaptcha"
+                    v-model="captchaText" @blur="validateCaptcha"
                     autocomplete="off" type="text" maxlength="6" >
             </div>
 
@@ -141,6 +140,7 @@ export default {
     },
     computed: {
         getCaptchaImage() {
+            console.log(this.captchaImage);
             return (this.captchaImage);
         },
         selectedSex() {
@@ -331,7 +331,7 @@ export default {
             this.$http.get( LOAD_CAPTCHA , config )
                 .then( function(res) {
                     var imgdata_ = res.data.split('.png');
-                    that_.captchaImage = imgdata_[1]; //'./../../static' + imgdata_[0] + '.png';
+                    that_.captchaImage = imgdata_[0]; //'./../../static' + imgdata_[0] + '.png';
                     that_.isCaptchaCorrect = false;
                 });
         },
@@ -403,7 +403,6 @@ export default {
             // Validate Captcha
         },
         register(){
-            debugger;
             console.log(this.validateForm());
             if (!this.validateForm()){
                 return;
@@ -427,7 +426,7 @@ export default {
                         wechat: that_.passWord.wechatNo
                     };
                     // After Form Validation
-                    that_.$http.get( REGISTER , JSON.stringify(postData) )
+                    that_.$http.get( REGISTER , { params: postData } )
                     .then ( function  (result) {
                         if ( result.data.Value ){
                             // Login User
@@ -443,6 +442,9 @@ export default {
                             that_.notifmessage = '网站维护中，请稍后再试！！';
                         }
                     })
+                    .catch( function(error){
+                        console.log(error);
+                    });
                 })
             }
         }
