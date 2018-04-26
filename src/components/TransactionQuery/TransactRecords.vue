@@ -298,11 +298,6 @@ export default {
                 }
                 
             });
-
-
-
-
-
         }
     }
 }
@@ -388,6 +383,46 @@ export default {
     margin-top: 1rem;
     border-top: 1px solid #f3f3f3;
     background: #ffffff;
+
+    .complete-content{
+        padding-top: .26rem;
+        border-bottom: 1px solid #f3f3f3;
+        padding-left: .39rem;
+        padding-right: .39rem;
+
+        .wl-trans{
+            padding-bottom: .06rem;
+
+            .wallet-num{
+                font-size: .34rem;
+            }
+            .wallet-trans{
+                font-size: .29rem;
+            }
+        }
+        .s-info{
+            color: #b7b7b7;
+            border: 1px solid transparent;
+
+            .s-date{
+                font-size: .2rem;
+                margin-right: .05rem;
+            }
+            p{
+                padding-top: 0rem;
+                font-size: .23rem;
+                padding-bottom: .16rem;
+
+                span{
+                    font-size: .2rem;
+                }
+            }
+        }
+    }
+}
+
+.pull-right{
+    float:right;
 }
 .container{
     padding-left: 0;
