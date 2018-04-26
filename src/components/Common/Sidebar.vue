@@ -4,8 +4,8 @@
         <transition name="sidenav-trans">
         <div class="side-content" ref="sidecontent">
             <div class="firsttabb">
-                <div :class="['sidebarlogo', getUserProfileClass( currentUser.userInfo.VipLevel - 1 )]"></div>
-                <p id="AccountName">{{ "用户" + currentUser.userInfo.AccountName }}</p>
+                <div :class="['sidebarlogo', getUserProfileClass( AccountDetails.VipLevel - 1 )]"></div>
+                <p id="AccountName">{{ "用户" + AccountDetails.AccountName }}</p>
             </div>
             <div class="secondtabb">
                 <ul>
@@ -34,11 +34,12 @@
 <script>
 
 import { mapState , mapMutations, mapGetters } from 'vuex'
+var qs = require("querystring");
 export default {
   name: 'SideNav',
   data(){
       return {
-       
+          AccountDetails: {}
       }
   },
   mounted(){
@@ -76,6 +77,9 @@ export default {
         this.clearSessions();
         this.$router.push({ path: '../Login' });
       }
+  },
+  created(){
+      this.AccountDetails =this.AccountDetails = qs.parse( this.currentUser.userInfo );
   },
   computed: {
     ...mapState ({
