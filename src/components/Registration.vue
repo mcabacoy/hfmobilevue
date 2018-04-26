@@ -140,7 +140,6 @@ export default {
     },
     computed: {
         getCaptchaImage() {
-            console.log(this.captchaImage);
             return (this.captchaImage);
         },
         selectedSex() {

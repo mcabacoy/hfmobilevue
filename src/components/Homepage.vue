@@ -88,14 +88,14 @@ export default {
             notices: 'getNotices'
         })
     },
-    mounted() {
+    created(){
         let session_ = this.currentUser;
-        this.AccountDetails = qs.parse(session_.userInfo);
         let isLoggedIn = ( this.currentUser.tokenKey != '' && this.currentUser.tokenKey != null && this.currentUser.tokenKey != 'undefined');
         if ( !isLoggedIn) {
             this.$router.push('../Login');
             return;
         }
+        this.AccountDetails = qs.parse(session_.userInfo);
         if ( this.AccountDetails == null && this.AccountDetails.AccountName ) {
 
         }

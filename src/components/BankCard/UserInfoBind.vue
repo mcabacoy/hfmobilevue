@@ -291,7 +291,7 @@ export default {
 
         },
         setAccountDetails() {
-            this.AccountDetails = this.currentUser.userInfo;
+            this.AccountDetails = qs.parse(this.currentUser.userInfo );
         },
         requestAccountInfo( token ){
             let that_ = this;
@@ -305,7 +305,9 @@ export default {
             });
         },
         populateUserInfo(){
-            if ( this.currentUser.userInfo != null && this.currentUser.userInfo.AccountName ) {
+            let session_ = this.currentUser;
+            this.AccountDetails = qs.parse(session_.userInfo);
+            if ( this.AccountDetails == null && this.AccountDetails.AccountName ) {
                 this.setAccountDetails();
             }
             else {
