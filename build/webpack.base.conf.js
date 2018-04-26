@@ -46,7 +46,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        // exclude: /((node_modules\/(?!dom7|swiper))|bower_components)/,
+        //exclude: /((node_modules\/(?!dom7|swiper))|bower_components)/,
         include: [resolve('src'), resolve('test')]
       },
       {
