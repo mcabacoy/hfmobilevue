@@ -119,7 +119,7 @@
                     </button>
                 </div>
             </div>
-            <connect-bank-card  :cardowner="AccountDetails.RealName"  @refresh="refreshBankCards" v-if="displayConnectBankCard" @closeModal="closeBankCard()" ></connect-bank-card>
+            <connect-bank-card   :cardowner="AccountDetails.RealName"  @refresh="refreshBankCards" v-if="displayConnectBankCard" @closeModal="closeBankCard()" ></connect-bank-card>
             
         </div>
     </div>
@@ -184,7 +184,12 @@ export default {
             this.displaySignout = mode;
         },
         showConnectBankCard: function (){
-            this.displayConnectBankCard = true;
+            if (  this.getCardList.length = 5 ){
+                this.notifmessage = 'Maxmimum of 5 cards only'
+            }
+            else {
+                this.displayConnectBankCard = true;
+            }
         },
         closeBankCard: function (){
             this.displayConnectBankCard = false;

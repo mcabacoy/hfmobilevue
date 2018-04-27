@@ -16,28 +16,33 @@
                 <input type="text" v-model="AccountDetails.Wechat"
                     id="wechat" data-bind="value:WeChat" placeholder="请输入要绑定的微信">
             </li>   
+
             <!--Change Password-->
             <li v-if="displayItem('password')" class="style2" style="border-radius: 0;margin-top: 1rem;"> 
                 <span>输入旧密码</span>
-                <input type="text" id="usedPwd" >
+                <input type="text" v-model="changePassword.oldPassword"  id="usedPwd" >
             </li>
             <li v-if="displayItem('password')" class="style2"> 
                 <span>输入新密码</span>
-                <input type="text" id="pwd">
+                <input type="text" v-model="changePassword.newPassword" id="pwd">
             </li>
             <li v-if="displayItem('password')" class="style2" style="border-radius: 0;"> 
                 <span>再次输入</span>
-                <input type="text" id="confirmPwd" >
-                   
+                <input type="text" v-model="changePassword.confirmPassword" id="confirmPwd" >
             </li>
             <!--End-->
-            <li class="info-input" v-else>
-                <input type="tel" @blur="phoneValidator()" v-model="AccountDetails.Mobile" placeholder="建议使用常用手机"
-                       maxlength="11" id="phone" v-if="bindtype == 'phone'">
+
+            <li class="info-input" v-if="displayItem('email')">
                 <input type="tel" @blur="emailValidator()" v-model="AccountDetails.Email" placeholder="请输入邮箱" 
-                        v-else-if="bindtype == 'email'" id="mailbox">
+                       id="mailbox">
                 <div :class="[ isValid == 'success'  ? 'success-status' : isValid == 'error' ? 'error-status' : ''  ]"></div>
-            </li>         
+            </li>    
+            <li class="info-input" v-if="displayItem('phone')">
+                <input type="tel" @blur="phoneValidator()" v-model="AccountDetails.Mobile" placeholder="建议使用常用手机"
+                       maxlength="11" id="phone" >
+                <div :class="[ isValid == 'success'  ? 'success-status' : isValid == 'error' ? 'error-status' : ''  ]"></div>
+            </li>    
+
             <li class="list verification-code" v-if="bindtype == 'email' || bindtype == 'phone'">
                 <input type="tel" placeholder="请输入验证码" maxlength="6" v-model="passCode" >
                 <a class="message" @click="sendMobileCode">{{ verificationNote }}</a>
@@ -70,7 +75,9 @@ import {    USERINFO,
             SEND_PASS_CODE,
             BIND_BASE_INFO, 
             CHECK_HF_MOBILE_BIND,
-            CHECK_HF_EMAIL_BIND
+            CHECK_HF_EMAIL_BIND,
+            CHANGE_PASSWORD,
+            CHANGE_GAME_PASSWORD
        } from './../../api'
 import Notification from './../Common/Notification'
 var qs = require("querystring");
@@ -91,7 +98,12 @@ export default {
             bindtype: this.$route.params.bindtype,
             
             isValid: '',
-            isPristine: true
+            isPristine: true,
+            changePassword : {
+                oldPassword: '',
+                newPassword: '',
+                confirmPassword: ''
+             }
         }
     },
     components: { Notification },
@@ -117,7 +129,8 @@ export default {
             }
         },
         ...mapMutations ([
-            'setCurrentPage'
+            'setCurrentPage',
+            'clearSessions'
         ]),
         closeNotif(){
             this.notifmessage = ''
@@ -187,6 +200,8 @@ export default {
                 case 'phone':
                     that_.verifyPasscode(that_.bindUserPhone);
                     break;
+                case 'password': 
+                    that_.updatePassword();
                 default:
                     that_.bindGeneralInfo();
                     break;
@@ -414,16 +429,80 @@ export default {
                     }).catch(function(error){});
                 }
             }
+        },
+        checkOldPassword(){
+            var reg = /^\w{6,12}$/;
+            if ( this.changePassword.oldPassword  == null ||  this.changePassword.oldPassword == "") {
+                this.notifmessage = ("请输入原密码");
+                return false;
+            }
+            else {
+                if (!reg.test( this.changePassword.oldPassword )) {
+                    this.notifmessage = ("原密码不正确");
+                    return false;
+                }
+            }
+            return true;
+        },
+        checkNewPassword(){
+            var reg = /^\w{6,12}$/;
+            if (this.changePassword.newPassword == null || this.changePassword.newPassword == "") {
+                this.notifmessage = ("请输入新密码");
+                return false;
+            }
+            else {
+                if (!reg.test(this.changePassword.newPassword)) {
+                    this.notifmessage = ("密码长度6-12位数字和字母组合");
+                    return false;
+                }
+            }
+            return true;
+        },
+        checkNewConfirmPassword(){
+            var reg = /^\w{6,12}$/;
+            if (this.changePassword.confirmPassword == null || this.changePassword.confirmPassword == "") {
+                this.notifmessage = ("请输入确认密码");
+                return false;
+            }
+            else {
+                if (this.changePassword.confirmPassword !=this.changePassword.newPassword) {
+                    this.notifmessage = ("两次输入密码不一致");
+                    return false;
+                }
+            }
+            return true;
+        },
+        updatePassword(){
+            let that_ = this;
+            if (!this.checkOldPassword()) return;
+            if (!this.checkNewPassword()) return;
+            if (!this.checkNewConfirmPassword()) return;
+
+            let postData = {
+                OldPassword: this.changePassword.oldPassword,
+                NewPassword: this.changePassword.newPassword,
+                ConfirmPassword: this.changePassword.confirmPassword
+            };
+            debugger;
+            let config = { headers: { 'Authorization': 'Bearer ' + this.currentUser.tokenKey } };
+            this.$http.post(  CHANGE_PASSWORD, postData, config )
+            .then( function(res) {
+                if ( res.data.StatusCode == '200') {
+                    let postDataPassword = {
+                        NewPassword: that_.changePassword.newPassword
+                    };           
+                    that_.$http.post(CHANGE_GAME_PASSWORD, postDataPassword, config )
+                    .then( function( res ){
+                        that_.clearSessions();
+                        that_.$router.push({ path: '../Login' });
+                    });
+                }
+                else {
+                    that_.notifmessage = res.data.Message;
+                }
+            });
         }
     },
-    // watch: {
-    //     'AccountDetails.Mobile': function(val){
-    //         if ( val  )
-    //             this.isValid = 'success';
-    //         else 
-    //             this.isValid = 'error';
-    //     }
-    // },
     created() {
         this.populateUserInfo();
         this.setCurrentPage('UserInfoBind');

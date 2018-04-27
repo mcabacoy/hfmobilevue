@@ -76,8 +76,12 @@ export const EXCHANGE_SIGNIN_POINTS = serviceUrl + '/Active/ExchangeUserRedeem';
 // PASSWORD RESET ****************************
 // Retrieves user data - POST
 export const RESET_PASSWORD = serviceUrl + '/Account/ResetPassword';
-//  POST
+// POST
 export const FORGOT_PASSWORD = serviceUrl + '/Account/ForgetPassword'
+// POST
+export const CHANGE_PASSWORD = serviceUrl + '/Account/ChangePassword';
+// POST
+export const CHANGE_GAME_PASSWORD = serviceUrl + '/Game/GameChangePassword';
 
 
 // TRANSFERS ****************************
@@ -139,3 +143,4 @@ export const GET_HB_TOKEN = serviceUrl + '/Game/GetHabaToken' ;
 export const GET_PNG_TOKEN = serviceUrl + '/Game/GetPngToken' ;
 export const GET_TTG_TOKEN = serviceUrl + '/Game/GetTtgToken' ;
 export const GET_BS_TOKEN = serviceUrl + '/Game/GetBetSoftToken' ;
+
