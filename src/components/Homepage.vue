@@ -14,8 +14,8 @@
             <p class="balance-label" style="">余额：<span v-if="!isNaN(AccountDetails.Balance)" >￥{{ parseFloat(AccountDetails.Balance).toFixed(2) }}</span></p>
     </div>
     <div class="wallet-btn">
-        <a ><img @click="routePage('/Wallet')" src="../../static/img/wallet_.png" class="wallet-button" /></a>
-        <a ><img  @click="routePage('/Signin')" src="../../static/img/signin.png" class="signin-button" /></a>
+        <a><img @click="routePage('/Wallet')" src="../../static/img/wallet_.png" class="wallet-button" /></a>
+        <a><img  @click="routePage('/Signin')" src="../../static/img/signin.png" class="signin-button" /></a>
     </div>
     </div>
 
@@ -88,14 +88,14 @@ export default {
             notices: 'getNotices'
         })
     },
-    mounted() {
+    created(){
         let session_ = this.currentUser;
-        this.AccountDetails = qs.parse(session_.userInfo);
         let isLoggedIn = ( this.currentUser.tokenKey != '' && this.currentUser.tokenKey != null && this.currentUser.tokenKey != 'undefined');
         if ( !isLoggedIn) {
             this.$router.push('../Login');
             return;
         }
+        this.AccountDetails = qs.parse(session_.userInfo);
         if ( this.AccountDetails == null && this.AccountDetails.AccountName ) {
 
         }

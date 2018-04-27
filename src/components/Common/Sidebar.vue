@@ -79,7 +79,7 @@ export default {
       }
   },
   created(){
-      this.AccountDetails =this.AccountDetails = qs.parse( this.currentUser.userInfo );
+      this.AccountDetails = qs.parse( this.currentUser.userInfo );
   },
   computed: {
     ...mapState ({

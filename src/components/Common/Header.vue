@@ -8,19 +8,13 @@
     </div>
 
     <div class="nav"  v-else-if="currentPageName != ''" >
-        <a 
-            @click="goBack()"
-            class="backer prompt"
-            v-if="currentPageMenuType == 'back'"></a>
-        <img src="../../../static/img/toggle.png" 
-             class="nav-toggle" 
-             @click="openSideBar" v-else/>
+        <a  @click="goBack()" class="backer prompt" v-if="currentPageMenuType == 'back'"></a>
+        
+        <img src="../../../static/img/toggle.png" class="nav-toggle" @click="openSideBar" v-else/>
         
         <img src="../../../static/img/logo.png" 
-            class="logo"  
-            v-if="currentPageName == '' || 
-                  currentPageName == 'Homepage' || currentPageName == '鸿福首页' " />
-        <span v-else-if="currentPageName == 'GameBalance'" >{{ getGameBalanceTitle + "老虎机" }}</span>
+         class="logo" v-if="currentPageName == '' || currentPageName == 'Homepage' || currentPageName == '鸿福首页' " />
+        <span v-else-if="currentPageName == 'GameBalance'">{{ getGameBalanceTitle + "老虎机" }}</span>
         <span v-else >{{ currentPageName }}</span>
   </div>
 </div>

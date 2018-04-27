@@ -16,9 +16,9 @@
                 <input id="cz" v-model="withdrawAmount"  pattern="[0-9]*" min="0" data-bind="value:withdrawAmount" maxlength="8" type="number" class="cz-input" placeholder="请输入金额">
             </div>
             <div class="cz_nr_xia">
-                中心钱包余额：<span>￥{{ parseFloat(currentUser.userInfo.Balance).toFixed(2) }}</span>
+                中心钱包余额：<span>￥{{ parseFloat(AccountDetails.Balance).toFixed(2) }}</span>
                 <!-- ko if: balance()!='0.00元' -->
-                <a v-if="currentUser.userInfo.Balance != '0'"
+                <a v-if="AccountDetails.Balance != '0'"
                     href="javascript:void(0);" @click="withDrawAll">全部提现</a>
                 <!-- /ko -->
             </div>
@@ -42,7 +42,8 @@ export default {
         return {
             withdrawAmount: '',
             notifmessage: '',
-            userBankInfo: ''
+            userBankInfo: '',
+            AccountDetails: ''
         }
     },
     computed: {
@@ -63,7 +64,7 @@ export default {
             this.withdrawAmount = parseFloat(this.currentUser.userInfo.Balance).toFixed(2);
         },
         withdraw(){
-            console.log(1);
+            
             let that_ = this;
             let config = {
                 headers: {
@@ -96,7 +97,7 @@ export default {
                 this.notifmessage = ("请输入2位小数内的数字!");
                 return false;
             }
-            console.log(2);
+            
             
             var hasBankCards = false;
             // loginResult(true, '正在提现中...');
@@ -177,13 +178,19 @@ export default {
             this.$http.get( USERINFO , config )
             .then( function(res){
                 that_.storeUserInfoSession(qs.stringify(res.data.Value));
+                that_.AccountDetails = res.data.Value;
             });
-        }
+        },
     },
     created() {
         this.getOverAllBalance();
         this.getUserDefaultBankInfo();
         this.setCurrentPage('WalletWithdraw');
+        // let session_ = this.currentUser;
+        // this.AccountDetails = qs.parse(session_.userInfo);
+        // if ( !(this.AccountDetails == null && this.AccountDetails.AccountName) ) {
+        //     this.requestAccountInfo( this.currentUser.tokenKey );
+        // }
     }
 }
 </script>
