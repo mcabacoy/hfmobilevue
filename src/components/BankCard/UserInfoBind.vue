@@ -1,26 +1,36 @@
 <template>
     <div class="info-bind">
         <ul class="info-bind-container">
-            <li v-if="bindtype != 'email' && bindtype != 'phone'"> 
+            <li v-if="displayItem('birthdate')" class="style1" style="border-radius: 0;margin-top: 1rem;"> 
                 <span>出生日期</span>
                 <input type="date" v-model="AccountDetails.BirthDate"
                     data-bind="value:BirthDate" placeholder="请输入出生日期">
             </li>
-            <li v-if="bindtype != 'email' && bindtype != 'phone'">
+            <li v-if="displayItem('qq')" class="style1">
                 <span>QQ</span>
                 <input type="tel" v-model="AccountDetails.QQ" 
                         placeholder="请输入要绑定的QQ">
             </li>
-            <li v-if="bindtype != 'email' && bindtype != 'phone'">
+            <li v-if="displayItem('wechat')" class="style1" style="border-radius: 0;">
                 <span>微信</span>
                 <input type="text" v-model="AccountDetails.Wechat"
                     id="wechat" data-bind="value:WeChat" placeholder="请输入要绑定的微信">
             </li>   
-            <li v-if="displayItem('password')" > 
+            <!--Change Password-->
+            <li v-if="displayItem('password')" class="style2" style="border-radius: 0;margin-top: 1rem;"> 
                 <span>输入旧密码</span>
-                <input type="text" v-model="AccountDetails.Wechat"
-                    id="wechat" placeholder="">
+                <input type="text" id="usedPwd" >
             </li>
+            <li v-if="displayItem('password')" class="style2"> 
+                <span>输入新密码</span>
+                <input type="text" id="pwd">
+            </li>
+            <li v-if="displayItem('password')" class="style2" style="border-radius: 0;"> 
+                <span>再次输入</span>
+                <input type="text" id="confirmPwd" >
+                   
+            </li>
+            <!--End-->
             <li class="info-input" v-else>
                 <input type="tel" @blur="phoneValidator()" v-model="AccountDetails.Mobile" placeholder="建议使用常用手机"
                        maxlength="11" id="phone" v-if="bindtype == 'phone'">
@@ -58,7 +68,7 @@ import {    USERINFO,
             GET_EMAIL_REDBAG,
             GET_VERIFICATION_CODE,
             SEND_PASS_CODE,
-            BIND_BASE_INFO,
+            BIND_BASE_INFO, 
             CHECK_HF_MOBILE_BIND,
             CHECK_HF_EMAIL_BIND
        } from './../../api'
@@ -91,6 +101,21 @@ export default {
         }),
     },
     methods: {
+        displayItem(item){
+            switch( this.bindtype ){
+                case 'password':
+                case 'email':
+                case 'phone':
+                    return item == this.bindtype
+                case 'qq':
+                case 'wechat':
+                case 'birthdate':
+                    let  list_ = 'qq,wechat,birthdate,';
+                    return list_.indexOf(item) > -1;
+                default:
+                    return true; 
+            }
+        },
         ...mapMutations ([
             'setCurrentPage'
         ]),
@@ -492,29 +517,71 @@ body {
 }
 
 .info-bind {
-        margin-top: 1.3rem;
         width: 100%;
 
         ul.info-bind-container {
-            margin: 5% auto 0;
-            width: 92%;
-            background: #fff;
-            border: 1px solid #f3f3f3;
-            border-radius: .1rem;
 
+            .style1{
+                width: 100%;
+                border-bottom: 1px solid #cdcdcd;
+
+                span{
+                    display: inline-block;
+                    width: 1.25rem;
+                    margin-right: .2rem!important;
+                    font-size: .23rem!important;
+                    float: left;
+                    color: #232323;
+                    line-height: .46rem;
+                }
+                input{
+                    font-size: .28rem;
+                    width: 4.3rem;
+                    padding-left:0;
+                }
+            }
+            .style2{
+                width: 100%;
+                border-bottom: 1px solid #f3f3f3;
+                padding: .4rem .28rem;
+
+                span{
+                    display: inline-block;
+                    width: 1.25rem;
+                    margin-right: .2rem!important;
+                    font-size: .25rem!important;
+                    float: left;
+                    color: #232323;
+                    line-height: .46rem;
+                }
+                input{
+                    font-size: .28rem;
+                    width: 4.3rem;
+                    padding-left:.35rem;
+                }
+            }
             input {
                 width: 70%;
                 padding-left: .2rem;
                 font-size: .28rem;
                 color: #3d4245;
             }
-
+            li:first-child{
+                border-radius: .1rem .1rem 0 0;
+                margin-top:1.3rem;
+            }
+            li:last-child{
+                border-radius: 0 0 .1rem .1rem;
+            }
             li {
                 position: relative;
                 padding: 4% 4%;
                 font-size: .28rem;
                 color: #c6c5c5;
                 border-bottom: 1px solid #f3f3f3;
+                width: 92%;
+                margin: 0 auto;
+                background: #fff;
             }
             
             li.info-input {
@@ -553,7 +620,6 @@ body {
         }
 }
 
-
 .info-bind-submit {
     margin-top: 3%;
     text-align: center;
@@ -572,5 +638,4 @@ body {
         font-size: .31rem;
     }
 }
-
 </style>
