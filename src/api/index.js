@@ -129,3 +129,13 @@ export const RECHARGEFAST_DEPOSIT = serviceUrl + '/Transact/FastDeposite';
 export const GET_TRANSACTION_HISTORY = serviceUrl + '/Transact/SearchTransactionHistory';
 export const GET_PAGED_BET_RECORDS = serviceUrl + '/BetRecord/GetPagedBetRecordByGamePlatType';
 
+
+
+
+
+// GAME *************************
+export const GET_SG_TOKEN = serviceUrl + '/Game/GetSgToken' ;
+export const GET_HB_TOKEN = serviceUrl + '/Game/GetHabaToken' ;
+export const GET_PNG_TOKEN = serviceUrl + '/Game/GetPngToken' ;
+export const GET_TTG_TOKEN = serviceUrl + '/Game/GetTtgToken' ;
+export const GET_BS_TOKEN = serviceUrl + '/Game/GetBetSoftToken' ;

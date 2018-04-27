@@ -4,7 +4,9 @@
         <div class="swiper-wrapper">
           <div :class="['swiper-slide' , index ]" v-for="(i, index) in ( getPageNumber(gameset.gamelist))" :key="index">
             <ul>
-              <li v-for="(item, index) in getGameListItems(index)" :key="index" >
+              <li v-for="(item, index) in getGameListItems(index)"
+                  :key="index"
+                  @click="redirectGame(item)" >
               <game-image 
                   :bgsrc="require('../../static/img/' + [gameset.platform] + '/' +[item.bgImg]+ '')"
                   :class="['picture']" 
@@ -25,6 +27,8 @@
 import { mapState, mapGetters, mapMutations } from 'vuex'
 import GameImage from './GameList/ListImages'
 import Swiper from 'Swiper'
+import { GET_SG_TOKEN, GET_HB_TOKEN, GET_PNG_TOKEN, GET_TTG_TOKEN, GET_BS_TOKEN } from './../api'
+var qs = require("querystring");
 export default {
   name: 'platform-games',
   components: {
@@ -49,11 +53,13 @@ export default {
   data(){
     return {
       platform:  this.$route.params.gametype,
-      gameset: ''
+      gameset: '',
+      AccountDetails: '',
+      gameToken: '',
     }
   },
   computed: {
-    ...mapGetters(["getGamesByPlatform"])
+    ...mapGetters(["getGamesByPlatform", "currentUser"])
   },
   methods: {
     getPageNumber(payload){
@@ -75,11 +81,177 @@ export default {
     },
     ...mapMutations ([
        'setCurrentPage',
-    ])
+    ]),
+
+    // REDIRECTION
+    redirectGame(payload){
+      switch( this.platform ) {
+        case 'PT1':
+          this.redirectPT_New(payload);
+          break;
+        case 'PT':
+          this.redirect_PT(payload);
+          break;
+        case 'SG': 
+          this.redirect_SG(payload);
+          break;
+        case 'HABA':
+          this.redirect_HABA(payload);
+          break;
+        case 'PNG':
+          this.redirect_PNG(payload);
+          break;
+        case 'TTG':
+          this.redirect_TTG(payload);
+          break;
+        case 'BS':
+          this.redirect_BS(payload);
+          break;
+        default:
+          break;
+      }
+    },
+    redirectPT_New(payload){
+      let rootLocation = 'https://gs2.m27613.com/v1/mrch/game';
+      let qStrings = {
+        language: 'zh-cn',
+        merchantCode: 'swgnsfubao',
+        playmode: 'real',
+        gameCode: payload.gametype,
+        ticket: this.currentUser.tokenKey,
+        merch_login_url: location.href
+      };
+      location.href = rootLocation + '?' + qs.stringify(qStrings);
+    },
+    redirect_PT(payload){
+      let rootLocation = 'http://hub.mp176388.com/igaming/';
+      let qStrings = {
+        gameId: payload.gametype,
+        real: 1,
+        username: 'F' + this.AccountDetails.AccountName,
+        lang: 'zh-cn',
+        tempToken: 'temptoken',
+        lobby: location.href, // PTLIST
+        deposit: location.href.substring(0, location.href.lastIndexOf('/') + 1) + 'WalletRecharge' ,
+        support: location.href.substring(0, location.href.lastIndexOf('/') + 1) + 'PT',
+        logout: location.href.substring(0, location.href.lastIndexOf('/') + 1) + 'PT'
+      }
+      location.href = rootLocation + '?' + qs.stringify(qStrings);
+
+    },
+
+    redirect_SG(payload){
+      let rootLocation = 'http://lobby.bigmoose88.com/futu/auth/';
+      let qStrings = {
+        language: 'zh_CN',
+        mobile: true,
+        token: this.gameToken,
+        game: payload.gametype,
+        acctId: this.AccountDetails.AccountName
+      };
+      location.href = rootLocation + '?' + qs.stringify(qStrings);
+    },
+    redirect_HABA(payload){
+      let rootLocation = 'https://app-a.insvr.com/play';
+      let qStrings = {
+        brandid: '355cac7f-cb5f-e711-80c4-000d3a805b30',
+        mode: 'real',
+        locale: 'zh-CN',
+        token:  this.gameToken,
+        keyname: payload.gametype
+      };
+      location.href = rootLocation + '?' + qs.stringify(qStrings);
+    },
+    redirect_PNG(payload){
+      let rootLocation = 'https://bsicw.playngonetwork.com/casino/PlayMobile';
+      let qStrings = {
+        pid: 295,
+        lang: 'zh_CN',
+        practice: 0,
+        gameid:  payload.gametype,
+        ticket: this.gameToken,
+      };
+      location.href = rootLocation + '?' + qs.stringify(qStrings);
+    },
+    redirect_TTG(payload){
+      let rootLocation = 'http://ams2-games.ttms.co/casino/default/game/casino5.html';
+      let qStrings = {
+        account: 'CNY',
+        lang: 'zh-cn',
+        deviceType: 'mobile',
+        lsdid: 'futu',
+        playerHandle: this.gameToken,
+        gameId: payload.gameid,
+        gameName: payload.gamename,
+        gameType: payload.gametype,
+      };
+      location.href = rootLocation + '?' + qs.stringify(qStrings);
+    },
+    redirect_BS(payload){
+      let rootLocation = 'https://winwis-gp3.betsoftgaming.com/cwstartgamev2.do';
+      let qStrings = {
+        bankId: 1833,
+        mode: 'real',
+        lang: 'zh-cn',
+        CDN: 'CNC_China',
+        token: this.gameToken,
+        gameId: payload.gameid,
+        homeUrl: location.href,
+        cashierUrl: location.href.substring(0, location.href.lastIndexOf('/') + 1) + 'WalletRecharge'
+      };
+      location.href = rootLocation + '?' + qs.stringify(qStrings);
+    },
+
+    getGameToken(){
+      let session_ = this.currentUser;
+      let config = {
+        headers: {
+          'Authorization': 'Bearer ' + session_.tokenKey,
+          'Async' : false
+        }
+      }
+      let that_ = this;
+      let url_ = '';
+      switch( this.platform ){
+        case 'SG':
+          url_ = GET_SG_TOKEN;
+          break;
+        case  'HABA':
+          url_ = GET_HB_TOKEN;
+          break;
+        case 'PNG':
+          url_ = GET_PNG_TOKEN;
+          break;
+        case 'TTG':
+          url_ = GET_TTG_TOKEN;
+        case 'BS':
+          url_ = GET_BS_TOKEN;
+        default: break;
+      }
+      
+      if ( url_ != ''){
+        this.$http.get(  url_ ,  config )
+        .then( function (res){
+          console.log(res.data);
+          if ( res.data != "Failed") 
+          {
+            that_.gameToken = ( res.data );
+          }
+        })
+        .catch( function(error){ });
+      }
+    }
+    
   },
   created() {
       this.setCurrentPage('PlatformGames');
       this.gameset = this.$store.getters.getGamesByPlatform(this.platform);
+      let session_ = this.currentUser;
+      this.AccountDetails = qs.parse(session_.userInfo);
+      
+      this.getGameToken();
+      
+      
   }
 }
 </script>
@@ -94,11 +266,11 @@ export default {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
     justify-content: center;
     -webkit-box-align: center;
+    -webkit-box-pack: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
