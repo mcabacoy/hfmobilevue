@@ -103,7 +103,6 @@ export default {
                 default:
                     return true; 
             }
-
         },
         ...mapMutations ([
             'setCurrentPage'
