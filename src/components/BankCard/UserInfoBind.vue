@@ -16,6 +16,11 @@
                 <input type="text" v-model="AccountDetails.Wechat"
                     id="wechat" data-bind="value:WeChat" placeholder="请输入要绑定的微信">
             </li>   
+            <li v-if="displayItem('password')" > 
+                <span>输入旧密码</span>
+                <input type="text" v-model="AccountDetails.Wechat"
+                    id="wechat" placeholder="">
+            </li>
             <li class="info-input" v-else>
                 <input type="tel" @blur="phoneValidator()" v-model="AccountDetails.Mobile" placeholder="建议使用常用手机"
                        maxlength="11" id="phone" v-if="bindtype == 'phone'">
