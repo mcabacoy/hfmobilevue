@@ -1,26 +1,29 @@
 <template>
     <div class="info-bind">
         <ul class="info-bind-container">
-            <li v-if="bindtype != 'email' && bindtype != 'phone'"> 
+            <li v-if="displayItem('birthdate')"> 
                 <span>出生日期</span>
                 <input type="date" v-model="AccountDetails.BirthDate"
                     data-bind="value:BirthDate" placeholder="请输入出生日期">
             </li>
-            <li v-if="bindtype != 'email' && bindtype != 'phone'">
+            <li v-if="displayItem('qq')">
                 <span>QQ</span>
                 <input type="tel" v-model="AccountDetails.QQ" 
                         placeholder="请输入要绑定的QQ">
             </li>
-            <li v-if="bindtype != 'email' && bindtype != 'phone'">
+            <li v-if="displayItem('wechat')">
                 <span>微信</span>
                 <input type="text" v-model="AccountDetails.Wechat"
                     id="wechat" data-bind="value:WeChat" placeholder="请输入要绑定的微信">
-            </li>   
-            <li class="info-input" v-else>
-                <input type="tel" @blur="phoneValidator()" v-model="AccountDetails.Mobile" placeholder="建议使用常用手机"
-                       maxlength="11" id="phone" v-if="bindtype == 'phone'">
-                <input type="tel" @blur="emailValidator()" v-model="AccountDetails.Email" placeholder="请输入邮箱" 
-                        v-else-if="bindtype == 'email'" id="mailbox">
+            </li>
+            <li v-if="displayItem('password')" > 
+            </li>
+            <li class="info-input" v-else-if="displayItem('phone')">
+                <input type="tel" @blur="phoneValidator()" v-model="AccountDetails.Mobile" placeholder="建议使用常用手机" maxlength="11" id="phone">
+                <div :class="[ isValid == 'success'  ? 'success-status' : isValid == 'error' ? 'error-status' : ''  ]"></div>
+            </li>  
+            <li class="info-input" v-else-if="displayItem('email')">
+                <input type="tel" @blur="emailValidator()" v-model="AccountDetails.Email" placeholder="请输入邮箱" id="mailbox">
                 <div :class="[ isValid == 'success'  ? 'success-status' : isValid == 'error' ? 'error-status' : ''  ]"></div>
             </li>         
             <li class="list verification-code" v-if="bindtype == 'email' || bindtype == 'phone'">
@@ -53,7 +56,7 @@ import {    USERINFO,
             GET_EMAIL_REDBAG,
             GET_VERIFICATION_CODE,
             SEND_PASS_CODE,
-            BIND_BASE_INFO,
+            BIND_BASE_INFO, 
             CHECK_HF_MOBILE_BIND,
             CHECK_HF_EMAIL_BIND
        } from './../../api'
@@ -86,6 +89,22 @@ export default {
         }),
     },
     methods: {
+        displayItem(item){
+            switch( this.bindtype ){
+                case 'password':
+                case 'email':
+                case 'phone':
+                    return item == this.bindtype
+                case 'qq':
+                case 'wechat':
+                case 'birthdate':
+                    let  list_ = 'qq,wechat,birthdate,';
+                    return list_.indexOf(item) > -1;
+                default:
+                    return true; 
+            }
+
+        },
         ...mapMutations ([
             'setCurrentPage'
         ]),
@@ -402,7 +421,7 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" >
-.bindsuccess-modal {
+    .bindsuccess-modal {
             width: 100%;
             height: 100%;
             display: block;
