@@ -4,7 +4,7 @@
         <div class="transhead">
             <div class="lefthead">
                 <span style="">中心钱包余额(元)</span>
-                <h3>{{ parseFloat(currentUser.userInfo.Balance).toFixed(2) }}元</h3>
+                <h3>{{ parseFloat(AccountDetails.Balance).toFixed(2) }}元</h3>
             </div>
             <div class="righthead">
                 <a @click="routePage('TransactionQuery')" id="transactiondetails">交易明细</a>
@@ -42,7 +42,8 @@ export default {
         return {
             balance: '',
             transfermode: '', //in, out, blank
-            selectedplatform: ''
+            selectedplatform: '',
+            AccountDetails: {}
         }
     },
     methods: {
@@ -72,6 +73,7 @@ export default {
             this.$http.get( USERINFO , config )
             .then( function(res){
                 that_.storeUserInfoSession(qs.stringify(res.data.Value));
+                that_.AccountDetails = res.data.Value;
             });
         }
     },
@@ -82,8 +84,9 @@ export default {
       })
     },
     created() {
-        this.getOverAllBalance()
+        this.getOverAllBalance();
         this.setCurrentPage('Transfers');
+        this.AccountDetails = qs.parse( this.currentUser.userInfo );
   }
 }
 

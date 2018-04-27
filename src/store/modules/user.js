@@ -35,14 +35,14 @@ const emptyUserInfo_ =  {
 const state = {
     // tokenKey: sessionStorage.getItem(tokenKey_),
     // userInfo: emptyUserInfo_,
-    notices: []
+    notices: [],
 }
 
 const getters = {
     currentUser: state => {
         return {
             tokenKey : sessionStorage.getItem(tokenKey_),
-            userInfo : qs.parse(sessionStorage.getItem( userInfo_ ))
+            userInfo : (sessionStorage.getItem( userInfo_ ))
         }
     },
     getNotices: state => {
@@ -79,15 +79,10 @@ const mutations = {
     }
 }
 
-const actions = {
-    
-}
-
 export default {
     state,
     getters,
-    mutations,
-    actions
+    mutations
 }
 
 

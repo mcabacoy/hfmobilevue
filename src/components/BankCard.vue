@@ -119,7 +119,7 @@
                     </button>
                 </div>
             </div>
-            <connect-bank-card  @refresh="refreshBankCards" v-if="displayConnectBankCard" @closeModal="closeBankCard()" ></connect-bank-card>
+            <connect-bank-card  :cardowner="AccountDetails.RealName"  @refresh="refreshBankCards" v-if="displayConnectBankCard" @closeModal="closeBankCard()" ></connect-bank-card>
             
         </div>
     </div>
@@ -207,7 +207,7 @@ export default {
                     ? 'payload' : '去绑定';
         },
         setAccountDetails() {
-            this.AccountDetails = this.currentUser.userInfo;
+            this.AccountDetails = qs.parse(this.currentUser.userInfo);
         },
         requestAccountInfo( token ){
             let that_ = this;
@@ -221,7 +221,10 @@ export default {
             });
         },
         populateUserInfo(){
-            if ( this.currentUser.userInfo != null && this.currentUser.userInfo.AccountName ) {
+            let session_ = this.currentUser;
+            this.AccountDetails = qs.parse(session_.userInfo);
+             this.AccountDetails = qs.parse(session_.userInfo);
+            if ( this.AccountDetails == null && this.AccountDetails.AccountName ) {
                 this.setAccountDetails();
             }
             else {

@@ -28,7 +28,7 @@
                                 <div class="input-label">开户姓名</div>
                                 <div class="input-item">
                                     <!-- Account Name -->
-                                    <input type="text" class="form-control" v-model="cardOwnerName">
+                                    <input type="text" class="form-control" disabled v-model="cardOwnerName">
                                 </div>
                             </div>
                         </li>
@@ -72,9 +72,10 @@ import Notification from './../Common/Notification'
 
 export default {
     components: { Notification },
+    props: ['cardowner'],
     data(){
         return {
-            cardOwnerName: '',
+            cardOwnerName: this.cardowner,
             cardNo: '',
             bankAddress: '',
             bankCode: '',

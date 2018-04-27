@@ -239,6 +239,7 @@ export default {
         },
         goRedeem: function() {
             let error = '100积分才可兑换额度'
+            let that_ = this;
             let config = {
                 headers: {
                     'Authorization': 'Bearer ' + this.currentUser.tokenKey
@@ -249,7 +250,7 @@ export default {
             {
                 this.$http.get( EXCHANGE_SIGNIN_POINTS, config )
                 .then( function( res ) {
-                    this.notifmessage = (res.data.msg);
+                    that_.notifmessage = (res.data.msg);
                 });
             }
             else {
@@ -362,7 +363,8 @@ export default {
 
 
 #signin {
-    height:100%;
+    height: auto;
+    min-height: 100%;
 }
 
 table.collectionrecord {

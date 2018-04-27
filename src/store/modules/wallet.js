@@ -157,27 +157,27 @@ const state = {
               defaultvalue: '',
               aditionalremarks: ''
             }
-        },
-        {
-            name: 'FlashPayment',
-            description: '云闪付',
-            customclass: 'flashpayment',
-            logo: '/src/assets/quick-icon.png',
-            target: 'tabs-union',
-            recharger: {
-              headertype: 'limit',
-              limit: {
-                from: 100,
-                to: 2999,
-                label: '单笔充值限额',
-                preposition: '至',
-                currency: '元'
-              },
-              placeholder: '请输入整数金额',
-              defaultvalue: '',
-              aditionalremarks: ''
-            }
         }
+        // {
+        //     name: 'FlashPayment',
+        //     description: '云闪付',
+        //     customclass: 'flashpayment',
+        //     logo: '/src/assets/quick-icon.png',
+        //     target: 'tabs-union',
+        //     recharger: {
+        //       headertype: 'limit',
+        //       limit: {
+        //         from: 100,
+        //         to: 2999,
+        //         label: '单笔充值限额',
+        //         preposition: '至',
+        //         currency: '元'
+        //       },
+        //       placeholder: '请输入整数金额',
+        //       defaultvalue: '',
+        //       aditionalremarks: ''
+        //     }
+        // }
     ]
 }
 

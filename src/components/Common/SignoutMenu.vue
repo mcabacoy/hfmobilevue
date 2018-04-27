@@ -3,7 +3,7 @@
         <div class="signout-menu-container">
             <div class="signout-title">您确定退出登录?</div>
             <div class="signout-items">
-                <a class="okay">退出登录</a>
+                <a class="okay" @click="logout">退出登录</a>
                 <a class="cancel">取消</a>
             </div>
         </div>
@@ -12,12 +12,18 @@
 </template>
 
 <script>
+import { mapState , mapMutations, mapGetters } from 'vuex'
 export default {
-methods: {
-    closeMenu: function (){
-        this.$emit('closeMenu');
+    methods: {
+        closeMenu: function (){
+            this.$emit('closeMenu');
+        },
+        ...mapMutations (['clearSessions']),
+        logout(){
+          this.clearSessions();
+          this.$router.push({ path: '../Login' });
+        }
     }
-}
 }
 </script>
 

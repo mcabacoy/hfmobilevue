@@ -3,7 +3,7 @@
     <div class="wallet-wrap">
         <div class="wallet-content">
             <img src="../../static/img/wallet-logo.png"/>
-            <p class="wallet-balance">￥{{ parseFloat(this.currentUser.userInfo.Balance).toFixed(2) }}</p>
+            <p class="wallet-balance">￥{{ parseFloat(AccountDetails.Balance).toFixed(2) }}</p>
             <a  @click="routePage('/Wallet/bankinfo')" class="toBankCard">添加银行卡</a>
             <div class="rescue">
                 <a href="javascript:;">周六奖金</a>
@@ -21,7 +21,13 @@
 
 <script>
 import { mapState , mapMutations, mapGetters } from 'vuex'
+var qs = require('querystring')
 export default {
+    data(){
+      return {
+          AccountDetails: {}
+      }
+    },
     methods: {
         ...mapMutations (['setCurrentPage']),
         routePage: function(pageName){
@@ -35,6 +41,7 @@ export default {
     },
     created() {
       this.setCurrentPage('Wallet');
+      this.AccountDetails = qs.parse( this.currentUser.userInfo );
     }
 }
 </script>

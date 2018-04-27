@@ -7,37 +7,190 @@
 
             </li>
             <li class="toBankCard">
-                <span>到账银行卡：</span><a @click="routePage('BankCard')"><span class="default">默认银行卡</span><i class="icon-arrow"></i></a>
+                <span>到账银行卡：</span><a @click="routePage('BankCard')"><span class="default" v-html="userBankInfo != null ? userBankInfo.BankName + ' (' + userBankInfo.CardNo + ')'  : '默认银行卡'"></span><i class="icon-arrow"></i></a>
             </li>
         </ul>
         <div class="cz_nr cz_nr02">
             <div class="cz_nr_shang">提现金额 :</div>
-            <div class="cz_nr_zhong"><span>￥</span><input id="cz" pattern="[0-9]*" min="0" data-bind="value:withdrawAmount" maxlength="8" type="number" class="cz-input" placeholder="请输入金额"></div>
+            <div class="cz_nr_zhong"><span>￥</span>
+                <input id="cz" v-model="withdrawAmount"  pattern="[0-9]*" min="0" data-bind="value:withdrawAmount" maxlength="8" type="number" class="cz-input" placeholder="请输入金额">
+            </div>
             <div class="cz_nr_xia">
-                中心钱包余额：<span data-bind="text:balance">￥25.84</span>
+                中心钱包余额：<span>￥{{ parseFloat(AccountDetails.Balance).toFixed(2) }}</span>
                 <!-- ko if: balance()!='0.00元' -->
-                <a href="javascript:void(0);" data-bind="click:withDrawAll">全部提现</a>
+                <a v-if="AccountDetails.Balance != '0'"
+                    href="javascript:void(0);" @click="withDrawAll">全部提现</a>
                 <!-- /ko -->
             </div>
         </div>
     </div>
 
     <div class="withdrawCash-btns">
-        <a href="javascript:;" class="submit_Btn" data-bind="click:withdraw">下一步</a>
+        <a href="javascript:;" class="submit_Btn" @click="withdraw">下一步</a>
     </div>
+    <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
 </section>
 </template>
 <script>
+import Notification from './Common/Notification'
 import { mapState, mapMutations, mapGetters } from 'vuex'
+import { USERINFO, CHECK_USER_BANK_INFO, WITHDRAW, GET_USER_BANK_INFO } from './../api'
+var qs = require("querystring");
 export default {
-    methods: {
-        ...mapMutations (['setCurrentPage']),
-        routePage: function(pageName){
-            this.$router.push({ path: pageName });
+    components: { Notification },
+    data(){
+        return {
+            withdrawAmount: '',
+            notifmessage: '',
+            userBankInfo: '',
+            AccountDetails: ''
         }
     },
+    computed: {
+         ...mapGetters ({
+            currentUser: 'currentUser',
+         })
+         
+    },
+    methods: {
+        ...mapMutations (['setCurrentPage', 'storeUserInfoSession', 'clearSessions']),
+        closeNotif(){
+            this.notifmessage = ''
+        },
+        routePage: function(pageName){
+            this.$router.push({ path: pageName });
+        },
+        withDrawAll(){
+            this.withdrawAmount = parseFloat(this.currentUser.userInfo.Balance).toFixed(2);
+        },
+        withdraw(){
+            
+            let that_ = this;
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                }
+            };
+            // Validate
+            if (this.withdrawAmount == null || this.withdrawAmount == "") {
+                this.notifmessage = ("请填写充值金额！");
+                return false;
+            }
+            if (isNaN(this.withdrawAmount)) {
+                this.notifmessage = ("请输入有效的数字!");
+                return false;
+            }
+
+            if (parseFloat(this.withdrawAmount) <= 0) {
+                this.notifmessage = ("请输入大于0的数字!");
+                return false;
+            }
+            if (Number(this.withdrawAmount) < 100) {
+                this.notifmessage = ('输入金额至少100');
+                return false;
+            }
+            if (Number(this.withdrawAmount) > 50000) {
+                this.notifmessage = ('输入金额少于50000');
+                return false;
+            }
+            if (!/^-?\d+\.?\d{0,2}$/.test(this.withdrawAmount)) {
+                this.notifmessage = ("请输入2位小数内的数字!");
+                return false;
+            }
+            
+            
+            var hasBankCards = false;
+            // loginResult(true, '正在提现中...');
+
+            this.$http.get(CHECK_USER_BANK_INFO, config)
+            .then(function(res){
+                // loginResult(false);
+                hasBankCards = res.data;
+                console.log(hasBankCards);
+                if (!hasBankCards) {
+                    that_.notifmessage = ('请先绑定银行卡');
+                } 
+                else {
+                    let postData = {
+                        UserId: that_.currentUser.userInfo.UserId,
+                        Amount: parseFloat(that_.withdrawAmount)
+                    };
+                    // loginResult(true)
+                    that_.$http.post(WITHDRAW, JSON.stringify(postData), config)
+                    .then( function(data){
+                        if (res.data.Success) {
+                            sessionStorage.removeItem("levelInfo");
+                            var bankInfos = JSON.parse(sessionStorage.getItem("userBankInfos"));
+                            if (that_.userBankInfo != "null") {
+                                defaultBankName = that_.userBankInfo.BankName + 
+                                        "（尾号" + that_.userBankInfo.CardNo.substr(that_.userBankInfo.CardNo.length - 4) + "）";
+                                // ob.prohibited = true;
+                                location.href = "/WalletOpResult?type=withdrawal&success=" + data.Success + 
+                                                "&title=" + data.Message + 
+                                                "&amount=" + that_.withdrawAmount + 
+                                                "&defaultBankName=" + defaultBankName;
+                            }
+                            that_.notifmessage = (data.Message);
+                            loginResult(false);
+                        } else {
+                            that_.notifmessage = (data.Message);
+                            loginResult(false);
+                            ob.prohibited = true;
+                        }
+                    })
+                    .catch( function(){
+
+                    });
+                }
+            })
+            .catch( function(error){
+            });
+        },
+        getUserDefaultBankInfo(){
+            let that_ = this;
+            let config = { headers: { 'Authorization': 'Bearer ' + this.currentUser.tokenKey } };
+            this.$http.get( GET_USER_BANK_INFO,  config )
+            .then( function(res){
+                if ( res.data == 'Failed' ){
+                    //  that_.notifmessage = ("您的账户在别的地方登陆，请重新登陆！");
+                     that_.clearSessions();
+                     that_.$nextTick(() => {
+                        setTimeout(()=>{
+                            that_.$router.push({path: '../Login' });
+                        }, 1100);
+                    });
+                }
+                else {
+                    that_.userBankInfo = res.data.find( function(e){
+                        return e.IsDefault;
+                    });
+                }
+            })
+            .catch( function(error){});
+        },
+        getOverAllBalance() {
+            let that_ = this;
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey
+                }
+            };
+            this.$http.get( USERINFO , config )
+            .then( function(res){
+                that_.storeUserInfoSession(qs.stringify(res.data.Value));
+                that_.AccountDetails = res.data.Value;
+            });
+        },
+    },
     created() {
-      this.setCurrentPage('WalletWithdraw');
+        this.getOverAllBalance();
+        this.getUserDefaultBankInfo();
+        this.setCurrentPage('WalletWithdraw');
+        // let session_ = this.currentUser;
+        // this.AccountDetails = qs.parse(session_.userInfo);
+        // if ( !(this.AccountDetails == null && this.AccountDetails.AccountName) ) {
+        //     this.requestAccountInfo( this.currentUser.tokenKey );
+        // }
     }
 }
 </script>

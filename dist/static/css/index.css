@@ -1,0 +1,229 @@
+.dl-icon {
+  width: 0.12rem;
+  height: 0.12rem;
+  color: #16a693;
+}
+
+.dl-item {
+  position: relative;
+  height: 0.125rem;
+  line-height: 0.125rem;
+  margin: 0 .1rem;
+  padding: 0.1rem 0.1rem;
+  border-bottom: 0.01rem solid #e7eeed;
+}
+
+.dl-item__title {
+  margin: 0 0.05rem 0 .1rem;
+  color: #8c9593;
+}
+
+.dl-item__content {
+  color: #444948;
+}
+
+.dl-item__btn {
+  position: absolute;
+  right: 0.1rem;
+  top: 0.08rem;
+  padding: 0.08rem 0.12rem;
+  height: 0.09rem;
+  line-height: 0.09rem;
+  border: 0.01rem solid #26a97a;
+  border-radius: 0.125rem;
+  font-size: .09rem;
+  color: #26a97a;
+}
+
+.dl-confirm__btn {
+  margin: 0.18rem 0.1rem;
+  width: 3rem;
+  height: 0.36rem;
+  line-height: 0.36rem;
+  font-size: .13rem;
+  text-align: center;
+  background-color: #26a97a;
+  color: #ffffff;
+}
+
+.page__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 3.2rem;
+  height: 0.44rem;
+  line-height: 0.44rem;
+  background-color: #116f4d;
+  font-size: 0.15rem;
+  color: #b5ead7;
+  text-align: center;
+}
+
+.page__header-return {
+  position: absolute;
+  top: 0.13rem;
+  left: 0.2rem;
+}
+
+.page__header-server {
+  position: absolute;
+  top: 0.15rem;
+  right: 0.2rem;
+  width: 0.18rem;
+  height: 0.15rem;
+}
+
+.select-city {
+  margin-top: 0.44rem;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.select-city__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 3.2rem;
+  height: 0.44rem;
+  line-height: 0.44rem;
+  color: #686d6b;
+  text-align: center;
+  font-size: 0.15rem;
+  background-color: #ebf3f0;
+}
+
+.select-city__return {
+  position: absolute;
+  top: 0.13rem;
+  left: 0.2rem;
+}
+
+.select-city__content {
+  padding-top: 0.13rem;    padding-bottom: 0.8rem;
+  background: #fff;
+}
+
+.select-city__select {
+  padding: 0.1rem 0 0 0.105rem;
+  border-bottom: 0.01rem solid #e5ede9;
+  color: #686d6b;
+}
+
+.select-city__select-target {
+  display: inline-block;
+  padding-bottom: 0.05rem;
+  margin-right: 0.1rem;
+  color: black;
+}
+
+.select-city__select-item {
+  display: inline-block;
+  width: 0.49rem;
+  text-align: center;
+  color: #26a97a;
+  padding-bottom: 0.05rem;
+  border-bottom: 0.02rem solid #26a97a;
+}
+
+.select-city__list-item {
+  padding: 0.1rem 0 0.1rem 0.105rem;
+  border-bottom: 0.01rem solid #e5ede9;
+  color: #686d6b;
+}
+
+.head-back {
+  background: url('../../static/img/back.png') center no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 0.1rem;
+  top: 0.18rem;
+  width: 0.1rem;
+  height: 0.18rem;
+}
+
+.head-text {
+  position: absolute;
+  top: 0.15rem;
+  left: 1.5rem;
+  font-size: 0.15rem;
+  color: #b5ead7;
+  width: auto;
+  line-height: 0.24rem;
+  height: 0.245rem;
+}
+
+.bank-card__A {
+  background: url("../img/Banks/A.png") center no-repeat;
+}
+.bank-card__AC {
+  background: url("../img/Banks/AC.png") center no-repeat;
+}
+.bank-card__AD {
+  background: url("../img/Banks/AD.png") center no-repeat;
+}
+.bank-card__B {
+  background: url("../img/Banks/B.png") center no-repeat;
+}
+.bank-card__C {
+  background: url("../img/Banks/C.png") center no-repeat;
+}
+.bank-card__D {
+  background: url("../img/Banks/D.png") center no-repeat;
+}
+.bank-card__E {
+  background: url("../img/Banks/E.png") center no-repeat;
+}
+.bank-card__F {
+  background: url("../img/Banks/F.png") center no-repeat;
+}
+.bank-card__G {
+  background: url("../img/Banks/G.png") center no-repeat;
+}
+.bank-card__I {
+  background: url("../img/Banks/I.png") center no-repeat;
+}
+.bank-card__J {
+  background: url("../img/Banks/J.png") center no-repeat;
+}
+.bank-card__K {
+  background: url("../img/Banks/K.png") center no-repeat;
+}
+.bank-card__M {
+  background: url("../img/Banks/M.png") center no-repeat;
+}
+.bank-card__N {
+  background: url("../img/Banks/N.png") center no-repeat;
+}
+.bank-card__O {
+  background: url("../img/Banks/O.png") center no-repeat;
+}
+.bank-card__P {
+  background: url("../img/Banks/P.png") center no-repeat;
+}
+.bank-card__R {
+  background: url("../img/Banks/R.png") center no-repeat;
+}
+.bank-card__S {
+  background: url("../img/Banks/S.png") center no-repeat;
+}
+.bank-card__T {
+  background: url("../img/Banks/T.png") center no-repeat;
+}
+.bank-card__U {
+  background: url("../img/Banks/U.png") center no-repeat;
+}
+.bank-card__V {
+  background: url("../img/Banks/V.png") center no-repeat;
+}
+.bank-card__W {
+  background: url("../img/Banks/W.png") center no-repeat;
+}
+.bank-card__Y {
+  background: url("../img/Banks/Y.png") center no-repeat;
+}
+.bank-card__Z {
+  background: url("../img/Banks/Z.png") center no-repeat;
+}
+.bank-card__OTHER {
+  background: url("../img/Banks/OTHER.png") center no-repeat;
+}

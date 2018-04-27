@@ -11,7 +11,7 @@
     <div class="wallet">
      <div class="wallet-txt">
             <p class="coins-label" style=""><img src="../../static/img/coins-ico.png"  class="coins" />中心钱包</p>
-            <p class="balance-label" style="">余额：<span>￥{{ parseFloat(this.currentUser.userInfo.Balance).toFixed(2) }}</span></p>
+            <p class="balance-label" style="">余额：<span v-if="!isNaN(AccountDetails.Balance)" >￥{{ parseFloat(AccountDetails.Balance).toFixed(2) }}</span></p>
     </div>
     <div class="wallet-btn">
         <a><img @click="routePage('/Wallet')" src="../../static/img/wallet_.png" class="wallet-button" /></a>
@@ -53,9 +53,6 @@ export default {
         routePage: function(pageName){
             this.$router.push({ path: pageName });
         },
-        setAccountDetails() {
-            this.AccountDetails = this.currentUser.userInfo;
-        },
         requestAccountInfo( token ){
             let config = {
                 headers: {
@@ -66,7 +63,7 @@ export default {
             this.$http.get( USERINFO,  config )
             .then( function(res){
                 that_.storeUserInfoSession((qs.stringify(res.data.Value)))
-                that_.setAccountDetails();
+                that_.AccountDetails = res.data.Value;
             })
             .catch( function(error){ });
         },
@@ -86,31 +83,25 @@ export default {
         }
     },
     computed: {
-        ...mapState ({
-            tokenKey : state => state.tokenKey
-        }),
         ...mapGetters({ 
             currentUser: 'currentUser',
             notices: 'getNotices'
         })
     },
-    created() {
+    created(){
+        let session_ = this.currentUser;
         let isLoggedIn = ( this.currentUser.tokenKey != '' && this.currentUser.tokenKey != null && this.currentUser.tokenKey != 'undefined');
-        console.log('1');
         if ( !isLoggedIn) {
-            console.log('2');
             this.$router.push('../Login');
             return;
         }
-        if ( this.currentUser.userInfo != null && this.currentUser.userInfo.AccountName ) {
-            console.log('3');
-            this.setAccountDetails();
+        this.AccountDetails = qs.parse(session_.userInfo);
+        if ( this.AccountDetails == null && this.AccountDetails.AccountName ) {
+
         }
         else {
-            console.log('4');
             this.requestAccountInfo( this.currentUser.tokenKey );
         }
-        console.log('5');
         this.getNotices();
         this.setCurrentPage('Homepage');
     }

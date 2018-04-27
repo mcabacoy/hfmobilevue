@@ -8,13 +8,14 @@
                 :class="item">
             </div>
         </div>
-        <div class="swiper-pagination swiper-pagination-clickable"></div>
+         
+        <div class="swiper-pagination"></div>
     </div>
 </div>
 </template>
 
 <script>
-import Swiper from 'Swiper'
+import Swiper from 'swiper'; 
 export default {
   name: 'bannerSwiper',
   components: {
@@ -23,14 +24,15 @@ export default {
   mounted(){
     this.$nextTick(() => {
         var swiper = new Swiper('.swiper-container', {
-            autoplay: true,
-            lazy: {
-                loadPrevNext: true,
-            },
-            pagination: {
-                el:  '.swiper-pagination',
-                clickable: true
-            }
+            // autoplay: {
+            //     delay: 10000,
+            // },
+            // pagination: {
+            //     el: '.swiper-pagination',
+            // }
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            autoplay: 2000,
         });
     });
   },
