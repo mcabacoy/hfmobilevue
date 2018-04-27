@@ -1,4 +1,4 @@
-let serviceUrl = 'http://i.toobet.co';
+let serviceUrl = 'http://localhost:60324';
 // 'http://localhost:60324';
 // 'http://i.toobet.co';
 export const serviceURL = serviceUrl;
