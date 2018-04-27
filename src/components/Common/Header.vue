@@ -4,7 +4,6 @@
         <span class="nav-back"  @click="goBack()"><i></i></span>
         <div :class="['nav-game' , getGameBalanceTitle]">
         </div>
-        <span class="nav-toggle"><i></i></span>
     </div>
 
     <div class="nav"  v-else-if="currentPageName != ''" >
@@ -57,30 +56,37 @@ export default {
 
     &.PT1 , &.PT {
         background: url(../../../static/img/HGame/PT-text.png) no-repeat center;
+        background-position-x: -.2rem;
     }
     
     &.MG {
         background: url(../../../static/img/HGame/MG-text.png) no-repeat center;
+        background-position-x: -.2rem;
     }
 
     &.SG {
         background: url(../../../static/img/HGame/SG-text.png) no-repeat center;
+        background-position-x: -.2rem;
     }
 
     &.HABA {
         background: url(../../../static/img/HGame/HB-text.png) no-repeat center;
+        background-position-x: -.2rem;
     }
     
     &.PNG {
         background: url(../../../static/img/HGame/PNG-text.png) no-repeat center;
+        background-position-x: -.2rem;
     }
 
     &.TTG {
         background: url(../../../static/img/HGame/TTG-text.png) no-repeat center;
+        background-position-x: -.2rem;
     }
 
     &.BS {
         background: url(../../../static/img/HGame/BS-text.png) no-repeat center;
+        background-position-x: -.2rem;
     }
     
     background-size: contain !important;
