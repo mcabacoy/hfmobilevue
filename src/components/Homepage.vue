@@ -14,8 +14,8 @@
             <p class="balance-label" style="">余额：<span>￥{{ parseFloat(this.currentUser.userInfo.Balance).toFixed(2) }}</span></p>
     </div>
     <div class="wallet-btn">
-        <a ><img @click="routePage('/Wallet')" src="../../static/img/wallet_.png" class="wallet-button" /></a>
-        <a ><img  @click="routePage('/Signin')" src="../../static/img/signin.png" class="signin-button" /></a>
+        <a><img @click="routePage('/Wallet')" src="../../static/img/wallet_.png" class="wallet-button" /></a>
+        <a><img  @click="routePage('/Signin')" src="../../static/img/signin.png" class="signin-button" /></a>
     </div>
     </div>
 
