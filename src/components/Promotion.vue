@@ -52,7 +52,7 @@
     <!-- TAB 2 -->
     <div class="systeminfo tab-content" v-else-if="opentab == 'information'">
         <ul class="slotMachine">
-            <li class="Offer1"
+            <li class="Offer"
                 v-for="(i, index) in promlist" :key="index">
                 <div class="offer_content">
                     <a @click="routePage('/PromDetails', [i.promType])">
