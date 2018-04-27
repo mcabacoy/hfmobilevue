@@ -49,7 +49,6 @@ export default {
     ]),
     login(){
         // Validate inputs
-        debugger;
         if ( this.userName.trim() == '') {
             let errmessage = '用户名不能为空';
                 errmessage = "Username can't be empty";

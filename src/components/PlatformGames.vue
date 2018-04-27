@@ -62,18 +62,15 @@ export default {
     getGameListItems(payload){
       var gameList = this.gameset.gamelist;
       let counter = 12;
-      let start_index = payload * counter;
-      let end_index = start_index + ( counter );
+      let start_index = (payload * counter) + 1;
+      let end_index = start_index + ( counter -1  );
       
       var games = gameList.filter( function(e) {
-<<<<<<< HEAD
-        return  (  (isNaN(e.id / 12) ? 0 : Math.floor(e.id / 12) ) == payload ) ;
-=======
-        return ( e.id >= start_index && e.id  <= end_index ) && (  (isNaN(e.id / 12) ? 0 : Math.floor(e.id / 12) ) == payload  ) ;
->>>>>>> c76f8c0cd66e784c8ab4710e1c9d416b3524d5a2
+          return ( e.id >= start_index && e.id  <= end_index )
+          && (  ( ((isNaN(e.id / 12) ? 0 : Math.floor(e.id / 12) ) == payload) && e.id != end_index )
+                   || e.id == end_index ) ;
       });
-      // console.log(counter + " : " + start_index + " : " + end_index + " : " + payload);
-      // console.log(payload);
+
       return games;
     },
     ...mapMutations ([
@@ -83,10 +80,6 @@ export default {
   created() {
       this.setCurrentPage('PlatformGames');
       this.gameset = this.$store.getters.getGamesByPlatform(this.platform);
-<<<<<<< HEAD
-      console.log(this.gameset);
-=======
->>>>>>> c76f8c0cd66e784c8ab4710e1c9d416b3524d5a2
   }
 }
 </script>
