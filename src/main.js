@@ -75,7 +75,7 @@ const routes = [
     path: '/BankCard',
     component: BankCard,
     children: [{
-      path: '/Wallet/:targettab',
+      path: '/BankCard/:targettab',
       component: BankCard,
       props: true
       }
