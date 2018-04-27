@@ -88,7 +88,7 @@ export default {
             notices: 'getNotices'
         })
     },
-    created(){
+    mounted(){
         let session_ = this.currentUser;
         let isLoggedIn = ( this.currentUser.tokenKey != '' && this.currentUser.tokenKey != null && this.currentUser.tokenKey != 'undefined');
         if ( !isLoggedIn) {
@@ -96,10 +96,7 @@ export default {
             return;
         }
         this.AccountDetails = qs.parse(session_.userInfo);
-        if ( this.AccountDetails == null && this.AccountDetails.AccountName ) {
-
-        }
-        else {
+        if (!( this.AccountDetails == null && this.AccountDetails.AccountName )) {
             this.requestAccountInfo( this.currentUser.tokenKey );
         }
         this.getNotices();

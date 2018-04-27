@@ -95,10 +95,11 @@ export default {
       },
     },
     created() {
-        let tokenKey = 'accessToken';
-        sessionStorage.removeItem(tokenKey);
-        window.localStorage.removeItem('information');
-        sessionStorage.removeItem('userInfo');
+        // let tokenKey = 'accessToken';
+        // sessionStorage.removeItem(tokenKey);
+        // window.localStorage.removeItem('information');
+        // sessionStorage.removeItem('userInfo');
+        
         this.setCurrentPage('LogIn');
     }
 }
