@@ -53,7 +53,6 @@ export default {
             };
             this.$http.get( GET_GAME_BALANCE + '?gamecode=' +   this.item.customClass , config)
             .then( function(res){
-                console.log(res.data);
                 that_.gamebalance = ( !Number.isNaN(res.data) && res.data != ''  && res.data != null )  
                                     ? parseInt(res.data).toFixed(2) 
                                     : 0.00;

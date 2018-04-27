@@ -1,22 +1,22 @@
 <template>
-  <section class="content-wrapper" id="Wallet">
-    <div class="wallet-wrap">
-        <div class="wallet-content">
-            <img src="../../static/img/wallet-logo.png"/>
-            <p class="wallet-balance">￥{{ parseFloat(AccountDetails.Balance).toFixed(2) }}</p>
-            <a  @click="routePage('/Wallet/bankinfo')" class="toBankCard">添加银行卡</a>
-            <div class="rescue">
-                <a href="javascript:;">周六奖金</a>
-                <a href="javascript:;">周日奖金</a>
+    <section class="content-wrapper" id="Wallet">
+        <div class="wallet-wrap">
+            <div class="wallet-content">
+                <img src="../../static/img/wallet-logo.png"/>
+                <p class="wallet-balance">￥{{ parseFloat(AccountDetails.Balance).toFixed(2) }}</p>
+                <a  @click="routePage('/BankCard/bankinfo')" class="toBankCard">添加银行卡</a>
+                <div class="rescue">
+                    <a href="javascript:;">周六奖金</a>
+                    <a href="javascript:;">周日奖金</a>
+                </div>
             </div>
+            <div class="wallet-btns">
+                <a @click="routePage('WalletRecharge')" class="Recharge_btn greenbg">充 &nbsp;值</a>
+                <a @click="routePage('WalletWithdraw')"  class="withdraw_btn orangebg">提 &nbsp;现</a>
+                <a @click="routePage('Transfers')"  class="withdraw_btn redbg">转 &nbsp;账</a>
+            </div>  
         </div>
-        <div class="wallet-btns">
-            <a @click="routePage('WalletRecharge')" class="Recharge_btn greenbg">充 &nbsp;值</a>
-            <a @click="routePage('WalletWithdraw')"  class="withdraw_btn orangebg">提 &nbsp;现</a>
-            <a @click="routePage('Transfers')"  class="withdraw_btn redbg">转 &nbsp;账</a>
-        </div>  
-    </div>
-</section>
+    </section>
 </template>
 
 <script>

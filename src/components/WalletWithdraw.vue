@@ -7,7 +7,7 @@
 
             </li>
             <li class="toBankCard">
-                <span>到账银行卡：</span><a @click="routePage('BankCard')"><span class="default" v-html="userBankInfo != null ? userBankInfo.BankName + ' (' + userBankInfo.CardNo + ')'  : '默认银行卡'"></span><i class="icon-arrow"></i></a>
+                <span>到账银行卡：</span><a @click="routePage('BankCard/bankinfo')"><span class="default" v-html="userBankInfo != null ? userBankInfo.BankName + ' (' + userBankInfo.CardNo + ')'  : '默认银行卡'"></span><i class="icon-arrow"></i></a>
             </li>
         </ul>
         <div class="cz_nr cz_nr02">
@@ -61,7 +61,8 @@ export default {
             this.$router.push({ path: pageName });
         },
         withDrawAll(){
-            this.withdrawAmount = parseFloat(this.currentUser.userInfo.Balance).toFixed(2);
+            let userInfo_ = qs.parse(this.currentUser.userInfo);
+            this.withdrawAmount = parseFloat(userInfo_.Balance).toFixed(2);
         },
         withdraw(){
             
@@ -111,8 +112,9 @@ export default {
                     that_.notifmessage = ('请先绑定银行卡');
                 } 
                 else {
+                    var userInfo_ = qs.parse(that_.currentUser.userInfo);
                     let postData = {
-                        UserId: that_.currentUser.userInfo.UserId,
+                        UserId: userInfo_UserId,
                         Amount: parseFloat(that_.withdrawAmount)
                     };
                     // loginResult(true)
