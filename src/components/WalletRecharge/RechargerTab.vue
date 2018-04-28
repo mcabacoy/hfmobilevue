@@ -3,11 +3,13 @@
       <div>
             <div>
                 <div class="tab-header">
-                    <div class="header-container tab-section exclusive" v-if="methoddetails.recharger.headertype=='exclusive'" >
+                    <div class="header-container tab-section exclusive" v-if="methoddetails.recharger.headertype=='exclusive'" 
+                            style="border-radius: .08rem .08rem 0 0;">
                         添加专属微信：<span id="WeChatNumber"></span>，
                         <span>&nbsp;转账并备注账号!</span></div>
 
-                    <div class="header-container tab-section" v-if="methoddetails.recharger.headertype =='limit'">
+                    <div class="header-container tab-section" v-if="methoddetails.recharger.headertype =='limit'" 
+                            style="border-radius: .08rem .08rem 0 0;">
                                 {{ methoddetails.recharger.limit.label  }}：
                                 <span>{{ methoddetails.recharger.limit.from }}
                                 &nbsp;</span>  {{ methoddetails.recharger.limit.preposition }} <span>
@@ -503,15 +505,14 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus" scoped >
 .tabs-content {
-    
-    height: 6.8rem;
+    height: 7.5rem;
     background: #d6d7db;
     padding-top: .22rem;
     
     .tab-section {
         background: #ffd800;
         color: #4c4c4c;
-        border-radius: 3px 3px 0 0;
+        border-radius: 0 0 .08rem .08rem;
         font-size: .25rem;
         width: 6.2rem;
         height: .8rem;
@@ -535,8 +536,8 @@ export default {
     }
 
     .tab-amount {
-        border-radius: 0 0 3px 3px;
-        border: 1px solid #bdbdbd !important;
+        border-left: 1px solid #bdbdbd !important;
+        border-right: 1px solid #bdbdbd !important;
         border-top: none;
         margin-top: 0;
         height: 1.5rem;
