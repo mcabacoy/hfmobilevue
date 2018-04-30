@@ -14,13 +14,9 @@
 </div>
 </template>
 
-<script>
-import Swiper from 'swiper'; 
+<script> 
 export default {
   name: 'bannerSwiper',
-  components: {
-      Swiper
-  },
   mounted(){
     this.$nextTick(() => {
         var swiper = new Swiper('.swiper-container', {

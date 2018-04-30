@@ -26,13 +26,11 @@
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex'
 import GameImage from './GameList/ListImages'
-import Swiper from 'Swiper'
 import { GET_SG_TOKEN, GET_HB_TOKEN, GET_PNG_TOKEN, GET_TTG_TOKEN, GET_BS_TOKEN } from './../api'
 var qs = require("querystring");
 export default {
   name: 'platform-games',
   components: {
-      Swiper,
       GameImage
   },
   mounted(){
