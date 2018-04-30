@@ -53,7 +53,7 @@ const state ={
         {
             link: 'UnionPay',
             linktype: 'internal',
-            name: '  ',
+            name: '鸿福首页',
             class: '',
             type: ''
         },
