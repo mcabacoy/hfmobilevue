@@ -9,6 +9,10 @@ export const LOGIN = serviceUrl + '/Token';
 // User Info - GET
 export const USERINFO = serviceUrl + '/Account';
 
+
+// SET COOKIE AGENT CODE
+export const SET_COOKIE_AGENT_CODE = serviceUrl + '/Common/SetCookieAgentCode';
+
 // Request Captcha - GET
 export const LOAD_CAPTCHA = serviceUrl + '/Common/GenerateCaptcha';
 // Validate Captcha - POST
@@ -144,3 +148,9 @@ export const GET_PNG_TOKEN = serviceUrl + '/Game/GetPngToken' ;
 export const GET_TTG_TOKEN = serviceUrl + '/Game/GetTtgToken' ;
 export const GET_BS_TOKEN = serviceUrl + '/Game/GetBetSoftToken' ;
 
+
+
+
+// CUSTOMER COMPLAIN
+// POST
+export const ADD_CUSTOMER_COMPLAIN = serviceUrl + '/Active/AddCusterComplains';

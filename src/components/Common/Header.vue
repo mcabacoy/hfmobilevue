@@ -48,7 +48,6 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-
 .nav-game {
     height: rem;
     height: 1rem;
@@ -91,9 +90,7 @@ export default {
     
     background-size: contain !important;
 }
-
 .nav-platform {
-    
     background: url(../../../static/img/HGame/nav-bgportrait.png) no-repeat;
     background-size: 100%;
     height: 1rem;
@@ -159,37 +156,35 @@ export default {
 
 
 }
-
-.nav .backer:before {
-    content: "";
-    width: .24rem;
-    height: .24rem;
-    border-left: .03rem solid #ffc600;
-    border-bottom: .03rem solid #ffc600;
-    display: block;
-    float: left;
-    margin: .45rem -0.3rem 0 .4rem;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
+.nav{
+    .backer{
+        color: #fff;
+        font-size: .3rem;
+        line-height: 1.35rem;
+        position: absolute;
+        width: 1.2rem;
+        z-index: 5;
+    }
+    .backer:before{
+        content: "";
+        width: .24rem;
+        height: .24rem;
+        border-left: .03rem solid #ffc600;
+        border-bottom: .03rem solid #ffc600;
+        display: block;
+        float: left;
+        margin: .45rem -0.3rem 0 .4rem;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
 }
-
-.nav .backer {
-    color: #fff;
-    font-size: .3rem;
-    line-height: 1.35rem;
-    position: absolute;
-    width: 1.2rem;
-    z-index: 5;
-}
-
 .prompt {
     text-align: center;
     color: #acacac;
 }
-
 .nav, .nav2 {
     height: 1.1rem;
     background: #433635;
@@ -203,54 +198,51 @@ export default {
     z-index: 150;
     display: block;
 }
-
-
-
 .nav-fixed-top {
     position: fixed;
     top:0;
     z-index: 100;
 }
-.nav2 .backer {
-    color: #fff;
-    font-size: .3rem;
-    line-height: 1.35rem;
-    position: absolute;
-    width: 1.2rem;
-    z-index:5;
-}
-.nav2 .prompt span {
-    margin-left:-.4rem;
-}
-.nav2 .backer:before {
-    content: "";
-    width: .24rem;
-    height: .24rem;
-    border-left: .03rem solid #ffc600;
-    border-bottom: .03rem solid #ffc600;
-    display: block;
-    float: left;
-    margin: .45rem -0.3rem 0 .4rem;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
+.nav2 {
+    .backer{
+        color: #fff;
+        font-size: .3rem;
+        line-height: 1.35rem;
+        position: absolute;
+        width: 1.2rem;
+        z-index:5;
+    }
 
-.nav2 span {
-    color: #ffcc00;
-    font-size: .33rem;
-    line-height: 1.15rem;
-    width: 100%;
-    text-align: center;
-    display: block;
-    position: absolute;
-    top: 0;
+    .prompt span{
+        margin-left:-.4rem;
+    }
+    .backer:before{
+        content: "";
+        width: .24rem;
+        height: .24rem;
+        border-left: .03rem solid #ffc600;
+        border-bottom: .03rem solid #ffc600;
+        display: block;
+        float: left;
+        margin: .45rem -0.3rem 0 .4rem;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    span{
+        color: #ffcc00;
+        font-size: .33rem;
+        line-height: 1.15rem;
+        width: 100%;
+        text-align: center;
+        display: block;
+        position: absolute;
+        top: 0;
+    }
 }
-
-.nav
-{
+.nav{
     span {
         color: #ffcc00;
         font-size: .33rem;
@@ -277,5 +269,24 @@ export default {
     }
 }
 
+@media screen and (orientation:landscape){
+    .nav-platform{
+        background: url(../../../static/img/HGame/nav-bg.png) no-repeat;
+        background-size: 100%;
+        height: .5rem;
 
+        .nav-back{
+            i{
+                width: 53%;
+                background: url(../../../static/img/HGame/back.png)no-repeat;
+                background-size: 100%;
+            }
+        }
+        .nav-game{
+            width: 50%;
+            height: .53rem;
+            margin: 0 auto;
+        }
+    }
+}
 </style>

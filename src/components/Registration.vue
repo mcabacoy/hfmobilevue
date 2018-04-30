@@ -105,14 +105,17 @@
 <script>
 var qs = require("querystring");
 import Notification from './Common/Notification'
-import  {   LOAD_CAPTCHA,
+import  {   
+            LOAD_CAPTCHA,
             VALIDATE_CAPTCHA, 
             CAPTCHA_SOURCE,
             REGISTER,
             REGISTER_AGENT_CODE,
             CHECK_USERNAME,
             CHECK_MOBILE,
-            CHECK_EMAIL
+            CHECK_EMAIL,
+            serviceURL,
+            SET_COOKIE_AGENT_CODE
         } from './../api'
 
 export default {
@@ -150,6 +153,8 @@ export default {
     created() {
         this.loadCaptcha();
         // this.birthDate = new Date('1999/7/14');
+        
+        this.setCookieAgent();
     },
 
     methods: {
@@ -330,7 +335,7 @@ export default {
             this.$http.get( LOAD_CAPTCHA , config )
                 .then( function(res) {
                     var imgdata_ = res.data.split('.png');
-                    that_.captchaImage = imgdata_[0]; //'./../../static' + imgdata_[0] + '.png';
+                    that_.captchaImage = serviceURL + +imgdata_[0] + '.png'; //'./../../static' + imgdata_[0] + '.png';
                     that_.isCaptchaCorrect = false;
                 });
         },
@@ -402,7 +407,6 @@ export default {
             // Validate Captcha
         },
         register(){
-            console.log(this.validateForm());
             if (!this.validateForm()){
                 return;
             }            
@@ -446,6 +450,14 @@ export default {
                     });
                 })
             }
+        },
+        setCookieAgent(){
+            // SET_COOKIE_AGENT_CODE
+            this.$http.get(SET_COOKIE_AGENT_CODE)
+            .then( function(res){
+                sessionStorage.setItem("SetCookie", 'true');
+            })
+            .catch( function(error){});
         }
     }
 }

@@ -81,8 +81,9 @@ export default {
     }
 }
 
-.swiper-pagination {
+#homepage .swiper-pagination {
    bottom: 0px !important;
+   position: absolute;
 
    .swiper-pagination-bullet{
         width: 7px;
