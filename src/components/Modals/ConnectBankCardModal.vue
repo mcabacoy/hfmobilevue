@@ -105,7 +105,6 @@ export default {
                  this.notifmessage = ("请输入开户银行地址");
                  return false;
             }
-            debugger;
             let postData = {
                 Id: 0,
                 BankName: this.bankCode,

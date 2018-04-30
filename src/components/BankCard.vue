@@ -184,7 +184,7 @@ export default {
             this.displaySignout = mode;
         },
         showConnectBankCard: function (){
-            if (  this.getCardList.length = 5 ){
+            if (  this.banklist.length == 5 ){
                 this.notifmessage = 'Maxmimum of 5 cards only'
             }
             else {

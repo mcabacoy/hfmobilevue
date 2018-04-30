@@ -63,19 +63,33 @@ export default {
   },
   methods: {
     getPageNumber(payload){
-      return Math.ceil(payload.length / 12);
+      if (window.innerHeight > window.innerWidth) {
+        return Math.ceil(payload.length / 12);
+      }
+      else {
+        return Math.ceil(payload.length / 8);
+      }
     },
     getGameListItems(payload){
       var gameList = this.gameset.gamelist;
-      let counter = 12;
+      let counter = 0;
+      if (window.innerHeight > window.innerWidth) {
+        counter = 12;
+      }
+      else {
+        counter = 8;
+      }
+
       let start_index = (payload * counter) + 1;
       let end_index = start_index + ( counter -1  );
       
       var games = gameList.filter( function(e) {
           return ( e.id >= start_index && e.id  <= end_index )
-          && (  ( ((isNaN(e.id / 12) ? 0 : Math.floor(e.id / 12) ) == payload) && e.id != end_index )
+          && (  ( ((isNaN(e.id / counter) ? 0 : Math.floor(e.id / counter) ) == payload) && e.id != end_index )
                    || e.id == end_index ) ;
       });
+
+     
 
       return games;
     },
@@ -367,6 +381,67 @@ export default {
    }
  }
  @media screen and (orientation:landscape){
+    .contentdiv{
+        height: 10rem;
+        display: block;
+      }
+      .swiper-slide{
+        ul{
+            list-style: none;
+            width: 99%;
+            height: 100%;
+            margin: 0 auto;
+                padding-top: 0.2rem;
+        }
+        li{
+            width: 22.4%;
+            height: 1.24rem;
+            margin-right: .1rem;
+            margin-bottom: .1rem;
+            float: left;
+            display: block;
+            text-align: center;
+            color: #fff;
+            font-size: .12rem;
+            background: url(../../static/img/HGame/gamemenu-bg.png) no-repeat;
+            background-size: 100%;
+            font-family: HiraginoSans !important;
+            letter-spacing: .02rem;
+            line-height: .225rem;
+            box-shadow: none;
+            position: relative;
+          
+        }
 
+        .picture{
+          width: 93%;
+          height: .91rem;
+          border-radius: 2px;
+          margin-left: 4%;
+          margin-top: .05rem;
+          margin-bottom: -.03rem !important;
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+      .swiper-pagination{
+          bottom: .34rem !important;
+          position: fixed;
+      }
+      .platform-games{
+        .swiper-pagination-bullet{
+              margin: 0.02rem !important;
+              height: .08rem;
+              opacity: 1;
+              background: #ac1250 !important;
+              box-shadow: 0 2px 3px 0 #540928;
+              width: .3rem;
+              border-radius: 0 !important;
+        }
+        .swiper-pagination-bullet-active{
+            background: #ffa4b1 !important;
+            opacity: 1 !important;
+          }
+      }
  }
 </style>
