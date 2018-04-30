@@ -6,8 +6,8 @@
                 <p class="wallet-balance">￥{{ parseFloat(AccountDetails.Balance).toFixed(2) }}</p>
                 <a  @click="routePage('/BankCard/bankinfo')" class="toBankCard">添加银行卡</a>
                 <div class="rescue">
-                    <a href="javascript:;">周六奖金</a>
-                    <a href="javascript:;">周日奖金</a>
+                    <a @click="getBonus" href="javascript:;">周六奖金</a>
+                    <a @click="getBonus" href="javascript:;">周日奖金</a>
                 </div>
             </div>
             <div class="wallet-btns">
@@ -21,17 +21,33 @@
 
 <script>
 import { mapState , mapMutations, mapGetters } from 'vuex'
+import { GET_WEEKLY_BONUS } from './../api'
+
 var qs = require('querystring')
 export default {
     data(){
       return {
-          AccountDetails: {}
+          AccountDetails: ''
       }
     },
     methods: {
-        ...mapMutations (['setCurrentPage']),
+        ...mapMutations (['setCurrentPage', 'getSessions']),
         routePage: function(pageName){
             this.$router.push({ path: pageName });
+        },
+        getBonus () {
+            let that_ = this;
+            let config = {
+                headers: {
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                }        
+            };
+            this.$http.get( GET_WEEKLY_BONUS, config)
+            .then( function(res){
+                alert(res.data.msg);
+            })
+            .catch( function(error){
+            });
         }
     },
     computed: {
@@ -40,8 +56,17 @@ export default {
         })
     },
     created() {
-      this.setCurrentPage('Wallet');
-      this.AccountDetails = qs.parse( this.currentUser.userInfo );
+        this.getSessions();
+        this.AccountDetails = this.currentUser.userInfo;
+        if (  this.AccountDetails == null || this.AccountDetails == ''  )
+        {
+            this.requestAccountInfo();
+            this.getSessions();
+            this.AccountDetails = this.currentUser.userInfo;
+        }
+
+        this.setCurrentPage('Wallet');
+        
     }
 }
 </script>

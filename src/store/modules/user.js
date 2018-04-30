@@ -1,4 +1,11 @@
+
 var qs = require("querystring");
+
+import { USERINFO } from './../../api';
+import Axios from './../../utils/axios'
+import Router from 'vue-router';
+
+
 const tokenKey_ = 'accessToken';
 const loginInfo_ = 'information';
 const userInfo_ = 'userInfo';
@@ -33,16 +40,16 @@ const emptyUserInfo_ =  {
 }
 
 const state = {
-    // tokenKey: sessionStorage.getItem(tokenKey_),
-    // userInfo: emptyUserInfo_,
+    tokenKey: '',
+    userInfo: {},
     notices: [],
 }
 
 const getters = {
     currentUser: state => {
         return {
-            tokenKey : sessionStorage.getItem(tokenKey_),
-            userInfo : (sessionStorage.getItem( userInfo_ ))
+            tokenKey : state.tokenKey,
+            userInfo : state.userInfo
         }
     },
     getNotices: state => {
@@ -50,14 +57,16 @@ const getters = {
     }
 }
 
-
 const mutations = {
+    getSessions (state){
+        state.tokenKey = sessionStorage.getItem(tokenKey_),
+        state.userInfo = qs.parse(sessionStorage.getItem( userInfo_ ))
+    },
     setUserInfo  (state, payload) {
         state.userInfo_ = payload;
     },
     clearSessions (state) {
-        // state.userInfo = emptyUserInfo_;
-        state.tokenKey = ''
+        state.tokenKey = '';
         sessionStorage.removeItem(tokenKey_);
         window.localStorage.removeItem(loginInfo_);
         sessionStorage.removeItem(userInfo_);
@@ -70,12 +79,26 @@ const mutations = {
         sessionStorage.setItem(userInfo_, payload );
         state.notices = payload;
     },
-    logout(state, payload){
+    logoutUser(state, payload){
         state.tokenKey = ''
         sessionStorage.removeItem(tokenKey_);
         window.localStorage.removeItem(loginInfo_);
         sessionStorage.removeItem(userInfo_);
-        
+        Router.push({ path: '../Login'    });
+    },
+    requestAccountInfo (state, payload){
+            let config = { headers: {
+                   'Authorization': 'Bearer ' + state.tokenKey,
+                }
+            };
+            let that_ = this;
+            Axios.get( USERINFO,  config )
+            .then( function(res){
+                sessionStorage.setItem(userInfo_, qs.stringify(res.data.Value));
+            })
+            .catch( function(error){ 
+
+            });
     }
 }
 

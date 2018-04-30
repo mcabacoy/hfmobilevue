@@ -44,6 +44,7 @@ export default {
     },
     methods: {
         ...mapMutations ([
+            'getSessions',
             'selectMethod',
             'setCurrentPage',
             'setUserInfo',
@@ -87,6 +88,9 @@ export default {
             currentUser: 'currentUser',
             notices: 'getNotices'
         })
+    },
+    created(){
+        this.getSessions();
     },
     mounted(){
         let session_ = this.currentUser;

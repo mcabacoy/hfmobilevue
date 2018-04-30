@@ -34,23 +34,30 @@
 <script>
 
 import { mapState , mapMutations, mapGetters } from 'vuex'
+import { USERINFO } from './../../api'
 var qs = require("querystring");
 export default {
   name: 'SideNav',
   data(){
       return {
-          AccountDetails: {}
-      }
+          AccountDetails: ''
+        }
   },
   mounted(){
       this.$nextTick(() => {
           setTimeout(()=>{
               this.$refs.sidecontent.className = this.$refs.sidecontent.className + ' visible';
+                     
           }, 50);
       });
   },
   methods: {
-      ...mapMutations (['setCurrentPage', 'clearSessions']),
+      ...mapMutations ([
+          'setCurrentPage', 
+          'getSessions',
+          'requestAccountInfo',
+          'logoutUser'
+        ]),
       getUserProfileClass: function (grade){
           switch(grade){
               case 0:
@@ -74,12 +81,18 @@ export default {
         this.closeSideBar();
       },
       logout: function (){
-        this.clearSessions();
-        this.$router.push({ path: '../Login' });
+        this.logoutUser();
       }
   },
-  created(){
-      this.AccountDetails = qs.parse( this.currentUser.userInfo );
+  created(){    
+    this.getSessions();
+    this.AccountDetails = this.currentUser.userInfo;
+    if (  this.AccountDetails == null || this.AccountDetails == ''  )
+    {
+        this.requestAccountInfo();
+        this.getSessions();
+        this.AccountDetails = this.currentUser.userInfo;
+    }
   },
   computed: {
     ...mapState ({

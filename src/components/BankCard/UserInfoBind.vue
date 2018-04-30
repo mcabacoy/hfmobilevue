@@ -234,6 +234,7 @@ export default {
                 payload(res.data);
             })
             .catch( function(error){
+                console.log(error);
             });
         },
         bindGeneralInfo(){

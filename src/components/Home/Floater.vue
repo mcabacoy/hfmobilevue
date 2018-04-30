@@ -3,31 +3,7 @@
     <div class="floater">
         <img :src="(link)"  @click="displayComplaint = true">
     </div>
-
-    <div class="allmask" style="display:none;"></div>
-    <div class="compbox" style="display:none;">
-        <div class="modal">
-            <div class="modal-header">
-                全民行动 有奖投诉
-                <div class="dema_kong"><span class="demoSpan2"></span></div>
-            </div>
-            <div class="modal-body">
-                <p style="margin-bottom:.2rem;">请选择要投诉的问题</p>
-                <ul class="listissues">
-                    <li class="active" style="line-height: .3rem;">存款/<br>提现问题</li>
-                    <li style="line-height: .3rem;">游戏卡顿/<br>闪退问题</li>
-                    <li style="padding:.3rem 0;">客服回复问题</li>
-                    <li style="padding:.3rem 0;">网站体验问题</li>
-                </ul>
-                <p style="margin-top:1.3rem;">请输入您的发生时间</p>
-                <input type="date" class="form-control complaintPhone" placeholder="请输入您的发生时间">
-
-                <p style="margin-top:.3rem;">请描述投诉内容的具体细节</p>
-                <textarea rows="8" placeholder="请填写详细描述:(如：3月8日 20：00左右 手机网页版添加银行卡时没有选项/咨询客服无回应等；)" class="Complaints"></textarea>
-            </div>
-            <input type="button" class="submitissue" value="确认提交">
-        </div>
-    </div>
+    <complaints-modal v-if="displayComplaint" @closeModal="closeModal"></complaints-modal>
  </div>   
 </template>
 
