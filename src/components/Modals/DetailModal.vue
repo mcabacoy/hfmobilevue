@@ -157,6 +157,14 @@ export default {
                     width: 100%;
                     color: #fff;
                     text-align: center;
+
+                    tr{
+                        border-bottom: 1px solid #8e1a4d;
+                    }
+                    td{
+                        padding: .26rem 0;
+                        font-size: .26rem;
+                    }
                 }
             }
         }

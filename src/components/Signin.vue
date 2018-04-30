@@ -360,13 +360,10 @@ export default {
 
             }
 }
-
-
 #signin {
     height: auto;
     min-height: 100%;
 }
-
 table.collectionrecord {
     width: 100% !important;
     text-align: center;
