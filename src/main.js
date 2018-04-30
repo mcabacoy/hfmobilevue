@@ -15,6 +15,7 @@ const BankCard = resolve => require(['./components/BankCard'], resolve);
 const Signin = resolve => require(['./components/Signin'], resolve);
 const TransactionQuery = resolve => require(['./components/TransactionQuery'], resolve);
 const PromDetails = resolve => require(['./components/Promotion/PromDetails'], resolve);
+const UnionPay = resolve => require(['./components/WalletRecharge/UnionPay'], resolve);
 
 const Wallet = resolve => require(['./components/Wallet'], resolve)
 const InfoBind = resolve => require(['./components/BankCard/UserInfoBind'], resolve);
@@ -50,6 +51,10 @@ const routes = [
     path: '/PromDetails/:promtype',
     component: PromDetails,
     props: true
+  },
+  {
+    path: '/Unionpay',
+    component: UnionPay
   },
   {
     path: '/WalletWithdraw',

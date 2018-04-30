@@ -51,6 +51,13 @@ const state ={
             type: 'back'
         },
         {
+            link: 'UnionPay',
+            linktype: 'internal',
+            name: '  ',
+            class: '',
+            type: ''
+        },
+        {
             link: 'VIP',
             linktype: 'internal',
             name: 'VIP特权',
