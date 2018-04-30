@@ -5,7 +5,7 @@
     </div>
 
     <div class="allmask"></div>
-    <div class="compbox">
+    <div class="compbox" style="display:none;">
         <div class="modal">
             <div class="modal-header">
                 全民行动 有奖投诉
