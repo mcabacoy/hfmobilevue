@@ -4,7 +4,7 @@
         <img :src="(link)">
     </div>
 
-    <div class="allmask"></div>
+    <div class="allmask" style="display:none;"></div>
     <div class="compbox" style="display:none;">
         <div class="modal">
             <div class="modal-header">
