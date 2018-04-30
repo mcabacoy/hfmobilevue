@@ -148,3 +148,9 @@ export const GET_PNG_TOKEN = serviceUrl + '/Game/GetPngToken' ;
 export const GET_TTG_TOKEN = serviceUrl + '/Game/GetTtgToken' ;
 export const GET_BS_TOKEN = serviceUrl + '/Game/GetBetSoftToken' ;
 
+
+
+
+// CUSTOMER COMPLAIN
+// POST
+export const ADD_CUSTOMER_COMPLAIN = serviceUrl + '/Active/AddCusterComplains';
