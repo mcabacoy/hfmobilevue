@@ -2,7 +2,7 @@
     <div class="registration">
         <header class="reg-header">
             <span class="cancel" @click="goBack()">取消</span>
-            <span class="header-title">找回密码</span>
+            <span class="header-title">注册新用户</span>
             <span class="" style="color: transparent" >取消</span>
         </header>
         <div class="reg-body">
