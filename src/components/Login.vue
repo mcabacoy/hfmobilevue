@@ -107,7 +107,7 @@ export default {
 
 <style>
 
-body {
+#login {
         margin: 0;
         padding: 0;
         width: 100%;
