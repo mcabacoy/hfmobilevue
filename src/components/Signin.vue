@@ -36,7 +36,7 @@
             <table slot="content" class="redemptiondetails">
                 <tbody>
                     <tr v-for="(item, index) in redempointrecord" :key="index">
-                        <td>{{ item.RedeemTime }}</td>
+                        <td>{{ extractDate(item.RedeemTime)  }}</td>
                         <td>兑换{{ item.Amount }}元</td>
                         <td class="am">- {{ item.Points }}积分</td>
                     </tr>
@@ -49,8 +49,7 @@
             <table slot="content" class="collectionrecord">
                 <tbody>
                     <tr v-for="(item, index) in checkindetails" :key="index">
-                        <td>
-                        {{ item.EffectiveTime }}  连续签到{{ signinStatus.AccCount }} 天 + {{ item.Points }}
+                        <td>{{ item.EffectiveTime }}  连续签到{{ signinStatus.AccCount }} 天 + {{ item.Points }}
                         </td>
                     </tr>
                 </tbody>
@@ -134,8 +133,12 @@ export default {
     components: { DetailModal, Notification },
     methods: {
         ...mapMutations ([
-            'setCurrentPage'
+            'setCurrentPage',
+            'getSessions'
         ]),
+        extractDate(payload) {
+            return moment(new Date()).format('YYYY-MM-DD');
+        },
         showModal: function (payload) {
             this.showModalType = payload;
         },
@@ -259,12 +262,10 @@ export default {
         }
     },
     computed: {
-        ...mapGetters({ 
-            currentUser: 'currentUser'
-        })
+        ...mapGetters({ currentUser: 'currentUser' })
     },
     created() {
-        // Get User sigin in status
+        this.getSessions();
         this.getUserSignStatus();
         this.setCurrentPage('Signin');
     }
