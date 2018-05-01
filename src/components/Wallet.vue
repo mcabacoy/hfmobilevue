@@ -67,6 +67,7 @@ export default {
 
         this.setCurrentPage('Wallet');
         
+
     }
 }
 </script>

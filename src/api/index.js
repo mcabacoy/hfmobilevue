@@ -134,6 +134,8 @@ export const RECHARGE_WXPAYDEPOSIT= serviceUrl + '/AliPayDeposit/WxPayDeposite';
 export const RECHARGE_ONLINE_PROCESS = serviceUrl + '/MobileOnlineDeposit/OnlineProcess';
 export const RECHARGEFAST_DEPOSIT = serviceUrl + '/Transact/FastDeposite';
 
+// UNION PAY
+export const CONFIRM_DEPOSIT = serviceUrl + '/Transact/ConfirmDeposit';
 
 
 // TRANSACTION *******************

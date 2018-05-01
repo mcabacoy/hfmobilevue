@@ -70,6 +70,8 @@ const mutations = {
         sessionStorage.removeItem(tokenKey_);
         window.localStorage.removeItem(loginInfo_);
         sessionStorage.removeItem(userInfo_);
+        sessionStorage.clear();
+        localStorage.clear();
     },
     storeUserInfoSession(state, payload){
         state.userInfo = payload;
@@ -84,9 +86,11 @@ const mutations = {
         sessionStorage.removeItem(tokenKey_);
         window.localStorage.removeItem(loginInfo_);
         sessionStorage.removeItem(userInfo_);
+        sessionStorage.clear();
+        localStorage.clear();
         Router.push({ path: '../Login'    });
     },
-    requestAccountInfo (state, payload){
+    requestAccountInfo (state, successCallback, scPayload){
             let config = { headers: {
                    'Authorization': 'Bearer ' + state.tokenKey,
                 }
@@ -95,6 +99,9 @@ const mutations = {
             Axios.get( USERINFO,  config )
             .then( function(res){
                 sessionStorage.setItem(userInfo_, qs.stringify(res.data.Value));
+                if (typeof successCallback != 'undefined') {
+                    successCallback(scPayload);
+                }
             })
             .catch( function(error){ 
 

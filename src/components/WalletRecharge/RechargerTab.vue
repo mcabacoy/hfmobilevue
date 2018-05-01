@@ -48,11 +48,11 @@
             </div>
         </div>
         <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
+        <login-message :message="loginResMessage" v-if="loginResultStatus" ></login-message>
   </div>
 </template>
-
-
 <script>
+import LoginMessage from './../Common/LoginResult'
 import { mapState, mapGetters , mapMutations} from 'vuex'
 import Notification from './../Common/Notification'
 import { 
@@ -64,15 +64,20 @@ import {
 export default {
     name: 'recharger-tab',
     props: ["method"],
-    components: { Notification },
+    components: { Notification, LoginMessage },
     data(){
         return {
             notifmessage: '',
             rechargeAmount: 0,
-            rechargeOption: ''
+            rechargeOption: '',
+            loginResultStatus: false,
+            loginResMessage: ''
         }
     },
     computed: {
+        showLR (){
+            return this.loginResMessage;
+        },
         ...mapGetters ({
             methoddetails: 'getMethodDetails',
             defaultmethod : 'defaultmethod',
@@ -83,10 +88,20 @@ export default {
         })
     },
     methods: {
+        // Local Miscellaneous
+        showLoginResult( status, message ){
+            this.loginResultStatus = status;
+            this.loginResMessage = message;
+        },
         closeNotif(){
             this.notifmessage = ''
         },
-        ...mapMutations (['clearSessions']),
+        ...mapMutations ([
+            'clearSessions',
+            'getSessions',
+            'requestAccountInfo'  
+        ]),
+
         // VALIDATOR
         dynamicValidator( validation  ){
             let amount_ = this.rechargeAmount;
@@ -146,16 +161,17 @@ export default {
 
         // CALLBACKS
         successCallback_UnionPay( data ){
-            if(this.successCallback()) {
+            if(this.successCallback(data)) {
                 if(data){
-                    location.href = '/UnionPay';
+                    this.$router.push({ path: '../UnionPay'})
                     data.type = '1';
                     sessionStorage.setItem("pay", JSON.stringify(data));
                 }
             }
         },
+
         successCallback_QQ( data ){
-            if(this.successCallback()) {
+            if(this.successCallback(data)) {
                if (data.Success) {
                     if (data.Message.indexOf('频繁提交订单') > 0) 
                         this.notifmessage = ("您的上一笔订单还未支付，请等待90秒后再操作", 3000);
@@ -168,9 +184,9 @@ export default {
             }
         },
         successCallback_UnionPay4( data ){
-            if(this.successCallback()) {
-                if(data){
-                    location.href = '/UnionPay';
+            if(this.successCallback(data)) {
+                if(data != null && typeof data != 'undefined'){
+                    this.$router.push({ path: '../UnionPay'})
                     data.type = '4';
                     sessionStorage.setItem("pay", JSON.stringify(data));
                 }
@@ -196,15 +212,16 @@ export default {
         },
         successCallback_Redirect(data){
             if (this.successCallback(data)){
+                debugger;
                 if (data.Success) {
                     if (data.Message.indexOf('请勿频繁提交订单，请稍后再试') > 0) 
-                        this.notifmessage = ("您的上一笔订单还未支付，请等待90秒后再操作", 3000);
+                        this.notifmessage = ("您的上一笔订单还未支付，请等待90秒后再操作"); //, 3000
                     else {
                         localStorage.setItem('ThirdParty', location.href);
                         document.write(data.Message);
                     } 
                 } else {
-                    this.notifmessage = (data.Message, 3000);
+                    this.notifmessage = (data.Message); //, 3000
                 }
             }
         },
@@ -214,53 +231,61 @@ export default {
             }
         },
         successCallback_RND( data ){
-            if(this.successCallback()); {
-                if ( data == null ){
+            if(this.successCallback(data)) {
+                debugger;
+                if ( data == null || data == ''){
                     this.notifmessage = ("您的账户暂时无法支付，请联系客服！");
                 }
-                if ( data.Rnd){
-                    this.notifmessage = ("订单号：" + data.Rnd + "完成转账，联系在线客服办理入账！");
+                if ( data.Rnd ){
+                    alert("订单号：" + data.Rnd + "完成转账，联系在线客服办理入账！");
                 }
             }
         },
         successCallback(data){
+            debugger;
             if (data == "Failed") {
                 this.notifmessage = ("支付失败，请重新在试或者使用其他支付方式！");
                 return false;
             }
             if (data == '您的账户在别的地方登陆，请重新登录!') {
+                let that_ = this;
                 this.notifmessage = ("您的账户在别的地方登陆，请重新登陆", 2000);
                 this.clearSessions();
                 setTimeout(function () {
-                    this.$route.push({ path: '../Login' });
+                    that_.$router.push({ path: '../Login' });
                 }, 2500);
                 return false;
             }
+            return true;
         },
         errorCallback(error){
-            // console.log('**********');
-            // console.log(error);
-             if (error.data.status == 400) {
-                //loginResult(false); -- Display message
+            console.log(error);
+            let that_ = this;
+                this.showLoginResult(false, '');
                 this.notifmessage = ("您的账户在别的地方登陆，请重新登陆", 2000);
                 this.clearSessions();
                 setTimeout(function () {
-                    this.$route.push({ path: '../Login' });
+                    that_.$router.push({ path: '../Login' });
                 }, 2500);
-            }
         },
 
         // Generic Submission
-        // Parameters
+        // URL - API URL
+        // postData - Data for HTTP Request
+        // successCall - Method for the Success Callback
+        // errorCall - Method for the Error Callback
+        // validation - Validation model for the dynamicValidator
         genericSubmit( url, postData, config,  successCall, errorCall, validation ){
             if (!this.dynamicValidator(validation)) {
                 return;
             }
             else {
+                let that_ = this;
+                this.showLoginResult(true, '');
                 this.$http.post( url, JSON.stringify(postData), config)
                 .then ( function(res){
                     console.log(res.data);
-                    document.write(res.data.Message);
+                    that_.showLoginResult(false, '');
                     successCall(res.data);
                 })
                 .catch( function( error ){
@@ -284,11 +309,51 @@ export default {
             let bankCode = '';
             let amount = this.rechargeAmount;
             let option = this.rechargeOption;
-            let returnDomain = this.$route.fullPath;
+            let returnDomain = this.$router.fullPath;
             let callBackSuccess, callBackError;
+
+
+            // For UserInfo
+            this.showLoginResult(true, '');
+            this.getSessions();
             let userInfo =  this.currentUser.userInfo;
-            console.log(name);
+            if (  Object.keys(userInfo).length === 0 ||  userInfo == null )
+            {
+                this.requestAccountInfo(  this.showLoginResult ,  false );
+                this.getSessions();
+                userInfo = this.currentUser.userInfo;
+            }
+            else {
+                this.showLoginResult(false, '');
+            }
+
             switch(name){
+                case "WeChatBankCard":
+                    validationOption = {
+                        isRequired: true,
+                        isInterger: false,
+                        hasDecimal: false,
+                        isNumber: true,
+                        isAbsolute: true,
+                        isFloat: true,
+                        hasMinimum: true,
+                        minValue: 100,
+                        hasMaximum: true,
+                        maxValue: 2999
+                    };
+                    bankCode = 'ICBC';
+                    getUrl = RECHARGEFAST_DEPOSIT;
+                    postData = {
+                        Amount:  parseFloat(this.rechargeAmount),
+                        BankType: bankCode,
+                        ReturnDomain: returnDomain,
+                        UserId: userInfo.Id,
+                        UserLevel: userInfo.UserLevel,
+                        ActCode: option
+                    }
+                    this.genericSubmit(  getUrl, postData, config,  that_.successCallback_UnionPay4, that_.errorCallback, validationOption  );
+                    break;
+                
                 case "WeChatTransfer": 
                     validationOption = {
                         isRequired: true,
@@ -315,6 +380,34 @@ export default {
                     }
                     this.genericSubmit(  getUrl, postData, config,  that_.successCallback_RND, that_.errorCallback, validationOption  );
                     break;
+                case "WeChatScanCode":
+                    validationOption = {
+                        isRequired: true,
+                        isInterger: false,
+                        hasDecimal: true,
+                        isNumber: true,
+                        isAbsolute: true,
+                        isFloat: true,
+                        hasMinimum: true,
+                        minValue: 31,
+                        hasMaximum: true,
+                        maxValue: 2999
+                    };
+                    bankCode = 'weixin';
+                    getUrl = RECHARGE_ONLINE_PROCESS;
+                    postData = {
+                        Amount: parseFloat(this.rechargeAmount),
+                        BankCode: bankCode,
+                        ReturnDomain: returnDomain,
+                        PayType: '13',
+                        ActCode: option
+                    }
+                    this.genericSubmit(  getUrl, postData, config,  that_.successCallback_Redirect, that_.errorCallback, validationOption  );
+                    break;
+                
+
+
+                
                 case "RechargeOnline":
                     validationOption = {
                         isRequired: true,
@@ -360,30 +453,6 @@ export default {
                         BankCode: bankCode,
                         ReturnDomain: returnDomain,
                         PayType: '16',
-                        ActCode: option
-                    }
-                    this.genericSubmit(  getUrl, postData, config,  that_.successCallback_Write, that_.errorCallback, validationOption  );
-                    break;
-                case "WeChatScanCode":
-                    validationOption = {
-                        isRequired: true,
-                        isInterger: false,
-                        hasDecimal: true,
-                        isNumber: true,
-                        isAbsolute: true,
-                        isFloat: true,
-                        hasMinimum: true,
-                        minValue: 31,
-                        hasMaximum: true,
-                        maxValue: 2999
-                    };
-                    bankCode = 'weixin';
-                    getUrl = RECHARGE_ONLINE_PROCESS;
-                    postData = {
-                        Amount: parseFloat(this.rechargeAmount),
-                        BankCode: bankCode,
-                        ReturnDomain: returnDomain,
-                        PayType: '13',
                         ActCode: option
                     }
                     this.genericSubmit(  getUrl, postData, config,  that_.successCallback_Write, that_.errorCallback, validationOption  );
@@ -440,31 +509,6 @@ export default {
                     }
                     this.genericSubmit(  getUrl, postData, config,  that_.successCallback_UnionPay, that_.errorCallback, validationOption  );
                     break;
-                case "WeChatBankCard":
-                    validationOption = {
-                        isRequired: true,
-                        isInterger: false,
-                        hasDecimal: false,
-                        isNumber: true,
-                        isAbsolute: true,
-                        isFloat: true,
-                        hasMinimum: true,
-                        minValue: 100,
-                        hasMaximum: true,
-                        maxValue: 2999
-                    };
-                    bankCode = 'ICBC';
-                    getUrl = RECHARGEFAST_DEPOSIT;
-                    postData = {
-                        Amount:  parseFloat(this.rechargeAmount),
-                        BankType: bankCode,
-                        ReturnDomain: returnDomain,
-                        UserId: userInfo.Id,
-                        UserLevel: userInfo.UserLevel,
-                        ActCode: option
-                    }
-                    this.genericSubmit(  getUrl, postData, config,  that_.successCallback_UnionPay4, that_.errorCallback, validationOption  );
-                    break;
                 case "QQScanCode":
                     validationOption = {
                         isRequired: true,
@@ -497,7 +541,7 @@ export default {
         }
     },
     created(){
-        
+        sessionStorage.removeItem("pay");
     }
 }
 

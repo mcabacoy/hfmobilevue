@@ -1,43 +1,46 @@
 <template>
 <div id="Pay">
     <!--Unionpay-->
-    <section id="UnionPay">
+    <section id="UnionPay" v-if="pay.type == 1 || pay.type == 4">
         <div class="unionpay_content">
             <div class="union-content top">
-                <span style="width:37%;"><img src="../../../static/img/unionpay_icon.png" style="width:100%;" id="BankCard-img"></span>
+                <span style="width:37%;">
+                    <img :src="[ pay.type == 4 ? '../../../static/img/wallet_scan_wechatLogo.png' : '../../../static/img/unionpay_icon.png']" 
+                         style="width:100%;" id="BankCard-img">
+                    </span>
                 <span><img src="../../../static/img/rightarrow.png" style="width:100%;"></span>
-                <span style="width:37%;float:left;"><img src="../../../static/img/unionpay_icon.png" style="width:100%;"></span>
+                <span style="width:37%;float:left;">
+                    <img src="../../../static/img/unionpay_icon.png" style="width:100%;">
+                </span>
             </div>
             <div class="union-content">
                 <span>姓&nbsp;&nbsp;&nbsp;名</span>
-                <span data-bind="text:UnionPay_Name"></span>
+                <span data-bind="text:UnionPay_Name">{{  pay.BankAccount     }}</span>
             </div>
             <div class="union-content">
                 <span>账&nbsp;&nbsp;&nbsp;号</span>
-                <span data-bind="text:UnionPay_BankCardNum"></span>
+                <span data-bind="text:UnionPay_BankCardNum">{{ pay.BankCardNum }}</span>
             </div>
             <div class="union-content">
                 <span style="line-height: .58rem;">金&nbsp;&nbsp;&nbsp;额</span>
-                <span data-bind="text:UnionPay_Money" style="line-height: .58rem;"></span>
-
+                <span data-bind="text:UnionPay_Money" style="line-height: .58rem;">{{ pay.Money }}</span>
                 <span style="width: 2.5rem;position: absolute;right: .15rem;top: .15rem;text-align: center;font-size: .2rem;color: #c61324;background: #e0e0e0;border: 1px solid #a9a9a9;padding: .08rem .2rem; display:none;" id="prompt"> 请按系统显示金额转账！</span>
             </div>
             <div class="union-content">
                 <span>地&nbsp;&nbsp;&nbsp;址</span>
-                <span data-bind="text:UnionPay_BankAddr"></span>
+                <span data-bind="text:UnionPay_BankAddr">{{ pay.BankAddr }}</span>
             </div>
             <div class="union-content bottom">
                 <span>附&nbsp;&nbsp;&nbsp;言</span>
-                <span data-bind="text:UnionPay_rnd"></span>
+                <span data-bind="text:UnionPay_rnd">{{  pay.Rnd.slice(12, 18)  }}</span>
             </div>
-
             <div class="unionpay-btns">
-                <a href="javascript:;" class="submit_Btn" data-bind="click:withdraw">充值确认</a>
+                <a href="javascript:;" class="submit_Btn" @click="transact">充值确认</a>
             </div>
         </div>
     </section>
     <!--Wechat-->
-    <section id="WeChat" style="display:none;">
+    <section id="WeChat" v-else-if="pay.type == 2" >
         <div class="wechat_content">
             <div class="union-content top">
                 <span style="width:37%;"><img src="../../../static/img/wechat_icon1.png" style="width:100%;"></span>
@@ -46,11 +49,11 @@
             </div>
             <div class="union-content">
                 <span>微信号</span>
-                <span data-bind="text:WeChat_Rnd"></span>
+                <span data-bind="text:WeChat_Rnd">{{  pay.Rnd.slice(12, 18) }}</span>
             </div>
             <div class="union-content">
                 <span>金&nbsp;&nbsp;&nbsp;额</span>
-                <span data-bind="text:WeChat_Money"></span>
+                <span data-bind="text:WeChat_Money">{{ pay.Money  }}</span>
             </div>
             <div class="union-content bottom" style="background:#f2f2f2;padding: 7% 4% 4% 8%;">
                 <p style="margin-bottom: 6%;font-size: .32rem;">微信支付方式说明：</p>
@@ -60,8 +63,9 @@
             </div>
         </div>
     </section>
+
     <!--Alipay-->
-    <section id="Alipay" style="display:none;">
+    <section id="Alipay" v-else-if="pay.type ==  3">
         <div class="alipay_content">
             <div class="union-content top">
                 <span style="width:37%;"><img src="../../../static/img/alipay_icon.png" style="width:100%;"></span>
@@ -70,33 +74,33 @@
             </div>
             <div class="union-content">
                 <span>附&nbsp;&nbsp;&nbsp;言</span>
-                <span data-bind="text:Alipay_Rnd"></span>
+                <span data-bind="text:Alipay_Rnd">{{ pay.Rnd.slice(12, 18) }}</span>
             </div>
             <div class="union-content">
                 <span>姓&nbsp;&nbsp;&nbsp;名</span>
-                <span data-bind="text:Alipay_Name"></span>
+                <span data-bind="text:Alipay_Name">{{ pay.Name }}</span>
             </div>
             <div class="union-content">
                 <span>账&nbsp;&nbsp;&nbsp;号</span>
-                <span data-bind="text:Alipay_AccountName"></span>
+                <span data-bind="text:Alipay_AccountName">{{ pay.AccountName.replace(/(.{3}).+(.{3}@.+)/g, "$1****$2")  }}</span>
             </div>
             <div class="union-content">
                 <span>金&nbsp;&nbsp;&nbsp;额</span>
-                <span data-bind="text:Alipay_Money"></span>
+                <span data-bind="text:Alipay_Money">{{ pay.Money }}</span>
             </div>
             <div class="union-content">
                 <span>地&nbsp;&nbsp;&nbsp;址</span>
-                <span data-bind="text:Alipay_Address"></span>
+                <span data-bind="text:Alipay_Address">{{ pay.Address }}</span>
             </div>
             <div class="union-content bottom" style="background:#f2f2f2;">
                 <p>注：填写正确的备注（附言后的红色6位阿拉伯数字）秒存秒到，若填写附言错误，请您联系在线客服处理，但还请耐心等待！</p>
             </div>
-
-            <a class="cz_an" href="javascript:void(0);" id="alipayScanCode">确 认</a>
+            <a class="cz_an" href="javascript:void(0);" id="alipayScanCode" @click="transact">确 认</a>
         </div>
     </section>
+    
     <!--QuickPass-->
-    <section id="QuickPass" style="display:none;">
+    <!-- <section id="QuickPass" style="display: none;" >
         <div class="qp_content">
             <div class="union-content top">
                 <span style="width:56%;margin-left: .1rem;">
@@ -116,20 +120,71 @@
             <img src="../../../static/img/quick-qr.jpg" style="width:2.8rem;display:block;margin:0 auto;margin-top:.7rem;">
             <p style="color:#818181;font-size:.28rem;text-align: center;margin-top: .4rem;margin-bottom: 1rem;">请使用云闪付APP进行扫码支付</p>
         </div>
-    </section>
+    </section> -->
 </div>
 </template>
 
 <script>
+import { CONFIRM_DEPOSIT } from './../../api'
+
 import { mapState, mapGetters, mapMutations } from 'vuex'
 export default {
+    data(){
+        return {
+            pay: {},
+            notifmessage: ''
+        }
+    },
+    computed: {
+        ...mapGetters ({
+            currentUser: 'currentUser'
+        })
+    },
     methods: {
         ...mapMutations ([
-            'setCurrentPage'
-        ])
+            'setCurrentPage',
+            'getSessions'
+        ]),
+
+        getPaySessionDetails(){
+          this.pay = JSON.parse(sessionStorage.getItem("pay"));
+        },
+        transact(){
+            let that_ = this;
+             let config = { 
+                headers: { 
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey,
+                    'Content-Type': 'application/json; charset=utf-8',
+                } 
+            };
+            let postData = {
+                params : {
+                    rnd: this.pay.Rnd
+                }
+            };
+            this.$http.post( CONFIRM_DEPOSIT, postData )
+            .then( function( res ){
+                 if (res.data && res.data != "Failed") {
+                    that_.notifmessage = ("充值确认已经提交，请您耐心等待,3分钟内将给您确认上分,谢谢您！");
+                    setTimeout(function () {
+                       that_.$router.push({ path: '../Wallet' });
+                    });
+                }
+            })
+            .catch( function( error ){
+            });
+        },
+        deposit(){
+
+
+        }
     },
+
     created() {
         this.setCurrentPage('UnionPay');
+        this.getSessions();
+        this.getPaySessionDetails();
+
     }
 }
 </script>
