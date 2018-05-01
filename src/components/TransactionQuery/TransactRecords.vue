@@ -122,16 +122,18 @@
         <notification :message="notifmessage" 
             @close="closeNotif"  
             v-if="notifmessage!=''" />
+        <login-message :message="loginResMessage" v-if="loginResultStatus" ></login-message>
     </div>
 </template>
 
 <script>
 import { mapState, mapMutations, mapGetters } from 'vuex'
+import LoginMessage from './../Common/LoginResult'
 import Notification from './../Common/Notification'
 import { GET_TRANSACTION_HISTORY, GET_PAGED_BET_RECORDS } from '../../api/index';
 export default {
    props: ['selectedtab'],
-   components: { Notification },
+   components: { Notification, LoginMessage },
    data(){
       return {
           transtab: 'rechargeactive',
@@ -150,6 +152,8 @@ export default {
           notifmessage: '',
           transactionList: [],
           bettingList: [],
+          loginResultStatus: '',
+          loginResMessage: ''
       }
     },
     computed: {
@@ -163,6 +167,10 @@ export default {
     create(){
     },
     methods: {
+        showLoginResult( status, message ){
+            this.loginResultStatus = status;
+            this.loginResMessage = message;
+        },
         closeNotif(){
             this.notifmessage = '';
         },
@@ -206,10 +214,10 @@ export default {
                 this.notifmessage = "结束日期小于开始日期";
                 return;
             }
-            // loginResult(true, '正在查询中...');
+            this.showLoginResult(true, '正在查询中...');
             this.$http.post( GET_TRANSACTION_HISTORY, postData, config )
             .then( function(res) {
-                // loginResult(false);
+                that_.showLoginResult(false, '');
                 if (res.data.length == 0) {
                     that_.notifmessage = ("暂无" + postData.searchType + "数据");
                 } else {
@@ -220,7 +228,9 @@ export default {
                         }
                     }
                 }
-            }).catch( function(error){ });
+            }).catch( function(error){ 
+                this.showLoginResult(false, '');
+            });
         },
         searchBetting( pageIndex ){
             // GamePlatType

@@ -24,15 +24,16 @@
             :transfertype="transfermode"
             :platform="selectedplatform">
         </transfer-confirmation>
-
+        <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
   </div>
 </template>
 <script>
+import  Notification from './Common/Notification'
 import TransferConfirmation from './Transfers/TransferConfirmation'
 import { GET_GAME_BALANCE } from './../api'
 import { mapState ,mapMutations,  mapGetters } from 'vuex'
 export default {
-    components: { TransferConfirmation } ,
+    components: { TransferConfirmation, Notification } ,
     data() {
         return {
                 banner: '../../static/img/HGame/PT-banner.jpg',
@@ -50,7 +51,10 @@ export default {
         })
     },
     methods: {
-        ...mapMutations (['setCurrentPage']),
+        ...mapMutations (['setCurrentPage', 'clearSessions', 'getSessions']),
+        closeNotif(){
+            this.notifmessage = ''
+        },
         routePage(pageName){
             this.$router.push({ path: '..' + pageName + '/' + this.$route.params.gametype});
         },
@@ -82,6 +86,10 @@ export default {
                 if ( res.data == '您的账户在别的地方登陆，请重新登录!'  )
                 {
                     that_.notifmessage = res.data;
+                    setTimeout(function () {
+                        that_.$router.push({ path: '../Login' });
+                    }, 2500);
+                    that_.clearSessions();
                 }
                 else {
                     that_.gamebalance = ( !Number.isNaN(res.data) && res.data != ''  && res.data != null )  
@@ -92,8 +100,9 @@ export default {
         }
     },
     created() {
-      this.getBalance();
-      this.setCurrentPage('GameBalance');
+        this.getSessions();
+        this.getBalance();
+        this.setCurrentPage('GameBalance');
     }
 }
 </script>

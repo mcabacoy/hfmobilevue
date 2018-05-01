@@ -49,6 +49,7 @@ export default {
     methods: {
         ...mapMutations ([
             'setCurrentPage',
+            'getSessions',
             'storeUserInfoSession'
         ]),
         routePage(payload){
@@ -84,6 +85,7 @@ export default {
       })
     },
     created() {
+        this.getSessions();
         this.getOverAllBalance();
         this.setCurrentPage('Transfers');
         this.AccountDetails = qs.parse( this.currentUser.userInfo );
