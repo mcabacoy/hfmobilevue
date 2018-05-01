@@ -82,7 +82,7 @@
             <div class="reg-input captcha-control">
                 <div>
                     <!-- {{ getCaptchaImage }} -->
-                    <img class="captcha-img" :src="getCaptchaImage"  />
+                    <img class="captcha-img" :src="getCaptchaImage"  @click="loadCaptcha" />
                 </div>
                 <input class="input-control" placeholder="请输入验证码" 
                     v-model="captchaText" @blur="validateCaptcha"
@@ -153,8 +153,7 @@ export default {
     created() {
         this.loadCaptcha();
         // this.birthDate = new Date('1999/7/14');
-        
-        this.setCookieAgent();
+        // this.setCookieAgent();
     },
 
     methods: {
@@ -335,7 +334,7 @@ export default {
             this.$http.get( LOAD_CAPTCHA , config )
                 .then( function(res) {
                     var imgdata_ = res.data.split('.png');
-                    that_.captchaImage = serviceURL + +imgdata_[0] + '.png'; //'./../../static' + imgdata_[0] + '.png';
+                    that_.captchaImage = serviceURL  + imgdata_[0] + '.png'; //'./../../static' + imgdata_[0] + '.png';
                     that_.isCaptchaCorrect = false;
                 });
         },
@@ -457,7 +456,9 @@ export default {
             .then( function(res){
                 sessionStorage.setItem("SetCookie", 'true');
             })
-            .catch( function(error){});
+            .catch( function(error){
+                console.log(error);
+            });
         }
     }
 }
@@ -515,8 +516,11 @@ export default {
             &.captcha-control {
                 display: "grid";
                 
+                img {
+                    padding-top: 0.2rem;
+                }
                 .input-control {
-                    margin-top: 0.3rem;
+                    top: -0.4rem;
                 }
             }
             span.input-label {
