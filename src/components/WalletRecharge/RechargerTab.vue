@@ -163,9 +163,9 @@ export default {
         successCallback_UnionPay( data ){
             if(this.successCallback(data)) {
                 if(data){
-                    this.$router.push({ path: '../UnionPay'})
                     data.type = '1';
                     sessionStorage.setItem("pay", JSON.stringify(data));
+                    this.$router.push({ path: '../UnionPay'})
                 }
             }
         },
@@ -186,16 +186,17 @@ export default {
         successCallback_UnionPay4( data ){
             if(this.successCallback(data)) {
                 if(data != null && typeof data != 'undefined'){
-                    this.$router.push({ path: '../UnionPay'})
                     data.type = '4';
                     sessionStorage.setItem("pay", JSON.stringify(data));
+                    this.$router.push({ path: '../UnionPay'})
                 }
             }
         },
+        
         successCallback_Alipay(data){
             if (this.successCallback(data)){
                 if (data == null || data == "null") {
-                     this.notifmessage = ("您的账户暂时无法支付，请联系客服！");
+                     alert("您的账户暂时无法支付，请联系客服！");
                     return;
                 } else {
                     if (data.Message.indexOf('<form') > -1) {
@@ -203,11 +204,9 @@ export default {
                     } else {
                         data.type = '3';
                         sessionStorage.setItem("pay", JSON.stringify(data));
-                        location.href = '/UnionPay';
+                        this.$router.push({ path: '../UnionPay'})
                     }
-                   
                 }
-              
             }
         },
         successCallback_Redirect(data){
@@ -227,7 +226,7 @@ export default {
         },
         successCallback_Write(data){
             if (this.successCallback(data)){
-                // document.write(data.Message)
+                document.write(data.Message)
             }
         },
         successCallback_RND( data ){
@@ -328,6 +327,7 @@ export default {
             }
 
             switch(name){
+                // item 1
                 case "WeChatBankCard":
                     validationOption = {
                         isRequired: true,
@@ -353,7 +353,7 @@ export default {
                     }
                     this.genericSubmit(  getUrl, postData, config,  that_.successCallback_UnionPay4, that_.errorCallback, validationOption  );
                     break;
-                
+                // item 2
                 case "WeChatTransfer": 
                     validationOption = {
                         isRequired: true,
@@ -380,6 +380,8 @@ export default {
                     }
                     this.genericSubmit(  getUrl, postData, config,  that_.successCallback_RND, that_.errorCallback, validationOption  );
                     break;
+                
+                // item 3
                 case "WeChatScanCode":
                     validationOption = {
                         isRequired: true,
@@ -405,59 +407,35 @@ export default {
                     this.genericSubmit(  getUrl, postData, config,  that_.successCallback_Redirect, that_.errorCallback, validationOption  );
                     break;
                 
-
-
-                
-                case "RechargeOnline":
+                // item 4
+                case "QQScanCode":
                     validationOption = {
                         isRequired: true,
                         isInterger: false,
-                        hasDecimal: true,
+                        hasDecimal: false,
                         isNumber: true,
                         isAbsolute: true,
                         isFloat: true,
                         hasMinimum: true,
-                        minValue: 20,
+                        minValue: 31,
                         hasMaximum: true,
-                        maxValue: 50000
+                        maxValue: 299
                     };
-                    bankCode = 'online';
+                    bankCode = 'QQPay';
                     getUrl = RECHARGE_ONLINE_PROCESS;
+                    let realWebapi = '';
                     postData = {
-                        Amount: parseFloat(this.rechargeAmount),
+                        Amount:  parseFloat(this.rechargeAmount),
                         BankCode: bankCode,
                         ReturnDomain: returnDomain,
-                        PayType: '1',
+                        PayType: '15',
                         ActCode: option
                     }
-                    this.genericSubmit(  getUrl, postData, config,  that_.successCallback_Write, that_.errorCallback, validationOption  );
+                    this.genericSubmit(  getUrl, postData, config,  that_.successCallback_QQ, that_.errorCallback, validationOption  );
                     break;
                 
-                case "QuickPayment":
-                    validationOption = {
-                        isRequired: true,
-                        isInterger: false,
-                        hasDecimal: true,
-                        isNumber: true,
-                        isAbsolute: true,
-                        isFloat: true,
-                        hasMinimum: true,
-                        minValue: 20,
-                        hasMaximum: true,
-                        maxValue: 50000
-                    };
-                    bankCode = 'online';
-                    getUrl = RECHARGE_ONLINE_PROCESS;
-                    postData = {
-                        Amount: parseFloat(this.rechargeAmount),
-                        BankCode: bankCode,
-                        ReturnDomain: returnDomain,
-                        PayType: '16',
-                        ActCode: option
-                    }
-                    this.genericSubmit(  getUrl, postData, config,  that_.successCallback_Write, that_.errorCallback, validationOption  );
-                    break;
                 
+                // item 5
                 case "AlipayScanCode":
                     validationOption = {
                         isRequired: true,
@@ -484,6 +462,59 @@ export default {
                     }
                     this.genericSubmit(  getUrl, postData, config,  that_.successCallback_Alipay, that_.errorCallback, validationOption  );
                     break;
+                // item 6
+                case "RechargeOnline":
+                    validationOption = {
+                        isRequired: true,
+                        isInterger: false,
+                        hasDecimal: true,
+                        isNumber: true,
+                        isAbsolute: true,
+                        isFloat: true,
+                        hasMinimum: true,
+                        minValue: 20,
+                        hasMaximum: true,
+                        maxValue: 50000
+                    };
+                    bankCode = 'online';
+                    getUrl = RECHARGE_ONLINE_PROCESS;
+                    postData = {
+                        Amount: parseFloat(this.rechargeAmount),
+                        BankCode: bankCode,
+                        ReturnDomain: returnDomain,
+                        PayType: '1',
+                        ActCode: option
+                    }
+                    this.genericSubmit(  getUrl, postData, config,  that_.successCallback_Write, that_.errorCallback, validationOption  );
+                    break;
+                
+                // item 7
+                case "QuickPayment":
+                    validationOption = {
+                        isRequired: true,
+                        isInterger: false,
+                        hasDecimal: true,
+                        isNumber: true,
+                        isAbsolute: true,
+                        isFloat: true,
+                        hasMinimum: true,
+                        minValue: 20,
+                        hasMaximum: true,
+                        maxValue: 50000
+                    };
+                    bankCode = 'online';
+                    getUrl = RECHARGE_ONLINE_PROCESS;
+                    postData = {
+                        Amount: parseFloat(this.rechargeAmount),
+                        BankCode: bankCode,
+                        ReturnDomain: returnDomain,
+                        PayType: '16',
+                        ActCode: option
+                    }
+                    this.genericSubmit(  getUrl, postData, config,  that_.successCallback_Write, that_.errorCallback, validationOption  );
+                    break;
+                
+                // item 8
                 case "OnlineBanking":
                     validationOption = {
                         isRequired: true,
@@ -509,32 +540,6 @@ export default {
                     }
                     this.genericSubmit(  getUrl, postData, config,  that_.successCallback_UnionPay, that_.errorCallback, validationOption  );
                     break;
-                case "QQScanCode":
-                    validationOption = {
-                        isRequired: true,
-                        isInterger: false,
-                        hasDecimal: false,
-                        isNumber: true,
-                        isAbsolute: true,
-                        isFloat: true,
-                        hasMinimum: true,
-                        minValue: 31,
-                        hasMaximum: true,
-                        maxValue: 299
-                    };
-                    bankCode = 'QQPay';
-                    getUrl = RECHARGE_ONLINE_PROCESS;
-                    let realWebapi = '';
-                    postData = {
-                        Amount:  parseFloat(this.rechargeAmount),
-                        BankCode: bankCode,
-                        ReturnDomain: returnDomain,
-                        PayType: '15',
-                        ActCode: option
-                    }
-                    this.genericSubmit(  getUrl, postData, config,  that_.successCallback_UnionPay4, that_.errorCallback, validationOption  );
-                    break;
-                
                 default:
                     break;
             }

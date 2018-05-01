@@ -12,8 +12,11 @@
         <img src="../../../static/img/toggle.png" class="nav-toggle" @click="openSideBar" v-else/>
         
         <img src="../../../static/img/logo.png" 
-         class="logo" v-if="currentPageName == '' || currentPageName == 'Homepage' || currentPageName == '鸿福首页' " />
+         class="logo" v-if="currentPageName == '' 
+            || currentPageName == 'Homepage' 
+            || currentPageName == '鸿福首页' " />
         <span v-else-if="currentPageName == 'GameBalance'">{{ getGameBalanceTitle + "老虎机" }}</span>
+        <span v-else-if="currentPageName == 'UnionPay'">{{    getUnionPayPageTitle  }}</span>
         <span v-else >{{ currentPageName }}</span>
   </div>
 </div>
@@ -42,6 +45,10 @@ export default {
         }),
         getGameBalanceTitle() {
             return this.$route.params.gametype;
+        },
+        getUnionPayPageTitle(){
+            let pay = JSON.parse(sessionStorage.getItem("pay"));
+            return  pay.type == '4' || pay.type == '1' ?  '网银转账'  : '支付宝转账';
         }
     }
 }
@@ -152,9 +159,6 @@ export default {
             right: 0;
         }
     }
-
-
-
 }
 .nav{
     .backer{

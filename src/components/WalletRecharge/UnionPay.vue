@@ -32,7 +32,7 @@
             </div>
             <div class="union-content bottom">
                 <span>附&nbsp;&nbsp;&nbsp;言</span>
-                <span data-bind="text:UnionPay_rnd">{{  pay.Rnd.slice(12, 18)  }}</span>
+                <span data-bind="text:UnionPay_rnd">{{ (typeof pay.Rnd != 'undefined' || pay.Rnd != null ) ? pay.Rnd.slice(12, 18) : pay.Rnd }}</span>
             </div>
             <div class="unionpay-btns">
                 <a href="javascript:;" class="submit_Btn" @click="transact">充值确认</a>
@@ -49,7 +49,7 @@
             </div>
             <div class="union-content">
                 <span>微信号</span>
-                <span data-bind="text:WeChat_Rnd">{{  pay.Rnd.slice(12, 18) }}</span>
+                <span data-bind="text:WeChat_Rnd">{{ (typeof pay.Rnd != 'undefined' || pay.Rnd != null ) ? pay.Rnd.slice(12, 18) : pay.Rnd }}</span>
             </div>
             <div class="union-content">
                 <span>金&nbsp;&nbsp;&nbsp;额</span>
@@ -74,7 +74,7 @@
             </div>
             <div class="union-content">
                 <span>附&nbsp;&nbsp;&nbsp;言</span>
-                <span data-bind="text:Alipay_Rnd">{{ pay.Rnd.slice(12, 18) }}</span>
+                <span data-bind="text:Alipay_Rnd">{{ (typeof pay.Rnd != 'undefined' || pay.Rnd != null )  ? pay.Rnd.slice(12, 18) : pay.Rnd }}</span>
             </div>
             <div class="union-content">
                 <span>姓&nbsp;&nbsp;&nbsp;名</span>
@@ -82,7 +82,7 @@
             </div>
             <div class="union-content">
                 <span>账&nbsp;&nbsp;&nbsp;号</span>
-                <span data-bind="text:Alipay_AccountName">{{ pay.AccountName.replace(/(.{3}).+(.{3}@.+)/g, "$1****$2")  }}</span>
+                <span data-bind="text:Alipay_AccountName">{{ pay.AccountName != null ? pay.AccountName.replace(/(.{3}).+(.{3}@.+)/g, "$1****$2") : pay.AccountName  }}</span>
             </div>
             <div class="union-content">
                 <span>金&nbsp;&nbsp;&nbsp;额</span>
@@ -98,7 +98,7 @@
             <a class="cz_an" href="javascript:void(0);" id="alipayScanCode" @click="transact">确 认</a>
         </div>
     </section>
-    
+
     <!--QuickPass-->
     <!-- <section id="QuickPass" style="display: none;" >
         <div class="qp_content">
@@ -162,8 +162,10 @@ export default {
                     rnd: this.pay.Rnd
                 }
             };
+            debugger;
             this.$http.post( CONFIRM_DEPOSIT, postData )
             .then( function( res ){
+                debugger;
                  if (res.data && res.data != "Failed") {
                     that_.notifmessage = ("充值确认已经提交，请您耐心等待,3分钟内将给您确认上分,谢谢您！");
                     setTimeout(function () {

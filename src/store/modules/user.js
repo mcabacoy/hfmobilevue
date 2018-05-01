@@ -91,10 +91,7 @@ const mutations = {
         Router.push({ path: '../Login'    });
     },
     requestAccountInfo (state, successCallback, scPayload){
-            let config = { headers: {
-                   'Authorization': 'Bearer ' + state.tokenKey,
-                }
-            };
+            let config = { headers: { 'Authorization': 'Bearer ' + state.tokenKey } };
             let that_ = this;
             Axios.get( USERINFO,  config )
             .then( function(res){
@@ -104,7 +101,6 @@ const mutations = {
                 }
             })
             .catch( function(error){ 
-
             });
     }
 }
