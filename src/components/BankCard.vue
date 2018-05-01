@@ -171,6 +171,7 @@ export default {
     methods: {
         ...mapMutations ([
             'setCurrentPage',
+            'getSessions',
             'storeUserInfoSession',
             'clearSessions',
         ]),
@@ -226,9 +227,10 @@ export default {
             });
         },
         populateUserInfo(){
+            this.getSessions();
             let session_ = this.currentUser;
             this.AccountDetails = qs.parse(session_.userInfo);
-             this.AccountDetails = qs.parse(session_.userInfo);
+            this.AccountDetails = qs.parse(session_.userInfo);
             if ( this.AccountDetails == null && this.AccountDetails.AccountName ) {
                 this.setAccountDetails();
             }
