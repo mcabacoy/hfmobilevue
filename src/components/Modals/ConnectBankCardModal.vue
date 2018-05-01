@@ -16,7 +16,10 @@
                                     <!-- Bank Account Select -->
                                     <span class="arrowbox"></span>
                                     <select class="form-control" v-model="bankCode" >
-                                        <option v-for="(item,index) in getBankTypes" :key="index" :value="item.value">
+                                        <option v-for="(item,index) in getBankTypes" 
+                                                :key="index" 
+                                                :value="item.value"
+                                                 :selected="index === 0 ? 'selected' : 'abc'">
                                             {{ item.name }}
                                         </option>
                                     </select>
@@ -79,7 +82,9 @@ export default {
             cardNo: '',
             bankAddress: '',
             bankCode: '',
-            notifmessage: ''
+            notifmessage: '',
+            selected: "selected",
+            notSelected: ""
         }
     }, 
     computed: {
@@ -122,6 +127,7 @@ export default {
             })
             .catch( function (){ });
         }
+        
     }
 }
 </script>
