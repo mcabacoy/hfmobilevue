@@ -115,7 +115,8 @@ import  {
             CHECK_MOBILE,
             CHECK_EMAIL,
             serviceURL,
-            SET_COOKIE_AGENT_CODE
+            SET_COOKIE_AGENT_CODE,
+            GAME_REGISTER
         } from './../api'
 
 export default {
@@ -273,18 +274,20 @@ export default {
                     return false;
                 } 
                 else {
-                    this.$http.get( CHECK_MOBILE + '?mobile=' + phoneVal )
-                    .then( function (res) {
-                        if (!res.data) {
-                            that_.notifmessage = ("此手机号码已被注册");
-                            that_.isPhoneCorrect = false;
-                            return false;
-                        }
-                        else {
-                            that_.isPhoneCorrect = true;
-                            return true;
-                        }
-                    });
+                    this.isPhoneCorrect = true;
+                    return true;
+                    // this.$http.get( CHECK_MOBILE + '?mobile=' + phoneVal )
+                    // .then( function (res) {
+                    //     if (!res.data) {
+                    //         that_.notifmessage = ("此手机号码已被注册");
+                    //         that_.isPhoneCorrect = false;
+                    //         return false;
+                    //     }
+                    //     else {
+                    //         that_.isPhoneCorrect = true;
+                    //         return true;
+                    //     }
+                    // });
                 }
             }
         },
@@ -304,19 +307,21 @@ export default {
                     return false;
                 }
                 else {
-                    let that_ = this;
-                    this.$http.get(CHECK_EMAIL + '?email=' + email )
-                    .then (function (res) {
-                        if (!res.data) {
-                            that_.notifmessage = ("该邮箱地址已被注册");
-                            that_.isEmailCorrect = false;
-                            return false;
-                        }
-                        else {
-                            that_.isEmailCorrect = true;
-                            return true;
-                        }
-                    })
+                     this.isEmailCorrect = true;
+                     return true;
+                    // let that_ = this;
+                    // this.$http.get(CHECK_EMAIL + '?email=' + email )
+                    // .then (function (res) {
+                    //     if (!res.data) {
+                    //         that_.notifmessage = ("该邮箱地址已被注册");
+                    //         that_.isEmailCorrect = false;
+                    //         return false;
+                    //     }
+                    //     else {
+                    //         that_.isEmailCorrect = true;
+                    //         return true;
+                    //     }
+                    // })
                 }
             }
         },
@@ -333,6 +338,7 @@ export default {
             }
             this.$http.get( LOAD_CAPTCHA , config )
                 .then( function(res) {
+                    that_.captchaText = '';
                     var imgdata_ = res.data.split('.png');
                     that_.captchaImage = serviceURL  + imgdata_[0] + '.png'; //'./../../static' + imgdata_[0] + '.png';
                     that_.isCaptchaCorrect = false;
@@ -361,7 +367,7 @@ export default {
                         return false;
                     }
                     else {
-                        that_.isCaptchaCorrect = false;
+                        that_.isCaptchaCorrect = true;
                         return true;
                     }
                 })
@@ -396,7 +402,9 @@ export default {
             if (!this.validateRequired(this.wechatNo)){
                 return false;
             }
-
+            if (!this.isCaptchaCorrect){
+                return false;
+            }
             return true;
             // if (!this.isCaptchaCorrect){
             //     if (!this.validateCaptcha()){
@@ -411,9 +419,10 @@ export default {
             }            
             else {            
                 var that_ = this;
-                this.$http.get(  REGISTER_AGENT_CODE )
-                .then( function( res ){ 
-                    var postData = {
+                // this.$http.get(  REGISTER_AGENT_CODE )
+                // .then( function( res ){ 
+                // });
+                var postData = {
                         Username:"HF"+ that_.userName,
                         Password: that_.passWord,
                         ConfirmPassword: that_.passWord,
@@ -421,33 +430,45 @@ export default {
                         Phone: that_.phoneNo,
                         Email:  that_.emailAddress,
                         Captcha: that_.captchaText,
-                        Agentcode: res.data,
+                        Agentcode: '',
                         RegApp: '1',
                         BirthDate: that_.birthDate,
                         sex: that_.sex == 1 ? 1 : 0,
                         wechat: that_.passWord.wechatNo
-                    };
-                    // After Form Validation
-                    that_.$http.get( REGISTER , { params: postData } )
-                    .then ( function  (result) {
-                        if ( result.data.Value ){
-                            // Login User
-                            var loginData = {
-                                grant_type: 'password',
-                                username: 'HF'+ this.userName,
-                                password: this.passWord
-                            };
-                            // Login using API:LOGIN 
-                            // Route to Homepage
-                        }
-                        else {
-                            that_.notifmessage = '网站维护中，请稍后再试！！';
-                        }
-                    })
-                    .catch( function(error){
-                        console.log(error);
-                    });
+                };
+                // After Form Validation
+                that_.$http.post( REGISTER , { params: postData } )
+                .then ( function  (result) {
+                    if ( result.data.Value ){
+                        // Login User
+                        var loginData = {
+                            grant_type: 'password',
+                            username: 'HF'+ this.userName,
+                            password: this.passWord
+                        };
+                        that_.$http.post( LOGIN, qs.stringify(loginData))
+                        .then( function(res) {
+                            let config = { headers: { 'Authorization': 'Bearer ' + state.tokenKey } };
+                            that_.$http.post(  GAME_REGISTER, config )
+                            .then( function(gameResult){ })
+                            .catch( function(gameErr){ console.log("Failed") });
+                        })
+                        .catch( function(loginErr){ });
+                    }
+                    else {
+                        // loginResult(false);
+                        that_.notifmessage = (result.data.Message);
+                        
+                        that_.loadCaptcha();
+                        // that_.notifmessage = '网站维护中，请稍后再试！！';
+                    }
                 })
+                .catch( function(error){
+                    console.log(error);
+                    that_.notifmessage = ("注册出现问题，请稍后再试！！");
+                    // loginResult(false);
+                    that_.loadCaptcha();
+                });
             }
         },
         setCookieAgent(){

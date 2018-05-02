@@ -137,7 +137,7 @@ export default {
             'getSessions'
         ]),
         extractDate(payload) {
-            return moment(new Date()).format('YYYY-MM-DD');
+            return moment(payload).format('YYYY-MM-DD');
         },
         showModal: function (payload) {
             this.showModalType = payload;

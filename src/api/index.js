@@ -28,9 +28,15 @@ export const GET_VERIFICATION_CODE = serviceUrl + '/Common/GetVerificationCode';
 // Send Pass Code - GET
 export const SEND_PASS_CODE = serviceUrl + '/Common/SendPassCode';
 
+
+
 // ACCOUNTS ***************************************
 // Register User - POST
 export const REGISTER = serviceUrl + '/Account/Reg';
+
+// Game Register - POST
+export const GAME_REGISTER = serviceUrl + '/Game/GameRegister';
+
 // Get Agent Code - GET
 export const REGISTER_AGENT_CODE = serviceUrl + '/Common/GetCookieAgentCode';
 // Check if User is existing - GET

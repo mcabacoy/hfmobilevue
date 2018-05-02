@@ -54,7 +54,7 @@
                                     </div>
 
                                     <div class="s-info">
-                                        <span class="pull-right s-date" >{{ item.TransactionDateTime }} </span>
+                                        <span class="pull-right s-date" >{{ getDateFormat(item.TransactionDateTime)  }} </span>
                                         <p>订单号&nbsp;&nbsp;<span data-bind="text:OrderNumber">{{ item.OrderNumber }}</span></p>
                                     </div>
                                 </div>
@@ -131,6 +131,7 @@ import { mapState, mapMutations, mapGetters } from 'vuex'
 import LoginMessage from './../Common/LoginResult'
 import Notification from './../Common/Notification'
 import { GET_TRANSACTION_HISTORY, GET_PAGED_BET_RECORDS } from '../../api/index';
+var moment = require('moment');
 export default {
    props: ['selectedtab'],
    components: { Notification, LoginMessage },
@@ -167,6 +168,9 @@ export default {
     create(){
     },
     methods: {
+        getDateFormat(payload){
+            return moment(payload).format('YYYY-MM-DD');
+        },
         showLoginResult( status, message ){
             this.loginResultStatus = status;
             this.loginResMessage = message;
