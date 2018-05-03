@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 import { mapMutations, mapGetters } from 'vuex'
 import { GET_GAME_BALANCE } from './../../api'
 var qs = require("querystring");
@@ -27,7 +28,7 @@ export default {
   data() {
     return {
         gamebalance: 0,
-        AccountDetails: {}
+        AccountDetails: {},
     }
   },
   computed: {
@@ -36,7 +37,7 @@ export default {
       })
   },
   methods: {
-        ...mapMutations(["setRefreshPlatform"]),
+        ...mapMutations(["setRefreshPlatform", "logoutUser"]),
         showModal: function (payload){
             this.$emit('showModal', payload)
         },
@@ -52,9 +53,17 @@ export default {
             };
             this.$http.get( GET_GAME_BALANCE + '?gamecode=' +   this.item.customClass , config)
             .then( function(res){
-                that_.gamebalance = ( !Number.isNaN(res.data) && res.data != ''  && res.data != null )  
+                if ( res.data == '您的账户在别的地方登陆，请重新登录!'){
+                    that_.gamebalance = 0.00;
+                    that_.logoutUser();
+                    that_.$router.push({ path: '../Login' });
+                    return;
+                }
+                else {
+                    that_.gamebalance = ( !Number.isNaN(res.data) && res.data != ''  && res.data != null )  
                                     ? parseInt(res.data).toFixed(2) 
                                     : 0.00;
+                }
             });
         }   
     },

@@ -9,12 +9,12 @@
 <script>
 export default {
   name: 'notification',
-  props: ['message'],
+  props: ['message', 'duration'],
   mounted(){
       var vue_ = this;
         setTimeout( function (){ 
             vue_.$emit('close');
-         }, 1500);
+         }, vue_.duration || 1500);
   }
 }
 </script>

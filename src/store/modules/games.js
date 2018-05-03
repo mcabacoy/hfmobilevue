@@ -2135,12 +2135,12 @@ const state = {
                     bgImg: 'lostVegas.jpg',
                 },
                 // no image
-                // {   
-                //     id:31,
-                //     gametype: 'jungleJim-ElDorado',
-                //     name: '丛林吉姆黄金国&#8203',
-                //     bgImg: 'ElDorado.jpg', 
-                // },
+                {   
+                    id:31,
+                    gametype: 'jungleJim-ElDorado',
+                    name: '丛林吉姆黄金国&#8203',
+                    bgImg: 'jungleJim-ElDorado.jpg', 
+                },
                 {   
                     id:32,
                     gametype: 'karaokeParty',
@@ -2342,6 +2342,8 @@ const state = {
                     name: '阿丽亚娜',
                     bgImg: 'ariana.jpg',
                 },
+
+                // Missing 65
                 {   
                     id:66,
                     gametype: 'rhymingReelsGeorgiePorgie',
@@ -2425,7 +2427,7 @@ const state = {
                     id:79,
                     gametype: 'silverFang',
                     name: '银狼',
-                    bgImg: 'silverFANG.jpg',
+                    bgImg: 'silverFang.jpg',
                 },
                 {   
                     id:80,
@@ -2455,7 +2457,7 @@ const state = {
                     id:84,
                     gametype: 'beachBabes',
                     name: '沙滩女孩',
-                    bgImg: 'beachbabes.jpg',
+                    bgImg: 'beachBabes.jpg',
                 },
                 //--
                 {   

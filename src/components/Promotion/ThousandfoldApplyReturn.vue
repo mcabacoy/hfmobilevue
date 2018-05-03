@@ -1,6 +1,7 @@
 <template>
     <transition name="promotion-mod">
         <div>
+            <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
             <div class="prom-mask" style=""></div>
             <div class="promotion-modal">
                 <div class="modal">
@@ -76,7 +77,6 @@
                 </div>
                 <input type="submit" @click="availPromo" class="submission" value="申请提交">
             </div>
-             <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
         </div>
     </transition>
 </template>
@@ -93,6 +93,7 @@ export default {
             notifmessage: ''
         }
     },
+    components: { Notification },
     computed: {
         ...mapGetters ({
             currentUser: 'currentUser'
@@ -100,7 +101,10 @@ export default {
     },
     methods: {
         closeModal: function(){
-            this.$emit('closeModal')
+            let that_ = this;
+            setTimeout( function (){ 
+                that_.$emit('closeModal')
+            }, 2000);
         },
         closeNotif(){
             this.notifmessage = '';
@@ -108,7 +112,7 @@ export default {
         // PROCESS
         availPromo(){
             let that_ = this;
-              if (this.gameDateTime == "") {
+            if (this.gameDateTime == "") {
                 this.notifmessage = ('请输入游戏时间');
                 return;
             }
@@ -128,11 +132,9 @@ export default {
                     'Data-Type': 'json'
                 }
             };
-            console.log(postData);
             this.$http.post( THOUSANDFOLD_APPLY_LOBBY, JSON.stringify(postData), config)
             .then( function(res){
-                console.log(res.data);
-                that_.notifmessage = (res.data.Message);
+                that_.notifmessage = (res.data);
                 that_.closeModal();
             }).catch( function(error){ });
         }

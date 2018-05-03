@@ -87,10 +87,10 @@ export default {
   components: { 'apply-lobby-modal': ApplyLobbyReturn, 'thousandfold-modal':ThousandfoldApplyReturn },
   data(){
       return {
-          opentab: 'promotions',
           promotionmode: '',
           gameset: '',
           promtype: this.$route.params.promtype,
+          opentab: this.$route.params.targettab ? this.$route.params.targettab : 'promotions',
       }
   },
   methods: {
@@ -102,6 +102,7 @@ export default {
         }),
         setTab: function(payload){
            this.opentab =  payload;
+           this.$router.push({ path: '../Promotion/' + payload });
         },
         showModal: function(payload){
             this.promotionmode = payload;
@@ -110,13 +111,12 @@ export default {
             this.promotionmode = "";
         },
         routePage: function(pageName, promtype){
-            this.$router.push({ path: '../' + pageName + '/' + promtype });
+            this.$router.push({ path: '../../' + pageName + '/' + promtype });
         }
   },
     created() {
       this.setCurrentPage('Promotion');
       this.promlist = this.$store.getters.getPromotionList(this.promType);
-      console.log(this.promlist)
   }
 }
 </script>

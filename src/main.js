@@ -74,7 +74,13 @@ const routes = [
   },
   {
     path: '/Promotion',
-    component: Promotion
+    component: Promotion,
+    children: [{
+      path: '/Promotion/:targettab',
+      component: Promotion,
+      props: true
+      }
+    ]
   },
   {
     path: '/BankCard',

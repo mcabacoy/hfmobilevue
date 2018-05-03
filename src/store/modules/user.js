@@ -43,6 +43,7 @@ const state = {
     tokenKey: '',
     userInfo: {},
     notices: [],
+    loginresultmessage: ''
 }
 
 const getters = {
@@ -88,7 +89,7 @@ const mutations = {
         sessionStorage.removeItem(userInfo_);
         sessionStorage.clear();
         localStorage.clear();
-        Router.push({ path: '../Login'    });
+        // Router.push({ path: '../Login'    });
     },
     requestAccountInfo (state, successCallback, scPayload){
             let config = { headers: { 'Authorization': 'Bearer ' + state.tokenKey } };

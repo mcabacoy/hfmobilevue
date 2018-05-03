@@ -77,11 +77,12 @@ export default {
       },
       routePage: function ( pageName ){
         this.setCurrentPage(pageName);
-        this.$router.push({ path: '../' + pageName });
         this.closeSideBar();
+        this.$router.push({ path: '../' + pageName });
       },
       logout: function (){
         this.logoutUser();
+        this.$router.push({ path: '../Login' });
       }
   },
   created(){    

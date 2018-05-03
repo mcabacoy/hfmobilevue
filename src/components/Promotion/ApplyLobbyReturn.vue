@@ -1,6 +1,7 @@
 <template>
     <transition name="promotion-mod">
         <div>
+            
             <div class="prom-mask" style=""></div>
             <div class="promotion-modal">
                 <div class="modal">
@@ -48,7 +49,7 @@
                             <div class="form-row Rescue2to1">
                                 <label style="color:#232323;">救援金选项</label>
                                 <span class="arrowbox2"></span>
-                                <select id="ApplyLobbyReturn" v-model="applicationContent">
+                                <select id="ApplyLobbyReturn" @change="updateAppContent">
                                     <option v-for="(item, index) in applyContents"    :key="index" :value="item" :class="['option', 'option' + (index + 1)]" >{{ item }}</option>
                                 </select>
                             </div>
@@ -56,10 +57,8 @@
                     </div>
                 </div>
                 <input type="submit"  @click="availPromo" class="submission" value="申请提交">
-                
-                <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
-
             </div>
+                <notification :message="notifmessage" @close="closeNotif"  v-if="notifmessage!=''"></notification>
         </div>
     </transition>
 </template>
@@ -77,6 +76,7 @@ export default {
             notifmessage: ''
         }
     },
+    components: { Notification },
     computed: {
         ...mapGetters ({
             currentUser: 'currentUser'
@@ -84,10 +84,18 @@ export default {
     },
     methods: {
         closeModal: function(){
-            this.$emit('closeModal')
+            let that_ = this;
+            setTimeout( function (){ 
+                that_.$emit('closeModal')
+            }, 2000);
         },
         closeNotif(){
             this.notifmessage = ''
+        },
+        updateAppContent(src ){
+            console.log(src.target.value);
+            this.applicationContent = src.target.value;
+            console.log(this.applicationContent);
         },
         // PROCESS
         availPromo(){
@@ -101,10 +109,10 @@ export default {
                     'Authorization': 'Bearer ' + this.currentUser.tokenKey,
                 }
             };
-            console.log(postData);
             this.$http.post( PROMO_APPLY_LOBBY, JSON.stringify(postData ), config)
             .then( function(res){
-                console.log(res.data);
+                that_.notifmessage = res.data;
+                that_.closeModal();
             }).catch( function(error){ });
         }
     }
