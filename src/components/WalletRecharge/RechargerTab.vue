@@ -37,10 +37,15 @@
                 <div class="tab-options  tab-section">
                     <div></div>
                     <span class="arrowbox"></span>
-                    <select v-model="rechargeOption">
-                      <option value="hfFirstDpBonus">首存优惠</option>
-                      <option value="hfSecond25">再存25%</option>
-                      <option value="no" selected="">下回再参与！</option>
+                    <select @change="updateRechargeOption" v-model="rechargeOption">
+                        <option v-for="(item, index) in rechargeOptions" :key="index" 
+                            :value="item.value" 
+                            :selected="[item.value == rechargeOption ? 'selected' : '']">
+                            {{ item.text }}
+                        </option>
+                        <!-- <option value="hfFirstDpBonus">首存优惠</option>
+                        <option value="hfSecond25">再存25%</option>
+                        <option value="no" selected="">下回再参与！</option> -->
                     </select>
                 </div>
                 <a class="tab-submit" @click="createPayloads">确 认</a>
@@ -69,7 +74,25 @@ export default {
         return {
             notifmessage: '',
             rechargeAmount: 0,
-            rechargeOption: '',
+            rechargeOption: 'no',
+            rechargeOptions: [
+                {
+                    value: 'hfFirstDpBonus',
+                    text: '首存优惠'
+                },
+                {
+                    value: 'hfSecond25',
+                    text: '再存25%'
+                },
+                {
+                    value: 'hfSPWeekSaturday',
+                    text: '存98送20(七天送)'
+                },
+                {
+                    value: 'no',
+                    text: '下回再参与！'
+                }
+            ],
             loginResultStatus: false,
             loginResMessage: ''
         }
@@ -101,6 +124,11 @@ export default {
             'getSessions',
             'requestAccountInfo'  
         ]),
+
+        updateRechargeOption(e){
+            this.rechargeOption = (e.target.value);
+        },
+
 
         // VALIDATOR
         dynamicValidator( validation  ){

@@ -77,15 +77,13 @@
                                 <li><input type="date" v-model="bettingFilters.endDate" class="date-to date-icon" id="BettingEndDate" maxlength="10"></li>
                                 <li class="gametype">
                                     <span class="arrow"></span>
-                                    <select id="bettype" v-model="bettingFilters.gameType">
-                                        <option>游戏类型</option>
-                                        <option value="PT">PT</option>
-                                        <option value="MG">MG</option>
-                                        <option value="SG">SG</option>
-                                        <option value="TTG">TTG</option>
-                                        <option value="HABA">HABA</option>
-                                        <option value="PNG">PNG</option>
-                                        <option value="BTS">BS</option>
+                                    <select id="bettype"  @change="updateBetType">
+                                        <option selectd="selected" value="">游戏类型</option>
+                                        <option v-for="(item, index) in bettypes" 
+                                            :key="index"
+                                            :value="item" >
+                                            {{ item }}
+                                        </option>
                                     </select>
                                 </li>
                             </ul>
@@ -138,6 +136,7 @@ export default {
    data(){
       return {
           transtab: 'rechargeactive',
+          bettypes: ['PT', 'MG' ,'SG' ,'TTG' ,'HABA' ,'PNG' ,'BTS'],
           transactionFilters: {
               text: '充值',
               startDate: '',
@@ -168,6 +167,11 @@ export default {
     create(){
     },
     methods: {
+        updateBetType(e){
+            this.bettingFilters.gameType = e.target.value;
+            console.log(e);
+            console.log(this.bettingFilters.gameType);
+        },
         getDateFormat(payload){
             return moment(payload).format('YYYY-MM-DD');
         },

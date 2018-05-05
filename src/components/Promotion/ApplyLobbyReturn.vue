@@ -7,7 +7,8 @@
                 <div class="modal">
                     <div class="modal-header">
                         <span>领取优惠</span>
-                        <div class="dema_kong" @click="closeModal"><span class="demoSpan2"></span></div>
+                        <div class="dema_kong" @click="closeModal">
+                        </div>
                     </div>
                     <div class="modal-body">
                         <div class="offerdetail-btns">
@@ -85,11 +86,11 @@ export default {
         })
     },
     methods: {
-        closeModal: function(){
+        closeModal: function(t){
             let that_ = this;
             setTimeout( function (){ 
                 that_.$emit('closeModal')
-            }, 2000);
+            }, t || 0);
         },
         closeNotif(){
             this.notifmessage = ''
@@ -112,7 +113,7 @@ export default {
             this.$http.post( PROMO_APPLY_LOBBY, JSON.stringify(postData ), config)
             .then( function(res){
                 that_.notifmessage = res.data;
-                that_.closeModal();
+                that_.closeModal(2000);
             }).catch( function(error){ });
         }
     }
@@ -202,6 +203,35 @@ export default {
         height: .4rem;
         position: relative;
         float: right;
+        top: 0.15rem;
+        left: -.3rem;
+
+        &:before, &:after{
+            top: 0.15rem;
+            content: '';
+            height: .03rem;
+            width: .4rem;
+            display: block;
+            background: #ffffff;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            position: absolute;
+            
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+        }
+        &:after{
+            background: #fff;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+        }
     }
 
    
@@ -226,32 +256,7 @@ export default {
         box-shadow: 1px 3px 6px #000;
     }
 }
-.demoSpan2:before, .demoSpan2:after{
-    content: '';
-    height: .03rem;
-    width: .4rem;
-    display: block;
-    background: #ffffff;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    position: absolute;
-    top: .31rem;
-    left: -.3rem;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-}
-.demoSpan2:after{
-    background: #fff;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-}
+
 
 .Rescue2to1{
     label{

@@ -82,7 +82,6 @@ export default {
             };
             this.$http.get( GET_GAME_BALANCE + '?gamecode=' +   this.$route.params.gametype , config)
             .then( function(res){
-                console.log(res.data);
                 if ( res.data == '您的账户在别的地方登陆，请重新登录!'  )
                 {
                     that_.notifmessage = res.data;

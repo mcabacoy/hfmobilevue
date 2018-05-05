@@ -53,7 +53,7 @@ export default {
     closeNotif(){
         this.notifmessage = '';
     },
-    goTransfer(){
+    goTransfers(){
         if ( this.transfertype == 'in' ){
             this.transferBalance(TRANSFER_IN);
         }
@@ -80,8 +80,18 @@ export default {
         }
         return true;
     },
-    transferBalance( url ){
+    goTransfer(){
+        if ( this.isPrevented ) return;
+        
+        this.isPrevented = true;
         let that_ = this;
+        let url = '';
+        if ( this.transfertype == 'in' ){
+            url = (TRANSFER_IN);
+        }
+        else if ( this.transfertype == 'out' ){
+            url = (TRANSFER_OUT);
+        }
         if(!this.validateAmount(this.desiredamount))
         {
             return;
@@ -100,9 +110,11 @@ export default {
                 'Content-Type': 'application/json; charset=utf-8'
             }
         };
-            this.$http.post( url,  JSON.stringify(fundTransferData),
+        this.$http.post( 
+                    url,  
+                    JSON.stringify(fundTransferData),
                     config )
-            .then( function (res){
+        .then( function (res){
                 if ( res.data.Success)
                 {
                     that_.notifmessage = res.data.Message;
@@ -110,6 +122,7 @@ export default {
                     that_.closeModal();
                 }
                 else {
+                    that_.isPrevented = false;
                     if ( res.data == "您的账户在别的地方登陆，请重新登录!") {
                         that_.notifmessage = "您的账户在别的地方登陆，请重新登录!";
                     }
@@ -117,10 +130,11 @@ export default {
                         that_.notifmessage = res.data.Message;
                     }
                 }
-            })
-            .catch( function(error){
+        })
+        .catch( function(error){
+                that_.isPrevented = false;
                 console.log(error);
-            });
+        });
         },
     },
     mounted(){

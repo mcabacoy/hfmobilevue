@@ -78,6 +78,7 @@ export default {
     },
     watch: {
         'item.forRefresh': function (val){
+            if (!val ) return;
             this.getSessions();
             this.refreshBalance();
             this.setRefreshPlatform( { platform:  this.item.customClass , status: false   }  )

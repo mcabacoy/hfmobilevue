@@ -76,7 +76,6 @@ const mutations = {
     },
     storeUserInfoSession(state, payload){
         state.userInfo = payload;
-        console.log(payload);
         sessionStorage.setItem(userInfo_, (payload));
     },
     storeNoticesSession(state, payload){
@@ -84,7 +83,8 @@ const mutations = {
         state.notices = payload;
     },
     logoutUser(state, payload){
-        state.tokenKey = ''
+        state.tokenKey = '';
+        state.userInfo = {};
         sessionStorage.removeItem(tokenKey_);
         window.localStorage.removeItem(loginInfo_);
         sessionStorage.removeItem(userInfo_);

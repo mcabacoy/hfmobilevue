@@ -15,11 +15,10 @@
                                 <div class="input-item">
                                     <!-- Bank Account Select -->
                                     <span class="arrowbox"></span>
-                                    <select class="form-control" v-model="bankCode" >
+                                    <select class="form-control"  v-model="bankCode" >
                                         <option v-for="(item,index) in getBankTypes" 
                                                 :key="index" 
-                                                :value="item.value"
-                                                 :selected="index === 0 ? 'selected' : 'abc'">
+                                                :value="item.value" >
                                             {{ item.name }}
                                         </option>
                                     </select>
@@ -81,7 +80,7 @@ export default {
             cardOwnerName: this.cardowner,
             cardNo: '',
             bankAddress: '',
-            bankCode: '',
+            bankCode: 'ICBC',
             notifmessage: '',
             selected: "selected",
             notSelected: ""
@@ -94,7 +93,6 @@ export default {
         closeModal: function (){
             this.$emit('closeModal')
         },
-
         addBankCard(){
             let that_ = this;
 
