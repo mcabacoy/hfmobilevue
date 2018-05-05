@@ -76,10 +76,11 @@ const mutations = {
     },
     storeUserInfoSession(state, payload){
         state.userInfo = payload;
-        sessionStorage.setItem(userInfo_, payload);
+        console.log(payload);
+        sessionStorage.setItem(userInfo_, (payload));
     },
     storeNoticesSession(state, payload){
-        sessionStorage.setItem(userInfo_, payload );
+        sessionStorage.setItem(hfNotices_, payload );
         state.notices = payload;
     },
     logoutUser(state, payload){
@@ -97,6 +98,7 @@ const mutations = {
             Axios.get( USERINFO,  config )
             .then( function(res){
                 sessionStorage.setItem(userInfo_, qs.stringify(res.data.Value));
+                that_.state.userInfo = res.data.Value;
                 if (typeof successCallback != 'undefined') {
                     successCallback(scPayload);
                 }

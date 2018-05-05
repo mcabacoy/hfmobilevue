@@ -11,14 +11,13 @@
     <div class="wallet">
      <div class="wallet-txt">
             <p class="coins-label" style=""><img src="../../static/img/coins-ico.png"  class="coins" />中心钱包</p>
-            <p class="balance-label" style="">余额：<span v-if="!isNaN(AccountDetails.Balance)" >￥{{ parseFloat(AccountDetails.Balance).toFixed(2) }}</span></p>
+            <p class="balance-label" style="">余额：<span>￥{{ getBalance() }}</span></p>
     </div>
     <div class="wallet-btn">
         <a><img @click="routePage('/Wallet')" src="../../static/img/wallet_.png" class="wallet-button" /></a>
         <a><img  @click="routePage('/Signin')" src="../../static/img/signin.png" class="signin-button" /></a>
     </div>
     </div>
-
     <platform></platform>
     <announcement :notices="notices"></announcement>
   </div>
@@ -49,12 +48,16 @@ export default {
             'setCurrentPage',
             'setUserInfo',
             'storeUserInfoSession',
-            'storeNoticesSession'
+            'storeNoticesSession',
+            'requestAccountInfo'
         ]),
+        getBalance(){
+            return typeof this.AccountDetails != 'undefined' ? parseFloat(this.AccountDetails.Balance).toFixed(2) : (0).toFixed(2); 
+        },
         routePage: function(pageName){
             this.$router.push({ path: pageName });
         },
-        requestAccountInfo( token ){
+        requestAccountInfos( token ){
             let config = {
                 headers: {
                     'Authorization': 'Bearer ' + token,
@@ -91,17 +94,17 @@ export default {
     },
     created(){
         this.getSessions();
-    },
-    mounted(){
         let session_ = this.currentUser;
-        let isLoggedIn = ( this.currentUser.tokenKey != '' && this.currentUser.tokenKey != null && this.currentUser.tokenKey != 'undefined');
+        let isLoggedIn = ( this.currentUser.tokenKey != '' 
+                        && this.currentUser.tokenKey != null 
+                        && this.currentUser.tokenKey != 'undefined');
         if ( !isLoggedIn) {
             this.$router.push('../Login');
             return;
         }
-        this.AccountDetails = qs.parse(session_.userInfo);
-        if (!( this.AccountDetails == null && this.AccountDetails.AccountName )) {
-            this.requestAccountInfo( this.currentUser.tokenKey );
+        this.AccountDetails = (session_.userInfo);
+        if (  typeof this.AccountDetails.AccountName == 'undefined'  ) {
+            this.requestAccountInfos( session_.tokenKey );
         }
         this.getNotices();
         this.setCurrentPage('Homepage');

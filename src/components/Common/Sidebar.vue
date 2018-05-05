@@ -55,7 +55,6 @@ export default {
       ...mapMutations ([
           'setCurrentPage', 
           'getSessions',
-          'requestAccountInfo',
           'logoutUser'
         ]),
       getUserProfileClass: function (grade){
@@ -85,15 +84,9 @@ export default {
         this.$router.push({ path: '../Login' });
       }
   },
-  created(){    
+  created(){   
     this.getSessions();
     this.AccountDetails = this.currentUser.userInfo;
-    if (  this.AccountDetails == null || this.AccountDetails == ''  )
-    {
-        this.requestAccountInfo();
-        this.getSessions();
-        this.AccountDetails = this.currentUser.userInfo;
-    }
   },
   computed: {
     ...mapState ({
@@ -106,10 +99,6 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
 <style lang="stylus" rel="stylesheet/stylus">
 
 /* TRANSITION CLASSES */

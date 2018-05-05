@@ -68,13 +68,16 @@ export default {
             let that_ = this;
             let config = {
                 headers: {
-                    'Authorization': 'Bearer ' + this.currentUser.tokenKey
+                    'Authorization': 'Bearer ' + this.currentUser.tokenKey,
                 }
             };
             this.$http.get( USERINFO , config )
             .then( function(res){
                 that_.storeUserInfoSession(qs.stringify(res.data.Value));
                 that_.AccountDetails = res.data.Value;
+            })
+            .catch( function(err){
+                console.log(err);
             });
         }
     },
@@ -84,12 +87,14 @@ export default {
           currentUser: 'currentUser'
       })
     },
-    created() {
+    mounted() {
         this.getSessions();
         this.getOverAllBalance();
-        this.setCurrentPage('Transfers');
         this.AccountDetails = qs.parse( this.currentUser.userInfo );
-  }
+    },
+    created(){
+        this.setCurrentPage('Transfers');
+    }
 }
 
 </script>

@@ -50,7 +50,9 @@
                                 <label style="color:#232323;">救援金选项</label>
                                 <span class="arrowbox2"></span>
                                 <select id="ApplyLobbyReturn" @change="updateAppContent">
-                                    <option v-for="(item, index) in applyContents"    :key="index" :value="item" :class="['option', 'option' + (index + 1)]" >{{ item }}</option>
+                                    <option v-for="(item, index) in applyContents" 
+                                            :selected="applicationContent == item ? 'selected' : ''"
+                                            :key="index" :value="item" :class="['option', 'option' + (index + 1)]" >{{ item }}</option>
                                 </select>
                             </div>
                         </div>
@@ -71,7 +73,7 @@ export default {
     data(){
         return {
             type: 'Rescue2to1',
-            applicationContent: '救援金获得比例10',
+            applicationContent: '救援金获得比例22%',// '救援金获得比例10',
             applyContents: ["救援金获得比例10%", "救援金获得比例22%"],
             notifmessage: ''
         }
@@ -93,9 +95,7 @@ export default {
             this.notifmessage = ''
         },
         updateAppContent(src ){
-            console.log(src.target.value);
             this.applicationContent = src.target.value;
-            console.log(this.applicationContent);
         },
         // PROCESS
         availPromo(){

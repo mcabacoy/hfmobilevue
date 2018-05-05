@@ -130,7 +130,8 @@ export default {
         },
         ...mapMutations ([
             'setCurrentPage',
-            'clearSessions'
+            'clearSessions',
+            'getSessions'
         ]),
         closeNotif(){
             this.notifmessage = ''
@@ -337,6 +338,7 @@ export default {
 
         },
         setAccountDetails() {
+            this.getSessions();
             this.AccountDetails = qs.parse(this.currentUser.userInfo );
         },
         requestAccountInfo( token ){
@@ -351,12 +353,10 @@ export default {
             });
         },
         populateUserInfo(){
+            this.getSessions();
             let session_ = this.currentUser;
-            this.AccountDetails = qs.parse(session_.userInfo);
-            if ( this.AccountDetails == null && this.AccountDetails.AccountName ) {
-                this.setAccountDetails();
-            }
-            else {
+            this.AccountDetails = (session_.userInfo);
+            if (!( this.AccountDetails == null && this.AccountDetails.AccountName )) {
                 this.requestAccountInfo( this.currentUser.tokenKey );
             }
         },

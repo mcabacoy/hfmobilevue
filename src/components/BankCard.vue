@@ -227,11 +227,10 @@ export default {
             });
         },
         populateUserInfo(){
-            this.getSessions();
+            // this.getSessions();
             let session_ = this.currentUser;
             this.AccountDetails = qs.parse(session_.userInfo);
-            this.AccountDetails = qs.parse(session_.userInfo);
-            if ( this.AccountDetails == null && this.AccountDetails.AccountName ) {
+            if ( this.AccountDetails != null && this.AccountDetails.AccountName ) {
                 this.setAccountDetails();
             }
             else {
@@ -289,7 +288,7 @@ export default {
             .catch( function(error){});
         }
     },
-    created() {
+    beforeMount() {
         this.populateUserInfo();
         this.getUserBankInfo();
         this.setCurrentPage('BankCard');

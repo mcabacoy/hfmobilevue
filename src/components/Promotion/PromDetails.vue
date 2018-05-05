@@ -29,7 +29,6 @@ export default {
     created() {
       this.setCurrentPage('PromDetails');
       this.promDetail = this.$store.getters.getPromotionDetail(this.promType);
-      console.log(this.promDetail);
     }
 }
 </script>

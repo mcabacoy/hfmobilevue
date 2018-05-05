@@ -37,12 +37,13 @@ export default {
       })
   },
   methods: {
-        ...mapMutations(["setRefreshPlatform", "logoutUser"]),
+        ...mapMutations(["setRefreshPlatform", "logoutUser", 'getSessions']),
         showModal: function (payload){
             this.$emit('showModal', payload)
         },
         refreshBalance(){
             let that_ = this;
+           
             let postData = {
                 gamecode : this.item.customClass
             }
@@ -64,15 +65,20 @@ export default {
                                     ? parseInt(res.data).toFixed(2) 
                                     : 0.00;
                 }
+            })
+            .catch( function(err){
+                console.log(err);
             });
         }   
     },
     created(){
+        this.getSessions();
         this.refreshBalance();
         this.AccountDetails = qs.parse( this.currentUser.userInfo );
     },
     watch: {
         'item.forRefresh': function (val){
+            this.getSessions();
             this.refreshBalance();
             this.setRefreshPlatform( { platform:  this.item.customClass , status: false   }  )
         }

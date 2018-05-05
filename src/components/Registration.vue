@@ -414,6 +414,7 @@ export default {
             // Validate Captcha
         },
         register(){
+            debugger;
             if (!this.validateForm()){
                 return;
             }            
