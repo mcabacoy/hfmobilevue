@@ -42,7 +42,7 @@ const emptyUserInfo_ =  {
 const state = {
     tokenKey: '',
     userInfo: {},
-    notices: [],
+    announcements: [],
     loginresultmessage: ''
 }
 
@@ -50,18 +50,20 @@ const getters = {
     currentUser: state => {
         return {
             tokenKey : state.tokenKey,
-            userInfo : state.userInfo
+            userInfo : state.userInfo,
+            announcements : state.announcements
         }
     },
     getNotices: state => {
-        return state.notices;
+        return state.announcements;
     }
 }
 
 const mutations = {
     getSessions (state){
-        state.tokenKey = sessionStorage.getItem(tokenKey_),
-        state.userInfo = qs.parse(sessionStorage.getItem( userInfo_ ))
+        state.tokenKey = sessionStorage.getItem(tokenKey_);
+        state.userInfo = qs.parse(sessionStorage.getItem( userInfo_ ));
+        state.announcements = JSON.parse(sessionStorage.getItem( hfNotices_ ));
     },
     setUserInfo  (state, payload) {
         state.userInfo_ = payload;
@@ -80,7 +82,7 @@ const mutations = {
     },
     storeNoticesSession(state, payload){
         sessionStorage.setItem(hfNotices_, payload );
-        state.notices = payload;
+        state.announcements = payload;
     },
     logoutUser(state, payload){
         state.tokenKey = '';

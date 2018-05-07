@@ -112,7 +112,9 @@ export default {
             };
             this.$http.post( PROMO_APPLY_LOBBY, JSON.stringify(postData ), config)
             .then( function(res){
-                that_.notifmessage = res.data;
+                that_.notifmessage =  typeof res.data == 'object' 
+                                    ? (res.data.Message)
+                                    : (res.data);
                 that_.closeModal(2000);
             }).catch( function(error){ });
         }

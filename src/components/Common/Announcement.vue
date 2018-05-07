@@ -7,7 +7,7 @@
             系统消息：
         </span>
         <div class="notices-container">
-            <ul id="notices" class="marquee">
+            <ul id="notices" class="marquee" :style="{ marginTop: activeMargin + 'rem' }" ref="marquee">
                 <li v-for="(notice, index ) in notices" v-bind:key="index">{{ notice.Content }}</li>
             </ul>
         </div>
@@ -16,27 +16,89 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations } from 'vuex'
+import { GET_NOTICES } from './../../api'
+var qs = require("querystring");
 export default {
     name: 'announcement',
-    props: ['notices']
+    data(){
+        return {
+            activeMargin: 0.0,
+        }
+    },
+    methods:{
+        ...mapMutations(['getSessions' , 'storeNoticesSession']),
+        getAnnouncements( ){
+                let that_ = this;
+                let config = {
+                headers: {
+                    'Data-Type': 'json'
+                    }
+                }
+                this.$http.get( GET_NOTICES )
+                .then( function( res ){
+                    that_.storeNoticesSession((res.data));
+                    that_.getSessions();
+                });
+        },
+        getRootElementFontSize( ) {
+                // Returns a number
+                return parseFloat(
+                    // of the computed font-size, so in px
+                    getComputedStyle(
+                        // for the root <html> element
+                        document.documentElement
+                    )
+                    .fontSize
+                );
+        },
+        convertRem(value) {
+                return value * this.getRootElementFontSize();
+            }
+        },
+    computed:{
+        ...mapGetters({ 
+                currentUser: 'currentUser',   
+                notices: 'getNotices' 
+        }),
+    },
+    mounted(){
+        let that_ = this;
+        let ctr_ = 0.45;
+        let marginCtr_ = 0;
+        let height_ = this.$refs.marquee.clientHeight;
+        if ( that_.convertRem(ctr_) > ctr_ ) {
+            this.noticeInteval = setInterval(function(){
+                if ( Math.abs(that_.convertRem(that_.activeMargin)) >  height_ )
+                {
+                    that_.$refs.marquee.className = '';
+                    that_.activeMargin = 0.4;
+                    setTimeout(()=>{
+                        that_.$refs.marquee.className = 'marquee';
+                        that_.activeMargin = that_.activeMargin - ctr_;
+                    }, 200);
+                }
+                else {
+                    that_.activeMargin = that_.activeMargin - ctr_;
+                }
+            }, 3000);
+        }
+    },
+    created(){
+        this.getAnnouncements();
+    }
 }
 </script>
 
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus"  scoped>
 
 .notices-container {
     overflow: hidden;
 }
 
-.marquee  {
-    display: inline-grid;
-    animation: marquee 10s linear infinite backwards;
-}
-
-@keyframes marquee {
-    0%    { transform: translate(0, 15%); }
-    100% { transform: translate(0, -100%); }
+.marquee {
+    transition: margin  2s linear 1s;
 }
 
 .announcement {
@@ -85,6 +147,9 @@ export default {
         margin-top: -.05rem;
     }
 }
+
+
+
 
 </style>
 

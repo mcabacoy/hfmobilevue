@@ -19,7 +19,7 @@
     </div>
     </div>
     <platform></platform>
-    <announcement :notices="notices"></announcement>
+    <announcement ></announcement>
   </div>
 </template>
 
@@ -71,20 +71,6 @@ export default {
             })
             .catch( function(error){ });
         },
-        getNotices( ){
-            if ( this.notices == '' || this.notices == null || this.notices.length == 0  ){
-                let that_ = this;
-                let config = {
-                headers: {
-                    'Data-Type': 'json'
-                    }
-                }
-                this.$http.get( GET_NOTICES )
-                .then( function( res ){
-                    that_.storeNoticesSession(qs.stringify(res.data.Value));
-                });
-            }
-        }
     },
     computed: {
         ...mapGetters({ 
@@ -106,7 +92,7 @@ export default {
         if (  typeof this.AccountDetails.AccountName == 'undefined'  ) {
             this.requestAccountInfos( session_.tokenKey );
         }
-        this.getNotices();
+        
         this.setCurrentPage('Homepage');
     }
 }
